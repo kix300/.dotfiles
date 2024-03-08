@@ -42,7 +42,7 @@
          ];
     	 modules-left = [ "hyprland/workspaces" ];
     	 modules-center = [ "clock" ];
-    	 modules-right = ["network" "temperature" "battery" ];
+    	 modules-right = [ "network" "temperature" "battery" ];
 
     	 "hyprland/workspaces" = {
       	   disable-scroll = true;
@@ -79,12 +79,12 @@
         background-color: transparent;
 	color: white;
       }
-      #workspaces button {
+      #workspaces button, #taskbar button {
         padding: 0 5px;
         background: transparent;
         color: white;
       }
-      #workspaces button.focused {
+      #workspaces button.focused, #taskbar button.focused { 
         background-color: transparent;
       }
       #battery, #temperature, #clock, #network {
