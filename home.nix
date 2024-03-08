@@ -2,7 +2,7 @@
 
 {
   home.username = "ozen";
-  home.homeDirectory = "home/ozen"
+  home.homeDirectory = "/home/ozen";
 
   home.packages = with pkgs; [
     neofetch
