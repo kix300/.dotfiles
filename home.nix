@@ -42,16 +42,21 @@
          ];
     	 modules-left = [ "hyprland/workspaces" ];
     	 modules-center = [ "clock" ];
-    	 modules-right = [ "temperature" "battery" ];
+    	 modules-right = ["network" "temperature" "battery" ];
 
     	 "hyprland/workspaces" = {
       	   disable-scroll = true;
       	   all-outputs = true;
          };
-
+	
 	 "clock" = {
    	   format = "{:%H:%M}";
 	   max-lenght = 25;
+	 };
+	 
+	 "network" = {
+	   format-wifi = " ";
+	   format-disconnected = "";
 	 };
 
 	 "temperature" = {
@@ -59,7 +64,6 @@
 	 };
 
 	 "battery" = {
-	   bat = "BAT0";
 	   format = "{capacity}% {icon}";
 	   format-icons = ["" "" "" "" ""];
          };
@@ -83,8 +87,8 @@
       #workspaces button.focused {
         background-color: transparent;
       }
-      #battery, #temperature, #clock {
-        padding: 0 5px;
+      #battery, #temperature, #clock, #network {
+        padding: 0 10px;
       }
      ";
    };
