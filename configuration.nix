@@ -17,6 +17,16 @@
   #Nvidia 
   services.xserver.videoDrivers = ["nvidia"];
 
+  hardware.nvidia.prime = {
+    offload = {
+      enable = true;
+      enableOffloadCmd = true;
+    };
+    # Make sure to use the correct Bus ID values for your system!
+    # amdBusId = "PCI:4:0:0";
+    nvidiaBusId = "PCI:1:0:0";
+  };
+
   networking.hostName = "OzenOs"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
