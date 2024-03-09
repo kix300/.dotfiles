@@ -7,6 +7,8 @@
   home.packages = with pkgs; [
     neofetch
     lshw
+    asusctl
+    pavucontrol
   ];
 
 
