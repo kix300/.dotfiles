@@ -23,12 +23,16 @@
       modules = [
         ./configuration.nix
         nixos-hardware.nixosModules.asus-zephyrus-ga401
+	nixos-hardware.nixosModules.asus-battery
+        {
+          hardware.asus.battery.chargeUpto = 85;
+        }
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.sharedModules = [
-            nix-index-database.hmModules.nix-index
+          nix-index-database.hmModules.nix-index
           ];
 
           home-manager.users.ozen = import ./home.nix;
