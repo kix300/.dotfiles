@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{config, pkgs, inputs, ...}:
 
 {
   home.username = "ozen";
@@ -19,6 +19,13 @@
      userEmail = "kixwalkiki@gmail.com";
 
   };
+
+  # programs.nix-index = {
+  #   enable = true;
+  #   enableBashIntegration = true;
+  #   enableZshIntegration = true;
+  # };
+  programs.nix-index-database.comma.enable = true;
 
   programs.starship = {
      enable = true;

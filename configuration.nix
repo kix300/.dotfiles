@@ -27,7 +27,7 @@
       enableOffloadCmd = true;
     };
     # Make sure to use the correct Bus ID values for your system!
-    # amdBusId = "PCI:4:0:0";
+    amdgpuBusId = "PCI:4:0:0";
     nvidiaBusId = "PCI:1:0:0";
   };
 
@@ -54,7 +54,7 @@
 
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = false;
+    powerManagement.finegrained = true;
 
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).
@@ -67,10 +67,8 @@
 
     # Enable the Nvidia settings menu,
 	# accessible via `nvidia-settings`.
-    nvidiaSettings = true;
+    nvidiaSettings = false;
 
-    # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
 

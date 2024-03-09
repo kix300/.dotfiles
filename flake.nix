@@ -1,4 +1,5 @@
 {
+  #ttttt
   description = "A simple NixOS flake";
 
   inputs = {
@@ -9,22 +10,29 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, nix-index-database, ... }@inputs: let
+    inherit (self) outputs;
+  in {
     nixosConfigurations.OzenOs = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = { inherit inputs outputs; };
       modules = [
         ./configuration.nix
         nixos-hardware.nixosModules.asus-zephyrus-ga401
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.sharedModules = [
+            nix-index-database.hmModules.nix-index
+          ];
 
-	home-manager.nixosModules.home-manager
-	{
-	  home-manager.useGlobalPkgs = true;
-	  home-manager.useUserPackages = true;
-
-	  home-manager.users.ozen = import ./home.nix;
-        }	  
+          home-manager.users.ozen = import ./home.nix;
+        }
       ];
     };
   };
