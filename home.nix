@@ -9,8 +9,8 @@
     lshw
     asusctl
     pavucontrol
+    ncspot
   ];
-
 
   programs.git = {
 
