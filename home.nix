@@ -10,6 +10,7 @@
     asusctl
     pavucontrol
     ncspot
+    mangohud
   ];
 
   programs.git = {
@@ -18,6 +19,10 @@
      userName = "kix300";
      userEmail = "kixwalkiki@gmail.com";
 
+  };
+
+  programs.neovim = {
+    enable = true;
   };
 
  
@@ -48,7 +53,7 @@
          ];
     	 modules-left = [ "hyprland/workspaces" ];
     	 modules-center = [ "clock" ];
-    	 modules-right = [ "network" "temperature" "battery" ];
+    	 modules-right = [ "network" "pulseaudio" "temperature" "battery" ];
 
     	 "hyprland/workspaces" = {
       	   disable-scroll = true;
@@ -64,6 +69,18 @@
 	   format-wifi = " ";
 	   format-disconnected = "";
 	 };
+
+   "pulseaudio" = {
+    format = "{volume}% {icon}";
+    format-bluetooth = "{volume}% {icon}";
+    format-muted = "";
+    format-icons = {
+        headphone = "";
+        default = ["" ""];
+    };
+    scroll-step = 1;
+    on-click = "pavucontrol";
+   };
 
 	 "temperature" = {
 	   format = "{temperatureC}°C "; 
@@ -93,7 +110,7 @@
       #workspaces button.focused, #taskbar button.focused { 
         background-color: transparent;
       }
-      #battery, #temperature, #clock, #network {
+      #battery, #temperature, #clock, #network, #pulseaudio {
         padding: 0 10px;
       }
      ";

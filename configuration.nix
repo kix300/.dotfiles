@@ -134,7 +134,7 @@
   };
 
   # Set default editor to nvim
-  environment.variables.EDITOR = "neovim";
+  environment.variables.EDITOR = "nvim";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -142,6 +142,8 @@
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
   security.rtkit.enable = true;
   security.polkit.enable = true;
   services.pipewire = {
@@ -181,7 +183,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim
     git
     firefox-devedition
     kitty
