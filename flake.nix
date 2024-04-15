@@ -1,5 +1,5 @@
 {
-  #ttttt
+  #tttt
   description = "A simple NixOS flake";
 
   inputs = {
@@ -12,9 +12,11 @@
     };
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    ags.url = "github:Aylur/ags";
+    ags.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, nix-index-database, ... }@inputs: let
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, nix-index-database, ags, ... }@inputs: let
     inherit (self) outputs;
   in {
     nixosConfigurations.OzenOs = nixpkgs.lib.nixosSystem {
@@ -23,7 +25,7 @@
       modules = [
         ./configuration.nix
         nixos-hardware.nixosModules.asus-zephyrus-ga401
-	nixos-hardware.nixosModules.asus-battery
+      	nixos-hardware.nixosModules.asus-battery
         {
           hardware.asus.battery.chargeUpto = 85;
         }
@@ -32,6 +34,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.sharedModules = [
+          ags.homeManagerModules.default
           nix-index-database.hmModules.nix-index
           ];
 

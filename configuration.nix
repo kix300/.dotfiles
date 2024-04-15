@@ -1,8 +1,5 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -14,21 +11,24 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
+  hardware.nvidia = {
+    prime.offload.enable = true;
+    prime.offload.enableOffloadCmd = true;
+    prime.sync.enable = false;
+  };
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = true;
+    powerManagement.finegrained = true;
+    open = false;
+    nvidiaSettings = false;
+  };
 
   services.supergfxd.enable = true;
   services.asusd = {
     enable = true;
     enableUserService = true;
-  };
-
-  hardware.nvidia.prime = {
-    offload = {
-      enable = true;
-      enableOffloadCmd = true;
-    };
-    # Make sure to use the correct Bus ID values for your system!
-    amdgpuBusId = "PCI:4:0:0";
-    nvidiaBusId = "PCI:1:0:0";
   };
 
   # Enable OpenGL
@@ -38,52 +38,9 @@
     driSupport32Bit = true;
   };
 
-  # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
-
-  hardware.nvidia = {
-
-    # Modesetting is required.
-    modesetting.enable = true;
-
-    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-    # Enable this if you have graphical corruption issues or application crashes after waking
-    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
-    # of just the bare essentials.
-    powerManagement.enable = true;
-
-    # Fine-grained power management. Turns off GPU when not in use.
-    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = true;
-
-    # Use the NVidia open source kernel module (not to be confused with the
-    # independent third-party "nouveau" open source driver).
-    # Support is limited to the Turing and later architectures. Full list of 
-    # supported GPUs is at: 
-    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
-    # Only available from driver 515.43.04+
-    # Currently alpha-quality/buggy, so false is currently the recommended setting.
-    open = false;
-
-    # Enable the Nvidia settings menu,
-	# accessible via `nvidia-settings`.
-    nvidiaSettings = false;
-
-  };
-
-
-
   networking.hostName = "OzenOs"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  # networking.networkmanager.enable = true;
   networking.wireless.iwd.enable = true;
-  # networking.networkmanager.wifi.backend = "iwd";
 
   networking.wireless.iwd.settings = {
     IPv6 = {
@@ -119,10 +76,21 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.displayManager.sddm.wayland.enable = true;
-  services.xserver.displayManager.sddm.theme = "Elegant";
-  # services.xserver.desktopManager.plasma5.enable = true;
+  # services.xserver.displayManager.sddm.enable = true;
+  # services.xserver.displayManager.sddm.wayland.enable = true;
+  # services.xserver.displayManager.sddm.theme = "Elegant";
+  # services.xserver.displayManager.sddm.settings = {
+    # General = {
+      # background = "~/Downloads/frieren-frieren-3840x2160-15163.jpg";
+    # };
+  # };
+
+  services.xserver.displayManager = {
+      gdm = {
+          enable = true;
+          wayland = true;
+      };
+  };
 
   programs.hyprland.enable = true;
   programs.waybar.enable = true;
@@ -151,18 +119,10 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ozen = {
     isNormalUser = true;
     description = "Killian";
@@ -172,9 +132,19 @@
     #  thunderbird
     ];
   };
+  programs.bash = {
+    interactiveShellInit = ''
+    if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+    then
+      shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+      exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+    fi
+    '';
+  };
 
   programs.steam = {
     enable = true;
+    extest.enable = true;
   };
 
   # Allow unfree packages
@@ -184,13 +154,14 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
+    swww
+    hyprpaper
     firefox-devedition
     kitty
-    rofi
+    rofi-wayland
     swaylock-fancy
     elegant-sddm 
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    brightnessctl
   ];
   security.pam.services.swaylock = { };
 
@@ -200,25 +171,40 @@
     fira-code-symbols
     fira-code-nerdfont
   ];
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
+  specialisation = {
+    work.configuration = {
+      system.nixos.tags = [ "work" ];
+      hardware.nvidia = {
+        prime.offload.enable = lib.mkForce false;
+        prime.offload.enableOffloadCmd = lib.mkForce false;
+        prime.sync.enable = lib.mkForce false;
+      };
+      hardware.nvidia = {
+        modesetting.enable = lib.mkForce false;
+        powerManagement.enable = lib.mkForce false;
+        powerManagement.finegrained = lib.mkForce false;
+        open = lib.mkForce false;
+        nvidiaSettings = lib.mkForce false;
+      };
+      boot.extraModprobeConfig = ''
+        blacklist nouveau
+        options nouveau modeset=0
+        '';
+  
+      services.udev.extraRules = ''
+        # Remove NVIDIA USB xHCI Host Controller devices, if present
+        ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{power/control}="auto", ATTR{remove}="1"
+        # Remove NVIDIA USB Type-C UCSI devices, if present
+        ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c8000", ATTR{power/control}="auto", ATTR{remove}="1"
+        # Remove NVIDIA Audio devices, if present
+        ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto", ATTR{remove}="1"
+        # Remove NVIDIA VGA/3D controller devices
+        ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
+        '';
+      boot.blacklistedKernelModules = [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" ];
+    };
+  }; 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
