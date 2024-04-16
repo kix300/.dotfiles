@@ -1,20 +1,24 @@
 {config, pkgs, inputs, ...}:
 
 {
+  imports = [
+      ./hypr/hyprland.nix 
+      ./hypr/hyprpaper.nix
+  ];
+  
   home.username = "ozen";
   home.homeDirectory = "/home/ozen";
 
   home.packages = with pkgs; [
     neofetch
-      lshw
-      asusctl
-      pavucontrol
-      ncspot
-      mangohud
-      fish
+    lshw
+    asusctl
+    pavucontrol
+    ncspot
+    mangohud
+    fish
   ];
   
-
   programs.git = {
 
     enable = true;
@@ -49,7 +53,7 @@
         position = "top";
         height = 32;
         output = [
-          "eDP-1"
+            "eDP-1"
             "HDMI-A-1"
         ];
         modules-left = [ "hyprland/workspaces" ];
@@ -131,8 +135,6 @@
   };
 
   programs.home-manager.enable = true;
-
-  # imports = [ inputs.ags.homeManagerModules.default ];
 
   programs.ags = {
     enable = true;

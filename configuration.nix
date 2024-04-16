@@ -92,8 +92,8 @@
       };
   };
 
-  programs.hyprland.enable = true;
-  programs.waybar.enable = true;
+  #programs.hyprland.enable = true;
+  #programs.waybar.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
