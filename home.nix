@@ -20,11 +20,9 @@
   ];
   
   programs.git = {
-
     enable = true;
     userName = "kix300";
     userEmail = "kixwalkiki@gmail.com";
-
   };
 
   programs.neovim = {
@@ -35,7 +33,6 @@
 
   programs.starship = {
     enable = true;
-
     settings = {
       add_newline = false;
       aws.disabled = true;
@@ -136,7 +133,7 @@
   programs.home-manager.enable = true;
 
   programs.ags = {
-    enable = true;
+    enable = false;
     configDir = null;
     extraPackages = with pkgs; [
       gtksourceview

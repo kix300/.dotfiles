@@ -5,7 +5,6 @@
       enable = true;
       package = pkgs.hyprland;
       xwayland.enable = true;
-      systemd.enable = true;
       extraConfig = ''
         monitor=,preferred,auto,1.0
 
@@ -22,16 +21,16 @@
 
         input {
           kb_layout = us
-            kb_variant =
-            kb_model =
-            kb_options =
-            kb_rules =
+          kb_variant = alt-intl
+          kb_model =
+          kb_options =
+          kb_rules =
 
-            follow_mouse = 1
+          follow_mouse = 1
 
-            touchpad {
-              natural_scroll = yes
-            }
+          touchpad {
+            natural_scroll = yes
+          }
 
           sensitivity = 0 # -1.0 to 1.0, 0 means no modification.
         }
