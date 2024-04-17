@@ -46,7 +46,6 @@
 
   programs.waybar = {
     enable = true;
-
     settings = {
       mainBar = {
         layer = "top";
@@ -147,5 +146,4 @@
   };
 
   home.stateVersion = "23.11";
-
 }
