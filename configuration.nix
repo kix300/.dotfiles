@@ -96,24 +96,23 @@
 
   # Enable sound with pipewire.
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
   hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
   security.rtkit.enable = true;
   security.polkit.enable = true;
   services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-
+   enable = true;
+   alsa.enable = true;
+   alsa.support32Bit = true;
+   pulse.enable = true;
   };
 
 
   users.users.ozen = {
     isNormalUser = true;
     description = "Killian";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" "lp" ];
     packages = with pkgs; [
       kate
     #  thunderbird
@@ -128,6 +127,8 @@
     fi
     '';
   };
+
+  programs.adb.enable = true;
 
   programs.steam = {
     enable = true;
@@ -146,9 +147,15 @@
     firefox-devedition
     kitty
     rofi-wayland
+    rofi-power-menu
+    exfat
+    ntfs3g
+    heroic
     swaylock-fancy
+    discord
     elegant-sddm 
     brightnessctl
+    cinnamon.nemo
   ];
   security.pam.services.swaylock = { };
 

@@ -15,6 +15,7 @@
         $fileManager = dolphin
         $menu = rofi -show drun
         $lock = swaylock-fancy
+        $power = rofi -show power-menu -modi power-menu:rofi-power-menu
 
         env = XCURSOR_SIZE,24
         env = QT_QPA_PLATFORMTHEME,qt5ct # change to qt6ct if you have that
@@ -29,6 +30,7 @@
           follow_mouse = 1
 
           touchpad {
+            disable_while_typing = false
             natural_scroll = yes
           }
 
@@ -109,64 +111,66 @@
 
         $mainMod = SUPER
 
-          bind = $mainMod, Q, exec, $terminal
-          bind = $mainMod, C, killactive, 
+        bind = $mainMod, Q, exec, $terminal
+        bind = $mainMod, C, killactive, 
         bind = $mainMod, M, exit, 
         bind = $mainMod, E, exec, $fileManager
-          bind = $mainMod, V, togglefloating, 
+        bind = $mainMod, V, togglefloating, 
         bind = $mainMod, R, exec, $menu
-          bind = $mainMod, P, pseudo, # dwindle
-          bind = $mainMod, J, togglesplit, # dwindle
-          bind = $mainMod, F, fullscreen, 1,
+        bind = $mainMod, P, pseudo, # dwindle
+        bind = $mainMod, J, togglesplit, # dwindle
+        bind = $mainMod, F, fullscreen, 1,
         bind = $mainMod, L, exec, $lock
+        bind = $mainMod, X, exec, $power
 
-          bind = $mainMod, A, movefocus, l
-          bind = $mainMod, D, movefocus, r
-          bind = $mainMod, W, movefocus, u
-          bind = $mainMod, Z, movefocus, d
 
-          bind = $mainMod SHIFT, A, movewindow, l
-          bind = $mainMod SHIFT, D, movewindow, r
-          bind = $mainMod SHIFT, W, movewindow, u
-          bind = $mainMod SHIFT, Z, movewindow, d
+        bind = $mainMod, A, movefocus, l
+        bind = $mainMod, D, movefocus, r
+        bind = $mainMod, W, movefocus, u
+        bind = $mainMod, Z, movefocus, d
 
-          bind = $mainMod, 1, workspace, 1
-          bind = $mainMod, 2, workspace, 2
-          bind = $mainMod, 3, workspace, 3
-          bind = $mainMod, 4, workspace, 4
-          bind = $mainMod, 5, workspace, 5
-          bind = $mainMod, 6, workspace, 6
-          bind = $mainMod, 7, workspace, 7
-          bind = $mainMod, 8, workspace, 8
-          bind = $mainMod, 9, workspace, 9
-          bind = $mainMod, 0, workspace, 10
+        bind = $mainMod SHIFT, A, movewindow, l
+        bind = $mainMod SHIFT, D, movewindow, r
+        bind = $mainMod SHIFT, W, movewindow, u
+        bind = $mainMod SHIFT, Z, movewindow, d
 
-          bind = $mainMod SHIFT, 1, movetoworkspace, 1
-          bind = $mainMod SHIFT, 2, movetoworkspace, 2
-          bind = $mainMod SHIFT, 3, movetoworkspace, 3
-          bind = $mainMod SHIFT, 4, movetoworkspace, 4
-          bind = $mainMod SHIFT, 5, movetoworkspace, 5
-          bind = $mainMod SHIFT, 6, movetoworkspace, 6
-          bind = $mainMod SHIFT, 7, movetoworkspace, 7
-          bind = $mainMod SHIFT, 8, movetoworkspace, 8
-          bind = $mainMod SHIFT, 9, movetoworkspace, 9
-          bind = $mainMod SHIFT, 0, movetoworkspace, 10
+        bind = $mainMod, 1, workspace, 1
+        bind = $mainMod, 2, workspace, 2
+        bind = $mainMod, 3, workspace, 3
+        bind = $mainMod, 4, workspace, 4
+        bind = $mainMod, 5, workspace, 5
+        bind = $mainMod, 6, workspace, 6
+        bind = $mainMod, 7, workspace, 7
+        bind = $mainMod, 8, workspace, 8
+        bind = $mainMod, 9, workspace, 9
+        bind = $mainMod, 0, workspace, 10
 
-          bind = $mainMod, S, togglespecialworkspace, magic
-          bind = $mainMod SHIFT, S, movetoworkspace, special:magic
+        bind = $mainMod SHIFT, 1, movetoworkspace, 1
+        bind = $mainMod SHIFT, 2, movetoworkspace, 2
+        bind = $mainMod SHIFT, 3, movetoworkspace, 3
+        bind = $mainMod SHIFT, 4, movetoworkspace, 4
+        bind = $mainMod SHIFT, 5, movetoworkspace, 5
+        bind = $mainMod SHIFT, 6, movetoworkspace, 6
+        bind = $mainMod SHIFT, 7, movetoworkspace, 7
+        bind = $mainMod SHIFT, 8, movetoworkspace, 8
+        bind = $mainMod SHIFT, 9, movetoworkspace, 9
+        bind = $mainMod SHIFT, 0, movetoworkspace, 10
 
-          bind = $mainMod, mouse_down, workspace, e+1
-          bind = $mainMod, mouse_up, workspace, e-1
+        bind = $mainMod, S, togglespecialworkspace, magic
+        bind = $mainMod SHIFT, S, movetoworkspace, special:magic
 
-          bindm = $mainMod, mouse:272, movewindow
-          bindm = $mainMod, mouse:273, resizewindow
+        bind = $mainMod, mouse_down, workspace, e+1
+        bind = $mainMod, mouse_up, workspace, e-1
 
-          bindel=, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-          bindel=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-          bindl=, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+        bindm = $mainMod, mouse:272, movewindow
+        bindm = $mainMod, mouse:273, resizewindow
 
-          bindel=, XF86MonBrightnessDown, exec, brightnessctl set 5%-
-          bindel=, XF86MonBrightnessUp, exec, brightnessctl set 5%+
-          '';
+        bindel=, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+        bindel=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+        bindl=, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+        bindel=, XF86MonBrightnessDown, exec, brightnessctl set 5%-
+        bindel=, XF86MonBrightnessUp, exec, brightnessctl set 5%+
+        '';
   };
 }
