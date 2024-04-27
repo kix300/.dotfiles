@@ -13,22 +13,25 @@
 
   services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
   hardware.nvidia = {
-    prime.offload.enable = true;
-    prime.offload.enableOffloadCmd = true;
-    prime.sync.enable = false;
-  };
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = true;
-    powerManagement.finegrained = true;
-    open = false;
-    nvidiaSettings = false;
+    powerManagement.enable = lib.mkForce false;
+    powerManagement.finegrained = lib.mkForce false;
+    modesetting.enable = lib.mkDefault true;
+    dynamicBoost.enable = lib.mkDefault true;
+    prime = {
+        amdgpuBusId = "PCI:4:0:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
   };
 
   services.supergfxd.enable = true;
-  services.asusd = {
-    enable = true;
-    enableUserService = true;
+  services = {
+    asusd.enable = lib.mkDefault true;
+    udev.extraHwdb = ''
+       evdev:name:*:dmi:bvn*:bvr*:bd*:svnASUS*:pn*:*
+       KEYBOARD_KEY_ff31007c=f20    # fixes mic mute button
+       KEYBOARD_KEY_ff3100b2=home   # Set fn+LeftArrow as Home
+       KEYBOARD_KEY_ff3100b3=end    # Set fn+RightArrow as End
+    '';
   };
 
   # Enable OpenGL
@@ -72,20 +75,10 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-
-  # services.xserver.enable = true;
-
-  #services.xserver.displayManager.sddm = {
-  #  enable = true;
-  #  wayland.enable = true;
-  #  theme = "Elegant";
-  #};
-
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Set default editor to nvim
@@ -168,13 +161,12 @@
 
   specialisation = {
     work.configuration = {
-      system.nixos.tags = [ "work" ];
+      system.nixos.tags = [ "without_nvidia" ];
       hardware.nvidia = {
         prime.offload.enable = lib.mkForce false;
         prime.offload.enableOffloadCmd = lib.mkForce false;
         prime.sync.enable = lib.mkForce false;
-      };
-      hardware.nvidia = {
+        dynamicBoost.enable = lib.mkDefault true;
         modesetting.enable = lib.mkForce false;
         powerManagement.enable = lib.mkForce false;
         powerManagement.finegrained = lib.mkForce false;
