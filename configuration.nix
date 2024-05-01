@@ -3,8 +3,9 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ 
       ./hardware-configuration.nix
+      ./rofi-powermenu/desktop.nix
     ];
 
   # Bootloader.
@@ -148,7 +149,7 @@
     discord
     elegant-sddm 
     brightnessctl
-    cinnamon.nemo
+    gnome.nautilus
   ];
   security.pam.services.swaylock = { };
 

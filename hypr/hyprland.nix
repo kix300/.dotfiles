@@ -15,7 +15,7 @@
         $fileManager = dolphin
         $menu = rofi -show drun
         $lock = swaylock-fancy
-        $power = rofi -show power-menu -modi power-menu:rofi-power-menu
+        $power = rofi -show power-menu -modi power-menu:rofi-power-menu -theme "/home/ozen/.config/rofi/powermenu/style-4.rasi"
 
         env = XCURSOR_SIZE,24
         env = QT_QPA_PLATFORMTHEME,qt5ct # change to qt6ct if you have that
@@ -34,7 +34,7 @@
             natural_scroll = yes
           }
 
-          sensitivity = 0 # -1.0 to 1.0, 0 means no modification.
+          sensitivity = 0.2 # -1.0 to 1.0, 0 means no modification.
         }
 
       general {
