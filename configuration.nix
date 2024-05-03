@@ -5,7 +5,6 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      ./rofi-powermenu/desktop.nix
     ];
 
   # Bootloader.
