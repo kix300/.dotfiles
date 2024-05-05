@@ -5,14 +5,14 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      ./nvidia.nix
+      #./nvidia.nix
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
+  services.xserver.videoDrivers = ["nouveau" "nvidia" "nvidia_drm" "nvidia_modeset"]; # or "nvidiaLegacy470 etc.
 
   services.supergfxd.enable = true;
 
@@ -148,7 +148,7 @@
         prime.offload.enable = lib.mkForce false;
         prime.offload.enableOffloadCmd = lib.mkForce false;
         prime.sync.enable = lib.mkForce false;
-        dynamicBoost.enable = lib.mkDefault false;
+        dynamicBoost.enable = lib.mkForce false;
         modesetting.enable = lib.mkForce false;
         powerManagement.enable = lib.mkForce false;
         powerManagement.finegrained = lib.mkForce false;
