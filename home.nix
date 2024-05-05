@@ -133,7 +133,7 @@
   programs.home-manager.enable = true;
 
   programs.ags = {
-    enable = false;
+    enable = true;
     configDir = null;
     extraPackages = with pkgs; [
       gtksourceview
