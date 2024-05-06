@@ -15,6 +15,7 @@
   services.xserver.videoDrivers = ["nouveau" "nvidia" "nvidia_drm" "nvidia_modeset"]; # or "nvidiaLegacy470 etc.
 
   services.supergfxd.enable = true;
+  services.gvfs.enable = true;
 
   # Enable OpenGL
   hardware.opengl = {

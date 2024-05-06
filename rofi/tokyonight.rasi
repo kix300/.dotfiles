@@ -1,5 +1,5 @@
 * {
-    background:     rgb(59, 59, 59, 0.6);
+    background:     rgb(0, 0, 0, 0.9);
     background-alt: #1A1B26FF;
     foreground:     #C0CAF5FF;
     selected:       #33467CFF;

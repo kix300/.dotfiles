@@ -15,7 +15,7 @@
         $fileManager = dolphin
         $menu = rofi -show drun
         $lock = swaylock-fancy
-        $power = rofi -show power-menu -modi power-menu:rofi-power-menu -theme "/home/ozen/.config/rofi/powermenu/style-4.rasi"
+        $power = bash ~/.dotfiles/rofi/powermenu.sh
 
         env = XCURSOR_SIZE,24
         env = QT_QPA_PLATFORMTHEME,qt5ct # change to qt6ct if you have that
