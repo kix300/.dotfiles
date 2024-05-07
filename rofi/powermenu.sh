@@ -20,9 +20,9 @@ elif [ "$selected_option" == "$logout" ]; then
 elif [ "$selected_option" == "$shutdown" ]; then
 	poweroff
 elif [ "$selected_option" == "$reboot" ]; then
-	loginctl reboot
+	reboot
 elif [ "$selected_option" == "$sleep" ]; then
-	loginctl suspend
+	suspend
 else
 	echo "No match"
 fi
