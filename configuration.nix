@@ -23,6 +23,7 @@
     driSupport = true;
     driSupport32Bit = true;
   };
+  hardware.i2c.enable = true;
 
   networking.hostName = "OzenOs"; # Define your hostname.
 
@@ -88,7 +89,7 @@
   users.users.ozen = {
     isNormalUser = true;
     description = "Killian";
-    extraGroups = [ "networkmanager" "wheel" "adbusers" "lp" ];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" "lp" "i2c"];
     packages = with pkgs; [
       kate
     #  thunderbird
@@ -132,6 +133,8 @@
     elegant-sddm 
     brightnessctl
     gnome.nautilus
+    ddcui
+    ddcutil
   ];
   security.pam.services.swaylock = { };
 

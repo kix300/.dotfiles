@@ -30,7 +30,7 @@
           follow_mouse = 1
 
           touchpad {
-            disable_while_typing = false
+            disable_while_typing = true
             natural_scroll = yes
           }
 
@@ -171,6 +171,8 @@
 
         bindel=, XF86MonBrightnessDown, exec, brightnessctl set 5%-
         bindel=, XF86MonBrightnessUp, exec, brightnessctl set 5%+
+        bindel=, XF86KbdBrightnessDown, exec, brightnessctl -d asus::kbd_backlight set 1-
+        bindel=, XF86KbdBrightnessUp,   exec, brightnessctl -d asus::kbd_backlight set 1+
         '';
   };
 }
