@@ -135,6 +135,12 @@
     gnome.nautilus
     ddcui
     ddcutil
+	libgccjit
+	python3
+	pipx
+	binutils
+	prismlauncher
+	atlauncher
   ];
   security.pam.services.swaylock = { };
 
