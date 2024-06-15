@@ -141,6 +141,7 @@
 	binutils
 	prismlauncher
 	atlauncher
+	aircrack-ng
   ];
   security.pam.services.swaylock = { };
 
