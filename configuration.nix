@@ -71,6 +71,9 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # Enable upower services
+  services.upower.enable = true;
+
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.bluetooth.enable = true;
@@ -127,6 +130,7 @@
     rofi-power-menu
     exfat
     ntfs3g
+	telegram-desktop
     heroic
     swaylock-fancy
     discord

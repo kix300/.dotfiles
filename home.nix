@@ -28,6 +28,7 @@
 	programs.neovim = {
 		defaultEditor = true;
 		enable = true;
+		withNodeJs = true;
 	};
 
 	programs.nix-index-database.comma.enable = true;
