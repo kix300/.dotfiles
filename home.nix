@@ -152,7 +152,7 @@
 	programs.nixvim = {
 			enable = true;
 			defaultEditor = true;
-		}
+	};
 
 	home.stateVersion = "23.11";
 }
