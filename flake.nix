@@ -1,5 +1,4 @@
 {
-  #tttt
   description = "A simple NixOS flake";
 
   inputs = {

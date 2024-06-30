@@ -18,10 +18,8 @@
   services.gvfs.enable = true;
 
   # Enable OpenGL
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+  hardware.graphics = {
+	enable32Bit = lib.mkForce true;
   };
   hardware.i2c.enable = true;
 
@@ -92,7 +90,7 @@
   users.users.ozen = {
     isNormalUser = true;
     description = "Killian";
-    extraGroups = [ "networkmanager" "wheel" "adbusers" "lp" "i2c"];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" "lp" "i2c" "vboxusers"];
     packages = with pkgs; [
       kate
     #  thunderbird
@@ -146,6 +144,7 @@
 	prismlauncher
 	atlauncher
 	aircrack-ng
+	virtualbox
   ];
   security.pam.services.swaylock = { };
 
@@ -155,6 +154,10 @@
     fira-code-symbols
     fira-code-nerdfont
   ];
+  virtualisation.virtualbox.host = {
+	enable = true;
+	enableExtensionPack = true;
+  };
 
   specialisation = {
     work.configuration = {
