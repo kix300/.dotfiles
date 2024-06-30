@@ -13,9 +13,11 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     ags.url = "github:Aylur/ags";
     ags.inputs.nixpkgs.follows = "nixpkgs";
+	nixvim.url = "github:nix-community/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, nix-index-database, ags, ... }@inputs: let
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, nix-index-database, ags, nixvim, ... }@inputs: let
     inherit (self) outputs;
   in {
     nixosConfigurations.OzenOs = nixpkgs.lib.nixosSystem {

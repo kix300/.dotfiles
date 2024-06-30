@@ -24,13 +24,13 @@
 		userName = "kix300";
 		userEmail = "kixwalkiki@gmail.com";
 	};
-
+	/*
 	programs.neovim = {
 		defaultEditor = true;
 		enable = true;
 		withNodeJs = true;
 	};
-
+	*/
 	programs.nix-index-database.comma.enable = true;
 
 	programs.starship = {
@@ -148,6 +148,11 @@
 				accountsservice
 		];
 	};
+
+	programs.nixvim = {
+			enable = true;
+			defaultEditor = true;
+		}
 
 	home.stateVersion = "23.11";
 }
