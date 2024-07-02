@@ -5,7 +5,7 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      #./nvidia.nix
+      ./nvidia.nix
     ];
 
   # Bootloader.
@@ -13,14 +13,16 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   services.xserver.videoDrivers = ["nouveau" "nvidia" "nvidia_drm" "nvidia_modeset"]; # or "nvidiaLegacy470 etc.
-
+  /*
   services.supergfxd.enable = true;
   services.gvfs.enable = true;
 
   # Enable OpenGL
   hardware.graphics = {
-	enable32Bit = lib.mkForce true;
+	enable64Bit = lib.mkForce true;
   };
+  */
+
   hardware.i2c.enable = true;
 
   networking.hostName = "OzenOs"; # Define your hostname.
@@ -90,7 +92,7 @@
   users.users.ozen = {
     isNormalUser = true;
     description = "Killian";
-    extraGroups = [ "networkmanager" "wheel" "adbusers" "lp" "i2c" "vboxusers"];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" "lp" "i2c"];
     packages = with pkgs; [
       kate
     #  thunderbird
@@ -144,7 +146,6 @@
 	prismlauncher
 	atlauncher
 	aircrack-ng
-	virtualbox
   ];
   security.pam.services.swaylock = { };
 
@@ -154,10 +155,6 @@
     fira-code-symbols
     fira-code-nerdfont
   ];
-  virtualisation.virtualbox.host = {
-	enable = true;
-	enableExtensionPack = true;
-  };
 
   specialisation = {
     work.configuration = {

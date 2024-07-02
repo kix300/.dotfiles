@@ -2,8 +2,10 @@
 {
 	imports = [
 		./hypr/hyprland.nix 
-			./hypr/hyprpaper.nix
+		./hypr/hyprpaper.nix
 	];
+
+	programs.home-manager.enable = true;
 
 	home.username = "ozen";
 	home.homeDirectory = "/home/ozen";
@@ -24,14 +26,14 @@
 		userName = "kix300";
 		userEmail = "kixwalkiki@gmail.com";
 	};
-	/*
+
 	programs.neovim = {
 		defaultEditor = true;
 		enable = true;
 		withNodeJs = true;
 	};
-	*/
-	programs.nix-index-database.comma.enable = true;
+
+	#programs.nix-index-database.comma.enable = true;
 
 	programs.starship = {
 		enable = true;
@@ -137,7 +139,6 @@
 		enable = true;
 	};
 
-	programs.home-manager.enable = true;
 
 	programs.ags = {
 		enable = true;
@@ -147,11 +148,6 @@
 				webkitgtk
 				accountsservice
 		];
-	};
-
-	programs.nixvim = {
-			enable = true;
-			defaultEditor = true;
 	};
 
 	home.stateVersion = "23.11";

@@ -13,11 +13,9 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     ags.url = "github:Aylur/ags";
     ags.inputs.nixpkgs.follows = "nixpkgs";
-	nixvim.url = "github:nix-community/nixvim";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, nix-index-database, ags, nixvim, ... }@inputs: let
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, nix-index-database, ags, ... }@inputs: let
     inherit (self) outputs;
   in {
     nixosConfigurations.OzenOs = nixpkgs.lib.nixosSystem {
@@ -36,7 +34,6 @@
           home-manager.useUserPackages = true;
           home-manager.sharedModules = [
           ags.homeManagerModules.default
-          nix-index-database.hmModules.nix-index
           ];
 
           home-manager.users.ozen = import ./home.nix;
