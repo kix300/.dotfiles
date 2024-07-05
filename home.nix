@@ -1,10 +1,8 @@
 {config, pkgs, inputs, ...}:
 {
 	imports = [
-		./hypr/hyprland.nix 
-		./hypr/hyprpaper.nix
+		./hypr/hyprland.nix
 	];
-
 	programs.home-manager.enable = true;
 
 	home.username = "ozen";
@@ -12,13 +10,13 @@
 
 	home.packages = with pkgs; [
 		neofetch
-		lshw
-		asusctl
-		pavucontrol
-		ncspot
-		spotify
-		mangohud
-		fish
+			lshw
+			asusctl
+			pavucontrol
+			ncspot
+			spotify
+			mangohud
+			fish
 	];
 
 	programs.git = {
@@ -33,7 +31,7 @@
 		withNodeJs = true;
 	};
 
-	#programs.nix-index-database.comma.enable = true;
+#programs.nix-index-database.comma.enable = true;
 
 	programs.starship = {
 		enable = true;
@@ -45,6 +43,28 @@
 		};
 	};
 
+	programs.fish = {
+		enable = true;
+		interactiveShellInit = ''
+			set fish_greeting # Disable greeting
+			alias paco='/home/ozen/francinette/tester.sh'
+			'';
+	};
+
+	programs.lazygit = {
+		enable = true;
+	};
+
+
+	programs.ags = {
+		enable = true;
+		configDir = null;
+		extraPackages = with pkgs; [
+			gtksourceview
+				webkitgtk
+				accountsservice
+		];
+	};
 	programs.waybar = {
 		enable = true;
 		settings = {
@@ -105,50 +125,29 @@
 		};
 		style = "
 			* {
-				border: none;
-				border-radius: 0;
-				font-size: 17px;
+border: none;
+		border-radius: 0;
+		font-size: 17px;
 			}
-			window#waybar {
-				background-color: transparent;
-				color: white;
-			}
-			#workspaces button, #taskbar button {
-			padding: 0 5px;
-			background: transparent;
-			color: white;
-			}
-			#workspaces button.focused, #taskbar button.focused { 
+		window#waybar {
 			background-color: transparent;
-			}
-			#battery, #temperature, #clock, #network, #backlight, #pulseaudio {
-			padding: 0 10px;
-			}
-		";
-	};
-
-	programs.fish = {
-		enable = true;
-		interactiveShellInit = ''
-			set fish_greeting # Disable greeting
-			alias paco='/home/ozen/francinette/tester.sh'
-			'';
-	};
-
-	programs.lazygit = {
-		enable = true;
-	};
+color: white;
+		}
+#workspaces button, #taskbar button {
+padding: 0 5px;
+background: transparent;
+color: white;
+}
+#workspaces button.focused, #taskbar button.focused { 
+	background-color: transparent;
+}
+#battery, #temperature, #clock, #network, #backlight, #pulseaudio {
+padding: 0 10px;
+}
+";
+};
 
 
-	programs.ags = {
-		enable = true;
-		configDir = null;
-		extraPackages = with pkgs; [
-			gtksourceview
-				webkitgtk
-				accountsservice
-		];
-	};
 
-	home.stateVersion = "23.11";
+home.stateVersion = "23.11";
 }

@@ -5,24 +5,29 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      ./nvidia.nix
+      #./nvidia.nix
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  services.xserver.videoDrivers = ["nouveau" "nvidia" "nvidia_drm" "nvidia_modeset"]; # or "nvidiaLegacy470 etc.
-  /*
-  services.supergfxd.enable = true;
-  services.gvfs.enable = true;
 
+	services.xserver = {
+		enable = true;
+		videoDrivers = ["nouveau" "nvidia" "nvidia_drm" "nvidia_modeset"]; # or "nvidiaLegacy470 etc.
+	};
+	services.displayManager.sddm.enable = true;
+	services.desktopManager.plasma6.enable = true;
+	services.supergfxd.enable = true;
+	services.gvfs.enable = true;
+
+/*
   # Enable OpenGL
   hardware.graphics = {
-	enable64Bit = lib.mkForce true;
+	enable32Bit = lib.mkForce true;
   };
-  */
-
+*/
   hardware.i2c.enable = true;
 
   networking.hostName = "OzenOs"; # Define your hostname.
@@ -122,78 +127,78 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
-    swww
-    hyprpaper
     firefox-devedition
     kitty
     rofi-wayland
     rofi-power-menu
-    exfat
     ntfs3g
 	telegram-desktop
-    heroic
     swaylock-fancy
     discord
-    elegant-sddm 
     brightnessctl
     gnome.nautilus
     ddcui
     ddcutil
 	libgccjit
-	python3
-	pipx
 	binutils
 	prismlauncher
-	atlauncher
 	aircrack-ng
+	hyprpaper
   ];
   security.pam.services.swaylock = { };
 
   #Font packages 
   fonts.packages = with pkgs; [
-    fira-code
-    fira-code-symbols
-    fira-code-nerdfont
+	  fira-code
+	  fira-code-symbols
+	  fira-code-nerdfont
   ];
 
   specialisation = {
-    work.configuration = {
-      system.nixos.tags = [ "without_nvidia" ];
-      hardware.nvidia = {
-        prime.offload.enable = lib.mkForce false;
-        prime.offload.enableOffloadCmd = lib.mkForce false;
-        prime.sync.enable = lib.mkForce false;
-        dynamicBoost.enable = lib.mkForce false;
-        modesetting.enable = lib.mkForce false;
-        powerManagement.enable = lib.mkForce false;
-        powerManagement.finegrained = lib.mkForce false;
-        open = lib.mkForce false;
-        nvidiaSettings = lib.mkForce false;
-      };
-      boot.extraModprobeConfig = ''
-        blacklist nouveau
-        options nouveau modeset=0
-        '';
-  
-      services.udev.extraRules = ''
-        # Remove NVIDIA USB xHCI Host Controller devices, if present
-        ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{power/control}="auto", ATTR{remove}="1"
-        # Remove NVIDIA USB Type-C UCSI devices, if present
-        ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c8000", ATTR{power/control}="auto", ATTR{remove}="1"
-        # Remove NVIDIA Audio devices, if present
-        ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto", ATTR{remove}="1"
-        # Remove NVIDIA VGA/3D controller devices
-        ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
-        '';
-      boot.blacklistedKernelModules = [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" ];
-    };
+	  WORK_NOT_KDE.configuration = {
+		  services.xserver = {
+			  enable = lib.mkForce false;
+			  videoDrivers = ["nouveau" "nvidia" "nvidia_drm" "nvidia_modeset"]; # or "nvidiaLegacy470 etc.
+		  };
+		  services.displayManager.sddm.enable = lib.mkForce false;
+		  services.desktopManager.plasma6.enable = lib.mkForce false;
+		  system.nixos.tags = [ "without_nvidia" ];
+
+		  hardware.nvidia = {
+			  prime.offload.enable = lib.mkForce false;
+			  prime.offload.enableOffloadCmd = lib.mkForce false;
+			  prime.sync.enable = lib.mkForce false;
+			  dynamicBoost.enable = lib.mkForce false;
+			  modesetting.enable = lib.mkForce false;
+			  powerManagement.enable = lib.mkForce false;
+			  powerManagement.finegrained = lib.mkForce false;
+			  open = lib.mkForce false;
+			  nvidiaSettings = lib.mkForce false;
+		  };
+		  boot.extraModprobeConfig = ''
+			  blacklist nouveau
+			  options nouveau modeset=0
+			  '';
+
+		  services.udev.extraRules = ''
+# Remove NVIDIA USB xHCI Host Controller devices, if present
+			  ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{power/control}="auto", ATTR{remove}="1"
+# Remove NVIDIA USB Type-C UCSI devices, if present
+			  ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c8000", ATTR{power/control}="auto", ATTR{remove}="1"
+# Remove NVIDIA Audio devices, if present
+			  ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto", ATTR{remove}="1"
+# Remove NVIDIA VGA/3D controller devices
+			  ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
+			  '';
+		  boot.blacklistedKernelModules = [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" ];
+	  };
   }; 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+# This value determines the NixOS release from which the default
+# settings for stateful data, like file locations and database versions
+# on your system were taken. It‘s perfectly fine and recommended to leave
+# this value at the release version of the first install of this system.
+# Before changing this value read the documentation for this option
+# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
 
 }
