@@ -52,7 +52,7 @@
 
       decoration {
 
-        rounding = 10
+        rounding = 1
 
           blur {
             enabled = true

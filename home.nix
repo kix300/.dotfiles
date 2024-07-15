@@ -2,6 +2,7 @@
 {
 	imports = [
 		./hypr/hyprland.nix
+		./hypr/hyprpaper.nix
 	];
 	programs.home-manager.enable = true;
 
@@ -9,7 +10,6 @@
 	home.homeDirectory = "/home/ozen";
 
 	home.packages = with pkgs; [
-		neofetch
 			lshw
 			asusctl
 			pavucontrol
@@ -31,7 +31,6 @@
 		withNodeJs = true;
 	};
 
-#programs.nix-index-database.comma.enable = true;
 
 	programs.starship = {
 		enable = true;

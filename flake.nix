@@ -15,7 +15,7 @@
     ags.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, nix-index-database, ags, ... }@inputs: let
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, ags, nix-index-database,  ... }@inputs: let
     inherit (self) outputs;
   in {
     nixosConfigurations.OzenOs = nixpkgs.lib.nixosSystem {
@@ -25,6 +25,7 @@
         ./configuration.nix
         nixos-hardware.nixosModules.asus-zephyrus-ga401
       	nixos-hardware.nixosModules.asus-battery
+	    	nix-index-database.nixosModules.nix-index
         {
           hardware.asus.battery.chargeUpto = 85;
         }

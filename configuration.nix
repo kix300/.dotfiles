@@ -22,12 +22,6 @@
 	services.supergfxd.enable = true;
 	services.gvfs.enable = true;
 
-/*
-  # Enable OpenGL
-  hardware.graphics = {
-	enable32Bit = lib.mkForce true;
-  };
-*/
   hardware.i2c.enable = true;
 
   networking.hostName = "OzenOs"; # Define your hostname.
@@ -80,7 +74,6 @@
   services.upower.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
@@ -132,19 +125,24 @@
     rofi-wayland
     rofi-power-menu
     ntfs3g
-	telegram-desktop
+  	telegram-desktop
     swaylock-fancy
     discord
     brightnessctl
-    gnome.nautilus
     ddcui
+    dolphin
     ddcutil
-	libgccjit
-	binutils
-	prismlauncher
-	aircrack-ng
-	hyprpaper
+  	libgccjit
+  	binutils
+  	prismlauncher
+  	aircrack-ng
+  	hyprpaper
+  	hyprlock
+  	comma
+  	helix
+    grim
   ];
+  #programs.nix-index-database.comma.enable = true;
   security.pam.services.swaylock = { };
 
   #Font packages 
