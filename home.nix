@@ -55,7 +55,7 @@
 
 	stylix = {
 		enable = true;
-		image = ~/Pictures/wallpaper.png;
+		image = ./srcs/wallpaper.png;
 	};
 
 	programs.ags = {
