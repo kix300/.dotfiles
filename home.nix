@@ -31,7 +31,6 @@
 		withNodeJs = true;
 	};
 
-
 	programs.starship = {
 		enable = true;
 		settings = {
@@ -54,6 +53,10 @@
 		enable = true;
 	};
 
+	stylix = {
+		enable = true;
+		image = ~/Pictures/wallpaper.png;
+	};
 
 	programs.ags = {
 		enable = true;

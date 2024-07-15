@@ -5,6 +5,7 @@
     # NixOS official package source, using the nixos-23.11 branch here
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    stylix.url = "github:danth/stylix";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,7 +16,7 @@
     ags.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, ags, nix-index-database,  ... }@inputs: let
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, ags, nix-index-database, stylix,  ... }@inputs: let
     inherit (self) outputs;
   in {
     nixosConfigurations.OzenOs = nixpkgs.lib.nixosSystem {
@@ -34,6 +35,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.sharedModules = [
+          stylix.homeManagerModules.stylix
           ags.homeManagerModules.default
           ];
 
