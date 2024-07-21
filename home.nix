@@ -1,7 +1,7 @@
 {config, pkgs, inputs, ...}:
 {
 	imports = [
-		./hypr/hyprland.nix
+		#./hypr/hyprland.nix
 		./hypr/hyprpaper.nix
 	];
 	programs.home-manager.enable = true;
@@ -31,6 +31,12 @@
 		withNodeJs = true;
 	};
 
+	stylix = {
+		enable = true;
+		image = ./srcs/wallpaper.png;
+		autoEnable = true;
+	};
+
 	programs.starship = {
 		enable = true;
 		settings = {
@@ -53,10 +59,6 @@
 		enable = true;
 	};
 
-	stylix = {
-		enable = true;
-		image = ./srcs/wallpaper.png;
-	};
 
 	programs.ags = {
 		enable = true;

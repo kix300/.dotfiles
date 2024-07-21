@@ -5,6 +5,7 @@
   imports =
     [ 
       ./hardware-configuration.nix
+      ./hypr/hyprland.nix
       #./nvidia.nix
     ];
 
@@ -65,8 +66,9 @@
   };
 
   # Set default editor to nvim
-  environment.variables.EDITOR = "nvim";
+  environment.variables.EDITOR = "hx";
 
+  
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -141,9 +143,13 @@
   	comma
   	helix
     grim
+    nil
+    rocmPackages_5.llvm.clang
+    gnumake
   ];
   #programs.nix-index-database.comma.enable = true;
   security.pam.services.swaylock = { };
+  security.pam.services.hyprlock = { };
 
   #Font packages 
   fonts.packages = with pkgs; [
