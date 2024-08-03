@@ -19,6 +19,7 @@
 		videoDrivers = ["nouveau" "nvidia" "nvidia_drm" "nvidia_modeset"]; # or "nvidiaLegacy470 etc.
 	};
 	services.displayManager.sddm.enable = true;
+	#services.xserver.displayManager.lightdm.enable = true;
 	services.desktopManager.plasma6.enable = true;
 	services.supergfxd.enable = true;
 	services.gvfs.enable = true;
@@ -146,6 +147,7 @@
     nil
     rocmPackages_5.llvm.clang
     gnumake
+    libsForQt5.breeze-qt5
   ];
   #programs.nix-index-database.comma.enable = true;
   security.pam.services.swaylock = { };
@@ -157,6 +159,12 @@
 	  fira-code-symbols
 	  fira-code-nerdfont
   ];
+
+  qt = {
+    enable = true;
+    style = "breeze";
+	platformTheme = "kde";
+  };
 
   specialisation = {
 	  WORK_NOT_KDE.configuration = {
