@@ -1,15 +1,15 @@
 {config, pkgs, inputs, ...}:
 {
 	imports = [
-		#./hypr/hyprland.nix
+		./hypr/hyprland.nix
 		#./hypr/hyprpaper.nix
 	];
 	programs.home-manager.enable = true;
 
-	home.username = "ozen";
-	home.homeDirectory = "/home/ozen";
-
-	home.packages = with pkgs; [
+	home = {
+		username = "ozen";
+		homeDirectory = "/home/ozen";
+		packages = with pkgs; [
 			lshw
 			asusctl
 			pavucontrol
@@ -17,19 +17,49 @@
 			spotify
 			mangohud
 			fish
-	];
-
-	programs.git = {
-		enable = true;
-		userName = "kix300";
-		userEmail = "kixwalkiki@gmail.com";
+		];
 	};
 
-	programs.neovim = {
-		defaultEditor = true;
-		enable = true;
-		withNodeJs = true;
+	programs = {
+		lazygit.enable = true;
+		git = {
+			enable = true;
+			userName = "kix300";
+			userEmail = "kixwalkiki@gmail.com";
+		};
+		neovim = {
+			defaultEditor = true;
+			enable = true;
+			withNodeJs = true;
+		};
+		starship = {
+			enable = true;
+			settings = {
+				add_newline = false;
+				aws.disabled = true;
+				gcloud.disabled = true;
+				line_break.disabled = true;
+			};
+		};
+		fish = {
+			enable = true;
+			interactiveShellInit = ''
+				set fish_greeting # Disable greeting
+				alias paco='/home/ozen/francinette/tester.sh'
+				'';
+		};
+		ags = {
+			enable = true;
+			configDir = null;
+			extraPackages = with pkgs; [
+				gtksourceview
+					webkitgtk
+					accountsservice
+			];
+		};
 	};
+
+
 
 	stylix = {
 		enable = false;
@@ -37,38 +67,6 @@
 		autoEnable = true;
 	};
 
-	programs.starship = {
-		enable = true;
-		settings = {
-			add_newline = false;
-			aws.disabled = true;
-			gcloud.disabled = true;
-			line_break.disabled = true;
-		};
-	};
-
-	programs.fish = {
-		enable = true;
-		interactiveShellInit = ''
-			set fish_greeting # Disable greeting
-			alias paco='/home/ozen/francinette/tester.sh'
-			'';
-	};
-
-	programs.lazygit = {
-		enable = true;
-	};
-
-
-	programs.ags = {
-		enable = true;
-		configDir = null;
-		extraPackages = with pkgs; [
-			gtksourceview
-				webkitgtk
-				accountsservice
-		];
-	};
 	programs.waybar = {
 		enable = true;
 		settings = {
@@ -150,8 +148,6 @@ padding: 0 10px;
 }
 ";
 };
-
-
 
 home.stateVersion = "23.11";
 }

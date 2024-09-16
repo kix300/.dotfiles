@@ -1,9 +1,12 @@
-{config, pkgs, ... }:
-{
 
-  programs.hyprland = {
-      enable = true;
-      package = pkgs.hyprland;
-      xwayland.enable = true;
-      };
+{ config, pkgs, ... }:
+
+{
+	home-manager.users.Ozen.wayland.configFile = {
+		"hypr/hyprland.conf".source = ./hyprland/hyprland.conf;
+	};
+	wayland.windowManager.hyprland = {
+		enable = true;
+	};
 }
+
