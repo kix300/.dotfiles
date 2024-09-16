@@ -159,13 +159,13 @@
 			prismlauncher
 			aircrack-ng
 			hyprlock
+			hyprpaper
 			comma
 			helix
 			grim
 			nil
 			rocmPackages_5.llvm.clang
 			gnumake
-			libsForQt5.breeze-qt5
 			heroic
 			rpi-imager
 			valgrind
@@ -186,11 +186,6 @@
 			fira-code-nerdfont
 	];
 
-	qt = {
-		enable = true;
-		style = "breeze";
-		platformTheme = "kde";
-	};
 
 	specialisation = {
 		WORK_NOT_KDE.configuration = {
@@ -215,6 +210,7 @@
 				nvidiaSettings = lib.mkForce false;
 				open = false;
 			};
+			qt.enable = false;
 			boot.extraModprobeConfig = ''
 				blacklist nouveau
 				options nouveau modeset=0

@@ -1,8 +1,8 @@
 {config, pkgs, inputs, ...}:
 {
 	imports = [
-		#./hypr/hyprland.nix
-		#./hypr/hyprpaper.nix
+		./hypr/hyprland.nix
+		./hypr/hyprpaper.nix
 	];
 	programs.home-manager.enable = true;
 
