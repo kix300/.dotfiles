@@ -3,6 +3,7 @@
 	imports = [
 		./hypr/hyprland.nix
 		./hypr/hyprpaper.nix
+		./stylix.nix
 	];
 	programs.home-manager.enable = true;
 
