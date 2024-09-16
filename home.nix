@@ -1,7 +1,7 @@
 {config, pkgs, inputs, ...}:
 {
 	imports = [
-		./hypr/hyprland.nix
+		#./hypr/hyprland.nix
 		#./hypr/hyprpaper.nix
 	];
 	programs.home-manager.enable = true;
@@ -18,6 +18,10 @@
 			mangohud
 			fish
 		];
+	};
+	home.file."~/.config/hypr/hyprland.conf".source = ./hypr/hyprland/hyprland.conf;
+	wayland.windowManager.hyprland = {
+		enable = true;
 	};
 
 	programs = {
