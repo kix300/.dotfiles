@@ -2,7 +2,7 @@
 {
 	imports = [
 		#./hypr/hyprland.nix
-		./hypr/hyprpaper.nix
+		#./hypr/hyprpaper.nix
 	];
 	programs.home-manager.enable = true;
 
@@ -32,7 +32,7 @@
 	};
 
 	stylix = {
-		enable = true;
+		enable = false;
 		image = ./srcs/wallpaper.png;
 		autoEnable = true;
 	};

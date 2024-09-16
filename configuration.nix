@@ -5,7 +5,7 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      ./hypr/hyprland.nix
+      #./hypr/hyprland.nix
       #./nvidia.nix
     ];
 
@@ -18,11 +18,27 @@
 		enable = true;
 		videoDrivers = ["nouveau" "nvidia" "nvidia_drm" "nvidia_modeset"]; # or "nvidiaLegacy470 etc.
 	};
+
+	hardware.nvidia.open = false;
 	services.displayManager.sddm.enable = true;
 	#services.xserver.displayManager.lightdm.enable = true;
 	services.desktopManager.plasma6.enable = true;
 	services.supergfxd.enable = true;
 	services.gvfs.enable = true;
+
+	/*
+
+	hardware.nvidia = {
+			  prime.offload.enable = lib.mkForce true;
+			  prime.offload.enableOffloadCmd = lib.mkForce true;
+			  prime.sync.enable = lib.mkForce true;
+			  dynamicBoost.enable = lib.mkForce true;
+			  modesetting.enable = lib.mkForce true;
+			  powerManagement.enable = lib.mkForce true;
+			  powerManagement.finegrained = lib.mkForce true;
+			  nvidiaSettings = lib.mkForce true;
+		  };
+	*/
 
   hardware.i2c.enable = true;
 
@@ -109,7 +125,13 @@
     '';
   };
 
+   virtualisation.virtualbox.host.enable = true;
+   virtualisation.virtualbox.guest.enable = true;
+   users.extraGroups.vboxusers.members = [ "ozen wheel" ];
+
   programs.adb.enable = true;
+
+  services.udev.enable = true;
 
   programs.steam = {
     enable = true;
@@ -139,7 +161,6 @@
   	binutils
   	prismlauncher
   	aircrack-ng
-  	hyprpaper
   	hyprlock
   	comma
   	helix
@@ -148,10 +169,24 @@
     rocmPackages_5.llvm.clang
     gnumake
     libsForQt5.breeze-qt5
+	heroic
+	rpi-imager
+	valgrind
+	libgcc
+	apktool
+	ilspycmd
+	android-tools
+	adbtuifm
+	anbox
+	dotnet-runtime
+	openjdk
+	aapt
   ];
   #programs.nix-index-database.comma.enable = true;
   security.pam.services.swaylock = { };
   security.pam.services.hyprlock = { };
+
+
 
   #Font packages 
   fonts.packages = with pkgs; [
@@ -170,7 +205,7 @@
 	  WORK_NOT_KDE.configuration = {
 		  services.xserver = {
 			  enable = lib.mkForce false;
-			  videoDrivers = ["nouveau" "nvidia" "nvidia_drm" "nvidia_modeset"]; # or "nvidiaLegacy470 etc.
+			  videoDrivers = ["nouveau" "nvidia_drm" "nvidia_modeset"]; # or "nvidiaLegacy470 etc.
 		  };
 		  services.displayManager.sddm.enable = lib.mkForce false;
 		  services.desktopManager.plasma6.enable = lib.mkForce false;
@@ -184,8 +219,8 @@
 			  modesetting.enable = lib.mkForce false;
 			  powerManagement.enable = lib.mkForce false;
 			  powerManagement.finegrained = lib.mkForce false;
-			  open = lib.mkForce false;
 			  nvidiaSettings = lib.mkForce false;
+			  open = false;
 		  };
 		  boot.extraModprobeConfig = ''
 			  blacklist nouveau
