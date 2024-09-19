@@ -61,8 +61,6 @@
 			enable = false;
 			configDir = null;
 			extraPackages = with pkgs; [
-				gtksourceview
-					webkitgtk
 					accountsservice
 			];
 		};

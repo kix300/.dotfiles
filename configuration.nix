@@ -164,7 +164,6 @@
 			prismlauncher
 			aircrack-ng
 			hyprlock
-			hyprpaper
 			comma
 			helix
 			grim
