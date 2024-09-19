@@ -2,7 +2,7 @@
 {
 	stylix = {
 		enable = true;
-		image = ./srcs/wallpaper.png;
+		image = ./srcs/tokyonight.jpg;
 		base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-moon.yaml";
 		cursor = {
 			package = pkgs.bibata-cursors;
