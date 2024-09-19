@@ -1,4 +1,4 @@
-{config, pkgs, inputs, ...}:
+{config, pkgs, inputs, lib, ...}:
 {
 	imports = [
 		#./hypr/hyprland.nix
@@ -27,6 +27,7 @@
 		";
 	};
 
+	home.file."./.config/nvim/init.lua".source = ./srcs/nvim/init.lua;
 	programs = {
 		lazygit.enable = true;
 		git = {
@@ -38,9 +39,7 @@
 			defaultEditor = true;
 			enable = true;
 			withNodeJs = true;
-			extraConfig = "
-				${builtins.readFile ./srcs/nvim/init.lua}
-			";
+			#extraConfig = lib.fileContents ./srcs/nvim/init.lua;
 		};
 		starship = {
 			enable = true;

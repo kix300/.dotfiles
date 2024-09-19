@@ -5,7 +5,6 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import                          "tokyonight.rasi"
 @import                          "fonts.rasi"
 
 * {

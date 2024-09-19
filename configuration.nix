@@ -6,7 +6,7 @@
 		[
 		./hardware-configuration.nix
 #./hypr/hyprland.nix
-#./nvidia.nix
+		#./nvidia.nix
 		];
 
 	environment.variables.EDITOR = "nvim";
@@ -41,24 +41,24 @@
 	};
 
 	hardware = {
-		nvidia.open = false;
+		nvidia.open = lib.mkDefault true;
 		i2c.enable = true;
 		bluetooth.enable = true;
 		bluetooth.powerOnBoot = true;
 	};
 
-	/*
 
 	   hardware.nvidia = {
-	   prime.offload.enable = lib.mkForce true;
-	   prime.offload.enableOffloadCmd = lib.mkForce true;
-	   prime.sync.enable = lib.mkForce true;
-	   dynamicBoost.enable = lib.mkForce true;
-	   modesetting.enable = lib.mkForce true;
-	   powerManagement.enable = lib.mkForce true;
-	   powerManagement.finegrained = lib.mkForce true;
-	   nvidiaSettings = lib.mkForce true;
+	   prime.offload.enable = lib.mkDefault true;
+	   prime.offload.enableOffloadCmd = lib.mkDefault true;
+	   prime.sync.enable = lib.mkForce false;
+	   dynamicBoost.enable = lib.mkDefault true;
+	   modesetting.enable = lib.mkDefault true;
+	   powerManagement.enable = lib.mkDefault true;
+	   powerManagement.finegrained = lib.mkDefault true;
+	   nvidiaSettings = lib.mkDefault true;
 	   };
+	/*
 	 */
 
 	networking = { 
@@ -142,10 +142,15 @@
 	nixpkgs.config.allowUnfree = true;
 	environment.systemPackages = with pkgs; [
 		git
+			qt6ct
+			xfce.thunar
+			kdePackages.qtwayland
+			kdePackages.qtsvg
 			firefox-devedition
 			kitty
 			rofi-wayland
 			rofi-power-menu
+			wofi
 			ntfs3g
 			telegram-desktop
 			swaylock-fancy
@@ -178,6 +183,11 @@
 			dotnet-runtime
 			openjdk
 			aapt
+			adwaita-icon-theme
+
+			xorg.libX11
+			xorg.libXext
+			libbsd
 			];
 
 	fonts.packages = with pkgs; [
@@ -208,7 +218,7 @@
 				powerManagement.enable = lib.mkForce false;
 				powerManagement.finegrained = lib.mkForce false;
 				nvidiaSettings = lib.mkForce false;
-				open = false;
+				open = lib.mkForce false;
 			};
 			qt.enable = false;
 			boot.extraModprobeConfig = ''
