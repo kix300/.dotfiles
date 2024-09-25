@@ -179,6 +179,7 @@
 			android-tools
 			adbtuifm
 			anbox
+			lutris
 			dotnet-runtime
 			openjdk
 			aapt

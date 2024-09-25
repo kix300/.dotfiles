@@ -4,6 +4,7 @@
 		#./hypr/hyprland.nix
 		#./hypr/hyprpaper.nix
 		./stylix.nix
+		./nixvim.nix
 	];
 	programs.home-manager.enable = true;
 
@@ -27,7 +28,6 @@
 		";
 	};
 
-	home.file."./.config/nvim/init.lua".source = ./srcs/nvim/init.lua;
 	programs = {
 		lazygit.enable = true;
 		git = {
@@ -36,7 +36,7 @@
 			userEmail = "kixwalkiki@gmail.com";
 		};
 		neovim = {
-			enable = true;
+			enable = false;
 			defaultEditor = true;
 			withNodeJs = true;
 			#extraConfig = lib.fileContents ./srcs/nvim/init.lua;
