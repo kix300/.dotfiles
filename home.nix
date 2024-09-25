@@ -36,8 +36,8 @@
 			userEmail = "kixwalkiki@gmail.com";
 		};
 		neovim = {
-			defaultEditor = true;
 			enable = true;
+			defaultEditor = true;
 			withNodeJs = true;
 			#extraConfig = lib.fileContents ./srcs/nvim/init.lua;
 		};

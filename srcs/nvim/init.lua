@@ -11,4 +11,5 @@ set.expandtab = false
 --vim.cmd [[colorscheme tokyonight-moon]]
 --vim.o.background = "light"
 --vim.cmd ([[colorscheme gruvbox]])
-vim.cmd('colorscheme base16-tokyo-city-terminal-dark')
+--vim.cmd('colorscheme base16-tokyo-city-terminal-dark')
+vim.cmd.colorscheme "catppuccin-mocha"
