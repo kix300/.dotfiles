@@ -1,8 +1,8 @@
-{pkgs, ...}:
+{...}:
 {
 	programs.nixvim = {
 		enable = true;
-		colorschemes.rose-pine.enable = true;
+		colorschemes.catppuccin.enable = true;
 		plugins = {
 			lualine.enable = true;
 			lsp = {
@@ -13,21 +13,13 @@
 					vuels.enable = true;
 				};
 			};
-			cmp = {
-				enable = true;
-				autoEnableSources = true;
-				settings.sources = [
-					{name = "nvim_lsp";}
-					{name = "path";}
-					{name = "buffer";}
-				];
-			};
 			treesitter.enable = true;
 			persistence.enable = true;
 			lazy.enable = true;
 			hardtime.enable = true;
 			oil.enable = true;
 			luasnip.enable = true;
+			bufferline.enable = true;
 			web-devicons.enable = true;
 		};
 		plugins.telescope = {
@@ -39,23 +31,43 @@
 				};
 			};
 		};
-
-		autoCmd = [
-		{
-			event = [ "BufEnter" "BufWinEnter" ];
-			pattern = [ "*.c" "*.h" ];
-			command = "echo 'Entering a C or C++ file'";
-		}
-		];
+		plugins.cmp = {
+			enable = true;
+			autoEnableSources = true;
+			settings = {
+				sources = [
+					{name = "nvim_lsp";}
+					{name = "path";}
+					{name = "buffer";}
+					{name = "luasnip";}
+				];
+				snippet.expand = "luasnip";
+				mappingPresets = ["insert" "cmdline"];
+				mapping = {
+					"<C-n>" = ''cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert })'';
+					"<C-p>" = ''cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert })'';
+					"<C-b>" = ''cmp.mapping.scroll_docs(-4)'';
+					"<C-f>" = ''cmp.mapping.scroll_docs(4)'';
+					"<C-Space>" = ''cmp.mapping.complete()'';
+					"<C-e>" = ''cmp.mapping.abort()'';
+					"<CR>" = ''cmp.mapping.confirm({ select = true })''; 
+					"<S-CR>" = ''cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true, })''; 
+					"<C-CR>" = ''function(fallback) cmp.abort() fallback() end'';
+				};
+			};
+		};
+		globalOpts= {
+				tabstop = 4;
+				shiftwidth = 4;
+				expandtab = false;
+				number = true;
+				relativenumber = true;
+				confirm = true;
+				smartindent = true;
+				wildmode = "longest:full,full";
+				undofile = true;
+				undolevels = 10000;
+				completeopt = "menu,menuone,noselect";
+		};
 	};
 }
-/*
-   options = { 
-   tabstop = 4;
-   shiftwidth = 4;
-   expendtab = false;
-   number = true;
-   relativenumber = true;
-   };
-
- */
