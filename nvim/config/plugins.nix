@@ -1,7 +1,7 @@
-{self, ...}:
 {
-	colorschemes.catppuccin.enable = true;
 	plugins = {
+		bufferline.enable = true;
+		web-devicons.enable = true;
 		lualine.enable = true;
 		lsp = {
 			enable = true;
@@ -53,18 +53,5 @@
 				"<C-CR>" = ''function(fallback) cmp.abort() fallback() end'';
 			};
 		};
-	};
-	config.opts = {
-		tabstop = 4;
-		shiftwidth = 4;
-		expandtab = false;
-		number = true;
-		relativenumber = true;
-		confirm = true;
-		smartindent = true;
-		wildmode = "longest:full,full";
-		undofile = true;
-		undolevels = 10000;
-		completeopt = "menu,menuone,noselect";
 	};
 }
