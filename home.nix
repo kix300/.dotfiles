@@ -11,14 +11,15 @@
 	home = {
 		username = "ozen";
 		homeDirectory = "/home/ozen";
-		packages = [
-			pkgs.lshw
-			pkgs.asusctl
-			pkgs.pavucontrol
-			pkgs.ncspot
-			pkgs.spotify
-			pkgs.mangohud
-			pkgs.fish
+		packages = with pkgs; [
+			lshw
+			asusctl
+			pavucontrol
+			ncspot
+			spotify
+			mangohud
+			fish
+			inputs.nixvim-flake.packages.${pkgs.system}.default
 		];
 	};
 	wayland.windowManager.hyprland = {

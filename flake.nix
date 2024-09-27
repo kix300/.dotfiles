@@ -6,9 +6,7 @@
 		nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 		stylix.url = "github:danth/stylix";
-		nixvim.url = "github:nix-community/nixvim";
 		nixvim-flake.url = "github:kix300/nixvim-flake";
-		nixvim.inputs.nixpkgs.follows = "nixpkgs";
 		home-manager = {
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -19,7 +17,7 @@
 		ags.inputs.nixpkgs.follows = "nixpkgs";
 	};
 
-	outputs = { self, nixpkgs, nixos-hardware, home-manager, ags, nix-index-database, stylix, nixvim, ... }@inputs: let
+	outputs = { self, nixpkgs, nixos-hardware, home-manager, ags, nix-index-database, stylix, ... }@inputs: let
 		inherit (self) outputs;
 	in {
 		nixosConfigurations.OzenOs = nixpkgs.lib.nixosSystem {
@@ -37,10 +35,10 @@
 				{
 				home-manager.useGlobalPkgs = true;
 				home-manager.useUserPackages = true;
+				home-manager.extraSpecialArgs = { inherit inputs;};
 				home-manager.sharedModules = [
 				stylix.homeManagerModules.stylix
 				ags.homeManagerModules.default
-				nixvim.homeManagerModules.nixvim
 				];
 				home-manager.users.ozen = import ./home.nix;
 				}
