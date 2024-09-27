@@ -56,7 +56,7 @@
 				};
 			};
 		};
-		globalOpts= {
+		config.opts = {
 				tabstop = 4;
 				shiftwidth = 4;
 				expandtab = false;

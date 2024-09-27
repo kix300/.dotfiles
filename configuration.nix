@@ -188,6 +188,8 @@
 			xorg.libX11
 			xorg.libXext
 			libbsd
+			nodejs
+			nodePackages.vls
 			];
 
 	fonts.packages = with pkgs; [
