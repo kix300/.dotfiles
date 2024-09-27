@@ -5,7 +5,6 @@
 		#./hypr/hyprpaper.nix
 		./stylix.nix
 		#./nixvim.nix
-		./test.nix
 	];
 	programs.home-manager.enable = true;
 
