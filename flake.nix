@@ -7,6 +7,7 @@
 		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 		stylix.url = "github:danth/stylix";
 		nixvim.url = "github:nix-community/nixvim";
+		nixvim-flake.url = "github:kix300/nixvim-flake";
 		nixvim.inputs.nixpkgs.follows = "nixpkgs";
 		home-manager = {
 			url = "github:nix-community/home-manager";
@@ -18,7 +19,7 @@
 		ags.inputs.nixpkgs.follows = "nixpkgs";
 	};
 
-	outputs = { self, nixpkgs, nixos-hardware, home-manager, ags, nix-index-database, stylix, nixvim,  ... }@inputs: let
+	outputs = { self, nixpkgs, nixos-hardware, home-manager, ags, nix-index-database, stylix, nixvim, ... }@inputs: let
 		inherit (self) outputs;
 	in {
 		nixosConfigurations.OzenOs = nixpkgs.lib.nixosSystem {

@@ -1,24 +1,25 @@
-{config, pkgs, inputs, lib, ...}:
+{config, pkgs, inputs, lib, system, ...}:
 {
 	imports = [
 		#./hypr/hyprland.nix
 		#./hypr/hyprpaper.nix
 		./stylix.nix
 		#./nixvim.nix
+		./test.nix
 	];
 	programs.home-manager.enable = true;
 
 	home = {
 		username = "ozen";
 		homeDirectory = "/home/ozen";
-		packages = with pkgs; [
-			lshw
-			asusctl
-			pavucontrol
-			ncspot
-			spotify
-			mangohud
-			fish
+		packages = [
+			pkgs.lshw
+			pkgs.asusctl
+			pkgs.pavucontrol
+			pkgs.ncspot
+			pkgs.spotify
+			pkgs.mangohud
+			pkgs.fish
 		];
 	};
 	wayland.windowManager.hyprland = {
