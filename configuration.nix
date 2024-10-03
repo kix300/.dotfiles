@@ -126,6 +126,12 @@
 						fi
 						'';
 		};
+		nh = {
+			enable = true;
+			clean.enable = true;
+			clean.extraArgs = "--keep-since 4d --keep 3";
+			flake = "/home/ozen/.dotfiles";
+		};
 		adb.enable = true;
 		steam = {
 			enable = true;
@@ -180,6 +186,7 @@
 			anbox
 			lutris
 			dotnet-runtime
+			neovim
 			openjdk
 			aapt
 			adwaita-icon-theme
@@ -189,6 +196,8 @@
 			libbsd
 			nodejs
 			nodePackages.vls
+
+			ripgrep
 			];
 
 	fonts.packages = with pkgs; [
@@ -200,6 +209,7 @@
 
 	specialisation = {
 		WORK_NOT_KDE.configuration = {
+			environment.etc."specialisation".text = "WORK_NOT_KDE";
 			services = {
 				xserver = {
 					enable = lib.mkForce false;
