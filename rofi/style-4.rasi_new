@@ -1,0 +1,76 @@
+/*****----- Global Properties -----*****/
+
+* {
+    /* Resolution : 1920x1080 at 1.2 scaling */
+    box-spacing:                 30px;         /* Reduced box spacing */
+    box-margin:                  20px 20px;    /* Reduced box margins */
+    message-margin:              0px 0px;
+    inputbar-spacing:            0px;
+    list-spacing:                10px;         /* Reduced list spacing */
+    general-padding:             20px;         /* Reduced padding */
+    element-padding:             30px 10px;    /* Reduced element padding */
+    element-radius:              30px;         /* Reduced element border-radius */
+    general-radius:              30px;         /* Reduced general border-radius */
+    element-font:                "Fira Code 36"; /* Adjusted font size */
+}
+
+/*****----- Main Window -----*****/
+window {
+    /* properties for window widget */
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;      /* Set to false */
+    width:                       1600px;     /* Adjusted window width */
+    height:                      auto;       /* Auto height based on content */
+    x-offset:                    0px;
+    y-offset:                    0px;
+
+    /* properties for all widgets */
+    enabled:                     true;
+    margin:                      0px;
+	location:                    center;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                @selected;
+    cursor:                      "default";
+    background-color:            @background;
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                     true;
+    columns:                     5;       /* Keeps the column layout */
+    lines:                       1;       /* Single line layout */
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      horizontal; /* Change layout to horizontal */
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     var(list-spacing);
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                @selected;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    spacing:                     0px;
+    margin:                      0px;
+    padding:                     var(element-padding);
+    border:                      0px solid;
+    border-radius:               var(element-radius);
+    border-color:                @selected;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+    cursor:                      "default";
+}
