@@ -554,11 +554,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1728069805,
-        "narHash": "sha256-R9rncGpSHYjJrZxB6hjKK5RQL+N16B5Aw7T4Dth+BtE=",
+        "lastModified": 1728396329,
+        "narHash": "sha256-cqAHjOHMU/p7aiDP7XW7Ix1StxMIjUU6rS41B5H6NQ0=",
         "owner": "kix300",
         "repo": "Lazyvim-NixOs",
-        "rev": "a6e518008e5eddcab958838e438ce6a8a8f7b452",
+        "rev": "4a4807a790ff4c2f99b82b6d60e3fa623a80a351",
         "type": "github"
       },
       "original": {
