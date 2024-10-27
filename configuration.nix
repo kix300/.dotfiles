@@ -150,6 +150,7 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     git
+	util-linux
     qt6ct
     xfce.thunar
     kdePackages.qtwayland

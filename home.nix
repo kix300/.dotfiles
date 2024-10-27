@@ -55,7 +55,6 @@
 			enable = true;
 			interactiveShellInit = ''
 				set fish_greeting # Disable greeting
-				alias paco='/home/ozen/francinette/tester.sh'
 				'';
 		};
 		ags = {
