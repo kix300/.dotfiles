@@ -116,6 +116,7 @@
     ];
   };
   programs = {
+	ssh.startAgent = true;
     dconf.enable = true;
     xfconf.enable = true;
     bash = {
