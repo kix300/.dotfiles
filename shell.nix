@@ -1,7 +1,8 @@
 { pkgs ? import <nixpkgs> {} }:
-	pkgs.mkShell {
+	pkgs.mkShellNoCC {
 		nativeBuildInputs = with pkgs.buildPackages; [ 
 			clang
-			fish
+			readline
 		];
+		shellHook = ''fish'';
 }

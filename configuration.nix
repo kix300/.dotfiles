@@ -150,6 +150,7 @@
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
+	direnv
     git
 	util-linux
     qt6ct
@@ -196,8 +197,8 @@
     aapt
     adwaita-icon-theme
 
-    xorg.libX11
-    xorg.libXext
+	readline
+	readline70
     libbsd
     nodejs
     nodePackages.vls
