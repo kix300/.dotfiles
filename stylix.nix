@@ -11,7 +11,7 @@
 		};
 		opacity.terminal = 0.8;
 		targets = {
-				gtk.enable = true;
+				gtk.enable = false;
 				xfce.enable = true;
 				wofi.enable = true;
 		};
