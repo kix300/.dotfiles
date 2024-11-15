@@ -164,6 +164,7 @@
     wofi
     ntfs3g
     telegram-desktop
+	deskreen
     swaylock-fancy
     discord
     brightnessctl

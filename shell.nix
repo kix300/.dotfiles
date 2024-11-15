@@ -1,6 +1,6 @@
 { pkgs ? import <nixpkgs> {} }:
-	pkgs.mkShellNoCC {
-		nativeBuildInputs = with pkgs.buildPackages; [ 
+	pkgs.mkShell {
+		nativeBuildInputs = with pkgs.buildPackages; [
 			clang
 			readline
 		];

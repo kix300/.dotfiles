@@ -20,6 +20,15 @@
 	outputs = { self, nixpkgs, nixos-hardware, home-manager, ags, nix-index-database, stylix, ... }@inputs: let
 		inherit (self) outputs;
 	in {
+		devShells.x86_64-linux.default =
+			nixpkgs.mkShell
+			{
+				nativeBuildInputs = with nixpkgs; [
+					readline
+					clang
+				];
+				shellHook = ''fish'';
+			};
 		nixosConfigurations.OzenOs = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			specialArgs = { inherit inputs outputs; };
@@ -33,14 +42,14 @@
 				}
 				home-manager.nixosModules.home-manager
 				{
-				home-manager.useGlobalPkgs = true;
-				home-manager.useUserPackages = true;
-				home-manager.extraSpecialArgs = { inherit inputs;};
-				home-manager.sharedModules = [
-				stylix.homeManagerModules.stylix
-				ags.homeManagerModules.default
-				];
-				home-manager.users.ozen = import ./home.nix;
+					home-manager.useGlobalPkgs = true;
+					home-manager.useUserPackages = true;
+					home-manager.extraSpecialArgs = { inherit inputs;};
+					home-manager.sharedModules = [
+						stylix.homeManagerModules.stylix
+						ags.homeManagerModules.default
+					];
+					home-manager.users.ozen = import ./home.nix;
 				}
 			];
 		};

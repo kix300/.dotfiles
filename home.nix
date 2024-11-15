@@ -55,6 +55,8 @@
 			enable = true;
 			interactiveShellInit = ''
 				set fish_greeting # Disable greeting
+				eval "$(direnv hook fish)"
+				alias shell="nix-shell ~/.dotfiles/shell.nix"
 				'';
 		};
 		ags = {
