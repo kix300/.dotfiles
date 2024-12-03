@@ -11,14 +11,14 @@
 		};
 		opacity.terminal = 0.8;
 		targets = {
-				gtk.enable = true;
+				gtk.enable = false;
 				xfce.enable = true;
 				wofi.enable = true;
 		};
 	};
 
 	gtk = {
-		enable = true;
+		enable = false;
 		iconTheme = {
 			package = pkgs.adwaita-icon-theme;
 			name = "Adwaita";
