@@ -181,17 +181,12 @@
     nil
     rocmPackages_5.llvm.clang
     gnumake
-    heroic
     rpi-imager
     valgrind
     libgcc
     apktool
-    ilspycmd
     android-tools
     adbtuifm
-    anbox
-    lutris
-    dotnet-runtime
     neovim
     openjdk
     aapt

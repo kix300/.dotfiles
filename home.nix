@@ -1,4 +1,4 @@
-{config, pkgs, inputs, lib, system, ...}:
+{pkgs, inputs, ...}:
 {
 	imports = [
 		#./hypr/hyprland.nix
@@ -67,20 +67,6 @@
 			];
 		};
 	};
-	/*
-	   stylix = {
-	   enable = true;
-	   image = ./srcs/wallpaper.png;
-#base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-base16Scheme = "${pkgs.base16-schemes}/share/themes/evenok-dark.yaml";
-cursor = {
-package = pkgs.adwaita-icon-theme;
-name = "Adwaita";
-size = 24;
-};
-};
-	 */
-
 programs.waybar = {
 	enable = true;
 	settings = {
