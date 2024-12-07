@@ -198,7 +198,8 @@
     nodejs
     nodePackages.vls
 
-    ripgrep
+	ankama-launcher
+
   ];
 
   fonts.packages = with pkgs; [
