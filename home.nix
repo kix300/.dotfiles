@@ -57,6 +57,7 @@
 				set fish_greeting # Disable greeting
 				eval "$(direnv hook fish)"
 				alias shell="nix-shell ~/.dotfiles/shell.nix"
+				alias nswitch="rm ~/.gtkrc-2.0 ~/.gtkrc-2.0..bak && nh os switch"
 				'';
 		};
 		ags = {
