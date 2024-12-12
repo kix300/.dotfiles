@@ -4,6 +4,7 @@
 		enable = true;
 		image = ./srcs/seoulstreet.jpg;
 		base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+		#base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
 		cursor = {
 			package = pkgs.bibata-cursors;
 			name = "Bibata-Modern-Classic";
