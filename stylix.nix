@@ -2,7 +2,7 @@
 {
 	stylix = {
 		enable = true;
-		image = ./srcs/landscape.jpg;
+		image = ./srcs/seoulstreet.jpg;
 		base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 		cursor = {
 			package = pkgs.bibata-cursors;
