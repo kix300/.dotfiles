@@ -150,6 +150,7 @@
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
+	wine
 	direnv
     git
 	util-linux
@@ -197,8 +198,6 @@
     libbsd
     nodejs
     nodePackages.vls
-
-	ankama-launcher
 
   ];
 
