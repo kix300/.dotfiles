@@ -199,7 +199,6 @@
 	readline70
     libbsd
     nodejs
-    nodePackages.vls
 
 
 	xdg-desktop-portal-hyprland
