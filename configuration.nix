@@ -116,7 +116,6 @@
     ];
   };
   programs = {
-	hyprland.portalPackage = true;
 	ssh.startAgent = true;
     dconf.enable = true;
     xfconf.enable = true;
@@ -176,6 +175,7 @@
     binutils
     prismlauncher
     aircrack-ng
+	xdg-desktop-portal-hyprland
     hyprlock
     comma
     helix
@@ -199,6 +199,9 @@
     libbsd
     nodejs
     nodePackages.vls
+
+
+	xdg-desktop-portal-hyprland
 
   ];
 
