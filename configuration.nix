@@ -116,6 +116,7 @@
     ];
   };
   programs = {
+	hyprland.portalPackage = true;
 	ssh.startAgent = true;
     dconf.enable = true;
     xfconf.enable = true;
@@ -202,6 +203,7 @@
 
 
 	xdg-desktop-portal-hyprland
+	xdg-desktop-portal-gtk
 
   ];
 
