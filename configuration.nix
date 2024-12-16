@@ -167,7 +167,7 @@
     ntfs3g
     telegram-desktop
     swaylock-fancy
-    discord
+    discord-screenaudio
     brightnessctl
     ddcui
     dolphin
@@ -203,6 +203,8 @@
 
 	xdg-desktop-portal-hyprland
 	xdg-desktop-portal-gtk
+
+	heroic
 
   ];
 
