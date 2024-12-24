@@ -8,7 +8,7 @@
       #./nvidia.nix
     ];
 
-  environment.variables.EDITOR = "nvim";
+  environment.variables.EDITOR = "nvim lazygit";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -199,12 +199,20 @@
 	readline70
     libbsd
     nodejs
+	vscodium
+	norminette
+
+	qbittorrent
+	signal-desktop
+	iwgtk
 
 
 	xdg-desktop-portal-hyprland
 	xdg-desktop-portal-gtk
 
 	heroic
+
+	appimage-run
 
   ];
 
