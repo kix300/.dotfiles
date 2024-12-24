@@ -2,7 +2,7 @@
 {
 	stylix = {
 		enable = true;
-		image = ./srcs/wallhaven-yxdrex.png;
+		image = ./srcs/montain.jpg;
 		base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 		#base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
 		cursor = {
