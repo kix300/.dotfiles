@@ -158,7 +158,6 @@
 		android-tools
 		apktool
 		appimage-run
-		binutils
 		brightnessctl
 		comma
 		ddcui
