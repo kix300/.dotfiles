@@ -166,6 +166,7 @@
 		discord-screenaudio
 		dolphin
 		firefox-devedition
+		gcc
 		git
 		gnumake
 		grim
@@ -190,7 +191,6 @@
 		qt6ct
 		readline
 		readline70
-		rocmPackages_5.llvm.clang
 		rofi-power-menu
 		rofi-wayland
 		rpi-imager
