@@ -25,7 +25,6 @@
 			{
 				nativeBuildInputs = with nixpkgs; [
 					readline
-					clang
 				];
 				shellHook = ''fish'';
 			};
