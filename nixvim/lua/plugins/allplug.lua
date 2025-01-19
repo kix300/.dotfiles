@@ -9,6 +9,8 @@ return {
 	},
 	{ "nvim-telescope/telescope.nvim" },
 
+	{ "nvim-treesitter/nvim-treesitter.nvim" },
+
 	--{ "RRethy/base16-nvim" },
 
 	--{ "folke/tokyonight.nvim" },
