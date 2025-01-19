@@ -21,7 +21,7 @@
 				variant = "";
 			};
 			enable = true;
-			videoDrivers = [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" ]; # or "nvidiaLegacy470 etc.
+			videoDrivers = [ "nvidia" "nvidia_drm" "nvidia_modeset" ]; # or "nvidiaLegacy470 etc.
 		};
 		udev.enable = true;
 		displayManager.sddm.enable = true;
