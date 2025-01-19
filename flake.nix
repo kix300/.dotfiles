@@ -6,7 +6,7 @@
 		nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 		stylix.url = "github:danth/stylix";
-		nixvim-flake.url = "github:kix300/Lazyvim-NixOs";
+		#nixvim-flake.url = "github:kix300/Lazyvim-NixOs";
 		home-manager = {
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
