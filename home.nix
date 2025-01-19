@@ -1,10 +1,10 @@
-{pkgs, inputs, ...}:
+{pkgs, ...}:
 {
 	imports = [
 		#./hypr/hyprland.nix
 		#./hypr/hyprpaper.nix
 		./stylix.nix
-		#./nixvim.nix
+		./nixvim/nixvim.nix
 	];
 	programs.home-manager.enable = true;
 
@@ -19,7 +19,6 @@
 			spotify
 			mangohud
 			fish
-			inputs.nixvim-flake.packages.${pkgs.system}.default
 		];
 	};
 	wayland.windowManager.hyprland = {
@@ -35,12 +34,6 @@
 			enable = true;
 			userName = "kix300";
 			userEmail = "kixwalkiki@gmail.com";
-		};
-		neovim = {
-			enable = false;
-			defaultEditor = true;
-			withNodeJs = true;
-			#extraConfig = lib.fileContents ./srcs/nvim/init.lua;
 		};
 		starship = {
 			enable = true;

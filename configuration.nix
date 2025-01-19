@@ -180,7 +180,6 @@
 		libbsd
 		libgcc
 		libgccjit
-		neovim
 		nil
 		nodejs
 		norminette
