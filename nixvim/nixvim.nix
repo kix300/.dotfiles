@@ -19,8 +19,9 @@
     plugins = with pkgs.vimPlugins; [
       LazyVim
       lazy-nvim
-
+	  nvim-treesitter
       snacks-nvim
+      telescop-nvim
     ];
  extraLuaConfig = ''
       vim.g.mapleader = " " -- Need to set leader before lazy for correct keybindings
