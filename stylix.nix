@@ -10,11 +10,12 @@
 			name = "Bibata-Modern-Classic";
 			size = 24;
 		};
-		opacity.terminal = 0.8;
+		opacity.terminal = 1;
 		targets = {
 				gtk.enable = true;
 				xfce.enable = true;
 				wofi.enable = true;
+				nixvim.enable = false;
 		};
 	};
 

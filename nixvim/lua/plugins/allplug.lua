@@ -11,17 +11,8 @@ return {
 
 	--{ "RRethy/base16-nvim" },
 
-	--{ "folke/tokyonight.nvim" },
+	-- { "folke/tokyonight.nvim" },
 
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000},
--- nvim v0.8.0
-	--{ "ellisonleao/gruvbox.nvim" },
-
-	--[[{
-		"LazyVim/LazyVim",
-		opts = {
-			colorscheme = "gruvbox",
-		},
-	},]]
 
 }

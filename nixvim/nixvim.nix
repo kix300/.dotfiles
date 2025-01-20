@@ -35,7 +35,6 @@
           indent-blankline-nvim
           lualine-nvim
 		  mini-nvim
-		  mini-base16
           neo-tree-nvim
           neoconf-nvim
           neodev-nvim
@@ -104,6 +103,8 @@
             { import = "plugins" },
             -- treesitter handled by xdg.configFile."nvim/parser", put this line at the end of spec to clear ensure_installed
             { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
+			-- mini.base16
+			{ "echasnovski/mini.nvim", enbale = false },
           },
         })
       '';
