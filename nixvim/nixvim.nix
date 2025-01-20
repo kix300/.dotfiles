@@ -9,6 +9,7 @@
       stylua
       # Telescope
       ripgrep
+	  fzf
     ];
 
     plugins = with pkgs.vimPlugins; [
@@ -79,7 +80,7 @@
       ''
         require("lazy").setup({
           defaults = {
-            lazy = true,
+            lazy = false,
           },
           dev = {
             -- reuse files from pkgs.vimPlugins.*
