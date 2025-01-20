@@ -34,6 +34,8 @@
           gitsigns-nvim
           indent-blankline-nvim
           lualine-nvim
+		  mini-nvim
+		  mini-base16
           neo-tree-nvim
           neoconf-nvim
           neodev-nvim
@@ -69,6 +71,7 @@
           { name = "mini.indentscope"; path = mini-nvim; }
           { name = "mini.pairs"; path = mini-nvim; }
           { name = "mini.surround"; path = mini-nvim; }
+		  { name = "mini.base16"; path = mini-nvim; }
         ];
         mkEntryFromDrv = drv:
           if lib.isDerivation drv then
@@ -84,7 +87,7 @@
           },
           dev = {
             -- reuse files from pkgs.vimPlugins.*
-            path = "${lazyPath}",
+            path = "${lazyPath}/pack/myNeovimPackages/start",
             patterns = { "" },
             -- fallback to download
             fallback = true,
