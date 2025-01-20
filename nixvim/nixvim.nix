@@ -105,6 +105,7 @@
             { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
 			-- mini.base16
 			{ "echasnovski/mini.nvim", enbale = false },
+			{ "catppuccin/nvim", name = "catppuccin", priority = 1000},
           },
         })
       '';
