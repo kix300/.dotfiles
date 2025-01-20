@@ -13,7 +13,7 @@ return {
 
 	-- { "folke/tokyonight.nvim" },
 
-	{ "catppuccin/nvim", lazy = true, name = "catppuccin", priority = 1000},
+	{ "catppuccin/nvim", lazy = true, name = "catppuccin", priority = 10000},
 
 	{ "echasnovski/mini.nvim", enbale = false },
 

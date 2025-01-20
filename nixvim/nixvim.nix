@@ -113,11 +113,10 @@
 			transparent_background = false,
 			integrations = {
     			treesitter = true,
-    			lualine = true,
-    			telescope = true,
 			},
 		})
-    '';
+		vim.cmd("colorscheme catppuccin");
+      '';
   };
 
    # Normal LazyVim config here, see https://github.com/LazyVim/starter/tree/main/lua
