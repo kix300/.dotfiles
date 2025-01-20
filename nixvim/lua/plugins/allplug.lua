@@ -19,4 +19,10 @@ return {
 
 	{ "vague2k/huez.nvim" },
 
+	{
+    	"LazyVim/LazyVim",
+    	opts = {
+    		colorscheme = "catppuccin",
+    	}
+	},
 }
