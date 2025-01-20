@@ -108,7 +108,16 @@
             { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
           },
         })
-      '';
+		require("catppuccin").setup({
+			flavour = "mocha", -- Options : latte, frappe, macchiato, mocha
+			transparent_background = false,
+			integrations = {
+    			treesitter = true,
+    			lualine = true,
+    			telescope = true,
+			},
+		})
+    '';
   };
 
    # Normal LazyVim config here, see https://github.com/LazyVim/starter/tree/main/lua
