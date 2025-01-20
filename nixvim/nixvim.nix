@@ -80,7 +80,7 @@
       ''
         require("lazy").setup({
           defaults = {
-            lazy = false,
+            lazy = true,
           },
           dev = {
             -- reuse files from pkgs.vimPlugins.*
