@@ -3,6 +3,8 @@
 {
   programs.neovim = {
     enable = true;
+	vimAlias = true;
+	viAlias = true;
     extraPackages = with pkgs; [
       # LazyVim
       lua-language-server
@@ -22,6 +24,7 @@
           # LazyVim
           LazyVim
           bufferline-nvim
+		  catppuccin-nvim
           cmp-buffer
           cmp-nvim-lsp
           cmp-path
@@ -63,14 +66,14 @@
           which-key-nvim
 		  fzf-lua
           { name = "LuaSnip"; path = luasnip; }
-          { name = "catppuccin"; path = catppuccin-nvim; }
+          #{ name = "catppuccin"; path = catppuccin-nvim; }
           { name = "mini.ai"; path = mini-nvim; }
           { name = "mini.bufremove"; path = mini-nvim; }
           { name = "mini.comment"; path = mini-nvim; }
           { name = "mini.indentscope"; path = mini-nvim; }
           { name = "mini.pairs"; path = mini-nvim; }
           { name = "mini.surround"; path = mini-nvim; }
-		  { name = "mini.base16"; path = mini-nvim; }
+		  #{ name = "mini.base16"; path = mini-nvim; }
         ];
         mkEntryFromDrv = drv:
           if lib.isDerivation drv then
@@ -103,9 +106,6 @@
             { import = "plugins" },
             -- treesitter handled by xdg.configFile."nvim/parser", put this line at the end of spec to clear ensure_installed
             { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
-			-- mini.base16
-			{ "echasnovski/mini.nvim", enbale = false },
-			{ "catppuccin/nvim", name = "catppuccin", priority = 1000},
           },
         })
       '';

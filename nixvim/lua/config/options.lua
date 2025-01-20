@@ -8,4 +8,4 @@ opt.tabstop = 4;
 opt.shiftwidth = 4;
 opt.expandtab = false;
 vim.g.autoformat = false;
-vim.cmd.colorscheme "catppuccin";
+vim.cmd.colorscheme = "catppuccin";
