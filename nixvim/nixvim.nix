@@ -64,7 +64,6 @@
     			treesitter = true,
 			},
 		})
-		vim.cmd("Catppuccin mocha");
       '';
   };
 

@@ -7,3 +7,4 @@ vim.keymap.set("n", "<C-t>", function()
 end, { desc = "Ouvrir un terminal dans un nouvel onglet" })
 
 vim.keymap.set("n", "<A-t>", ":bdelete! | q!<CR>", { desc = "Fermer l'onglet actuel" })
+
