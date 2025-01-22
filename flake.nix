@@ -3,6 +3,8 @@
 
 	inputs = {
 # NixOS official package source, using the nixos-23.11 branch here
+    	nixvim.url = "github:nix-community/nixvim";
+		nixvim.inputs.nixpkgs.follows = "nixpkgs";
 		nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 		stylix.url = "github:danth/stylix";
@@ -17,7 +19,7 @@
 		ags.inputs.nixpkgs.follows = "nixpkgs";
 	};
 
-	outputs = { self, nixpkgs, nixos-hardware, home-manager, ags, nix-index-database, stylix, ... }@inputs: let
+	outputs = { self, nixpkgs, nixos-hardware, home-manager, ags, nix-index-database, stylix, nixvim, ... }@inputs: let
 		inherit (self) outputs;
 	in {
 		devShells.x86_64-linux.default =
@@ -48,6 +50,7 @@
 					home-manager.sharedModules = [
 						stylix.homeManagerModules.stylix
 						ags.homeManagerModules.default
+						nixvim.homeManagerModules.nixvim
 					];
 					home-manager.users.ozen = import ./home.nix;
 				}

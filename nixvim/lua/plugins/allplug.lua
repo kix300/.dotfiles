@@ -1,5 +1,12 @@
 return {
 	{
+		"LazyVim/LazyVim",
+		opts = {
+			colorscheme = "catppuccin",
+		}
+	},
+
+	{
 		"hrsh7th/nvim-cmp",
 		dependencies = { "hrsh7th/cmp-emoji" },
 		---@param opts cmp.ConfigSchema
@@ -64,10 +71,4 @@ return {
 	{ "ibhagwan/fzf-lua" },
 	{ "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } },
 
-	{
-		"LazyVim/LazyVim",
-		opts = {
-			colorscheme = "catppuccin",
-		}
-	},
 }

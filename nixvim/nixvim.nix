@@ -1,8 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
-  programs.neovim = {
+  programs.nixvim = {
     enable = true;
+    colorschemes.catppuccin.enable = true;
 	vimAlias = true;
 	viAlias = true;
     extraPackages = with pkgs; [
@@ -14,9 +15,9 @@
 	  fzf
     ];
 
-    plugins = with pkgs.vimPlugins; [
-      lazy-nvim
-    ];
+    plugins = {
+		lazy-nvim.enable = true;
+	};
 
     extraLuaConfig =
       let
