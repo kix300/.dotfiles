@@ -49,7 +49,14 @@ return {
 		},
 	},
 	{ "mfussenegger/nvim-lint" },
-	{ "neovim/nvim-lspconfig" },
+	{
+	   "neovim/nvim-lspconfig",
+	   opts = {
+	      servers = {
+			clangd = {};
+			},
+	   },
+	},
 	{ "rcarriga/nvim-notify" },
 	{ "nvim-pack/nvim-spectre" },
 	{ "nvim-treesitter/nvim-treesitter" },

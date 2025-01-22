@@ -158,8 +158,10 @@
 		android-tools
 		apktool
 		appimage-run
+		bear
 		brightnessctl
 		clang
+		clang-tools
 		comma
 		ddcui
 		ddcutil
@@ -179,6 +181,7 @@
 		kdePackages.qtwayland
 		kitty
 		libbsd
+		libclang
 		libgcc
 		libgccjit
 		nil
