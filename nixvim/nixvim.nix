@@ -44,7 +44,7 @@
             fallback = true,
           },
           spec = {
-            { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+            -- { "LazyVim/LazyVim", import = "lazyvim.plugins" },
             -- The following configs are needed for fixing lazyvim on nix
             -- force enable telescope-fzf-native.nvim
             { "nvim-telescope/telescope-fzf-native.nvim", enabled = true },
