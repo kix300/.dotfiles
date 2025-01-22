@@ -44,7 +44,7 @@
             fallback = true,
           },
           spec = {
-            -- { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+            { "LazyVim/LazyVim", import = "lazyvim.plugins" },
             -- The following configs are needed for fixing lazyvim on nix
             -- force enable telescope-fzf-native.nvim
             { "nvim-telescope/telescope-fzf-native.nvim", enabled = true },
@@ -57,6 +57,7 @@
             { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
           },
         })
+		vim.cmd("colorscheme catppuccin");
 		require("catppuccin").setup({
 			flavour = "mocha", -- Options : latte, frappe, macchiato, mocha
 			transparent_background = false,
@@ -64,6 +65,7 @@
     			treesitter = true,
 			},
 		})
+		vim.cmd("colorscheme catppuccin");
       '';
   };
 

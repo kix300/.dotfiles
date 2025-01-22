@@ -27,7 +27,7 @@ return {
 	{ "lewis6991/gitsigns.nvim" },
 	{ "lukas-reineke/indent-blankline.nvim" },
 	{ "nvim-lualine/lualine.nvim" },
-	{ "echasnovski/mini.nvim", enbale = false },
+	-- { "echasnovski/mini.nvim", enbale = false },
 	{ "nvim-neo-tree/neo-tree.nvim" },
 	{ "folke/neoconf.nvim" },
 	{ "folke/neodev.nvim" },
