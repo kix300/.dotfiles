@@ -15,11 +15,11 @@
 	  fzf
     ];
 
-    plugins = {
-		lazy-nvim.enable = true;
-	};
+    extraPlugins = with pkgs.vimPlugins; [
+	  LazyVim
+    ];
 
-    extraLuaConfig =
+    extraConfigLua =
       let
         plugins = with pkgs.vimPlugins; [
           # LazyVim
@@ -58,15 +58,6 @@
             { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
           },
         })
-		vim.cmd("colorscheme catppuccin");
-		require("catppuccin").setup({
-			flavour = "mocha", -- Options : latte, frappe, macchiato, mocha
-			transparent_background = false,
-			integrations = {
-    			treesitter = true,
-			},
-		})
-		vim.cmd("colorscheme catppuccin");
       '';
   };
 
