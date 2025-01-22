@@ -159,6 +159,7 @@
 		apktool
 		appimage-run
 		brightnessctl
+		clang
 		comma
 		ddcui
 		ddcutil
