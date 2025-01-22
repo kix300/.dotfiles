@@ -15,7 +15,7 @@ return {
 
 	{ "catppuccin/nvim", lazy = true, name = "catppuccin", priority = 10000},
 
-	{ "echasnovski/mini.nvim", enbale = false },
+	{ 'echasnovski/mini.base16', enbale = false },
 
 	{ "vague2k/huez.nvim" },
 
