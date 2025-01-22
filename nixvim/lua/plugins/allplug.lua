@@ -13,16 +13,11 @@ return {
 
 	-- { "folke/tokyonight.nvim" },
 
-	{ "catppuccin/nvim", lazy = true, name = "catppuccin", priority = 10000},
-
 	{ 'echasnovski/mini.base16', enbale = false },
 
 	{ "vague2k/huez.nvim" },
 
 	{ "akinsho/bufferline.nvim" },
-	{ "hrsh7th/cmp-buffer" },
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "hrsh7th/cmp-path" },
 	{ "saadparwaiz1/cmp_luasnip" },
 	{ "stevearc/conform.nvim" },
 	{ "glepnir/dashboard-nvim" },
@@ -32,13 +27,20 @@ return {
 	{ "lewis6991/gitsigns.nvim" },
 	{ "lukas-reineke/indent-blankline.nvim" },
 	{ "nvim-lualine/lualine.nvim" },
-	{ "echasnovski/mini.nvim" },
+	{ "echasnovski/mini.nvim", enbale = false },
 	{ "nvim-neo-tree/neo-tree.nvim" },
 	{ "folke/neoconf.nvim" },
 	{ "folke/neodev.nvim" },
 	{ "folke/noice.nvim" },
 	{ "MunifTanjim/nui.nvim" },
-	{ "hrsh7th/nvim-cmp" },
+	{
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-path" },
+		},
+	},
 	{ "mfussenegger/nvim-lint" },
 	{ "neovim/nvim-lspconfig" },
 	{ "rcarriga/nvim-notify" },
