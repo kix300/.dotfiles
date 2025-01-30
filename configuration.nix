@@ -168,6 +168,7 @@
 		direnv
 		discord-screenaudio
 		dolphin
+		dolphin-emu
 		firefox-devedition
 		gcc
 		git
