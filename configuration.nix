@@ -158,6 +158,7 @@
 		android-tools
 		apktool
 		appimage-run
+		ark
 		bear
 		brightnessctl
 		clang
@@ -185,6 +186,7 @@
 		libclang
 		libgcc
 		libgccjit
+		lutris
 		nil
 		nodejs
 		norminette
