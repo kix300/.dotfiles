@@ -35,7 +35,14 @@ return {
 	{ "lukas-reineke/indent-blankline.nvim" },
 	{ "nvim-lualine/lualine.nvim" },
 	-- { "echasnovski/mini.nvim", enbale = false },
-	{ "nvim-neo-tree/neo-tree.nvim" },
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		opts = {
+			window = {
+				width = 30;
+			},
+		},
+	},
 	{ "folke/neoconf.nvim" },
 	{ "folke/neodev.nvim" },
 	{ "folke/noice.nvim" },
