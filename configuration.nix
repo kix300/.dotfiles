@@ -144,9 +144,9 @@
 
 	virtualisation = {
 		virtualbox = {
-			host.enable = true;
+			host.enable = false;
 			host.enableExtensionPack = true;
-			guest.enable = true;
+			guest.enable = false;
 			guest.dragAndDrop = true;
 		};
 	};
