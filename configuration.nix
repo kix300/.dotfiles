@@ -15,11 +15,6 @@
 			systemd-boot.enable = true;
 			efi.canTouchEfiVariables = true;
 		};
-		kernelPackages = pkgs.linuxPackages_latest;
-		kernelParams = [
-			"nvidia-drm.fbdev=1"
-			"nvidia-drm.modeset=1"
-		];
 	};
 
 
