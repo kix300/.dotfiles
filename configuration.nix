@@ -10,8 +10,17 @@
 
 	environment.variables.EDITOR = "nvim lazygit";
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
-	boot.loader.systemd-boot.enable = true;
-	boot.loader.efi.canTouchEfiVariables = true;
+	boot = {
+		loader = {
+			systemd-boot.enable = true;
+			efi.canTouchEfiVariables = true;
+		}
+		kernelPackages = pkgs.linuxPackages_latest;
+		kernelParams = [
+			"nvidia-drm.fbdev=1"
+			"nvidia-drm.modeset=1"
+		]
+	};
 
 
 	services = {
@@ -40,14 +49,18 @@
 	};
 
 	hardware = {
-		nvidia.open = lib.mkDefault true;
 		i2c.enable = true;
 		bluetooth.enable = true;
 		bluetooth.powerOnBoot = true;
+		opengl = {
+			enable = true;
+			driSupport = true;
+		};
 	};
 
 
 	hardware.nvidia = {
+		open = lib.mkDefault true;
 		prime.offload.enable = lib.mkDefault true;
 		prime.offload.enableOffloadCmd = lib.mkDefault true;
 		prime.sync.enable = lib.mkForce false;
