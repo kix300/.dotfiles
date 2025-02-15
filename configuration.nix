@@ -28,8 +28,8 @@
 			videoDrivers = [ "nvidia" "nvidia_drm" "nvidia_modeset" ]; # or "nvidiaLegacy470 etc.
 		};
 		udev.enable = true;
-		displayManager.sddm.enable = true;
-		desktopManager.plasma6.enable = true;
+		displayManager.gdm.enable = true;
+		desktopManager.gnome.enable = true;
 		gvfs.enable = true;
 		supergfxd.enable = true;
 		printing.enable = true;
@@ -239,6 +239,8 @@
 				};
 				displayManager.sddm.enable = lib.mkForce false;
 				desktopManager.plasma6.enable = lib.mkForce false;
+				displayManager.gdm.enable = false;
+				desktopManager.gnome.enable = false;
 			};
 			system.nixos.tags = [ "without_nvidia" ];
 
