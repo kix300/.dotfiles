@@ -19,7 +19,7 @@
 		kernelParams = [
 			"nvidia-drm.fbdev=1"
 			"nvidia-drm.modeset=1"
-		]
+		];
 	};
 
 
@@ -52,9 +52,8 @@
 		i2c.enable = true;
 		bluetooth.enable = true;
 		bluetooth.powerOnBoot = true;
-		opengl = {
+		graphics = {
 			enable = true;
-			driSupport = true;
 		};
 	};
 
