@@ -235,8 +235,8 @@
 			services = {
 				xserver = {
 					enable = lib.mkForce false;
-					displayManager.gdm.enable = false;
-					desktopManager.gnome.enable = false;
+					displayManager.gdm.enable = lib.mkForce false;
+					desktopManager.gnome.enable = lib.mkForce false;
 					videoDrivers = [ "nouveau" "nvidia_drm" "nvidia_modeset" ]; # or "nvidiaLegacy470 etc.
 				};
 				displayManager.sddm.enable = lib.mkForce false;
