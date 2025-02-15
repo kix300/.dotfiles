@@ -20,16 +20,16 @@
 
 	services = {
 		xserver = {
+			enable = true;
 			xkb = {
 				layout = "us";
 				variant = "";
 			};
-			enable = true;
+			displayManager.gdm.enable = true;
+			desktopManager.gnome.enable = true;
 			videoDrivers = [ "nvidia" "nvidia_drm" "nvidia_modeset" ]; # or "nvidiaLegacy470 etc.
 		};
 		udev.enable = true;
-		displayManager.gdm.enable = true;
-		desktopManager.gnome.enable = true;
 		gvfs.enable = true;
 		supergfxd.enable = true;
 		printing.enable = true;
@@ -65,7 +65,7 @@
 		nvidiaSettings = lib.mkDefault true;
 	};
 	/*
-*/
+	 */
 
 	networking = {
 		hostName = "OzenOs";
@@ -129,12 +129,12 @@
 		xfconf.enable = true;
 		bash = {
 			interactiveShellInit = ''
-						if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
-							then
-								shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-								exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-								fi
-			'';
+				if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+					then
+						shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+						exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+						fi
+						'';
 		};
 		nh = {
 			enable = true;
@@ -161,71 +161,71 @@
 	nixpkgs.config.allowUnfree = true;
 	environment.systemPackages = with pkgs; [
 		aapt
-		adbtuifm
-		adwaita-icon-theme
-		aircrack-ng
-		android-tools
-		apktool
-		appimage-run
-		ark
-		bear
-		brightnessctl
-		clang
-		clang-tools
-		comma
-		ddcui
-		ddcutil
-		direnv
-		discord-screenaudio
-		dolphin
-		dolphin-emu
-		firefox-devedition
-		gcc
-		git
-		gnumake
-		grim
-		helix
-		heroic
-		hyprlock
-		iwgtk
-		kdePackages.qtsvg
-		kdePackages.qtwayland
-		kitty
-		libbsd
-		libclang
-		libgcc
-		libgccjit
-		lutris
-		nil
-		nodejs
-		norminette
-		ntfs3g
-		openjdk
-		prismlauncher
-		qbittorrent
-		qt6ct
-		readline
-		readline70
-		rofi-power-menu
-		rofi-wayland
-		rpi-imager
-		signal-desktop
-		swaylock-fancy
-		telegram-desktop
-		util-linux
-		valgrind
-		vscodium
-		wine
-		wofi
-		xdg-desktop-portal-gtk
-		xdg-desktop-portal-hyprland
-		xfce.thunar
-	];
+			adbtuifm
+			adwaita-icon-theme
+			aircrack-ng
+			android-tools
+			apktool
+			appimage-run
+			ark
+			bear
+			brightnessctl
+			clang
+			clang-tools
+			comma
+			ddcui
+			ddcutil
+			direnv
+			discord-screenaudio
+			dolphin
+			dolphin-emu
+			firefox-devedition
+			gcc
+			git
+			gnumake
+			grim
+			helix
+			heroic
+			hyprlock
+			iwgtk
+			kdePackages.qtsvg
+			kdePackages.qtwayland
+			kitty
+			libbsd
+			libclang
+			libgcc
+			libgccjit
+			lutris
+			nil
+			nodejs
+			norminette
+			ntfs3g
+			openjdk
+			prismlauncher
+			qbittorrent
+			qt6ct
+			readline
+			readline70
+			rofi-power-menu
+			rofi-wayland
+			rpi-imager
+			signal-desktop
+			swaylock-fancy
+			telegram-desktop
+			util-linux
+			valgrind
+			vscodium
+			wine
+			wofi
+			xdg-desktop-portal-gtk
+			xdg-desktop-portal-hyprland
+			xfce.thunar
+			];
 
 	fonts.packages = with pkgs; [
 		fira-code
-		fira-code-symbols
-		nerd-fonts.fira-code
+			fira-code-symbols
+			nerd-fonts.fira-code
 	];
 
 
@@ -235,12 +235,12 @@
 			services = {
 				xserver = {
 					enable = lib.mkForce false;
+					displayManager.gdm.enable = false;
+					desktopManager.gnome.enable = false;
 					videoDrivers = [ "nouveau" "nvidia_drm" "nvidia_modeset" ]; # or "nvidiaLegacy470 etc.
 				};
 				displayManager.sddm.enable = lib.mkForce false;
 				desktopManager.plasma6.enable = lib.mkForce false;
-				displayManager.gdm.enable = false;
-				desktopManager.gnome.enable = false;
 			};
 			system.nixos.tags = [ "without_nvidia" ];
 
@@ -257,29 +257,29 @@
 			};
 			qt.enable = false;
 			boot.extraModprobeConfig = ''
-								blacklist nouveau
-								options nouveau modeset=0
-			'';
+				blacklist nouveau
+				options nouveau modeset=0
+				'';
 
 			services.udev.extraRules = ''
-				# Remove NVIDIA USB xHCI Host Controller devices, if present
-								ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{power/control}="auto", ATTR{remove}="1"
-				# Remove NVIDIA USB Type-C UCSI devices, if present
-								ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c8000", ATTR{power/control}="auto", ATTR{remove}="1"
-				# Remove NVIDIA Audio devices, if present
-								ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto", ATTR{remove}="1"
-				# Remove NVIDIA VGA/3D controller devices
-								ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
-			'';
+# Remove NVIDIA USB xHCI Host Controller devices, if present
+				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{power/control}="auto", ATTR{remove}="1"
+# Remove NVIDIA USB Type-C UCSI devices, if present
+				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c8000", ATTR{power/control}="auto", ATTR{remove}="1"
+# Remove NVIDIA Audio devices, if present
+				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto", ATTR{remove}="1"
+# Remove NVIDIA VGA/3D controller devices
+				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
+				'';
 			boot.blacklistedKernelModules = [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" ];
 		};
 	};
-	# This value determines the NixOS release from which the default
-	# settings for stateful data, like file locations and database versions
-	# on your system were taken. It‘s perfectly fine and recommended to leave
-	# this value at the release version of the first install of this system.
-	# Before changing this value read the documentation for this option
-	# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+# This value determines the NixOS release from which the default
+# settings for stateful data, like file locations and database versions
+# on your system were taken. It‘s perfectly fine and recommended to leave
+# this value at the release version of the first install of this system.
+# Before changing this value read the documentation for this option
+# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
 	system.stateVersion = "23.05"; # Did you read the comment?
 
 }
