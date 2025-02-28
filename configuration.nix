@@ -119,7 +119,7 @@
 		description = "Killian";
 		extraGroups = [ "networkmanager" "wheel" "adbusers" "lp" "i2c" ];
 		packages = with pkgs; [
-			kate
+			vim
 		];
 	};
 	programs = {
