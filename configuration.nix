@@ -167,7 +167,6 @@
 			android-tools
 			apktool
 			appimage-run
-			ark
 			bear
 			brightnessctl
 			clang
@@ -177,7 +176,6 @@
 			ddcutil
 			direnv
 			discord-screenaudio
-			dolphin
 			dolphin-emu
 			firefox-devedition
 			gcc
