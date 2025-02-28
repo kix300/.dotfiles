@@ -70,7 +70,7 @@
 	networking = {
 		hostName = "OzenOs";
 		wireless.iwd = {
-			enable = false;
+			enable = true;
 			settings = {
 				IPv6 = {
 					Enabled = true;
@@ -230,20 +230,6 @@
 	specialisation = {
 		WORK_NOT_KDE.configuration = {
 			environment.etc."specialisation".text = "WORK_NOT_KDE";
-			networking = {
-				hostName = "OzenOs";
-				wireless.iwd = {
-					enable = lib.mkForce true;
-					settings = {
-						IPv6 = {
-							Enabled = true;
-						};
-						Settings = {
-							AutoConnect = true;
-						};
-					};
-				};
-			};
 			services = {
 				xserver = {
 					enable = lib.mkForce false;
