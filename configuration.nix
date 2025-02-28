@@ -233,7 +233,7 @@
 			networking = {
 				hostName = "OzenOs";
 				wireless.iwd = {
-					enable = true;
+					enable = lib.mkForce true;
 					settings = {
 						IPv6 = {
 							Enabled = true;
