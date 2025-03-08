@@ -30,6 +30,7 @@
 
 	programs = {
 		lazygit.enable = true;
+		firefox.enable = true;
 		git = {
 			enable = true;
 			userName = "kix300";

@@ -177,7 +177,6 @@
 			direnv
 			discord-screenaudio
 			dolphin-emu
-			firefox-devedition
 			gcc
 			git
 			gnumake
@@ -198,6 +197,7 @@
 			nodejs
 			norminette
 			ntfs3g
+			obs-studio
 			openjdk
 			prismlauncher
 			qbittorrent
