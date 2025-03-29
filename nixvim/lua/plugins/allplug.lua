@@ -25,6 +25,7 @@ return {
 	{ "vague2k/huez.nvim" },
 
 	{ "akinsho/bufferline.nvim" },
+	{'akinsho/toggleterm.nvim', version = "*", config = true},
 	{ "saadparwaiz1/cmp_luasnip" },
 	{ "stevearc/conform.nvim" },
 	{ "glepnir/dashboard-nvim" },
