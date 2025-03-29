@@ -2,7 +2,7 @@
 return {
 
 {
-  "https://github.com/xaocdev/vim-coolclass",
+  "xaocdev/vim-coolclass",
   ft = "cpp",
   config = function()
     vim.g.coolclass_templates = {
