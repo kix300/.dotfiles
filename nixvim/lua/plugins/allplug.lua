@@ -23,7 +23,7 @@ return {
 	{ 'echasnovski/mini.base16', enbale = false },
 
 	{ "vague2k/huez.nvim" },
-
+	{ "yetone/avante.nvim"},
 	{ "akinsho/bufferline.nvim" },
 	{'akinsho/toggleterm.nvim', version = "*", config = true},
 	{ "saadparwaiz1/cmp_luasnip" },

@@ -171,6 +171,7 @@
 			brightnessctl
 			clang
 			clang-tools
+			code-cursor
 			comma
 			ddcui
 			ddcutil
