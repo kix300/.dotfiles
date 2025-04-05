@@ -200,7 +200,6 @@
 			ntfs3g
 			obs-studio
 			openjdk
-			python
 			prismlauncher
 			qbittorrent
 			qt6ct
