@@ -2,7 +2,6 @@
 
 {
   programs.nixvim = {
-	plugins.avante.enable = true;
     enable = true;
     colorschemes.catppuccin.enable = true;
 	vimAlias = true;
