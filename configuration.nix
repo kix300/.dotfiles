@@ -1,9 +1,10 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 
 {
 	imports =
 		[
 			./hardware-configuration.nix
+			./mc_server_connect.nix
 			#./hypr/hyprland.nix
 			#./nvidia.nix
 		];
@@ -15,25 +16,6 @@
 			systemd-boot.enable = true;
 			efi.canTouchEfiVariables = true;
 		};
-	};
-	services.tailscale.enable = true;
-
-	systemd.services.tailscale-autoconnect = {
-		description = "Automatic connection to Tailscale";
-		after = [ "network-pre.target" "tailscale.service" ];
-		wants = [ "network-pre.target" "tailscale.service" ];
-		wantedBy = [ "multi-user.target" ];
-
-		serviceConfig.Type = "oneshot";
-
-		script = ''
-# Attend que Tailscale soit prêt
-until ${pkgs.tailscale}/bin/tailscale status; do
-sleep 1
-done
-
-# Se connecte (si pas déjà fait)
-${pkgs.tailscale}/bin/tailscale up --authkey=tskey-auth-keVXrhVVF411CNTRL-AT8VgZqrWe55gySYcQJoe5hUZmAVeZyG'';
 	};
 
 	services = {
