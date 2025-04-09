@@ -16,7 +16,25 @@
 			efi.canTouchEfiVariables = true;
 		};
 	};
+	services.tailscale.enable = true;
 
+	systemd.services.tailscale-autoconnect = {
+		description = "Automatic connection to Tailscale";
+		after = [ "network-pre.target" "tailscale.service" ];
+		wants = [ "network-pre.target" "tailscale.service" ];
+		wantedBy = [ "multi-user.target" ];
+
+		serviceConfig.Type = "oneshot";
+
+		script = ''
+# Attend que Tailscale soit prêt
+until ${pkgs.tailscale}/bin/tailscale status; do
+sleep 1
+done
+
+# Se connecte (si pas déjà fait)
+${pkgs.tailscale}/bin/tailscale up --authkey=tskey-auth-keVXrhVVF411CNTRL-AT8VgZqrWe55gySYcQJoe5hUZmAVeZyG'';
+	};
 
 	services = {
 		xserver = {
@@ -65,7 +83,7 @@
 		nvidiaSettings = lib.mkDefault true;
 	};
 	/*
-	 */
+*/
 
 	networking = {
 		hostName = "OzenOs";
@@ -134,7 +152,7 @@
 						shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
 						exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
 						fi
-						'';
+			'';
 		};
 		nh = {
 			enable = true;
@@ -161,70 +179,70 @@
 	nixpkgs.config.allowUnfree = true;
 	environment.systemPackages = with pkgs; [
 		aapt
-			adbtuifm
-			adwaita-icon-theme
-			aircrack-ng
-			android-tools
-			apktool
-			appimage-run
-			bear
-			brightnessctl
-			clang
-			clang-tools
-			code-cursor
-			comma
-			ddcui
-			ddcutil
-			direnv
-			discord-screenaudio
-			dolphin-emu
-			gcc
-			git
-			gnumake
-			grim
-			helix
-			heroic
-			hyprlock
-			iwgtk
-			kdePackages.qtsvg
-			kdePackages.qtwayland
-			kitty
-			libbsd
-			libclang
-			libgcc
-			libgccjit
-			lutris
-			nil
-			nodejs
-			norminette
-			ntfs3g
-			obs-studio
-			openjdk
-			prismlauncher
-			qbittorrent
-			qt6ct
-			readline
-			readline70
-			rofi-power-menu
-			rofi-wayland
-			rpi-imager
-			signal-desktop
-			swaylock-fancy
-			telegram-desktop
-			util-linux
-			valgrind
-			vscodium
-			wine
-			wofi
-			xdg-desktop-portal-gtk
-			xdg-desktop-portal-hyprland
-			xfce.thunar
-			];
+		adbtuifm
+		adwaita-icon-theme
+		aircrack-ng
+		android-tools
+		apktool
+		appimage-run
+		bear
+		brightnessctl
+		clang
+		clang-tools
+		code-cursor
+		comma
+		ddcui
+		ddcutil
+		direnv
+		discord-screenaudio
+		dolphin-emu
+		gcc
+		git
+		gnumake
+		grim
+		helix
+		heroic
+		hyprlock
+		iwgtk
+		kdePackages.qtsvg
+		kdePackages.qtwayland
+		kitty
+		libbsd
+		libclang
+		libgcc
+		libgccjit
+		lutris
+		nil
+		nodejs
+		norminette
+		ntfs3g
+		obs-studio
+		openjdk
+		prismlauncher
+		qbittorrent
+		qt6ct
+		readline
+		readline70
+		rofi-power-menu
+		rofi-wayland
+		rpi-imager
+		signal-desktop
+		swaylock-fancy
+		telegram-desktop
+		util-linux
+		valgrind
+		vscodium
+		wine
+		wofi
+		xdg-desktop-portal-gtk
+		xdg-desktop-portal-hyprland
+		xfce.thunar
+	];
 
 	fonts.packages = with pkgs; [
 		fira-code
-			fira-code-symbols
-			nerd-fonts.fira-code
+		fira-code-symbols
+		nerd-fonts.fira-code
 	];
 
 
@@ -258,7 +276,7 @@
 			boot.extraModprobeConfig = ''
 				blacklist nouveau
 				options nouveau modeset=0
-				'';
+			'';
 
 			services.udev.extraRules = ''
 # Remove NVIDIA USB xHCI Host Controller devices, if present
@@ -269,16 +287,16 @@
 				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto", ATTR{remove}="1"
 # Remove NVIDIA VGA/3D controller devices
 				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
-				'';
+			'';
 			boot.blacklistedKernelModules = [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" ];
 		};
 	};
-# This value determines the NixOS release from which the default
-# settings for stateful data, like file locations and database versions
-# on your system were taken. It‘s perfectly fine and recommended to leave
-# this value at the release version of the first install of this system.
-# Before changing this value read the documentation for this option
-# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+	# This value determines the NixOS release from which the default
+	# settings for stateful data, like file locations and database versions
+	# on your system were taken. It‘s perfectly fine and recommended to leave
+	# this value at the release version of the first install of this system.
+	# Before changing this value read the documentation for this option
+	# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
 	system.stateVersion = "23.05"; # Did you read the comment?
 
 }
