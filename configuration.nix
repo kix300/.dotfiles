@@ -64,8 +64,6 @@
 		powerManagement.finegrained = lib.mkDefault true;
 		nvidiaSettings = lib.mkDefault true;
 	};
-	/*
-*/
 
 	networking = {
 		hostName = "OzenOs";
