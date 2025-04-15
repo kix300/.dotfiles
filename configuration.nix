@@ -217,6 +217,7 @@
 		xdg-desktop-portal-gtk
 		xdg-desktop-portal-hyprland
 		xfce.thunar
+		inputs.zen-browser.packages."${system}".default
 	];
 
 	fonts.packages = with pkgs; [

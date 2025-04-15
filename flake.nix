@@ -17,9 +17,10 @@
 		nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 		ags.url = "github:Aylur/ags";
 		ags.inputs.nixpkgs.follows = "nixpkgs";
+		zen-browser.url = "github:MarceColl/zen-browser-flake";
 	};
 
-	outputs = { self, nixpkgs, nixos-hardware, home-manager, ags, nix-index-database, stylix, nixvim, ... }@inputs: let
+	outputs = { self, nixpkgs, nixos-hardware, home-manager, ags, nix-index-database, stylix, nixvim, zen-browser, ... }@inputs: let
 		inherit (self) outputs;
 	in {
 		devShells.x86_64-linux.default =
