@@ -2,60 +2,97 @@
 	description = "A simple NixOS flake";
 
 	inputs = {
-# NixOS official package source, using the nixos-23.11 branch here
-    	nixvim.url = "github:nix-community/nixvim";
+		nixvim.url = "github:nix-community/nixvim";
 		nixvim.inputs.nixpkgs.follows = "nixpkgs";
+		nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 		nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 		stylix.url = "github:danth/stylix";
-		#nixvim-flake.url = "github:kix300/Lazyvim-NixOs";
 		home-manager = {
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		nix-index-database.url = "github:nix-community/nix-index-database";
 		nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-		ags.url = "github:Aylur/ags";
-		ags.inputs.nixpkgs.follows = "nixpkgs";
+		ags = {
+			url = "github:Aylur/ags";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+		astal = {
+			url = "github:aylur/astal";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 		zen-browser.url = "github:MarceColl/zen-browser-flake";
 	};
 
-	outputs = { self, nixpkgs, nixos-hardware, home-manager, ags, nix-index-database, stylix, nixvim, zen-browser, ... }@inputs: let
+	outputs = { self, nixpkgs, nixos-hardware, home-manager, ags, astal, nix-index-database, stylix, nixvim, zen-browser, nix-minecraft, ... }@inputs: let
 		inherit (self) outputs;
+		forAllSystems = nixpkgs.lib.genAttrs [
+			"aarch64-linux"
+			"i686-linux"
+			"x86_64-linux"
+			"aarch64-darwin"
+			"x86_64-darwin"
+		];
 	in {
-		devShells.x86_64-linux.default =
-			nixpkgs.mkShell
+		devShells = forAllSystems (
+			system:
+			let
+				pkgs = nixpkgs.legacyPackages.${system};
+			in
+				pkgs.mkShell
 			{
-				nativeBuildInputs = with nixpkgs; [
+				nativeBuildInputs = with pkgs; [
 					readline
 				];
 				shellHook = ''fish'';
+			});
+
+		nixosConfigurations = {
+			laptop = nixpkgs.lib.nixosSystem rec {
+				system = "x86_64-linux";
+				specialArgs = { inherit inputs outputs system; };
+				modules = [
+					./hosts/ozen
+					nixos-hardware.nixosModules.asus-zephyrus-ga401
+					nixos-hardware.nixosModules.asus-battery
+					nix-index-database.nixosModules.nix-index
+					{
+						hardware.asus.battery.chargeUpto = 85;
+					}
+					home-manager.nixosModules.home-manager
+					{
+						home-manager.useGlobalPkgs = true;
+						home-manager.useUserPackages = true;
+						home-manager.backupFileExtension = ".bak";
+						home-manager.extraSpecialArgs = { inherit inputs;};
+						home-manager.sharedModules = [
+							stylix.homeManagerModules.stylix
+							ags.homeManagerModules.default
+							nixvim.homeManagerModules.nixvim
+						];
+						home-manager.users.ozen = import ./home/ozen/home.nix;
+					}
+				];
 			};
-		nixosConfigurations.OzenOs = nixpkgs.lib.nixosSystem {
-			system = "x86_64-linux";
-			specialArgs = { inherit inputs outputs; };
-			modules = [
-				./configuration.nix
-				nixos-hardware.nixosModules.asus-zephyrus-ga401
-				nixos-hardware.nixosModules.asus-battery
-				nix-index-database.nixosModules.nix-index
-				{
-					hardware.asus.battery.chargeUpto = 85;
-				}
-				home-manager.nixosModules.home-manager
-				{
-					home-manager.useGlobalPkgs = true;
-					home-manager.backupFileExtension = ".bak";
-					home-manager.useUserPackages = true;
-					home-manager.extraSpecialArgs = { inherit inputs;};
-					home-manager.sharedModules = [
-						stylix.homeManagerModules.stylix
-						ags.homeManagerModules.default
-						nixvim.homeManagerModules.nixvim
-					];
-					home-manager.users.ozen = import ./home.nix;
-				}
-			];
+			steve = nixpkgs.lib.nixosSystem rec {
+				system = "aarch64-linux";
+				specialArgs = { inherit inputs outputs system; };
+				modules = [
+					nixos-hardware.nixosModules.raspberry-pi-4
+					./hosts/steve
+				];
+			};
 		};
+		# homeConfigurations = {
+		# 	"ozen@laptop" = home-manager.lib.homeManagerConfiguration {
+		# 		pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+		# 		extraSpecialArgs = { inherit inputs outputs; };
+		# 		modules = [
+		# 			./home/ozen/home/home.nix
+		# 		];
+		# 	};
+		# };
+
 	};
 }

@@ -11,7 +11,7 @@ $logout
 $sleep
 $reboot
 $shutdown" | rofi -dmenu -i -p "Powermenu" \
-	-theme "~/.dotfiles/rofi/style-4.rasi")
+	-theme "~/.dotfiles/commons/rofi/style-4.rasi")
 
 if [ "$selected_option" == "$lock" ]; then
 	swaylock-fancy

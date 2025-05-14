@@ -12,10 +12,11 @@
 		};
 		opacity.terminal = 1;
 		targets = {
-				gtk.enable = true;
-				xfce.enable = true;
-				wofi.enable = true;
-				nixvim.enable = false;
+			gtk.enable = true;
+			xfce.enable = true;
+			wofi.enable = true;
+			nixvim.enable = false;
+			firefox.profileNames = [ "default" ];
 		};
 	};
 
