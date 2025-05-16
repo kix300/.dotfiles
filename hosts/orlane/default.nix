@@ -5,6 +5,7 @@
 		[
 			./hardware-configuration.nix
 			../../commons/common.nix
+			../../commons/tailscale.nix
 		];
 
 	nix.settings.experimental-features = [ "flakes" ];
