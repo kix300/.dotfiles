@@ -1,8 +1,6 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  imports = [ <nixpkgs/nixos/modules/services/networking/tailscale.nix> ];
-
   services.tailscale.enable = true;
 
   # Configuration système pour une connexion fiable au démarrage
