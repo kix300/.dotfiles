@@ -17,7 +17,7 @@
 	  done
 
 	  AUTH_KEY=$(cat /etc/tailscale/authkey)
-			${tailscale}/bin/tailscale up --authkey "$AUTH_KEY" --hostname mon-pc-nixos
+			${tailscale}/bin/tailscale up --authkey "$AUTH_KEY" --hostname orlane
 		'';
 	};
 
