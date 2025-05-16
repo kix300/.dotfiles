@@ -6,6 +6,7 @@
 		[		
 			./hardware-configuration.nix
 			../../commons/configuration.nix
+			../../commons/common.nix
 		];
 
 
@@ -46,7 +47,6 @@
 			asusctl
 			pavucontrol
 			mangohud
-			fish
 			aapt
 			adbtuifm
 			adwaita-icon-theme
@@ -56,7 +56,6 @@
 			appimage-run
 			bear
 			brightnessctl
-			clang
 			clang-tools
 			chromium
 			code-cursor
@@ -68,34 +67,21 @@
 			distrobox
 			dolphin-emu
 			glfw
-			git
-			gnumake
-			ghostty
-			grim
 			helix
 			heroic
 			hyprlock
-			iwgtk
 			kdePackages.qtsvg
 			kdePackages.qtwayland
 			kitty
-			libbsd
-			libclang
-			libgcc
-			libgccjit
-			lutris
 			nil
 			nodejs
 			norminette
 			ntfs3g
 			obs-studio
 			openjdk
-			pnpm
 			prismlauncher
 			qbittorrent
 			qt6ct
-			readline
-			readline70
 			rofi-power-menu
 			rofi-wayland
 			rpi-imager
@@ -105,15 +91,12 @@
 			swaylock-fancy
 			telegram-desktop
 			util-linux
-			valgrind
-			vscodium
 			wine
 			wofi
 			xdg-desktop-portal-gtk
 			xdg-desktop-portal-hyprland
 			xfce.thunar
 			inputs.zen-browser.packages."${system}".default
-			vim
 		];
 	};
 	virtualisation.podman.enable = true;

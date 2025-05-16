@@ -83,6 +83,14 @@
 					./hosts/steve
 				];
 			};
+			orlane = nixpkgs.lib.nixosSystem rec {
+				system = "x86_64-linux";
+				specialArgs = { inherit inputs outputs system; };
+				modules = [
+					nixos-hardware.nixosModules.hp-probook-440G5
+					./hosts/orlane
+				];
+			};
 		};
 		# homeConfigurations = {
 		# 	"ozen@laptop" = home-manager.lib.homeManagerConfiguration {
