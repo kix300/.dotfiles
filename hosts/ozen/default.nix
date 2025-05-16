@@ -26,13 +26,6 @@
 	};
 	services = {
 		xserver = {
-			enable = true;
-			xkb = {
-				layout = "us";
-				variant = "";
-			};
-			displayManager.gdm.enable = true;
-			desktopManager.gnome.enable = true;
 			videoDrivers = [ "nvidia" "nvidia_drm" "nvidia_modeset" ]; # or "nvidiaLegacy470 etc.
 		};
 	};

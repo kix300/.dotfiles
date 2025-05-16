@@ -15,6 +15,16 @@
 			alsa.support32Bit = true;
 			pulse.enable = true;
 		};
+		xserver = {
+  			libinput.enable = true;
+			enable = true;
+			xkb = {
+				layout = "us";
+				variant = "";
+			};
+			displayManager.gdm.enable = true;
+			desktopManager.gnome.enable = true;
+		};
 	};
 	hardware = {
 		i2c.enable = true;
@@ -64,7 +74,6 @@
 	time.timeZone = "Europe/Paris";
 
 	i18n = {
-		defaultLocale = "en_US.UTF-8";
 		extraLocaleSettings = {
 			LC_ADDRESS = "fr_FR.UTF-8";
 			LC_IDENTIFICATION = "fr_FR.UTF-8";

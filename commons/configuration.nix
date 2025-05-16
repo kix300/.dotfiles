@@ -29,6 +29,10 @@
 		};
 	};
 
+	i18n = {
+		defaultLocale = "en_US.UTF-8";
+	};
+
 	virtualisation = {
 		virtualbox = {
 			host.enable = false;
