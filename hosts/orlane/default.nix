@@ -7,6 +7,7 @@
 			../../commons/common.nix
 		];
 
+	nix.settings.experimental-features = [ "flakes" ];
 	boot.loader = {
 		efi = {
 			canTouchEfiVariables = false;
