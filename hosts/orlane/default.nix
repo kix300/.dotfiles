@@ -51,8 +51,6 @@
 		firefox.enable = true;
 		git = {
 			enable = true;
-			userName = "";
-			userEmail = "";
 		};
 		starship = {
 			enable = true;
