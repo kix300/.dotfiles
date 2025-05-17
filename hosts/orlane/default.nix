@@ -44,7 +44,7 @@
 	users.users.orlane = {
 		isNormalUser = true;
 		description = "orlane";
-		extraGroups = [ "networkmanager" ];
+		extraGroups = [ "networkmanager" "wheel"];
 	};
 
 	# Install firefox.
