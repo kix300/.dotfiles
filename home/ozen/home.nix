@@ -1,16 +1,16 @@
 {pkgs, ...}:
 {
 	imports = [
-			./../../commons/stylix.nix
-			./../../commons/nixvim/nixvim.nix
-			./../../commons/waybar/waybar.nix
+		./../../commons/stylix.nix
+		./../../commons/nixvim/nixvim.nix
+		./../../commons/waybar/waybar.nix
 	];
 	programs.home-manager.enable = true;
 
 	home = {
 		username = "ozen";
 		homeDirectory = "/home/ozen";
-		
+
 	};
 	wayland.windowManager.hyprland = {
 		enable = true;
@@ -31,8 +31,14 @@
 			enable = true;
 			clock24 = true;
 			shell = "/etc/profiles/per-user/ozen/bin/fish";
+			extraConfig = "
+				set -g @catppuccin_flavor "mocha" # latte, frappe, macchiato, or mocha
+set -g @catppuccin_window_status_style "rounded" # basic, rounded, slanted, custom, or none
 
-			# more config
+# Load catppuccin
+run ~/.dotfiles/home/commons/tmux/plugins/catppuccin/tmux/catppuccin.tmux";
+
+				# more config
 		};
 		yazi = {
 			enable = true;
