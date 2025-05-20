@@ -27,6 +27,16 @@
 			userName = "kix300";
 			userEmail = "kixwalkiki@gmail.com";
 		};
+		tmux = {
+			enable = true;
+			clock24 = true;
+			shell = "/etc/profiles/per-user/ozen/bin/fish";
+
+			# more config
+		};
+		yazi = {
+			enable = true;
+		};
 		starship = {
 			enable = true;
 			settings = {
