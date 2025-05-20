@@ -32,6 +32,8 @@
 			clock24 = true;
 			shell = "/etc/profiles/per-user/ozen/bin/fish";
 			extraConfig = ''
+				set -s escape-time 0
+				set -g default-terminal "ghostty"
 				set -g @catppuccin_flavor "mocha" # latte, frappe, macchiato, or mocha
 set -g @catppuccin_window_status_style "rounded" # basic, rounded, slanted, custom, or none
 
@@ -58,9 +60,16 @@ run ~/.dotfiles/home/commons/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 			interactiveShellInit = ''
 				set fish_greeting # Disable greeting
 				eval "$(direnv hook fish)"
+				if not set -q TMUX
+    			set -g TMUX tmux new-session -d -s base
+    			eval $TMUX
+    			tmux attach-session -d -t base
+				end
 				alias nswitch="rm ~/.gtkrc-2.0 && nh os switch"
-				alias =="yazi"
 				alias dofus="appimage-run ~/Games/DOFUS/Ankama\ Launcher-Setup-x86_64.AppImage"
+				function =
+					yazi $argv
+				end
 			'';
 		};
 		ags = {
