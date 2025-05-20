@@ -59,6 +59,7 @@ run ~/.dotfiles/home/commons/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 				set fish_greeting # Disable greeting
 				eval "$(direnv hook fish)"
 				alias nswitch="rm ~/.gtkrc-2.0 && nh os switch"
+				alias =="yazi"
 				alias dofus="appimage-run ~/Games/DOFUS/Ankama\ Launcher-Setup-x86_64.AppImage"
 			'';
 		};
