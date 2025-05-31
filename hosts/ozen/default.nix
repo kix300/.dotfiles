@@ -92,7 +92,7 @@
 			xdg-desktop-portal-hyprland
 			xfce.thunar
 			zed-editor
-			inputs.zen-browser.packages."${system}".specific
+			inputs.zen-browser.packages."${system}".default
 		];
 	};
 	virtualisation.podman.enable = true;

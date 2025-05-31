@@ -28,7 +28,7 @@
 			userEmail = "kixwalkiki@gmail.com";
 		};
 		tmux = {
-			enable = true;
+			enable = false;
 			clock24 = true;
 			shell = "/etc/profiles/per-user/ozen/bin/fish";
 			extraConfig = ''
@@ -60,9 +60,6 @@ run ~/.dotfiles/home/commons/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 			interactiveShellInit = ''
 				set fish_greeting # Disable greeting
 				eval "$(direnv hook fish)"
-    			set -g TMUX tmux new-session -d -s base
-    			eval $TMUX
-    			tmux attach-session -d -t base
 				alias nswitch="rm ~/.gtkrc-2.0 && nh os switch"
 				alias dofus="appimage-run ~/Games/DOFUS/Ankama\ Launcher-Setup-x86_64.AppImage"
 				function =
