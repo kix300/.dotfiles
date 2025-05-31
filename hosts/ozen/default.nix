@@ -39,7 +39,6 @@
 			lshw
 			asusctl
 			pavucontrol
-			mangohud
 			aapt
 			adbtuifm
 			adwaita-icon-theme
@@ -51,7 +50,6 @@
 			bear
 			brightnessctl
 			clang-tools
-			chromium
 			code-cursor
 			comma
 			ddcui
@@ -59,9 +57,7 @@
 			direnv
 			discord
 			distrobox
-			dolphin-emu
 			glfw
-			helix
 			heroic
 			hyprlock
 			jadx
