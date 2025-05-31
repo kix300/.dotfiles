@@ -45,6 +45,7 @@
 			adwaita-icon-theme
 			aircrack-ng
 			android-tools
+			android-studio
 			apktool
 			appimage-run
 			bear
@@ -89,7 +90,8 @@
 			xdg-desktop-portal-gtk
 			xdg-desktop-portal-hyprland
 			xfce.thunar
-			inputs.zen-browser.packages."${system}".default
+			zed-editor
+			inputs.zen-browser.packages."${system}".specific
 		];
 	};
 	virtualisation.podman.enable = true;

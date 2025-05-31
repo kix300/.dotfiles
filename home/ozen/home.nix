@@ -60,11 +60,9 @@ run ~/.dotfiles/home/commons/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 			interactiveShellInit = ''
 				set fish_greeting # Disable greeting
 				eval "$(direnv hook fish)"
-				if not set -q TMUX
     			set -g TMUX tmux new-session -d -s base
     			eval $TMUX
     			tmux attach-session -d -t base
-				end
 				alias nswitch="rm ~/.gtkrc-2.0 && nh os switch"
 				alias dofus="appimage-run ~/Games/DOFUS/Ankama\ Launcher-Setup-x86_64.AppImage"
 				function =
