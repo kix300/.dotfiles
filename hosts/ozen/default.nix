@@ -64,6 +64,7 @@
 			helix
 			heroic
 			hyprlock
+			jadx
 			kdePackages.qtsvg
 			kdePackages.qtwayland
 			kitty
