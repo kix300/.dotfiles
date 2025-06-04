@@ -91,6 +91,7 @@
 			inputs.zen-browser.packages."${system}".default
 		];
 	};
+	hardware.steam-hardware.enable = true;
 	virtualisation.podman.enable = true;
 	virtualisation.docker.enable = true;
 	virtualisation.docker.rootless = {
