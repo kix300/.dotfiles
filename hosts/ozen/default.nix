@@ -44,7 +44,7 @@
 			adwaita-icon-theme
 			aircrack-ng
 			android-tools
-			android-studio
+			#android-studio
 			apktool
 			appimage-run
 			bear
@@ -60,7 +60,7 @@
 			glfw
 			heroic
 			hyprlock
-			jadx
+			#jadx
 			kdePackages.qtsvg
 			kdePackages.qtwayland
 			kitty
