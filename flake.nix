@@ -67,7 +67,7 @@
 						home-manager.backupFileExtension = ".bak";
 						home-manager.extraSpecialArgs = { inherit inputs;};
 						home-manager.sharedModules = [
-							stylix.homeManagerModules.stylix
+							stylix.homeModules.stylix
 							ags.homeManagerModules.default
 							nixvim.homeManagerModules.nixvim
 						];

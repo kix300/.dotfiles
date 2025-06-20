@@ -15,15 +15,15 @@
 			alsa.support32Bit = true;
 			pulse.enable = true;
 		};
+		desktopManager.gnome.enable = true;
+  		libinput.enable = true;
+		displayManager.gdm.enable = true;
 		xserver = {
-  			libinput.enable = true;
 			enable = true;
 			xkb = {
 				layout = "us";
 				variant = "";
 			};
-			displayManager.gdm.enable = true;
-			desktopManager.gnome.enable = true;
 		};
 	};
 	hardware = {
