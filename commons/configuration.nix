@@ -15,7 +15,6 @@
 	programs = {
 		hyprland.portalPackage = true;
 		hyprland.xwayland.enable = true;
-		ssh.startAgent = true;
 		bash = {
 			interactiveShellInit = ''
 				if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
