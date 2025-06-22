@@ -29,6 +29,16 @@
 			videoDrivers = [ "nvidia" "nvidia_drm" "nvidia_modeset" ]; # or "nvidiaLegacy470 etc.
 		};
 	};
+	#for unityhub ships of fools
+	environment.systemPackages = [
+		(pkgs.unityhub.override {
+			extraPkgs = fhsPkgs: [
+				fhsPkgs.harfbuzz
+				fhsPkgs.libogg
+			];
+		})
+	];
+
 	nixpkgs.config.allowUnfree = true;
 	users.extraGroups.vboxusers.members = [ "ozen wheel" ];
 	users.users.ozen = {
