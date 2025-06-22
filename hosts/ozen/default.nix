@@ -81,7 +81,6 @@
 			supabase-cli
 			swaylock-fancy
 			telegram-desktop
-			unityhub
 			util-linux
 			wine
 			wofi
