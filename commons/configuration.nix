@@ -32,8 +32,8 @@
 		};
 		adb.enable = true;
 		steam = {
-			enable = true;
-			extest.enable = true;
+			enable = false;
+			extest.enable = false;
 		};
 	};
 
