@@ -29,7 +29,7 @@
 	users.users.ozen = {
 		isNormalUser = true;
 		description = "Killian";
-		extraGroups = [ "networkmanager" "wheel" "adbusers" "lp" "i2c" ];
+		extraGroups = [ "networkmanager" "wheel" "adbusers" "lp" "i2c" "docker" ];
 		packages = with pkgs; [
 			lshw
 			asusctl
