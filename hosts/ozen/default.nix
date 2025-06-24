@@ -24,11 +24,6 @@
 			};
 		};
 	};
-	services = {
-		xserver = {
-			videoDrivers = [ "nvidia" "nvidia_drm" "nvidia_modeset" ]; # or "nvidiaLegacy470 etc.
-		};
-	};
 	nixpkgs.config.allowUnfree = true;
 	users.extraGroups.vboxusers.members = [ "ozen wheel" ];
 	users.users.ozen = {
@@ -91,7 +86,6 @@
 			inputs.zen-browser.packages."${system}".default
 		];
 	};
-	hardware.steam-hardware.enable = true;
 	virtualisation.podman.enable = true;
 	virtualisation.docker.enable = true;
 	virtualisation.docker.rootless = {
@@ -115,41 +109,36 @@
 		};
 	};
 
-	specialisation = {
-		WORK_NOT_KDE.configuration = {
-			environment.etc."specialisation".text = "WORK_NOT_KDE";
-			system.nixos.tags = [ "without_nvidia" ];
-			services = {
-				xserver = {
-					enable = lib.mkForce false;
-					videoDrivers = [ "nouveau" "nvidia_drm" "nvidia_modeset" ]; # or "nvidiaLegacy470 etc.
-				};
-				displayManager.sddm.enable = lib.mkForce false;
-				desktopManager.plasma6.enable = lib.mkForce false;
-				displayManager.gdm.enable = lib.mkForce false;
-				desktopManager.gnome.enable = lib.mkForce false;
-			};
+	services = {
+		xserver = {
+			enable = lib.mkForce false;
+		};
+		displayManager.sddm.enable = lib.mkForce false;
+		desktopManager.plasma6.enable = lib.mkForce false;
+		displayManager.gdm.enable = lib.mkForce false;
+		desktopManager.gnome.enable = lib.mkForce false;
+	};
 
-			hardware = {
-				nvidia = {
-					prime.offload.enable = lib.mkForce false;
-					prime.offload.enableOffloadCmd = lib.mkForce false;
-					prime.sync.enable = lib.mkForce false;
-					dynamicBoost.enable = lib.mkForce false;
-					modesetting.enable = lib.mkForce false;
-					powerManagement.enable = lib.mkForce false;
-					powerManagement.finegrained = lib.mkForce false;
-					nvidiaSettings = lib.mkForce false;
-					open = lib.mkForce false;
-				};
-			};
-			qt.enable = false;
-			boot.extraModprobeConfig = ''
+	hardware = {
+		nvidia = {
+			prime.offload.enable = lib.mkForce false;
+			prime.offload.enableOffloadCmd = lib.mkForce false;
+			prime.sync.enable = lib.mkForce false;
+			dynamicBoost.enable = lib.mkForce false;
+			modesetting.enable = lib.mkForce false;
+			powerManagement.enable = lib.mkForce false;
+			powerManagement.finegrained = lib.mkForce false;
+			nvidiaSettings = lib.mkForce false;
+			open = lib.mkForce false;
+		};
+	};
+	qt.enable = false;
+	boot.extraModprobeConfig = ''
 				blacklist nouveau
 				options nouveau modeset=0
-			'';
+	'';
 
-			services.udev.extraRules = ''
+	services.udev.extraRules = ''
 # Remove NVIDIA USB xHCI Host Controller devices, if present
 				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{power/control}="auto", ATTR{remove}="1"
 # Remove NVIDIA USB Type-C UCSI devices, if present
@@ -158,10 +147,8 @@
 				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto", ATTR{remove}="1"
 # Remove NVIDIA VGA/3D controller devices
 				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
-			'';
-			boot.blacklistedKernelModules = [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" ];
-		};
-	};
+	'';
+	boot.blacklistedKernelModules = [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" ];
 	# This value determines the NixOS release from which the default
 	# settings for stateful data, like file locations and database versions
 	# on your system were taken. It‘s perfectly fine and recommended to leave
