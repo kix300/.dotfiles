@@ -109,7 +109,7 @@
 			};
 		};
 	};
-	boot.extraModulePackages = with config.boot.kernelPackages; [ rt18812au ];
+	boot.extraModulePackages = with config.boot.kernelPackages; [ rtl8812au ];
 	boot.kernelModules = [ "8812au" ];
 
 	services = {
