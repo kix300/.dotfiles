@@ -1,5 +1,5 @@
 
-{ pkgs, lib, inputs, ... }:
+{config, pkgs, lib, inputs, ... }:
 
 {
 	imports =
@@ -84,7 +84,6 @@
 			xfce.thunar
 			zed-editor
 			inputs.zen-browser.packages."${system}".default
-			steam
 			ghidra
 		];
 	};
@@ -110,6 +109,8 @@
 			};
 		};
 	};
+	boot.extraModulePackages = with config.boot.kernelPackages; [ rt18812au ];
+	boot.kernelModules = [ "8812au" ];
 
 	services = {
 		xserver = {
