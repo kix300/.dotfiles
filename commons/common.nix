@@ -59,7 +59,6 @@
 		readline
 		readline70
 		valgrind
-		vscodium
 	];
 
 	time.timeZone = "Europe/Paris";

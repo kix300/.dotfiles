@@ -45,7 +45,6 @@
 			bear
 			brightnessctl
 			clang-tools
-			code-cursor
 			comma
 			ddcui
 			ddcutil
@@ -77,6 +76,7 @@
 			swaylock-fancy
 			telegram-desktop
 			util-linux
+			vscode
 			wine
 			wofi
 			xdg-desktop-portal-gtk
