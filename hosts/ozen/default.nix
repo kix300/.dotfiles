@@ -51,6 +51,7 @@
 			direnv
 			discord
 			distrobox
+			gemini-cli
 			glfw
 			heroic
 			hyprlock
