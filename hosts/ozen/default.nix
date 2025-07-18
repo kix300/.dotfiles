@@ -86,7 +86,6 @@
 			xfce.thunar
 			zed-editor
 			inputs.zen-browser.packages."${system}".default
-			ghidra
 		];
 	};
 	virtualisation.podman.enable = true;
