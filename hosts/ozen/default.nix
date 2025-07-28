@@ -95,6 +95,13 @@
 		setSocketVariable = true;
 	};
 
+	# for charging phone
+	services.logind = {
+		lidSwitch = "ignore";
+		lidSwitchDocked = "ignore";
+		lidSwitchExternalPower = "ignore";
+	};
+
 	xdg.portal = {
 		enable = true;
 		wlr.enable = true;
@@ -143,6 +150,7 @@
 	'';
 
 	services.udev.extraRules = ''
+		ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="on"
 # Remove NVIDIA USB xHCI Host Controller devices, if present
 				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{power/control}="auto", ATTR{remove}="1"
 # Remove NVIDIA USB Type-C UCSI devices, if present
