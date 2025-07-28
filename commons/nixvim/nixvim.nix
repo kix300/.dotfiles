@@ -4,6 +4,7 @@
   programs.nixvim = {
     enable = true;
     colorschemes.catppuccin.enable = true;
+	clipboard.register = "wl-copy";
 	vimAlias = true;
 	viAlias = true;
     extraPackages = with pkgs; [
