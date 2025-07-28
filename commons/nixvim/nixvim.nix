@@ -4,7 +4,7 @@
   programs.nixvim = {
     enable = true;
     colorschemes.catppuccin.enable = true;
-	clipboard.register = "wl-copy";
+    opts.clipboard = "unnamedplus";
 	vimAlias = true;
 	viAlias = true;
     extraPackages = with pkgs; [
@@ -13,6 +13,7 @@
       stylua
       # Telescope
       ripgrep
+      wl-clipboard
 	  fzf
     ];
 
@@ -59,6 +60,18 @@
             { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
           },
         })
+              vim.g.clipboard = {
+        name = "wl-clipboard (Wayland)",
+        copy = {
+          ["+"] = "${pkgs.wl-clipboard}/bin/wl-copy --foreground --type text/plain",
+          ["*"] = "${pkgs.wl-clipboard}/bin/wl-copy --foreground --primary --type text/plain",
+        },
+        paste = {
+          ["+"] = "${pkgs.wl-clipboard}/bin/wl-paste --no-newline",
+          ["*"] = "${pkgs.wl-clipboard}/bin/wl-paste --no-newline --primary",
+        },
+        cache_enabled = true,
+      }
       '';
   };
 

@@ -46,7 +46,6 @@
 			bear
 			brightnessctl
 			clang-tools
-			wl-clipboard
 			comma
 			ddcui
 			ddcutil
