@@ -15,6 +15,7 @@
 			alsa.support32Bit = true;
 			pulse.enable = true;
 		};
+		videoDrivers = [ "displaylink" "modesetting"];
 		desktopManager.gnome.enable = true;
   		libinput.enable = true;
 		displayManager.gdm.enable = true;
