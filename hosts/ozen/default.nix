@@ -14,7 +14,7 @@
 	networking = {
 		hostName = "laptop";
 		wireless.iwd = {
-			enable = false;
+			enable = true;
 			settings = {
 				IPv6 = {
 					Enabled = true;
