@@ -13,18 +13,17 @@
 
 	networking = {
 		hostName = "laptop";
-		networkmanager.enable = true;
-		# wireless.iwd = {
-		# 	enable = false;
-		# 	settings = {
-		# 		IPv6 = {
-		# 			Enabled = true;
-		# 		};
-		# 		Settings = {
-		# 			AutoConnect = true;
-		# 		};
-		# 	};
-		# };
+		wireless.iwd = {
+			enable = false;
+			settings = {
+				IPv6 = {
+					Enabled = true;
+				};
+				Settings = {
+					AutoConnect = true;
+				};
+			};
+		};
 	};
 	nixpkgs.config.allowUnfree = true;
 	users.extraGroups.vboxusers.members = [ "ozen wheel" ];
@@ -62,7 +61,6 @@
 			kdePackages.qtsvg
 			kdePackages.qtwayland
 			kitty
-			networkmanagerapplet
 			nil
 			nodejs
 			norminette
