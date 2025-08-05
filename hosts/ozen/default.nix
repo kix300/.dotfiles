@@ -7,7 +7,7 @@
 			./hardware-configuration.nix
 			../../commons/configuration.nix
 			../../commons/common.nix
-			../../commons/nvidia.nix
+			# ../../commons/nvidia.nix
 		];
 
 
@@ -131,37 +131,38 @@
 		desktopManager.gnome.enable = lib.mkForce false;
 	};
 
-	
-	# hardware = {
-	# 	nvidia = {
-	# 		prime.offload.enable = lib.mkForce false;
-	# 		prime.offload.enableOffloadCmd = lib.mkForce false;
-	# 		prime.sync.enable = lib.mkForce false;
-	# 		dynamicBoost.enable = lib.mkForce false;
-	# 		modesetting.enable = lib.mkForce false;
-	# 		powerManagement.enable = lib.mkForce false;
-	# 		powerManagement.finegrained = lib.mkForce false;
-	# 		nvidiaSettings = lib.mkForce false;
-	# 		open = lib.mkForce false;
-	# 	};
-	# };
 	qt.enable = false;
-	# boot.extraModprobeConfig = ''
-	# 			blacklist nouveau
-	# 			options nouveau modeset=0
-	# '';
+	
+	hardware = {
+		nvidia = {
+			prime.offload.enable = lib.mkForce false;
+			prime.offload.enableOffloadCmd = lib.mkForce false;
+			prime.sync.enable = lib.mkForce false;
+			dynamicBoost.enable = lib.mkForce false;
+			modesetting.enable = lib.mkForce false;
+			powerManagement.enable = lib.mkForce false;
+			powerManagement.finegrained = lib.mkForce false;
+			nvidiaSettings = lib.mkForce false;
+			open = lib.mkForce false;
+		};
+	};
+	boot.extraModprobeConfig = ''
+				blacklist nouveau
+				options nouveau modeset=0
+	'';
 
 	services.udev.extraRules = ''
-		# ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="on"
-# # Remove NVIDIA USB xHCI Host Controller devices, if present
-# 				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{power/control}="auto", ATTR{remove}="1"
-# # Remove NVIDIA USB Type-C UCSI devices, if present
-# 				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c8000", ATTR{power/control}="auto", ATTR{remove}="1"
-# # Remove NVIDIA Audio devices, if present
-# 				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto", ATTR{remove}="1"
-# # Remove NVIDIA VGA/3D controller devices
-# 				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
+				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{power/control}="auto", ATTR{remove}="1"
+				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c8000", ATTR{power/control}="auto", ATTR{remove}="1"
+				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto", ATTR{remove}="1"
+				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
 	'';
+	# ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="on"
+	
+	
+	
+
+	
 	# boot.blacklistedKernelModules = [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" ];
 	# This value determines the NixOS release from which the default
 	# settings for stateful data, like file locations and database versions
