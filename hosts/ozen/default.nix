@@ -7,23 +7,24 @@
 			./hardware-configuration.nix
 			../../commons/configuration.nix
 			../../commons/common.nix
-			# ../../commons/nvidia.nix
+			../../commons/nvidia.nix
 		];
 
 
 	networking = {
 		hostName = "laptop";
-		wireless.iwd = {
-			enable = true;
-			settings = {
-				IPv6 = {
-					Enabled = true;
-				};
-				Settings = {
-					AutoConnect = true;
-				};
-			};
-		};
+		networkmanager.enable = true;
+		# wireless.iwd = {
+		# 	enable = false;
+		# 	settings = {
+		# 		IPv6 = {
+		# 			Enabled = true;
+		# 		};
+		# 		Settings = {
+		# 			AutoConnect = true;
+		# 		};
+		# 	};
+		# };
 	};
 	nixpkgs.config.allowUnfree = true;
 	users.extraGroups.vboxusers.members = [ "ozen wheel" ];
@@ -61,6 +62,7 @@
 			kdePackages.qtsvg
 			kdePackages.qtwayland
 			kitty
+			networkmanagerapplet
 			nil
 			nodejs
 			norminette
@@ -133,30 +135,30 @@
 
 	qt.enable = false;
 	
-	hardware = {
-		nvidia = {
-			prime.offload.enable = lib.mkForce false;
-			prime.offload.enableOffloadCmd = lib.mkForce false;
-			prime.sync.enable = lib.mkForce false;
-			dynamicBoost.enable = lib.mkForce false;
-			modesetting.enable = lib.mkForce false;
-			powerManagement.enable = lib.mkForce false;
-			powerManagement.finegrained = lib.mkForce false;
-			nvidiaSettings = lib.mkForce false;
-			open = lib.mkForce false;
-		};
-	};
-	boot.extraModprobeConfig = ''
-				blacklist nouveau
-				options nouveau modeset=0
-	'';
-
-	services.udev.extraRules = ''
-				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{power/control}="auto", ATTR{remove}="1"
-				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c8000", ATTR{power/control}="auto", ATTR{remove}="1"
-				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto", ATTR{remove}="1"
-				ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
-	'';
+	# hardware = {
+	# 	nvidia = {
+	# 		prime.offload.enable = lib.mkForce false;
+	# 		prime.offload.enableOffloadCmd = lib.mkForce false;
+	# 		prime.sync.enable = lib.mkForce false;
+	# 		dynamicBoost.enable = lib.mkForce false;
+	# 		modesetting.enable = lib.mkForce false;
+	# 		powerManagement.enable = lib.mkForce false;
+	# 		powerManagement.finegrained = lib.mkForce false;
+	# 		nvidiaSettings = lib.mkForce false;
+	# 		open = lib.mkForce false;
+	# 	};
+	# };
+	# boot.extraModprobeConfig = ''
+	# 			blacklist nouveau
+	# 			options nouveau modeset=0
+	# '';
+	#
+	# services.udev.extraRules = ''
+	# 			ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{power/control}="auto", ATTR{remove}="1"
+	# 			ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c8000", ATTR{power/control}="auto", ATTR{remove}="1"
+	# 			ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto", ATTR{remove}="1"
+	# 			ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
+	# '';
 	# ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="on"
 	
 	
