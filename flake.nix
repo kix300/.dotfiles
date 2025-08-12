@@ -68,8 +68,8 @@
 						home-manager.extraSpecialArgs = { inherit inputs;};
 						home-manager.sharedModules = [
 							stylix.homeModules.stylix
-							ags.homeManagerModules.default
-							nixvim.homeManagerModules.nixvim
+							ags.homeModules.default
+							nixvim.homeModules.nixvim
 						];
 						home-manager.users.ozen = import ./home/ozen/home.nix;
 					}
