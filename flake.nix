@@ -29,7 +29,7 @@
 		};
 	};
 
-	outputs = { self, nixpkgs, nixos-hardware, home-manager, ags, astal, nix-index-database, stylix, nixvim, zen-browser, nix-minecraft, quickshell, ... }@inputs: let
+	outputs = { self, nixpkgs, nixos-hardware, home-manager, ags, astal, nix-index-database, stylix, nixvim, nix-minecraft, ... }@inputs: let
 		inherit (self) outputs;
 		forAllSystems = nixpkgs.lib.genAttrs [
 			"aarch64-linux"
