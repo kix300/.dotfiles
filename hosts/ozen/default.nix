@@ -119,8 +119,9 @@
 		};
 	};
 	boot.extraModulePackages = with config.boot.kernelPackages; [ rtl8812au ];
-	boot.kernelModules = [ "8812au" "amdgpu.dc=1" ];
+	boot.kernelModules = [ "8812au" "amdgpu.dc=1" "iwlwifi" ];
 
+	hardware.enableRedistributableFirmware = true;
 	services = {
 		xserver = {
 			enable = lib.mkForce false;
