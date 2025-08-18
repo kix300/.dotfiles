@@ -59,7 +59,8 @@
 		readline
 		readline70
 		valgrind
-		dmesg
+		util-linux
+		
 	];
 
 	time.timeZone = "Europe/Paris";
