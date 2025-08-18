@@ -118,8 +118,14 @@
 			};
 		};
 	};
-	boot.extraModulePackages = with config.boot.kernelPackages; [ rtl8812au ];
-	boot.kernelModules = [ "8812au" "amdgpu.dc=1" "iwlwifi" ];
+	boot = {
+		extraModulePackages = with config.boot.kernelPackages; [ rtl8812au ];
+		kernelModules = [ "8812au" "amdgpu.dc=1" "iwlwifi" "iwlmvm" ];
+		kernelParams = [
+			"iwlwifi.11ax_disable=0"  # Active le Wi-Fi 6 (802.11ax)
+			"iwlwifi.power_save=0"    # Désactive l'économie d'énergie (peut améliorer les perfs)
+		];
+	};
 
 	hardware.enableRedistributableFirmware = true;
 	services = {
@@ -133,7 +139,7 @@
 	};
 
 	qt.enable = false;
-	
+
 	# hardware = {
 	# 	nvidia = {
 	# 		prime.offload.enable = lib.mkForce false;
@@ -159,11 +165,11 @@
 	# 			ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
 	# '';
 	# ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="on"
-	
-	
-	
 
-	
+
+
+
+
 	# boot.blacklistedKernelModules = [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" ];
 	# This value determines the NixOS release from which the default
 	# settings for stateful data, like file locations and database versions
