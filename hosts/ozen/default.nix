@@ -94,6 +94,7 @@
 			xdg-desktop-portal-hyprland
 			xfce.thunar
 			inputs.zen-browser.packages."${system}".default
+			inputs.quickshell.packages."${system}".default
 		];
 	};
 	virtualisation.podman.enable = true;

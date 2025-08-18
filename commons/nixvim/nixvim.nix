@@ -60,6 +60,8 @@
             { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
           },
         })
+			require("lspconfig").qmlls.setup {}
+
               vim.g.clipboard = {
         name = "wl-clipboard (Wayland)",
         copy = {

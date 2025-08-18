@@ -1,5 +1,5 @@
 {
-	description = "A simple NixOS flake";
+	description = "Kix's Flake";
 
 	inputs = {
 		nixvim.url = "github:nix-community/nixvim";
@@ -23,9 +23,13 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		zen-browser.url = "github:0xc000022070/zen-browser-flake";
+		quickshell = {
+			url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 	};
 
-	outputs = { self, nixpkgs, nixos-hardware, home-manager, ags, astal, nix-index-database, stylix, nixvim, zen-browser, nix-minecraft, ... }@inputs: let
+	outputs = { self, nixpkgs, nixos-hardware, home-manager, ags, astal, nix-index-database, stylix, nixvim, zen-browser, nix-minecraft, quickshell, ... }@inputs: let
 		inherit (self) outputs;
 		forAllSystems = nixpkgs.lib.genAttrs [
 			"aarch64-linux"
@@ -69,7 +73,7 @@
 						home-manager.sharedModules = [
 							stylix.homeModules.stylix
 							ags.homeManagerModules.default
-							nixvim.homeManagerModules.nixvim
+							nixvim.homeModules.nixvim
 						];
 						home-manager.users.ozen = import ./home/ozen/home.nix;
 					}
