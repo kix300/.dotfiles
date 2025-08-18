@@ -16,6 +16,14 @@
 		wireless.iwd = {
 			enable = true;
 			settings = {
+				General = {
+					EnableNetworkConfiguration = true;
+				};
+				"Gibus" = {
+					AutoConnect = "true";
+					# Fréquences 5 GHz usuelles en France (pas de 2,4 GHz)
+					Frequencies = "5180,5200,5220,5240,5260,5280,5300,5320,5500,5520,5540,5560,5580,5660,5680,5700,5720,5745,5765,5785,5805";
+				};
 				IPv6 = {
 					Enabled = true;
 				};
