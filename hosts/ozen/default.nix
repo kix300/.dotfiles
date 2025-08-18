@@ -93,7 +93,6 @@
 			xdg-desktop-portal-gtk
 			xdg-desktop-portal-hyprland
 			xfce.thunar
-			zed-editor
 			inputs.zen-browser.packages."${system}".default
 		];
 	};

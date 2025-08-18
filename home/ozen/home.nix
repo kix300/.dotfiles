@@ -41,7 +41,7 @@ set -g @catppuccin_window_status_style "rounded" # basic, rounded, slanted, cust
 run ~/.dotfiles/home/commons/tmux/plugins/catppuccin/tmux/catppuccin.tmux 
 			'';
 
-				# more config
+			# more config
 		};
 		yazi = {
 			enable = true;
@@ -74,6 +74,65 @@ run ~/.dotfiles/home/commons/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 				accountsservice
 			];
 		};
+		zed-editor = {
+			enable = true;
+			extensions = ["nix" "toml" "make" "c++" "c"];
+			userSettings = {
+				assistant = {
+					enabled = true;
+					version = "2";
+					default_open_ai_model = null;
+					default_model = {
+						provider = "zed.dev";
+						model = "claude-3-5-sonnet-latest";
+					};
+				};
+				hour_format = "hour24";
+				terminal = {
+					alternate_scroll = "on";
+					blinking = "off";
+					copy_on_select = false;
+					dock = "bottom";
+					detect_venv = {
+						on = {
+							directories = [".env" "env" ".venv" "venv"];
+							activate_script = "default";
+						};
+					};
+					env = {
+						TERM = "ghostty";
+					};
+					font_family = "FiraCode Nerd Font";
+					font_features = null;
+					font_size = null;
+					line_height = "comfortable";
+					option_as_meta = false;
+					button = false;
+					shell = "system";
+					toolbar = {
+						title = true;
+					};
+					working_directory = "current_project_directory";
+				};
+				vim_mode = true;
+				## tell zed to use direnv and direnv can use a flake.nix enviroment.
+				load_direnv = "shell_hook";
+				base_keymap = "VSCode";
+				theme = {
+					mode = "system";
+					light = "One Light";
+					dark = "One Dark";
+				};
+				show_whitespaces = "all" ;
+				ui_font_size = 16;
+				buffer_font_size = 16;
+
+			};
+
+		};
+
+
 	};
-	home.stateVersion = "23.11";
-}
+
+home.stateVersion = "23.11";
+	}
