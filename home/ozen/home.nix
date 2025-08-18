@@ -125,7 +125,6 @@ run ~/.dotfiles/home/commons/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 				};
 				show_whitespaces = "all" ;
 				ui_font_size = 16;
-				buffer_font_size = 16;
 
 			};
 
