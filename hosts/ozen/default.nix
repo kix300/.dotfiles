@@ -70,6 +70,7 @@
 			kdePackages.qtsvg
 			kdePackages.qtwayland
 			kitty
+			libsForQt5.full
 			nil
 			nodejs
 			norminette

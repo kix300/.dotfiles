@@ -62,6 +62,7 @@ run ~/.dotfiles/home/commons/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 				eval "$(direnv hook fish)"
 				alias nswitch="rm ~/.gtkrc-2.0 && nh os switch"
 				alias dofus="appimage-run ~/Games/DOFUS/Ankama\ Launcher-Setup-x86_64.AppImage"
+				alias zed="zeditor ."
 				function =
 					yazi $argv
 				end
@@ -76,7 +77,7 @@ run ~/.dotfiles/home/commons/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 		};
 		zed-editor = {
 			enable = true;
-			extensions = ["nix" "toml" "make" "c++" "c"];
+			extensions = ["nix" "toml" "make" "c++" "c" "qmlls"];
 			userSettings = {
 				assistant = {
 					enabled = true;
@@ -114,6 +115,21 @@ run ~/.dotfiles/home/commons/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 					};
 					working_directory = "current_project_directory";
 				};
+				lsp = {
+					nix.binary.path_lookup = true;
+					qmlls.binary.path_lookup = true;
+				};
+				  languages = {
+                "Qmlls" = {
+                    language_servers = ["qmlls"];
+                    format_on_save = {
+                        external = {
+                            command = "mix";
+                        };
+                    };
+                };
+            };
+
 				vim_mode = true;
 				## tell zed to use direnv and direnv can use a flake.nix enviroment.
 				load_direnv = "shell_hook";
@@ -127,5 +143,5 @@ run ~/.dotfiles/home/commons/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 
 	};
 
-home.stateVersion = "23.11";
-	}
+	home.stateVersion = "23.11";
+}
