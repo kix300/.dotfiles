@@ -17,6 +17,7 @@
 			wofi.enable = true;
 			nixvim.enable = false;
 			firefox.profileNames = [ "default" ];
+			zed.enable = false;
 		};
 	};
 

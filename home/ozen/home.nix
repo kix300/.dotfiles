@@ -77,7 +77,7 @@ run ~/.dotfiles/home/commons/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 		};
 		zed-editor = {
 			enable = true;
-			extensions = ["nix" "toml" "make" "c++" "c" "qmlls"];
+			extensions = ["nix" "toml" "make" "c++" "c" "qml"];
 			userSettings = {
 				assistant = {
 					enabled = true;
@@ -117,14 +117,16 @@ run ~/.dotfiles/home/commons/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 				};
 				lsp = {
 					nix.binary.path_lookup = true;
-					qmlls.binary.path_lookup = true;
+					qml.binary.path_lookup = true;
+					qml.binary.arguments = ["-E" "additional-args"];
 				};
 				  languages = {
-                "Qmlls" = {
+                "qml" = {
                     language_servers = ["qmlls"];
                     format_on_save = {
                         external = {
                             command = "mix";
+							arguments = ["-E" "additional-args"];
                         };
                     };
                 };
@@ -135,6 +137,9 @@ run ~/.dotfiles/home/commons/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 				load_direnv = "shell_hook";
 				base_keymap = "VSCode";
 				show_whitespaces = "all" ;
+				theme = {
+					dark = "Catppuccin Mocha";
+				};
 
 			};
 

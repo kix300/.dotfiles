@@ -66,11 +66,11 @@
 			heroic
 			hyprlock
 			#jadx
-			kdePackages.qtdeclarative
 			kdePackages.qtsvg
 			kdePackages.qtwayland
+			kdePackages.qtdeclarative
+			kdePackages.full
 			kitty
-			libsForQt5.full
 			nil
 			nodejs
 			norminette
@@ -79,7 +79,6 @@
 			openjdk
 			prismlauncher
 			qbittorrent
-			qt6ct
 			rofi-power-menu
 			rofi-wayland
 			rpi-imager
