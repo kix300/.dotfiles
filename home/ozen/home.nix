@@ -139,6 +139,7 @@ run ~/.dotfiles/home/commons/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 				show_whitespaces = "all" ;
 				theme = {
 					dark = "Catppuccin Mocha";
+					light = "Catppuccin Mocha";
 				};
 
 			};
