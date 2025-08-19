@@ -66,6 +66,7 @@
 			heroic
 			hyprlock
 			#jadx
+			kdePackages.qtdeclarative
 			kdePackages.qtsvg
 			kdePackages.qtwayland
 			kitty
@@ -87,6 +88,7 @@
 			swaylock-fancy
 			telegram-desktop
 			util-linux
+			vimPlugins.nvim-treesitter-parsers.qmljs
 			vscode
 			wine
 			wofi
