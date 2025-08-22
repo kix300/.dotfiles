@@ -27,7 +27,7 @@
 		};
 	};
 	hardware = {
-		i2c.enable = true;
+		i2c.enable = false;
 		bluetooth.enable = true;
 		bluetooth.powerOnBoot = true;
 		graphics = {
