@@ -130,7 +130,7 @@
 	};
 	boot = {
 		extraModulePackages = with config.boot.kernelPackages; [ rtl8812au ];
-		kernelModules = [ "8812au" "amdgpu.dc=1" "iwlwifi" "iwlmvm" ];
+		kernelModules = [ "8812au" "amdgpu.dc=1" "iwlwifi" "iwlmvm" "amdgpu" "ucsi_ccg"];
 		kernelParams = [
 			"iwlwifi.11ax_disable=0"  # Active le Wi-Fi 6 (802.11ax)
 			"iwlwifi.power_save=0"    # Désactive l'économie d'énergie (peut améliorer les perfs)
