@@ -66,6 +66,7 @@ run ~/.dotfiles/home/commons/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 				function =
 					yazi $argv
 				end
+				bind \c] =
 			'';
 		};
 		ags = {
