@@ -16,6 +16,8 @@ return {
 	},
 	{ "nvim-telescope/telescope.nvim" },
 
+	{ "kazhala/close-buffers.nvim" },
+
 	--{ "RRethy/base16-nvim" },
 
 	-- { "folke/tokyonight.nvim" },

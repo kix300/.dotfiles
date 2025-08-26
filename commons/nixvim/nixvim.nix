@@ -60,6 +60,7 @@
 			{ "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
 		  },
 		})
+			require('close_buffers').setup {}
 			require("lspconfig").qmlls.setup {}
 			vim.lsp.enable("qmlls")
 
