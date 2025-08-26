@@ -67,6 +67,12 @@ run ~/.dotfiles/home/commons/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 					yazi $argv
 				end
 				bind \c] =
+
+				function nvimdotfiles
+					nvim ~/.dotfiles
+				end
+
+				bind alt-] nvimdotfiles
 			'';
 		};
 		ags = {
