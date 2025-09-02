@@ -13,8 +13,9 @@
 
 	networking = {
 		hostName = "laptop";
+		networkmanager.enable = true;
 		wireless.iwd = {
-			enable = true;
+			enable = false;
 			settings = {
 				General = {
 					EnableNetworkConfiguration = true;
