@@ -107,12 +107,12 @@
 		setSocketVariable = true;
 	};
 
-	# for charging phone
-	# services.logind = {
-	# 	lidSwitch = "ignore";
-	# 	lidSwitchDocked = "ignore";
-	# 	lidSwitchExternalPower = "ignore";
-	# };
+	# for charging phone kim
+	services.logind = {
+		lidSwitch = "ignore";
+		lidSwitchDocked = "ignore";
+		lidSwitchExternalPower = "ignore";
+	};
 
 	xdg.portal = {
 		enable = true;
