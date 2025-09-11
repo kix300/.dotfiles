@@ -61,6 +61,7 @@
 			direnv
 			discord
 			distrobox
+			fd
 			gemini-cli
 			glfw
 			godot
@@ -72,6 +73,7 @@
 			kdePackages.qtdeclarative
 			kdePackages.full
 			kitty
+			lua
 			nil
 			nodejs
 			norminette
@@ -79,6 +81,7 @@
 			obs-studio
 			openjdk
 			prismlauncher
+			python3
 			qbittorrent
 			r2modman
 			rofi-power-menu

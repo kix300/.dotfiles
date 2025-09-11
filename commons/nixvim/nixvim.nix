@@ -3,7 +3,6 @@
 {
 	programs.nixvim = {
 		enable = true;
-		colorschemes.catppuccin.enable = true;
 		opts.clipboard = "unnamedplus";
 		vimAlias = true;
 		viAlias = true;

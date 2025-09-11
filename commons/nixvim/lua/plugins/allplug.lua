@@ -59,12 +59,18 @@ return {
 	},
 	{ "mfussenegger/nvim-lint" },
 	{
-	   "neovim/nvim-lspconfig",
-	   opts = {
-	      servers = {
-			clangd = {};
+		"neovim/nvim-lspconfig",
+		opts = {
+			opts = {
+				servers = {
+					bacon_ls = {
+						enabled = diagnostics == "bacon-ls",
+					},
+					rust_analyzer = { enabled = false },
+					clangd = {};
+				},
 			},
-	   },
+		},
 	},
 	{ "rcarriga/nvim-notify" },
 	{ "nvim-pack/nvim-spectre" },
