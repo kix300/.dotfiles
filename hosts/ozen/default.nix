@@ -80,6 +80,7 @@
 			openjdk
 			prismlauncher
 			qbittorrent
+			r2modman
 			rofi-power-menu
 			rofi-wayland
 			rpi-imager
