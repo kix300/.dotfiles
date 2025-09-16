@@ -3,7 +3,8 @@
 	stylix = {
 		enable = true;
 		image = ./srcs/forest.jpg;
-		# base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+		polarity = "dark";
+		base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
 		#base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
 		cursor = {
 			package = pkgs.bibata-cursors;
@@ -15,7 +16,7 @@
 			gtk.enable = true;
 			xfce.enable = true;
 			wofi.enable = true;
-			nixvim.enable = false;
+			nixvim.enable = true;
 			firefox.profileNames = [ "default" ];
 			zed.enable = false;
 		};
