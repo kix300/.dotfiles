@@ -196,20 +196,4 @@ Singleton {
             return "󰁹";
         }
     }
-
-    function setVolume(percentage) {
-        if (sinkName) {
-            var setVolumeProcess = Quickshell.createProcess();
-            setVolumeProcess.command = ['pactl', 'set-sink-volume', sinkName, percentage + '%'];
-            setVolumeProcess.running = true;
-        }
-    }
-
-    function toggleMute() {
-        if (sinkName) {
-            var toggleMuteProcess = Quickshell.createProcess();
-            toggleMuteProcess.command = ['pactl', 'set-sink-mute', sinkName, 'toggle'];
-            toggleMuteProcess.running = true;
-        }
-    }
 }

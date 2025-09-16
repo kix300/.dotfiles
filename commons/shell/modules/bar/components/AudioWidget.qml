@@ -27,15 +27,6 @@ Item {
                 }
             }
         }
-
-        Text {
-            id: batteryText
-            anchors.verticalCenter: parent.verticalCenter
-            color: Audio.bluetoothBatteryPercentage <= 20 ? Colors.love : Colors.text
-            text: Audio.bluetoothBatteryAvailable ? Audio.bluetoothBatteryPercentage + "%" : ""
-            font.pixelSize: 10
-            visible: Audio.bluetoothBatteryAvailable
-        }
     }
 
     Process {
