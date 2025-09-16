@@ -10,14 +10,14 @@
 			name = "Bibata-Modern-Classic";
 			size = 24;
 		};
-		opacity.terminal = 1;
+		# opacity.terminal = 1;
 		targets = {
 			gtk.enable = true;
 			xfce.enable = true;
 			wofi.enable = true;
-			nixvim.enable = true;
+			nixvim.enable = false;
 			firefox.profileNames = [ "default" ];
-			zed.enable = true;
+			zed.enable = false;
 		};
 	};
 
