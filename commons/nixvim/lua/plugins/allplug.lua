@@ -6,6 +6,10 @@ return {
 		}
 	},
 
+	{ "catppuccin/nvim" },
+
+	{ "akinsho/bufferline.nvim" },
+
 	{
 		"hrsh7th/nvim-cmp",
 		dependencies = { "hrsh7th/cmp-emoji" },
@@ -25,8 +29,7 @@ return {
 	{ 'echasnovski/mini.base16', enbale = false },
 
 	{ "vague2k/huez.nvim" },
-	{ "akinsho/bufferline.nvim" },
-	{'akinsho/toggleterm.nvim', version = "*", config = true},
+	{ "akinsho/toggleterm.nvim", version = "*", config = true },
 	{ "saadparwaiz1/cmp_luasnip" },
 	{ "stevearc/conform.nvim" },
 	{ "glepnir/dashboard-nvim" },
@@ -92,5 +95,4 @@ return {
 	{ "folke/which-key.nvim" },
 	{ "ibhagwan/fzf-lua" },
 	{ "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } },
-
 }

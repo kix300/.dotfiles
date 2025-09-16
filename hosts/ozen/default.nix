@@ -85,7 +85,7 @@
 			qbittorrent
 			r2modman
 			rofi-power-menu
-			rofi-wayland
+			rofi
 			rpi-imager
 			signal-desktop
 			spotify
@@ -111,11 +111,11 @@
 		setSocketVariable = true;
 	};
 
-	# for charging phone kim
-	services.logind = {
-		lidSwitch = "ignore";
-		lidSwitchDocked = "ignore";
-		lidSwitchExternalPower = "ignore";
+	# for charging phone
+	services.logind.settings.Login = {
+		HandlelidSwitch = "ignore";
+		HandlelidSwitchDocked = "ignore";
+		HandlelidSwitchExternalPower = "ignore";
 	};
 
 	xdg.portal = {
