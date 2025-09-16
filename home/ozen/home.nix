@@ -27,22 +27,6 @@
 			userName = "kix300";
 			userEmail = "kixwalkiki@gmail.com";
 		};
-		tmux = {
-			enable = false;
-			clock24 = true;
-			shell = "/etc/profiles/per-user/ozen/bin/fish";
-			extraConfig = ''
-				set -s escape-time 0
-				set -g default-terminal "ghostty"
-				set -g @catppuccin_flavor "mocha" # latte, frappe, macchiato, or mocha
-set -g @catppuccin_window_status_style "rounded" # basic, rounded, slanted, custom, or none
-
-# Load catppuccin
-run ~/.dotfiles/home/commons/tmux/plugins/catppuccin/tmux/catppuccin.tmux 
-			'';
-
-			# more config
-		};
 		yazi = {
 			enable = true;
 		};
@@ -145,8 +129,8 @@ run ~/.dotfiles/home/commons/tmux/plugins/catppuccin/tmux/catppuccin.tmux
 				base_keymap = "VSCode";
 				show_whitespaces = "all" ;
 				theme = {
-					dark = "Catppuccin Mocha";
-					light = "Catppuccin Mocha";
+					dark = "Everforest Dark Hard";
+					light = "Everforest Dark Hard";
 				};
 
 			};
