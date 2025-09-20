@@ -1,6 +1,6 @@
 // ClockWidget.qml
 import QtQuick
-import "utils"
+import qs.modules.bar.components.utils
 import qs.services
 
 Rectangle {
