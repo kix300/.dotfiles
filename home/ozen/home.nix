@@ -121,7 +121,7 @@
         lsp = {
           rust-analyzer = {
             binary = {
-              path_lookup = true;
+              path = "/run/current-system/sw/bin/rust-analyzer";
             };
           };
           nix.binary.path_lookup = true;
