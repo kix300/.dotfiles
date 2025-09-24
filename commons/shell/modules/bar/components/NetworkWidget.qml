@@ -1,5 +1,4 @@
 import QtQuick
-import QtQuick.Layouts
 import Quickshell.Io
 import qs.services
 
@@ -22,9 +21,22 @@ Item {
                 nmtuiProcess.running = true;
             }
         }
+        MouseArea {
+            anchors.fill: parent
+            hoverEnabled: true
+            acceptedButtons: Qt.RightButton
+            onClicked: {
+                // networkIcon.color = Colors.love;
+                nmtuiRescanProcess.running = true;
+            }
+        }
     }
     Process {
         id: nmtuiProcess
         command: ["ghostty", "-e", "nmtui"]
+    }
+    Process {
+        id: nmtuiRescanProcess
+        command: ["nmcli", "device", "wifi", "rescan"]
     }
 }
