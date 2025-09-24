@@ -38,7 +38,7 @@ Rectangle {
                 height: 15
                 radius: 50
                 border.width: 0
-                color: modelData.active ? Colors.text : Colors.muted
+                color: modelData.active ? Colors.text : (modelData.id === -98 ? Colors.love : Colors.muted)
                 opacity: modelData.active ? 1 : 0.6
 
                 property bool wasActive: modelData.active
@@ -130,7 +130,6 @@ Rectangle {
                     }
                 }
 
-                // Mettre à jour wasActive quand l'état change
                 onWasActiveChanged: {
                     wasActive = modelData.active;
                 }
