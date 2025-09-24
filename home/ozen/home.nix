@@ -59,13 +59,6 @@
          				bind alt-] zedfiles
         			'';
     };
-    ags = {
-      enable = true;
-      configDir = null;
-      extraPackages = with pkgs; [
-        accountsservice
-      ];
-    };
     zed-editor = {
       enable = true;
       extensions = [
