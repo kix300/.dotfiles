@@ -5,14 +5,6 @@
     ./../../commons/nixvim/nixvim.nix
   ];
 
-  programs.home-manager.enable = true;
-  wayland.windowManager.hyprland = {
-    enable = true;
-    extraConfig = "
-  ${builtins.readFile ./../../commons/hypr/hyprland/hyprland.conf}
-  ";
-  };
-
   programs = {
     lazygit.enable = true;
     firefox.enable = true;
@@ -37,7 +29,6 @@
       enable = true;
       interactiveShellInit = ''
          				set fish_greeting # Disable greeting
-         				eval "$(direnv hook fish)"
          				alias nswitch="rm ~/.gtkrc-2.0 && nh os switch"
          				alias dofus="appimage-run ~/Games/DOFUS/Ankama\ Launcher-Setup-x86_64.AppImage"
          				alias zed="zeditor ."

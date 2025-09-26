@@ -58,20 +58,7 @@
 
 		];
 	};
-
-	programs.firefox.enable = true;
 	programs = {
-		starship = {
-			enable = true;
-			settings = {
-				add_newline = false;
-				aws.disabled = true;
-				gcloud.disabled = true;
-				line_break.disabled = true;
-			};
-		};
-		hyprland.portalPackage = true;
-		hyprland.xwayland.enable = true;	
 		bash = {
 			interactiveShellInit = ''
 				if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
@@ -81,16 +68,8 @@
 						fi
 						'';
 		};
-		fish = {
-			enable = true;
-			interactiveShellInit = ''
-				set fish_greeting # Disable greeting
-				'';
-		};
 	};
 
-    services.displayManager.gdm.enable = lib.mkForce false;
-    services.desktopManager.gnome.enable = lib.mkForce false;
 	nixpkgs.config.allowUnfree = true;
 
 	system.stateVersion = "25.05";
