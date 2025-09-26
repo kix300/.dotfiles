@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
 	imports =
@@ -89,8 +89,8 @@
 		};
 	};
 
-    displayManager.gdm.enable = lib.mkForce false;
-    desktopManager.gnome.enable = lib.mkForce false;
+    services.displayManager.gdm.enable = lib.mkForce false;
+    services.desktopManager.gnome.enable = lib.mkForce false;
 	nixpkgs.config.allowUnfree = true;
 
 	system.stateVersion = "25.05";
