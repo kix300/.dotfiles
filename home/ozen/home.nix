@@ -1,10 +1,8 @@
 { pkgs, ... }:
 {
   imports = [
-    ./../commmons/Hcommons.nix
+    ./../commons/Hcommons.nix
   ];
-  programs.home-manager.enable = true;
-
   home = {
     username = "ozen";
     homeDirectory = "/home/ozen";

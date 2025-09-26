@@ -4,6 +4,8 @@
     ./../../commons/stylix.nix
     ./../../commons/nixvim/nixvim.nix
   ];
+
+  programs.home-manager.enable = true;
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = "

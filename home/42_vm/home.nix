@@ -1,13 +1,12 @@
 { pkgs, ... }:
 {
   imports = [
-    ./../commmons/Hcommons.nix
+    ./../commons/Hcommons.nix
   ];
-  programs.home-manager.enable = true;
 
   home = {
-    username = "Kix";
-    homeDirectory = "/home/Kix";
+    username = "kix";
+    homeDirectory = "/home/kix";
   };
 
   home.stateVersion = "23.11";

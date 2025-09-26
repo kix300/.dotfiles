@@ -99,7 +99,7 @@
                 stylix.homeModules.stylix
                 nixvim.homeModules.nixvim
               ];
-              home-manager.users.Kix = import ./home/42_vm/home.nix;
+              home-manager.users.kix = import ./home/42_vm/home.nix;
             }
           ];
         };
