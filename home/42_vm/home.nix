@@ -6,8 +6,8 @@
   programs.home-manager.enable = true;
 
   home = {
-    username = "ozen";
-    homeDirectory = "/home/ozen";
+    username = "Kix";
+    homeDirectory = "/home/Kix";
   };
 
   home.stateVersion = "23.11";

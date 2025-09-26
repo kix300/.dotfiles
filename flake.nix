@@ -83,6 +83,26 @@
             }
           ];
         };
+        forty_two_vm = nixpkgs.lib.nixosSystem rec {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs outputs system; };
+          modules = [
+            ./hosts/42_vm
+            nix-index-database.nixosModules.nix-index
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = ".bak";
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.sharedModules = [
+                stylix.homeModules.stylix
+                nixvim.homeModules.nixvim
+              ];
+              home-manager.users.Kix = import ./home/42_vm/home.nix;
+            }
+          ];
+        };
         steve = nixpkgs.lib.nixosSystem rec {
           system = "aarch64-linux";
           specialArgs = { inherit inputs outputs system; };
