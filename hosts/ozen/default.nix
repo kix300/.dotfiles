@@ -109,8 +109,8 @@
       wayvnc
       wine
       wofi
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
+      # xdg-desktop-portal-gtk
+      # xdg-desktop-portal-hyprland
       xfce.thunar
       inputs.zen-browser.packages."${system}".default
       inputs.quickshell.packages."${system}".default
