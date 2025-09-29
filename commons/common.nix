@@ -13,6 +13,7 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      wireplumber.enable = true;
     };
     desktopManager.gnome.enable = true;
     libinput.enable = true;
@@ -60,6 +61,8 @@
     rust-analyzer
     valgrind
     util-linux
+    # xdg-desktop-portal-hyprland
+    # xdg-desktop-portal-gtk
 
   ];
 

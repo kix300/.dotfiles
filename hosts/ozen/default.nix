@@ -109,7 +109,7 @@
       wayvnc
       wine
       wofi
-      # xdg-desktop-portal-gtk
+      xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
       xfce.thunar
       inputs.zen-browser.packages."${system}".default
@@ -132,10 +132,9 @@
 
   xdg.portal = {
     enable = true;
-    # wlr.enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-hyprland
-      # pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gtk
     ];
     configPackages = [ pkgs.xdg-desktop-portal-hyprland ];
     config = {
