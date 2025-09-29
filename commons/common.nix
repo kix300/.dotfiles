@@ -64,6 +64,7 @@
     xdg-desktop-portal-hyprland
     xdg-desktop-portal-gtk
     xdg-utils
+    xwaylandvideobridge
   ];
 
   time.timeZone = "Europe/Paris";
