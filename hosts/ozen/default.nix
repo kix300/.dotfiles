@@ -49,6 +49,8 @@
       "lp"
       "i2c"
       "docker"
+      "video"
+      "audio"
     ];
     packages = with pkgs; [
       lshw
@@ -91,7 +93,6 @@
       obs-studio
       openjdk
       prismlauncher
-      pulseaudio
       python3
       qbittorrent
       r2modman
@@ -161,6 +162,12 @@
       "iwlwifi.11ax_disable=0" # Active le Wi-Fi 6 (802.11ax)
       "iwlwifi.power_save=0" # Désactive l'économie d'énergie (peut améliorer les perfs)
     ];
+  };
+
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+    xwayland.enable = true;
   };
 
   hardware.enableRedistributableFirmware = true;

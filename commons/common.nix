@@ -15,9 +15,9 @@
       pulse.enable = true;
       wireplumber.enable = true;
     };
-    desktopManager.gnome.enable = true;
+    # desktopManager.gnome.enable = true;
     libinput.enable = true;
-    displayManager.gdm.enable = true;
+    # displayManager.gdm.enable = true;
     xserver = {
       enable = true;
       xkb = {
@@ -63,7 +63,7 @@
     util-linux
     xdg-desktop-portal-hyprland
     xdg-desktop-portal-gtk
-
+    xdg-utils
   ];
 
   time.timeZone = "Europe/Paris";
