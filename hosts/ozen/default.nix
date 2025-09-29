@@ -106,6 +106,7 @@
       util-linux
       vimPlugins.nvim-treesitter-parsers.qmljs
       vscode
+      wayvnc
       wine
       wofi
       # xdg-desktop-portal-gtk
