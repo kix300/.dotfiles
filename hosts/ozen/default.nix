@@ -110,8 +110,6 @@
       wayvnc
       wine
       wofi
-      # xdg-desktop-portal-gtk
-      # xdg-desktop-portal-hyprland
       xfce.thunar
       inputs.zen-browser.packages."${system}".default
       inputs.quickshell.packages."${system}".default
@@ -135,18 +133,17 @@
     enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-gtk
     ];
-    configPackages = [ pkgs.xdg-desktop-portal-hyprland ];
-    config = {
-      common.default = "*";
-      hyprland = {
-        default = [
-          "hyprland"
-          "gtk"
-        ];
-      };
-    };
+    # configPackages = [ pkgs.xdg-desktop-portal-hyprland ];
+    # config = {
+    #   common.default = "*";
+    #   hyprland = {
+    #     default = [
+    #       "hyprland"
+    #       "gtk"
+    #     ];
+    #   };
+    # };
   };
   boot = {
     extraModulePackages = with config.boot.kernelPackages; [ rtl8812au ];
@@ -164,6 +161,7 @@
     ];
   };
 
+  programs.hyprland.portalPackage = pkgs.xdg-desktop-portal-hyprland;
   programs.hyprland = {
     enable = true;
     withUWSM = true;
@@ -181,7 +179,7 @@
     desktopManager.gnome.enable = lib.mkForce false;
   };
 
-  qt.enable = false;
+  qt.enable = true; # test pour screen sharing
 
   # hardware = {
   # 	nvidia = {

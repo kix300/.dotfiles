@@ -15,9 +15,7 @@
       pulse.enable = true;
       wireplumber.enable = true;
     };
-    # desktopManager.gnome.enable = true;
     libinput.enable = true;
-    # displayManager.gdm.enable = true;
     xserver = {
       enable = true;
       xkb = {
@@ -62,9 +60,8 @@
     valgrind
     util-linux
     xdg-desktop-portal-hyprland
-    xdg-desktop-portal-gtk
-    xdg-utils
-    xwaylandvideobridge
+    kdePackages.xwaylandvideobridge
+
   ];
 
   time.timeZone = "Europe/Paris";
