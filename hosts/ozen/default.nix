@@ -133,17 +133,36 @@
     enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
     ];
-    # configPackages = [ pkgs.xdg-desktop-portal-hyprland ];
-    # config = {
-    #   common.default = "*";
-    #   hyprland = {
-    #     default = [
-    #       "hyprland"
-    #       "gtk"
-    #     ];
-    #   };
-    # };
+    configPackages = [ pkgs.xdg-desktop-portal-hyprland ];
+    config = {
+      common = {
+        default = [ "gtk" ];
+      };
+      hyprland = {
+        default = [
+          "hyprland"
+          "gtk"
+        ];
+        "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
+        "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
+      };
+    };
+  };
+
+  # Enable the systemd services explicitly
+  systemd.user.services.xdg-desktop-portal-hyprland = {
+    enable = true;
+    wantedBy = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+  };
+
+  # Also ensure the main xdg-desktop-portal service is running
+  systemd.user.services.xdg-desktop-portal = {
+    enable = true;
+    wantedBy = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
   };
   boot = {
     extraModulePackages = with config.boot.kernelPackages; [ rtl8812au ];

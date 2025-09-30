@@ -59,7 +59,6 @@
     rust-analyzer
     valgrind
     util-linux
-    xdg-desktop-portal-hyprland
     kdePackages.xwaylandvideobridge
 
   ];
