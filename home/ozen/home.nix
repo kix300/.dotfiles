@@ -8,6 +8,8 @@
     username = "ozen";
     homeDirectory = "/home/ozen";
   };
+
+  # pour creer un fichier xdg desktop portal hyprland
   systemd.user.services.xdg-desktop-portal-hyprland = {
     Unit = {
       Description = "XDG Desktop Portal Hyprland";
