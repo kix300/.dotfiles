@@ -9,7 +9,7 @@
     homeDirectory = "/home/ozen";
   };
 
-  # pour creer un fichier xdg desktop portal hyprland
+  # pour creer un fichier xdg desktop portal hyprland et donc screensharing
   systemd.user.services.xdg-desktop-portal-hyprland = {
     Unit = {
       Description = "XDG Desktop Portal Hyprland";
@@ -27,6 +27,7 @@
       WantedBy = [ "graphical-session.target" ];
     };
   };
+
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = "
