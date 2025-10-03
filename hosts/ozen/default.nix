@@ -93,6 +93,7 @@
       obs-studio
       openjdk
       prismlauncher
+      pulseaudio
       python3
       qbittorrent
       r2modman
