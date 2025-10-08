@@ -44,10 +44,10 @@
 
   virtualisation = {
     virtualbox = {
-      host.enable = false;
+      host.enable = true;
       host.enableExtensionPack = false;
-      guest.enable = false;
-      guest.dragAndDrop = false;
+      guest.enable = true;
+      guest.dragAndDrop = true;
     };
   };
 }

@@ -60,8 +60,8 @@
           version = "2";
           default_open_ai_model = null;
           default_model = {
-            provider = "zed.dev";
-            model = "claude-3-5-sonnet-latest";
+            provider = "copilot_chat";
+            model = "claude-4-sonnet-latest";
           };
         };
         hour_format = "hour24";
