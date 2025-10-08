@@ -45,7 +45,7 @@
   virtualisation = {
     virtualbox = {
       host.enable = true;
-      host.enableExtensionPack = false;
+      host.enableExtensionPack = true;
       guest.enable = true;
       guest.dragAndDrop = true;
     };
