@@ -86,6 +86,7 @@
       kdePackages.full
       kitty
       lua
+      n8n
       nil
       nodejs
       norminette
