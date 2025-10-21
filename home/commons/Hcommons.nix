@@ -5,6 +5,10 @@
     ./../../commons/nixvim/nixvim.nix
   ];
 
+  services.vicinae = {
+    enable = true; # default: false
+    autoStart = true; # default: true
+  };
   programs = {
     lazygit.enable = true;
     firefox.enable = true;
@@ -109,20 +113,6 @@
             "-E"
             "additional-args"
           ];
-        };
-        languages = {
-          "qml" = {
-            language_servers = [ "qmlls" ];
-            formatter = {
-              external = {
-                command = "mix";
-                arguments = [
-                  "-E"
-                  "additional-args"
-                ];
-              };
-            };
-          };
         };
 
         vim_mode = true;

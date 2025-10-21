@@ -3,6 +3,7 @@
 
   inputs = {
     nixvim.url = "github:nix-community/nixvim";
+    vicinae.url = "github:vicinaehq/vicinae";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -31,6 +32,7 @@
       stylix,
       nixvim,
       nix-minecraft,
+      vicinae,
       ...
     }@inputs:
     let
@@ -66,6 +68,7 @@
             nixos-hardware.nixosModules.asus-zephyrus-ga401
             nixos-hardware.nixosModules.asus-battery
             nix-index-database.nixosModules.nix-index
+            vicinae.homeManagerModules.default
             {
               hardware.asus.battery.chargeUpto = 85;
             }
