@@ -14,8 +14,8 @@
     firefox.enable = true;
     git = {
       enable = true;
-      userName = "kix300";
-      userEmail = "kixwalkiki@gmail.com";
+      settings.user.name = "kix300";
+      settings.user.email = "kixwalkiki@gmail.com";
     };
     yazi = {
       enable = true;

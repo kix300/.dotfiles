@@ -68,7 +68,6 @@
             nixos-hardware.nixosModules.asus-zephyrus-ga401
             nixos-hardware.nixosModules.asus-battery
             nix-index-database.nixosModules.nix-index
-            vicinae.homeManagerModules.default
             {
               hardware.asus.battery.chargeUpto = 85;
             }
@@ -81,6 +80,7 @@
               home-manager.sharedModules = [
                 stylix.homeModules.stylix
                 nixvim.homeModules.nixvim
+                vicinae.homeManagerModules.default
               ];
               home-manager.users.ozen = import ./home/ozen/home.nix;
             }
