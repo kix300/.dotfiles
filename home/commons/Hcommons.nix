@@ -55,6 +55,7 @@
         "qml"
       ];
       userSettings = {
+        relative_line_numbers = true;
         assistant = {
           enabled = true;
           version = "2";
@@ -112,7 +113,7 @@
         languages = {
           "qml" = {
             language_servers = [ "qmlls" ];
-            format_on_save = {
+            formatter = {
               external = {
                 command = "mix";
                 arguments = [

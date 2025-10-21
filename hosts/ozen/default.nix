@@ -65,6 +65,7 @@
       apktool
       appimage-run
       bear
+      btop
       brightnessctl
       clang-tools
       comma
