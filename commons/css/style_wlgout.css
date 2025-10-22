@@ -20,35 +20,25 @@ button:hover {
 }
 
 #lock {
-    background-image: image(url("/home/ozen/.dotfiles/commons/icons/lock.png"));
+    background-image: "/home/ozen/.dotfiles/commons/icons/lock.png";
 }
 
 #logout {
-    background-image: image(
-        url("/home/ozen/.dotfiles/commons/icons/logout.png")
-    );
+    background-image: "/home/ozen/.dotfiles/commons/icons/logout.png";
 }
 
 #suspend {
-    background-image: image(
-        url("/home/ozen/.dotfiles/commons/icons/suspend.png")
-    );
+    background-image: "/home/ozen/.dotfiles/commons/icons/suspend.png";
 }
 
 #hibernate {
-    background-image: image(
-        url("/home/ozen/.dotfiles/commons/icons/hibernate.png")
-    );
+    background-image: "/home/ozen/.dotfiles/commons/icons/hibernate.png";
 }
 
 #shutdown {
-    background-image: image(
-        url("/home/ozen/.dotfiles/commons/icons/shutdown.png")
-    );
+    background-image: "/home/ozen/.dotfiles/commons/icons/shutdown.png";
 }
 
 #reboot {
-    background-image: image(
-        url("/home/ozen/.dotfiles/commons/icons/reboot.png")
-    );
+    background-image: "/home/ozen/.dotfiles/commons/icons/reboot.png";
 }
