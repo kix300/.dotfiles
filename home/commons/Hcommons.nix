@@ -114,9 +114,21 @@
             "additional-args"
           ];
         };
-
+        languages = {
+          "qml" = {
+            language_servers = [ "qmlls" ];
+            formatter = {
+              external = {
+                command = "mix";
+                arguments = [
+                  "-E"
+                  "additional-args"
+                ];
+              };
+            };
+          };
+        };
         vim_mode = true;
-        ## tell zed to use direnv and direnv can use a flake.nix enviroment.
         load_direnv = "shell_hook";
         base_keymap = "VSCode";
         show_whitespaces = "all";
