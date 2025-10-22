@@ -1,0 +1,54 @@
+window {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+button {
+    background-color: #2e383c;
+    color: #d3c6aa;
+    border-style: solid;
+    border-width: 2px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+}
+
+button:focus,
+button:active,
+button:hover {
+    background-color: #414b50;
+    outline-style: none;
+}
+
+#lock {
+    background-image: image(url("/home/ozen/.dotfiles/commons/icons/lock.png"));
+}
+
+#logout {
+    background-image: image(
+        url("/home/ozen/.dotfiles/commons/icons/logout.png")
+    );
+}
+
+#suspend {
+    background-image: image(
+        url("/home/ozen/.dotfiles/commons/icons/suspend.png")
+    );
+}
+
+#hibernate {
+    background-image: image(
+        url("/home/ozen/.dotfiles/commons/icons/hibernate.png")
+    );
+}
+
+#shutdown {
+    background-image: image(
+        url("/home/ozen/.dotfiles/commons/icons/shutdown.png")
+    );
+}
+
+#reboot {
+    background-image: image(
+        url("/home/ozen/.dotfiles/commons/icons/reboot.png")
+    );
+}

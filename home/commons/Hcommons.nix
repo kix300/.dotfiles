@@ -10,6 +10,36 @@
     autoStart = true; # default: true
   };
   programs = {
+    wlogout = {
+      enable = true;
+      layout = [
+        {
+          label = "logout";
+          action = "loginctl terminate-user $USER";
+          text = "Logout";
+          keybind = "e";
+        }
+        {
+          label = "shutdown";
+          action = "systemctl poweroff";
+          text = "Shutdown";
+          keybind = "s";
+        }
+        {
+          label = "suspend";
+          action = "loginctl lock-session; sleep 1; systemctl suspend";
+          text = "Suspend";
+          keybind = "u";
+        }
+        {
+          label = "reboot";
+          action = "systemctl reboot";
+          text = "Reboot";
+          keybind = "r";
+        }
+      ];
+      style = "./../../commons/css/style_wlgout.css";
+    };
     lazygit.enable = true;
     firefox.enable = true;
     git = {
