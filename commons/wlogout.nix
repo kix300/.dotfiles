@@ -1,17 +1,15 @@
 {
   pkgs,
-  config,
   ...
 }:
 let
-  inherit (config.colorscheme) palette;
   myWlogout = pkgs.wlogout.overrideAttrs (
     final: prev: {
       nativeBuildInputs = prev.nativeBuildInputs ++ [
         pkgs.inkscape
       ];
       postUnpack = ''
-        find source/assets -type f -name '*.svg' -exec sed -i -e 's/<path /<path style=\"fill:#${palette.base05}\" /g' {} +
+        find source/assets -type f -name '*.svg' -exec sed -i -e 's/<path /<path style=\"fill:#d3c6aa;\" /g' {} +
         inkscape --export-type=png --export-width=96 source/assets/*.svg
         mv source/assets/*.png source/icons
       '';
@@ -54,8 +52,8 @@ in
       }
 
       button {
-        color: #${palette.base05};
-        background-color: #${palette.base00};
+        color: #d3c6aa;
+        background-color: #2e383c;
         border-style: solid;
         border-width: 2px;
         background-repeat: no-repeat;
@@ -64,7 +62,7 @@ in
       }
 
       button:focus, button:active, button:hover {
-        background-color: #${palette.base02};
+        background-color: #2e383c;
         outline-style: none;
       }
 
