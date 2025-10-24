@@ -65,7 +65,6 @@
       apktool
       appimage-run
       bear
-      btop
       btop-cuda
       brightnessctl
       clang-tools
