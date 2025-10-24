@@ -59,7 +59,7 @@
     rust-analyzer
     valgrind
     util-linux
-    kdePackages.xwaylandvideobridge
+    # xwaylandvideobridge
 
   ];
 

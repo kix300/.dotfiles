@@ -66,6 +66,7 @@
       appimage-run
       bear
       btop
+      btop-cuda
       brightnessctl
       clang-tools
       comma
@@ -84,7 +85,7 @@
       kdePackages.qtsvg
       kdePackages.qtwayland
       kdePackages.qtdeclarative
-      kdePackages.full
+      # kdePackages.full
       kitty
       lua
       n8n
@@ -101,7 +102,6 @@
       r2modman
       rofi-power-menu
       rofi
-      rpi-imager
       signal-desktop
       spotify
       supabase-cli
