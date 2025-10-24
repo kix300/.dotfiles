@@ -68,9 +68,9 @@
             nixos-hardware.nixosModules.asus-zephyrus-ga401
             nixos-hardware.nixosModules.asus-battery
             nix-index-database.nixosModules.nix-index
-            {
-              hardware.asus.battery.chargeUpto = 85;
-            }
+            # {
+            #   hardware.asus.battery.chargeUpto = 85;
+            # }
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
