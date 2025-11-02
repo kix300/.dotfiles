@@ -78,7 +78,6 @@
       gemini-cli
       glfw
       godot
-      heroic
       hyprlock
       #jadx
       kdePackages.qtsvg

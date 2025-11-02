@@ -52,7 +52,6 @@
     libclang
     libgcc
     libgccjit
-    lutris
     pnpm
     readline
     readline70
