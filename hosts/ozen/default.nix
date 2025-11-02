@@ -93,7 +93,6 @@
       ntfs3g
       obs-studio
       openjdk
-      prismlauncher
       pulseaudio
       python3
       qbittorrent
