@@ -32,10 +32,10 @@
       flake = "/home/ozen/.dotfiles";
     };
     adb.enable = true;
-    steam = {
-      enable = true;
-      extest.enable = true;
-    };
+    # steam = {
+    #   enable = true;
+    #   extest.enable = true;
+    # };
   };
 
   i18n = {
