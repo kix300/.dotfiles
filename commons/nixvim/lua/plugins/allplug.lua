@@ -2,23 +2,10 @@ return {
     {
         "LazyVim/LazyVim",
         opts = {
-            colorscheme = "everforest",
         }
     },
 
-    { "catppuccin/nvim" },
-
-    {
-      'sainnhe/everforest',
-      lazy = false,
-      priority = 1000,
-      config = function()
-        -- Optionally configure and load the colorscheme
-        -- directly inside the plugin declaration.
-        vim.g.everforest_enable_italic = true
-        vim.cmd.colorscheme('everforest')
-      end
-    },
+    -- { "catppuccin/nvim" },
     { "akinsho/bufferline.nvim" },
 
     {
@@ -33,9 +20,7 @@ return {
 
     { "kazhala/close-buffers.nvim" },
 
-    --{ "RRethy/base16-nvim" },
-
-    -- { "folke/tokyonight.nvim" },
+    -- { "RRethy/base16-nvim" },
 
     { 'nvim-mini/mini.base16', enbale = false },
 
@@ -84,7 +69,6 @@ return {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     { "nvim-telescope/telescope.nvim" },
     { "folke/todo-comments.nvim" },
-    { "folke/tokyonight.nvim" },
     { "folke/trouble.nvim" },
     { "RRethy/vim-illuminate" },
     { "dstein64/vim-startuptime" },
