@@ -103,6 +103,7 @@
       spotify
       supabase-cli
       swaylock-fancy
+	  swww
       telegram-desktop
       util-linux
       vimPlugins.nvim-treesitter-parsers.qmljs
