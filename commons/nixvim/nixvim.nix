@@ -54,6 +54,7 @@
         			{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
         			-- The following configs are needed for fixing lazyvim on nix
         			-- force enable telescope-fzf-native.nvim
+					 { "RRethy/base16-nvim", lazy = false, priority = 1000 },
         			{ "nvim-telescope/telescope-fzf-native.nvim", enabled = true },
         			-- disable mason.nvim, use programs.neovim.extraPackages
         			{ "mason-org/mason-lspconfig.nvim", enabled = false },
