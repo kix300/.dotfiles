@@ -23,3 +23,5 @@ require('mini.base16').setup({
 		['nvim-mini/mini.nvim'] = true,
 	},
 })
+
+vim.g.colors_name = 'kix'
