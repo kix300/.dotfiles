@@ -20,11 +20,6 @@ return {
 
     { "kazhala/close-buffers.nvim" },
 
-    -- { "RRethy/base16-nvim" },
-
-
-	{ 'nvim-mini/mini.base16'},
-
 	{ "vague2k/huez.nvim" },
 	{ "akinsho/toggleterm.nvim", version = "*", config = true },
 	{ "saadparwaiz1/cmp_luasnip" },
