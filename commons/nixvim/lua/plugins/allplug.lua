@@ -20,9 +20,9 @@ return {
 
     { "kazhala/close-buffers.nvim" },
 
-    -- { "RRethy/base16-nvim" },
+    { "RRethy/base16-nvim" },
 
-    { 'nvim-mini/mini.base16', enbale = false },
+    -- { 'nvim-mini/mini.base16', enbale = false },
 
     { "vague2k/huez.nvim" },
     { "akinsho/toggleterm.nvim", version = "*", config = true },

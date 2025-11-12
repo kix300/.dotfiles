@@ -17,6 +17,7 @@
 			xfce.enable = true;
 			wofi.enable = true;
 			nixvim.enable = true;
+			nixvim.plugin = "base16-nvim";
 			firefox.profileNames = [ "default" ];
 			zed.enable = false;
 		};
