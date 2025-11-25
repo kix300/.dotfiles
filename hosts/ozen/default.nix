@@ -93,7 +93,7 @@
       pavucontrol
       pulseaudio
       python3
-      qbittorrent
+      qjackctl
       r2modman
       rofi-power-menu
       rofi
