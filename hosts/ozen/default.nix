@@ -51,6 +51,7 @@
       "docker"
       "video"
       "audio"
+      "jackaudio"
     ];
     packages = with pkgs; [
       aapt
@@ -77,6 +78,7 @@
       godot
       guitarix
       hyprlock
+      jack2
       kdePackages.qtsvg
       kdePackages.qtwayland
       kdePackages.qtdeclarative
