@@ -53,17 +53,14 @@
       "audio"
     ];
     packages = with pkgs; [
-      lshw
-      asusctl
-      pavucontrol
       aapt
       adbtuifm
       adwaita-icon-theme
       aircrack-ng
       android-tools
-      #android-studio
       apktool
       appimage-run
+      asusctl
       bear
       btop-cuda
       brightnessctl
@@ -78,21 +75,22 @@
       gemini-cli
       glfw
       godot
+      guitarix
       hyprlock
-      #jadx
       kdePackages.qtsvg
       kdePackages.qtwayland
       kdePackages.qtdeclarative
-      # kdePackages.full
       kitty
       lua
-      n8n
+      lshw
+      # n8n
       nil
       nodejs
       norminette
       ntfs3g
       obs-studio
       openjdk
+      pavucontrol
       pulseaudio
       python3
       qbittorrent
@@ -103,7 +101,7 @@
       spotify
       supabase-cli
       swaylock-fancy
-	  swww
+      swww
       telegram-desktop
       util-linux
       vimPlugins.nvim-treesitter-parsers.qmljs
