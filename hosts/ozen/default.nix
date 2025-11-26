@@ -205,6 +205,9 @@
     withUWSM = true;
     xwayland.enable = true;
   };
+  programs.steam = {
+    enable = true;
+  };
 
   hardware.enableRedistributableFirmware = true;
   services = {
