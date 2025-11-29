@@ -42,11 +42,11 @@
          				end
          				bind \c] =
 
-         				function zedfiles
-        					zeditor ~/.dotfiles
+         				function nvimfiles
+        					nvim ~/.dotfiles
          				end
 
-         				bind alt-] zedfiles
+         				bind alt-] nvimfiles
         			'';
     };
     zed-editor = {
