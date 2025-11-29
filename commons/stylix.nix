@@ -11,16 +11,24 @@
 			name = "Bibata-Modern-Classic";
 			size = 24;
 		};
-		# opacity.terminal = 1;
+		opacity.terminal = 0.5;
 		targets = {
 			gtk.enable = true;
 			xfce.enable = true;
 			wofi.enable = true;
-			nixvim.enable = true;
-			nixvim.plugin = "base16-nvim";
 			firefox.profileNames = [ "default" ];
 			zed.enable = false;
+			nixvim = {
+				enable = true;
+				plugin = "base16-nvim";
+				transparentBackground = {
+					signColumn = false;
+					numberLine = false;
+					main = false;
+				};
+			};
 		};
+
 	};
 
 	gtk = {
