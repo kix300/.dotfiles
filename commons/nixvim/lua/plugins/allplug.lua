@@ -32,14 +32,6 @@ return {
 	{ "lewis6991/gitsigns.nvim" },
 	{ "lukas-reineke/indent-blankline.nvim" },
 	{ "nvim-lualine/lualine.nvim" },
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		opts = {
-			window = {
-				width = 30;
-			},
-		},
-	},
 	{ "folke/neoconf.nvim" },
 	{ "folke/neodev.nvim" },
 	{ "folke/noice.nvim" },

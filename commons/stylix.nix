@@ -22,9 +22,9 @@
 				enable = true;
 				plugin = "base16-nvim";
 				transparentBackground = {
-					signColumn = false;
-					numberLine = false;
-					main = false;
+					signColumn = true;
+					numberLine = true;
+					main = true;
 				};
 			};
 		};
