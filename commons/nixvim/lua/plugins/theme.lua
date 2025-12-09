@@ -1,4 +1,5 @@
 return {
+	{ "EdenEast/nightfox.nvim" };
   {
     "RRethy/base16-nvim",
     config = function()

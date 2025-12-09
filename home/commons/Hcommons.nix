@@ -134,8 +134,8 @@
         base_keymap = "VSCode";
         show_whitespaces = "all";
         theme = {
-          dark = "Everforest Dark Hard";
-          light = "Everforest Dark Hard";
+          dark = "Terafox - blurred";
+          light = "Terafox - blurred";
         };
 
       };
