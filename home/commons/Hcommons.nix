@@ -134,6 +134,7 @@
         base_keymap = "VSCode";
         show_whitespaces = "all";
         theme = {
+		  mode = "Colored Zed Icons Theme Dark";
           dark = "Terafox - blurred";
           light = "Terafox - blurred";
         };
