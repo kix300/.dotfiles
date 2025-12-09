@@ -57,7 +57,7 @@
 		pnpm
 		readline
 		readline70
-		rust-analyzer
+		rustup
 		valgrind
 		util-linux
 		# xwaylandvideobridge
