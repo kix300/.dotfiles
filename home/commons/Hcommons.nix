@@ -60,6 +60,7 @@
         "qml"
       ];
       userSettings = {
+		icon_theme = "Colored Zed Icons Theme Dark";
         relative_line_numbers = true;
         assistant = {
           enabled = true;
@@ -134,7 +135,6 @@
         base_keymap = "VSCode";
         show_whitespaces = "all";
         theme = {
-		  mode = "Colored Zed Icons Theme Dark";
           dark = "Terafox - blurred";
           light = "Terafox - blurred";
         };
