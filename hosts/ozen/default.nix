@@ -149,6 +149,7 @@ inputs,
 			};
 		};
 	};
+	services.power-profiles-daemon.enable;
 
 	xdg.portal = {
 		enable = true;
