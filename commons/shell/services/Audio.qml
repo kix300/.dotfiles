@@ -1,199 +1,124 @@
 pragma Singleton
-import QtQuick
+
+import qs.config
+import Caelestia.Services
+import Caelestia
 import Quickshell
-import Quickshell.Io
+import Quickshell.Services.Pipewire
+import QtQuick
 
 Singleton {
     id: root
 
-    property string state: "UNKNOWN"
-    property int volumePercentage: 0
-    property string sinkName: ""
-    property string deviceBus: ""
-    property string deviceNick: ""
-    property string deviceAlias: ""
-    property bool muted: false
-    property string activePort: ""
+    property string previousSinkName: ""
+    property string previousSourceName: ""
 
-    property int bluetoothBatteryPercentage: -1
-    property bool bluetoothBatteryAvailable: false
+    readonly property var nodes: Pipewire.nodes.values.reduce((acc, node) => {
+        if (!node.isStream) {
+            if (node.isSink)
+                acc.sinks.push(node);
+            else if (node.audio)
+                acc.sources.push(node);
+        }
+        return acc;
+    }, {
+        sources: [],
+        sinks: []
+    })
 
-    Timer {
-        id: refreshTimer
-        interval: 1000
-        running: true
-        repeat: true
-        onTriggered: {
-            audioProcess.running = true;
-            if (deviceBus === "bluetooth") {
-                batteryProcess.running = true;
-            }
+    readonly property list<PwNode> sinks: nodes.sinks
+    readonly property list<PwNode> sources: nodes.sources
+
+    readonly property PwNode sink: Pipewire.defaultAudioSink
+    readonly property PwNode source: Pipewire.defaultAudioSource
+
+    readonly property bool muted: !!sink?.audio?.muted
+    readonly property real volume: sink?.audio?.volume ?? 0
+
+    readonly property bool sourceMuted: !!source?.audio?.muted
+    readonly property real sourceVolume: source?.audio?.volume ?? 0
+
+    readonly property alias cava: cava
+    readonly property alias beatTracker: beatTracker
+
+    function setVolume(newVolume: real): void {
+        if (sink?.ready && sink?.audio) {
+            sink.audio.muted = false;
+            sink.audio.volume = Math.max(0, Math.min(Config.services.maxVolume, newVolume));
         }
     }
 
-    Process {
-        id: batteryProcess
-        command: ['sh', '-c', 'upower -i "$(upower -e | grep -E "headset")"']
+    function incrementVolume(amount: real): void {
+        setVolume(volume + (amount || Config.services.audioIncrement));
+    }
 
-        stdout: StdioCollector {
-            onTextChanged: {
-                if (text.trim()) {
-                    parseBluetoothBattery(text.trim());
-                }
-            }
-        }
+    function decrementVolume(amount: real): void {
+        setVolume(volume - (amount || Config.services.audioIncrement));
+    }
 
-        stderr: StdioCollector {
-            onTextChanged: {
-                if (text.trim()) {
-                    bluetoothBatteryAvailable = false;
-                    bluetoothBatteryPercentage = -1;
-                }
-            }
+    function setSourceVolume(newVolume: real): void {
+        if (source?.ready && source?.audio) {
+            source.audio.muted = false;
+            source.audio.volume = Math.max(0, Math.min(Config.services.maxVolume, newVolume));
         }
     }
 
-    Process {
-        id: audioProcess
-        running: true
-        command: ['pactl', 'list', 'sinks']
-
-        stdout: StdioCollector {
-            onTextChanged: {
-                parseAudioSinks(text.trim());
-            }
-        }
+    function incrementSourceVolume(amount: real): void {
+        setSourceVolume(sourceVolume + (amount || Config.services.audioIncrement));
     }
 
-    function parseAudioSinks(text) {
-        var sinks = text.split(/Sink #\d+/);
-        var activeSink = null;
-
-        for (var i = 1; i < sinks.length; i++) {
-            var sinkData = sinks[i];
-
-            var stateMatch = sinkData.match(/State:\s*(\w+)/);
-            if (stateMatch && stateMatch[1] === "RUNNING") {
-                activeSink = sinkData;
-                break;
-            }
-        }
-
-        if (!activeSink && sinks.length > 1) {
-            activeSink = sinks[1];
-        }
-
-        if (activeSink) {
-            parseSinkData(activeSink);
-        }
+    function decrementSourceVolume(amount: real): void {
+        setSourceVolume(sourceVolume - (amount || Config.services.audioIncrement));
     }
 
-    function parseSinkData(sinkData) {
-        var stateMatch = sinkData.match(/State:\s*(\w+)/);
-        if (stateMatch && stateMatch[1]) {
-            state = stateMatch[1];
-        }
-
-        var volumeMatch = sinkData.match(/Volume:.*?(\d+)%/);
-        if (volumeMatch && volumeMatch[1]) {
-            volumePercentage = parseInt(volumeMatch[1]);
-        }
-
-        var muteMatch = sinkData.match(/Mute:\s*(yes|no)/);
-        if (muteMatch && muteMatch[1]) {
-            muted = (muteMatch[1] === "yes");
-        }
-
-        var nameMatch = sinkData.match(/Name:\s*(.+)/);
-        if (nameMatch && nameMatch[1]) {
-            sinkName = nameMatch[1].trim();
-        }
-
-        var busMatch = sinkData.match(/device\.bus\s*=\s*"([^"]+)"/);
-        if (busMatch && busMatch[1]) {
-            deviceBus = busMatch[1];
-        }
-
-        var nickMatch = sinkData.match(/device\.nick\s*=\s*"([^"]+)"/);
-        if (nickMatch && nickMatch[1]) {
-            deviceNick = nickMatch[1];
-        }
-
-        var aliasMatch = sinkData.match(/device\.alias\s*=\s*"([^"]+)"/);
-        if (aliasMatch && aliasMatch[1]) {
-            deviceAlias = aliasMatch[1];
-        }
-
-        var activePortMatch = sinkData.match(/Active Port:\s*(.+)/);
-        if (activePortMatch && activePortMatch[1]) {
-            activePort = activePortMatch[1].trim();
-        }
+    function setAudioSink(newSink: PwNode): void {
+        Pipewire.preferredDefaultAudioSink = newSink;
     }
 
-    function parseBluetoothBattery(text) {
-        var percentageMatch = text.match(/percentage:\s*(\d+)%/);
-        if (percentageMatch && percentageMatch[1]) {
-            bluetoothBatteryPercentage = parseInt(percentageMatch[1]);
-            bluetoothBatteryAvailable = true;
-        } else {
-            bluetoothBatteryAvailable = false;
-            bluetoothBatteryPercentage = -1;
-        }
+    function setAudioSource(newSource: PwNode): void {
+        Pipewire.preferredDefaultAudioSource = newSource;
     }
 
-    function getVolumeIcon() {
-        if (muted || volumePercentage === 0) {
-            return "󰸈";
-        } else if (volumePercentage <= 33) {
-            return "󰕿";
-        } else if (volumePercentage <= 66) {
-            return "󰖀";
-        } else {
-            return "󰕾";
-        }
+    onSinkChanged: {
+        if (!sink?.ready)
+            return;
+
+        const newSinkName = sink.description || sink.name || qsTr("Unknown Device");
+
+        if (previousSinkName && previousSinkName !== newSinkName && Config.utilities.toasts.audioOutputChanged)
+            Toaster.toast(qsTr("Audio output changed"), qsTr("Now using: %1").arg(newSinkName), "volume_up");
+
+        previousSinkName = newSinkName;
     }
 
-    function getDeviceIcon() {
-        var baseIcon = "";
-        var portLower = activePort.toLowerCase();
-        var isHeadphones = portLower.includes("headphone") || portLower.includes("headset");
-        var isSpeakers = portLower.includes("speaker") || portLower.includes("output-speaker");
-        var isBluetooth = deviceBus === "bluetooth";
+    onSourceChanged: {
+        if (!source?.ready)
+            return;
 
-        if (isBluetooth && isHeadphones) {
-            baseIcon = "󰂯";
-        } else if (isBluetooth && !isHeadphones) {
-            baseIcon = "󰋋";
-        } else if (isHeadphones) {
-            baseIcon = "󰋋";
-        } else if (isSpeakers) {
-            baseIcon = "󰓃";
-        } else {
-            baseIcon = "󰓃";
-        }
+        const newSourceName = source.description || source.name || qsTr("Unknown Device");
 
-        if (isBluetooth && bluetoothBatteryAvailable) {
-            baseIcon += " " + getBluetoothBatteryIcon();
-        }
+        if (previousSourceName && previousSourceName !== newSourceName && Config.utilities.toasts.audioInputChanged)
+            Toaster.toast(qsTr("Audio input changed"), qsTr("Now using: %1").arg(newSourceName), "mic");
 
-        return baseIcon;
+        previousSourceName = newSourceName;
     }
 
-    function getBluetoothBatteryIcon() {
-        if (!bluetoothBatteryAvailable || bluetoothBatteryPercentage < 0) {
-            return "";
-        }
+    Component.onCompleted: {
+        previousSinkName = sink?.description || sink?.name || qsTr("Unknown Device");
+        previousSourceName = source?.description || source?.name || qsTr("Unknown Device");
+    }
 
-        if (bluetoothBatteryPercentage <= 10) {
-            return "󰂎";
-        } else if (bluetoothBatteryPercentage <= 25) {
-            return "󰁺";
-        } else if (bluetoothBatteryPercentage <= 50) {
-            return "󰁼";
-        } else if (bluetoothBatteryPercentage <= 75) {
-            return "󰁽";
-        } else {
-            return "󰁹";
-        }
+    PwObjectTracker {
+        objects: [...root.sinks, ...root.sources]
+    }
+
+    CavaProvider {
+        id: cava
+
+        bars: Config.services.visualiserBars
+    }
+
+    BeatTracker {
+        id: beatTracker
     }
 }
