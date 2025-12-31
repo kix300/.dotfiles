@@ -114,6 +114,7 @@
       xfce.thunar
       inputs.zen-browser.packages."${system}".default
       inputs.quickshell.packages."${system}".default
+      inputs.caelestia-shell.packages."${system}".default
     ];
   };
   virtualisation.podman.enable = true;
