@@ -136,7 +136,7 @@ inputs,
 	services = {
 		thermald.enable = true;
 		auto-cpufreq = {
-			enable = true;
+			enable = false;
 			settings = {
 				battery = {
 					governor = "powersave";
@@ -149,7 +149,7 @@ inputs,
 			};
 		};
 	};
-	services.power-profiles-daemon.enable;
+	services.power-profiles-daemon.enable = true;
 
 	xdg.portal = {
 		enable = true;
