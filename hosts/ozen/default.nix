@@ -74,7 +74,6 @@ inputs,
 			discord
 			distrobox
 			fd
-			gemini-cli
 			glfw
 			godot
 			guitarix
@@ -112,7 +111,7 @@ inputs,
 			wayvnc
 			wine
 			wofi
-			xfce.thunar
+			thunar
 			inputs.zen-browser.packages."${system}".default
 			inputs.quickshell.packages."${system}".default
 			# inputs.caelestia-shell.packages."${system}".default

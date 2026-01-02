@@ -55,8 +55,6 @@
 		libgcc
 		libgccjit
 		pnpm
-		readline
-		readline70
 		rustup
 		valgrind
 		util-linux
