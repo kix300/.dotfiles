@@ -77,6 +77,7 @@ inputs,
 			glfw
 			godot
 			guitarix
+			gpu-screen-recorder
 			hyprlock
 			jack2
 			kdePackages.qtsvg
