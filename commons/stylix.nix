@@ -1,7 +1,7 @@
 {pkgs, ...}:
 {
 	stylix = {
-		enable = true;
+		enable = false;
 		image = ./srcs/forest.jpg;
 		polarity = "dark";
 		base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
