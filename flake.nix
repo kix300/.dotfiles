@@ -3,7 +3,7 @@
 
 	inputs = {
 		nixvim.url = "github:nix-community/nixvim";
-		vicinae.url = "github:vicinaehq/vicinae";
+		# vicinae.url = "github:vicinaehq/vicinae";
 		nixvim.inputs.nixpkgs.follows = "nixpkgs";
 		nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 		nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -36,7 +36,7 @@
 		stylix,
 		nixvim,
 		nix-minecraft,
-		vicinae,
+		# vicinae,
 		caelestia-shell,
 		...
 		}@inputs:
@@ -85,7 +85,7 @@
 							home-manager.sharedModules = [
 								stylix.homeModules.stylix
 								nixvim.homeModules.nixvim
-								vicinae.homeManagerModules.default
+								# vicinae.homeManagerModules.default
 								caelestia-shell.homeManagerModules.default
 							];
 							home-manager.users.ozen = import ./home/ozen/home.nix;
