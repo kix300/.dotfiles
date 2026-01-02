@@ -37,6 +37,7 @@
 		nixvim,
 		nix-minecraft,
 		vicinae,
+		caelestia-shell,
 		...
 		}@inputs:
 		let
@@ -85,6 +86,7 @@
 								stylix.homeModules.stylix
 								nixvim.homeModules.nixvim
 								vicinae.homeManagerModules.default
+								caelestia-shell.homeManagerModules.default
 							];
 							home-manager.users.ozen = import ./home/ozen/home.nix;
 						}
