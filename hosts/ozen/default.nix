@@ -63,6 +63,7 @@ inputs,
 			appimage-run
 			asusctl
 			bear
+			bibata-cursors
 			btop-cuda
 			brightnessctl
 			clang-tools
@@ -78,6 +79,7 @@ inputs,
 			godot
 			guitarix
 			gpu-screen-recorder
+			hyprcursor
 			hyprlock
 			jack2
 			kdePackages.qtsvg
