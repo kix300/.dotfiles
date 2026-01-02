@@ -6,10 +6,10 @@
     ./../../commons/wlogout.nix
   ];
 
-  services.vicinae = {
-    enable = false;
-    autoStart = false;
-  };
+  # services.vicinae = {
+  #   enable = false;
+  #   autoStart = false;
+  # };
   programs = {
     lazygit.enable = true;
     firefox.enable = true;
