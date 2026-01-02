@@ -81,6 +81,15 @@
 	security = {
 		rtkit.enable = true;
 		polkit.enable = true;
+		polkit.extraConfig = ''
+	polkit.addRule(function(action, subject) {
+	  if (action.id == "org.freedesktop.policykit.exec" &&
+		  action.lookup("program") == "${pkgs.gpu-screen-recorder}/bin/gsr-kms-server" &&
+		  subject.isInGroup("video")) {
+		return polkit.Result.YES;
+	  }
+	});
+		'';
 		pam = {
 			services = {
 				swaylock = { };
