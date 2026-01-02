@@ -1,38 +1,54 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
-  imports = [
-    ./../commons/Hcommons.nix
-  ];
-  programs.home-manager.enable = true;
-  home = {
-    username = "ozen";
-    homeDirectory = "/home/ozen";
-  };
+	imports = [
+		./../commons/Hcommons.nix
+	];
+	programs.home-manager.enable = true;
+	home = {
+		username = "ozen";
+		homeDirectory = "/home/ozen";
+	};
 
-  # pour creer un fichier xdg desktop portal hyprland et donc screensharing
-  systemd.user.services.xdg-desktop-portal-hyprland = {
-    Unit = {
-      Description = "XDG Desktop Portal Hyprland";
-      PartOf = [ "graphical-session.target" ];
-      After = [ "graphical-session.target" ];
-    };
-    Service = {
-      Type = "dbus";
-      BusName = "org.freedesktop.impl.portal.desktop.hyprland";
-      ExecStart = "${pkgs.xdg-desktop-portal-hyprland}/libexec/xdg-desktop-portal-hyprland";
-      Restart = "on-failure";
-      RestartSec = 5;
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
-  };
+	# pour creer un fichier xdg desktop portal hyprland et donc screensharing
+	systemd.user.services.xdg-desktop-portal-hyprland = {
+		Unit = {
+			Description = "XDG Desktop Portal Hyprland";
+			PartOf = [ "graphical-session.target" ];
+			After = [ "graphical-session.target" ];
+		};
+		Service = {
+			Type = "dbus";
+			BusName = "org.freedesktop.impl.portal.desktop.hyprland";
+			ExecStart = "${pkgs.xdg-desktop-portal-hyprland}/libexec/xdg-desktop-portal-hyprland";
+			Restart = "on-failure";
+			RestartSec = 5;
+		};
+		Install = {
+			WantedBy = [ "graphical-session.target" ];
+		};
+	};
+	programs.caelestia = {
+		enable = true;
+		systemd = {
+			enable = true; # if you prefer starting from your compositor
+			target = "graphical-session.target";
+			environment = [];
+		};
+		settings = {
+		};
+		cli = {
+			enable = true; # Also add caelestia-cli to path
+			settings = {
+				theme.enableGtk = false;
+			};
+		};
+	};
 
-  wayland.windowManager.hyprland = {
-    enable = true;
-    extraConfig = "
-  ${builtins.readFile ./../../commons/hypr/hyprland/hyprland.conf}
-  ";
-  };
-  home.stateVersion = "23.11";
+	wayland.windowManager.hyprland = {
+		enable = true;
+		extraConfig = "
+			${builtins.readFile ./../../commons/hypr/hyprland/hyprland.conf}
+			";
+	};
+	home.stateVersion = "23.11";
 }

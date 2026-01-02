@@ -115,7 +115,7 @@ inputs,
 			xfce.thunar
 			inputs.zen-browser.packages."${system}".default
 			inputs.quickshell.packages."${system}".default
-			inputs.caelestia-shell.packages."${system}".default
+			# inputs.caelestia-shell.packages."${system}".default
 		];
 	};
 	virtualisation.podman.enable = true;
@@ -123,6 +123,10 @@ inputs,
 	virtualisation.docker.rootless = {
 		enable = true;
 		setSocketVariable = true;
+	};
+	virtualisation.waydroid = {
+		enable = true;
+		package = pkgs.waydroid-nftables;
 	};
 
 	# for charging phone
@@ -222,8 +226,6 @@ inputs,
 		displayManager.gdm.enable = lib.mkForce false;
 		desktopManager.gnome.enable = lib.mkForce false;
 	};
-
-	qt.enable = true; # test pour screen sharing
 
 	# hardware = {
 	# 	nvidia = {
