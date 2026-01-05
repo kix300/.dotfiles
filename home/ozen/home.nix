@@ -35,6 +35,11 @@
 			environment = [];
 		};
 		settings = {
+			general.idle.timeouts = [
+				{timeout = 36000; idleAction = "lock";}
+				{timeout = 36000; idleAction = "dpms off"; returnAction = "dpms on";}
+				{timeout = 36000; idleAction = ["systemctl", "suspend-then-hibernate"];}
+			]
 		};
 		cli = {
 			enable = true; # Also add caelestia-cli to path
