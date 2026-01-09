@@ -62,6 +62,7 @@ inputs,
 			apktool
 			appimage-run
 			ardour
+			gxplugins-lv2
 			asusctl
 			bear
 			btop-cuda
