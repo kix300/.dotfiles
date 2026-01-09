@@ -61,6 +61,7 @@ inputs,
 			android-tools
 			apktool
 			appimage-run
+			ardour
 			asusctl
 			bear
 			btop-cuda
