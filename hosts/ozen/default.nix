@@ -63,6 +63,7 @@ inputs,
 			appimage-run
 			ardour
 			gxplugins-lv2
+			tamgamp-lv2
 			asusctl
 			bear
 			btop-cuda
