@@ -64,6 +64,7 @@ inputs,
 			ardour
 			gxplugins-lv2
 			tamgamp-lv2
+			neural-amp-modeler-lv2
 			asusctl
 			bear
 			btop-cuda
@@ -119,6 +120,14 @@ inputs,
 			inputs.zen-browser.packages."${system}".default
 			inputs.quickshell.packages."${system}".default
 			# inputs.caelestia-shell.packages."${system}".default
+		];
+	};
+	environment.variables = {
+		LV2_PATH = [
+			"$HOME/.lv2"
+			"$HOME/.nix-profile/lib/lv2"
+			"/etc/profiles/per-user/ozen/lib/lv2"
+			"/run/current-system/sw/lib/lv2"
 		];
 	};
 	virtualisation.podman.enable = true;
