@@ -62,6 +62,7 @@ inputs,
 			apktool
 			appimage-run
 			ardour
+			lsp-plugins
 			gxplugins-lv2
 			tamgamp-lv2
 			neural-amp-modeler-lv2
