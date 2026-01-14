@@ -90,6 +90,7 @@ inputs,
 			kdePackages.qtdeclarative
 			kitty
 			lua
+			lutris
 			lshw
 			# n8n
 			nil
