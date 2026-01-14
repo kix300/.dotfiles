@@ -91,6 +91,7 @@ inputs,
 			kitty
 			lua
 			lutris
+			bottles
 			lshw
 			# n8n
 			nil
@@ -115,6 +116,7 @@ inputs,
 			util-linux
 			vimPlugins.nvim-treesitter-parsers.qmljs
 			vscode
+			vue-language-server
 			wayvnc
 			wine
 			wofi
