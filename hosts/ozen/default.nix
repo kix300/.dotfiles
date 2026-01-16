@@ -101,6 +101,7 @@ inputs,
 			obs-studio
 			openjdk
 			pavucontrol
+			prismlauncher
 			pulseaudio
 			python3
 			qjackctl
