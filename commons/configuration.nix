@@ -31,7 +31,6 @@
       clean.extraArgs = "--keep-since 4d --keep 3";
       flake = "/home/ozen/.dotfiles";
     };
-    adb.enable = true;
     # steam = {
     #   enable = true;
     #   extest.enable = true;
