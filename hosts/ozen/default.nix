@@ -116,7 +116,6 @@ inputs,
 			telegram-desktop
 			util-linux
 			vimPlugins.nvim-treesitter-parsers.qmljs
-			vscode
 			vue-language-server
 			wayvnc
 			wine

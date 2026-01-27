@@ -50,7 +50,6 @@
 		packages = with pkgs; [
 			docker-compose
 				vscodium
-				vscode
 				firefox
 				solana-cli
 				anchor
