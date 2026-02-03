@@ -7,6 +7,10 @@
 		vimAlias = true;
 		viAlias = true;
 		plugins = {
+			statix = {
+				enable = true;
+				package = pkgs.statix;
+			};
 			lsp = {
 				enable = true;
 				servers = {
