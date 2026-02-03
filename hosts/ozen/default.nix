@@ -108,7 +108,6 @@ inputs,
 			r2modman
 			rofi-power-menu
 			rofi
-			rustlings
 			signal-desktop
 			spotify
 			supabase-cli

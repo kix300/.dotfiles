@@ -55,7 +55,6 @@
 		libgcc
 		libgccjit
 		pnpm
-		rustup
 		valgrind
 		util-linux
 		# xwaylandvideobridge
