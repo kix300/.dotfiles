@@ -7,14 +7,13 @@
 		vimAlias = true;
 		viAlias = true;
 		plugins = {
-			statix = {
-				enable = true;
-				package = pkgs.statix;
-			};
 			lsp = {
 				enable = true;
 				servers = {
-					vue_ls.enable = true;
+					statix = {
+						enable = true;
+						package = pkgs.statix;
+					};
 					ts_ls.enable = true;
 				};
 			};
