@@ -27,6 +27,7 @@
 		};
 		yazi = {
 			enable = true;
+			shellWrapperName = "y";
 		};
 		starship = {
 			enable = true;
