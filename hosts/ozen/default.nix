@@ -106,6 +106,7 @@ inputs,
 			python3
 			qjackctl
 			r2modman
+			revolt-desktop
 			rofi-power-menu
 			rofi
 			signal-desktop
