@@ -1,5 +1,4 @@
 {
-config,
 pkgs,
 lib,
 inputs,
@@ -22,11 +21,6 @@ inputs,
 			settings = {
 				General = {
 					EnableNetworkConfiguration = true;
-				};
-				"Gibus" = {
-					AutoConnect = "true";
-					# Fréquences 5 GHz usuelles en France (pas de 2,4 GHz)
-					Frequencies = "5180,5200,5220,5240,5260,5280,5300,5320,5500,5520,5540,5560,5580,5660,5680,5700,5720,5745,5765,5785,5805";
 				};
 				IPv6 = {
 					Enabled = true;
@@ -123,7 +117,6 @@ inputs,
 			thunar
 			inputs.zen-browser.packages."${system}".default
 			inputs.quickshell.packages."${system}".default
-			# inputs.caelestia-shell.packages."${system}".default
 		];
 	};
 	environment.variables = {
@@ -134,25 +127,21 @@ inputs,
 			"/run/current-system/sw/lib/lv2"
 		];
 	};
-	virtualisation.podman.enable = true;
-	virtualisation.docker.enable = true;
-	virtualisation.docker.rootless = {
-		enable = true;
-		setSocketVariable = true;
-	};
-	virtualisation.waydroid = {
-		enable = true;
-		package = pkgs.waydroid-nftables;
-	};
-
-	# for charging phone
-	services.logind.settings.Login = {
-		HandlelidSwitch = "ignore";
-		HandlelidSwitchDocked = "ignore";
-		HandlelidSwitchExternalPower = "ignore";
+	virtualisation = {
+		podman.enable = true;
+		docker = {
+			enable = true;
+			rootless = {
+				enable = true;
+				setSocketVariable = true;
+			};
+		};
+		waydroid = {
+			enable = true;
+			package = pkgs.waydroid-nftables;
+		};
 	};
 
-	#cpu
 	services = {
 		thermald.enable = true;
 		auto-cpufreq = {
@@ -168,8 +157,20 @@ inputs,
 				};
 			};
 		};
+		logind.settings.Login = {
+			HandlelidSwitch = "ignore";
+			HandlelidSwitchDocked = "ignore";
+			HandlelidSwitchExternalPower = "ignore";
+		};
+		power-profiles-daemon.enable = true;
+		xserver = {
+			enable = lib.mkForce false;
+		};
+		displayManager.sddm.enable = lib.mkForce false;
+		desktopManager.plasma6.enable = lib.mkForce false;
+		displayManager.gdm.enable = lib.mkForce false;
+		desktopManager.gnome.enable = lib.mkForce false;
 	};
-	services.power-profiles-daemon.enable = true;
 
 	xdg.portal = {
 		enable = true;
@@ -193,21 +194,22 @@ inputs,
 		};
 	};
 
-	# Enable the systemd services explicitly
-	systemd.user.services.xdg-desktop-portal-hyprland = {
-		enable = true;
-		wantedBy = [ "graphical-session.target" ];
-		after = [ "graphical-session.target" ];
-	};
+	systemd.user.services = {
+		xdg-desktop-portal-hyprland = {
+			enable = true;
+			wantedBy = [ "graphical-session.target" ];
+			after = [ "graphical-session.target" ];
+		};
 
-	# Also ensure the main xdg-desktop-portal service is running
-	systemd.user.services.xdg-desktop-portal = {
-		enable = true;
-		wantedBy = [ "graphical-session.target" ];
-		after = [ "graphical-session.target" ];
+		xdg-desktop-portal = {
+			enable = true;
+			wantedBy = [ "graphical-session.target" ];
+			after = [ "graphical-session.target" ];
+		};
 	};
 	boot = {
-		extraModulePackages = with config.boot.kernelPackages; [ rtl8812au ];
+		# remove this broken packages i guess ive added it for some wifi problem that come from my box
+		# extraModulePackages = with config.boot.kernelPackages; [ rtl8812au ];
 		kernelModules = [
 			"8812au"
 			"amdgpu.dc=1"
@@ -222,31 +224,24 @@ inputs,
 		];
 	};
 
-	programs.hyprland.portalPackage = pkgs.xdg-desktop-portal-hyprland;
-	programs.hyprland = {
-		enable = true;
-		withUWSM = true;
-		xwayland.enable = true;
-	};
-	programs.steam = {
-		enable = true;
-		gamescopeSession.enable = true;
-	};
-	programs.gamescope = {
-		enable = true;
-		capSysNice = true;
+	programs = {
+		hyprland.portalPackage = pkgs.xdg-desktop-portal-hyprland;
+		hyprland = {
+			enable = true;
+			withUWSM = true;
+			xwayland.enable = true;
+		};
+		steam = {
+			enable = true;
+			gamescopeSession.enable = true;
+		};
+		gamescope = {
+			enable = true;
+			capSysNice = true;
+		};
 	};
 
 	hardware.enableRedistributableFirmware = true;
-	services = {
-		xserver = {
-			enable = lib.mkForce false;
-		};
-		displayManager.sddm.enable = lib.mkForce false;
-		desktopManager.plasma6.enable = lib.mkForce false;
-		displayManager.gdm.enable = lib.mkForce false;
-		desktopManager.gnome.enable = lib.mkForce false;
-	};
 
 	# hardware = {
 	# 	nvidia = {
