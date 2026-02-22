@@ -36,9 +36,9 @@
 		};
 		settings = {
 			general.idle.timeouts = [
-				{timeout = 36000; idleAction = "lock";}
-				{timeout = 36000; idleAction = "dpms off"; returnAction = "dpms on";}
-				{timeout = 36000; idleAction = "systemctl suspend-then-hibernate" ;}
+				{timeout = 360000; idleAction = "lock";}
+				{timeout = 360000; idleAction = "dpms off"; returnAction = "dpms on";}
+				{timeout = 360000; idleAction = "systemctl suspend-then-hibernate" ;}
 			];
 		};
 		cli = {
