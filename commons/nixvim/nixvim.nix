@@ -10,6 +10,9 @@
 			lsp = {
 				enable = true;
 				servers = {
+					pyright = { 
+						enable = true;
+					};
 					statix = {
 						enable = true;
 						package = pkgs.statix;
