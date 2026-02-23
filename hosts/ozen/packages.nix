@@ -83,6 +83,7 @@
 			swww
 			telegram-desktop
 			util-linux
+			uv
 			vimPlugins.nvim-treesitter-parsers.qmljs
 			wayvnc
 			wine
