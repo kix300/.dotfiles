@@ -48,7 +48,6 @@
 			fd
 			glfw
 			godot
-			guitarix
 			gpu-screen-recorder
 			hyprlock
 			jack2
