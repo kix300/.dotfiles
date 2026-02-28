@@ -1,15 +1,14 @@
 { pkgs, ... }:
-{
+	{
 	imports = [
 		./../../commons/stylix.nix
 		./../../commons/nixvim/nixvim.nix
 		./../../commons/wlogout.nix
 	];
 
-	# services.vicinae = {
-	#   enable = false;
-	#   autoStart = false;
-	# };
+	services.vicinae = {
+		enable = true;
+	};
 	home.pointerCursor = {
 		gtk.enable = true;
 		x11.enable = true;
@@ -20,6 +19,35 @@
 	programs = {
 		lazygit.enable = true;
 		firefox.enable = true;
+		ashell = {
+			enable = true;
+			settings = {
+				modules = {
+					center = [
+						"Window Title"
+						"Tray"
+						"Media Player"
+					];
+					left = [
+						"Workspaces"
+					];
+					right = [
+						"SystemInfo"
+						[
+							"Clock"
+							"Privacy"
+							"Settings"
+						]
+					];
+				};
+				workspaces = {
+					visibility_mode = "All";
+				};
+				window_title ={
+					mode ="Title";
+				};
+			};
+		};
 		git = {
 			enable = true;
 			settings.user.name = "kix300";
