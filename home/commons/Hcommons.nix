@@ -1,5 +1,5 @@
 { pkgs, ... }:
-	{
+{
 	imports = [
 		./../../commons/stylix.nix
 		./../../commons/nixvim/nixvim.nix
@@ -24,6 +24,7 @@
 			settings = {
 				modules = {
 					center = [
+						"Clock"
 						"Window Title"
 					];
 					left = [
@@ -34,7 +35,6 @@
 					right = [
 						"SystemInfo"
 						[
-							"Clock"
 							"Privacy"
 							"Settings"
 						]
@@ -45,6 +45,35 @@
 				};
 				window_title ={
 					mode ="Title";
+				};
+				appearance = {
+					scale_factor = 1.4;
+					style = "Solid";
+					opacity = 0.8;
+					success_color = "#a6e3a1";
+					text_color = "#cdd6f4";
+					workspace_colors = [
+						"#fab387"
+						"#b4befe"
+						"#cba6f7"
+					];
+					primary_colors = {
+						base = "#fab387";
+						text = "#1e1e2e";
+					};
+					danger_color = {
+						base = "#f38ba8";
+						weak = "#f9e2af";
+					};
+					background_color = {
+						base = "#1e1e2e";
+						weak = "#313244";
+						strong = "#45475a";
+					};
+					secondary_color = {
+						base = "#11111b";
+						strong = "#1b1b25";
+					};
 				};
 			};
 		};
