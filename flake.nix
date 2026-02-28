@@ -3,16 +3,17 @@
 
 	inputs = {
 		nixvim.url = "github:nix-community/nixvim";
-		# vicinae.url = "github:vicinaehq/vicinae";
+		vicinae.url = "github:vicinaehq/vicinae";
+  		ashell.url = "github:MalpenZibo/ashell";
 		nixvim.inputs.nixpkgs.follows = "nixpkgs";
 		nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 		nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 		stylix.url = "github:danth/stylix";
-		caelestia-shell = {
-			url = "github:caelestia-dots/shell";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		# caelestia-shell = {
+		# 	url = "github:caelestia-dots/shell";
+		# 	inputs.nixpkgs.follows = "nixpkgs";
+		# };
 		home-manager = {
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -20,10 +21,6 @@
 		nix-index-database.url = "github:nix-community/nix-index-database";
 		nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 		zen-browser.url = "github:0xc000022070/zen-browser-flake";
-		# quickshell = {
-		# 	url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-		# 	inputs.nixpkgs.follows = "nixpkgs";
-		# };
 	};
 
 	outputs =
@@ -36,8 +33,9 @@
 		stylix,
 		nixvim,
 		nix-minecraft,
-		# vicinae,
-		caelestia-shell,
+		vicinae,
+		ashell,
+		# caelestia-shell,
 		...
 		}@inputs:
 		let
@@ -85,8 +83,9 @@
 							home-manager.sharedModules = [
 								stylix.homeModules.stylix
 								nixvim.homeModules.nixvim
-								# vicinae.homeManagerModules.default
-								caelestia-shell.homeManagerModules.default
+								vicinae.homeManagerModules.default
+								# ashell.homeModules.default
+								# caelestia-shell.homeManagerModules.default
 							];
 							home-manager.users.ozen = import ./home/ozen/home.nix;
 						}
