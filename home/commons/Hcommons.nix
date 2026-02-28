@@ -25,11 +25,11 @@
 				modules = {
 					center = [
 						"Window Title"
-						"Tray"
-						"Media Player"
 					];
 					left = [
 						"Workspaces"
+						"Tray"
+						"Media Player"
 					];
 					right = [
 						"SystemInfo"
