@@ -24,20 +24,16 @@
 			settings = {
 				modules = {
 					center = [
-						"Clock"
 						"Window Title"
 					];
 					left = [
 						"Workspaces"
 						"Tray"
-						"Media Player"
+						"Clock"
 					];
 					right = [
 						"SystemInfo"
-						[
-							"Privacy"
-							"Settings"
-						]
+						"Settings"
 					];
 				};
 				workspaces = {
@@ -47,7 +43,7 @@
 					mode ="Title";
 				};
 				appearance = {
-					scale_factor = 1.4;
+					scale_factor = 1;
 					style = "Islands";
 					opacity = 0.8;
 					success_color = "#a6e3a1";
