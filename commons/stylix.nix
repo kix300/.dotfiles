@@ -1,17 +1,14 @@
 {pkgs, ...}:
 {
 	stylix = {
-		enable = true;
+		enable = false;
 		image = ./srcs/forest.jpg;
 		polarity = "dark";
-		base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
-		#base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
 		cursor = {
 			package = pkgs.bibata-cursors;
 			name = "Bibata-Modern-Classic";
 			size = 24;
 		};
-		opacity.terminal = 0.5;
 		targets = {
 			gtk.enable = true;
 			xfce.enable = true;
