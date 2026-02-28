@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
 	imports = [
 		./../commons/Hcommons.nix
@@ -27,27 +27,27 @@
 			WantedBy = [ "graphical-session.target" ];
 		};
 	};
-	programs.caelestia = {
-		enable = true;
-		systemd = {
-			enable = true; # if you prefer starting from your compositor
-			target = "graphical-session.target";
-			environment = [];
-		};
-		settings = {
-			general.idle.timeouts = [
-				{timeout = 360000; idleAction = "lock";}
-				{timeout = 360000; idleAction = "dpms off"; returnAction = "dpms on";}
-				{timeout = 360000; idleAction = "systemctl suspend-then-hibernate" ;}
-			];
-		};
-		cli = {
-			enable = true; # Also add caelestia-cli to path
-			settings = {
-				theme.enableGtk = false;
-			};
-		};
-	};
+	# programs.caelestia = {
+	# 	enable = true;
+	# 	systemd = {
+	# 		enable = true; # if you prefer starting from your compositor
+	# 		target = "graphical-session.target";
+	# 		environment = [];
+	# 	};
+	# 	settings = {
+	# 		general.idle.timeouts = [
+	# 			{timeout = 360000; idleAction = "lock";}
+	# 			{timeout = 360000; idleAction = "dpms off"; returnAction = "dpms on";}
+	# 			{timeout = 360000; idleAction = "systemctl suspend-then-hibernate" ;}
+	# 		];
+	# 	};
+	# 	cli = {
+	# 		enable = true; # Also add caelestia-cli to path
+	# 		settings = {
+	# 			theme.enableGtk = false;
+	# 		};
+	# 	};
+	# };
 
 	wayland.windowManager.hyprland = {
 		enable = true;
