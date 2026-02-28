@@ -48,7 +48,7 @@
 				};
 				appearance = {
 					scale_factor = 1.4;
-					style = "Solid";
+					style = "Island";
 					opacity = 0.8;
 					success_color = "#a6e3a1";
 					text_color = "#cdd6f4";
