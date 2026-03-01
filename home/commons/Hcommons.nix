@@ -25,9 +25,9 @@
 				modules = {
 					center = [
 						"Window Title"
-						"Clock"
 					];
 					left = [
+						"Clock"
 						"Workspaces"
 						"Tray"
 					];
