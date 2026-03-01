@@ -25,11 +25,11 @@
 				modules = {
 					center = [
 						"Window Title"
+						"Clock"
 					];
 					left = [
 						"Workspaces"
 						"Tray"
-						"Clock"
 					];
 					right = [
 						"SystemInfo"
