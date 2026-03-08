@@ -28,11 +28,16 @@
 			android-tools
 			apktool
 			appimage-run
+
+			#guitar 
+			guitarix
 			ardour
 			lsp-plugins
 			gxplugins-lv2
+			calf
 			tamgamp-lv2
 			neural-amp-modeler-lv2
+
 			asusctl
 			bear
 			btop-cuda
