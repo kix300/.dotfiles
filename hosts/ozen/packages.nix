@@ -30,7 +30,6 @@
 			appimage-run
 
 			#guitar 
-			guitarix
 			ardour
 			lsp-plugins
 			gxplugins-lv2
