@@ -81,6 +81,7 @@
 			rofi
 			signal-desktop
 			spotify
+			stoat-desktop
 			supabase-cli
 			swaylock-fancy
 			swww
