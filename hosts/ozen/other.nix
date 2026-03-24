@@ -39,6 +39,12 @@
 			};
 		};
 	};
+	systemd.sleep.extraConfig = ''
+		AllowSuspend=no
+		AllowHibernation=no
+		AllowSuspendThenHibernate=no
+		AllowHybridSleep=no
+	'';
 
 	systemd.user.services = {
 		xdg-desktop-portal-hyprland = {

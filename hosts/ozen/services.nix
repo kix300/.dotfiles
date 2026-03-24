@@ -22,6 +22,10 @@
 			HandlelidSwitch = "ignore";
 			HandlelidSwitchDocked = "ignore";
 			HandlelidSwitchExternalPower = "ignore";
+			extraConfig = ''
+				IdleAction=ignore
+				IdleActionSec=0
+			'';
 		};
 		power-profiles-daemon.enable = true;
 		xserver = {
