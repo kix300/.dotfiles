@@ -9,6 +9,13 @@
 		homeDirectory = "/home/ozen";
 	};
 
+	programs = {
+		zoxide.enable = true;
+		noctalia-shell = {
+			enable = true;
+		};
+	};
+
 	# pour creer un fichier xdg desktop portal hyprland et donc screensharing
 	systemd.user.services.xdg-desktop-portal-hyprland = {
 		Unit = {

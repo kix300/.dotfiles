@@ -4,7 +4,7 @@
 	inputs = {
 		nixvim.url = "github:nix-community/nixvim";
 		vicinae.url = "github:vicinaehq/vicinae";
-  		ashell.url = "github:MalpenZibo/ashell";
+		ashell.url = "github:MalpenZibo/ashell";
 		nixvim.inputs.nixpkgs.follows = "nixpkgs";
 		nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 		nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -14,6 +14,10 @@
 		# 	url = "github:caelestia-dots/shell";
 		# 	inputs.nixpkgs.follows = "nixpkgs";
 		# };
+		noctalia = {
+			url = "github:noctalia-dev/noctalia-shell";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 		home-manager = {
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -35,6 +39,7 @@
 		nix-minecraft,
 		vicinae,
 		ashell,
+		noctalia,
 		# caelestia-shell,
 		...
 		}@inputs:
@@ -84,6 +89,7 @@
 								stylix.homeModules.stylix
 								nixvim.homeModules.nixvim
 								vicinae.homeManagerModules.default
+								noctalia.homeModules.default
 								# ashell.homeModules.default
 								# caelestia-shell.homeManagerModules.default
 							];

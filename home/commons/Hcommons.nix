@@ -20,7 +20,7 @@
 		lazygit.enable = true;
 		firefox.enable = true;
 		ashell = {
-			enable = true;
+			enable = false;
 			settings = {
 				modules = {
 					center = [
