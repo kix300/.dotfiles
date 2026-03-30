@@ -1,6 +1,6 @@
 {
-	pkgs,
-	...
+pkgs,
+...
 }:
 {
 	programs = {
@@ -16,8 +16,14 @@
 		};
 		nix-ld.enable = true;
 		direnv = {
-			enable = true;
-			nix-direnv.enable = true;
+			package = pkgs.direnv;
+			silent = false;
+			loadInNixShell = true;
+			direnvrcExtra = "";
+			nix-direnv = {
+				enable = true;
+				package = pkgs.nix-direnv;
+			};
 		};
 		gamescope = {
 			enable = true;
