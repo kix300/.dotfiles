@@ -46,7 +46,6 @@
 			cmake
 			ddcui
 			ddcutil
-			direnv
 			discord
 			distrobox
 			fd
