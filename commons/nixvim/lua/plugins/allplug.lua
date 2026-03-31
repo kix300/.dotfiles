@@ -34,7 +34,13 @@ return {
 	{ "nvim-lualine/lualine.nvim" },
 	{ "folke/neoconf.nvim" },
 	{ "folke/neodev.nvim" },
-	{ "folke/noice.nvim" },
+	{ "folke/noice.nvim",
+		opts = {
+			notify = {
+				enable = false,
+			},
+		},
+	},
 	{ "MunifTanjim/nui.nvim" },
 	{
 		"hrsh7th/nvim-cmp",
