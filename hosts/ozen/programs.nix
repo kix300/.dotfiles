@@ -30,5 +30,10 @@ pkgs,
 			enable = true;
 			capSysNice = true;
 		};
+		gnupg.agent = {
+			enable = true;
+			# enableSSHSupport = true;
+			pinentryPackage = pkgs.pinentry-curses; # ou pinentry-gnome3, pinentry-qt
+		};
 	};
 }
