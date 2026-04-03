@@ -77,7 +77,6 @@
 		git
 		gnumake
 		ghostty
-		grim
 		iwgtk
 		libbsd
 		libclang
