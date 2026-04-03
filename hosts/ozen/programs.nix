@@ -33,7 +33,7 @@ pkgs,
 		gnupg.agent = {
 			enable = true;
 			# enableSSHSupport = true;
-			pinentryPackage = pkgs.pinentry-curses; # ou pinentry-gnome3, pinentry-qt
+			pinentryPackage = pkgs.pinentry-gnome3;
 		};
 	};
 }

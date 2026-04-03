@@ -53,6 +53,7 @@
 			godot
 			gpu-screen-recorder
 			hyprlock
+			hyprshot
 			jack2
 			kdePackages.qtsvg
 			kdePackages.qtwayland
