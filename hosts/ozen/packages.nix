@@ -73,7 +73,6 @@
 			openjdk
 			pavucontrol
 			prismlauncher
-			pulseaudio
 			python3
 			qjackctl
 			r2modman
