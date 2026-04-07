@@ -22,7 +22,6 @@
 		printing.enable = true;
 		upower.enable = true;
 		blueman.enable = true;
-		mpris-proxy.enable = true;
 		pipewire = {
 			enable = true;
 			alsa.enable = true;
