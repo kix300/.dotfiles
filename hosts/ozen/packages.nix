@@ -84,7 +84,7 @@
 			stoat-desktop
 			supabase-cli
 			swaylock-fancy
-			swww
+			awww
 			telegram-desktop
 			util-linux
 			uv
