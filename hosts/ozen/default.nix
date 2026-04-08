@@ -13,6 +13,10 @@
 		./other.nix
 	];
 
+	#discord
+	nixpkgs.config.permittedInsecurePackages = [
+		"electron-38.8.4"
+	];
 	networking = {
 		hostName = "laptop";
 		networkmanager.enable = true;
