@@ -86,6 +86,7 @@
 			swaylock-fancy
 			awww
 			telegram-desktop
+			tmux
 			util-linux
 			uv
 			vimPlugins.nvim-treesitter-parsers.qmljs

@@ -6,9 +6,9 @@
 		./../../commons/wlogout.nix
 	];
 
-	services.vicinae = {
-		enable = true;
-	};
+	# services.vicinae = {
+	# 	enable = true;
+	# };
 	home.pointerCursor = {
 		gtk.enable = true;
 		x11.enable = true;

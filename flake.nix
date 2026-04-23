@@ -3,7 +3,7 @@
 
 	inputs = {
 		nixvim.url = "github:nix-community/nixvim";
-		vicinae.url = "github:vicinaehq/vicinae";
+		# vicinae.url = "github:vicinaehq/vicinae";
 		ashell.url = "github:MalpenZibo/ashell";
 		nixvim.inputs.nixpkgs.follows = "nixpkgs";
 		nix-minecraft.url = "github:Infinidoge/nix-minecraft";
@@ -37,7 +37,7 @@
 		stylix,
 		nixvim,
 		nix-minecraft,
-		vicinae,
+		# vicinae,
 		ashell,
 		noctalia,
 		# caelestia-shell,
@@ -88,7 +88,7 @@
 							home-manager.sharedModules = [
 								stylix.homeModules.stylix
 								nixvim.homeModules.nixvim
-								vicinae.homeManagerModules.default
+								# vicinae.homeManagerModules.default
 								noctalia.homeModules.default
 								# ashell.homeModules.default
 								# caelestia-shell.homeManagerModules.default
