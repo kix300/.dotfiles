@@ -70,6 +70,7 @@
 			norminette
 			ntfs3g
 			obs-studio
+			obsidian
 			openjdk
 			pavucontrol
 			prismlauncher
