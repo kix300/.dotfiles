@@ -79,7 +79,6 @@
 			rofi-power-menu
 			rofi
 			signal-desktop
-			spotify
 			stoat-desktop
 			supabase-cli
 			swaylock-fancy
