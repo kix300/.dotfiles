@@ -61,8 +61,6 @@
 			kdePackages.qtdeclarative
 			kitty
 			lua
-			lutris
-			bottles
 			lshw
 			# n8n
 			nil
