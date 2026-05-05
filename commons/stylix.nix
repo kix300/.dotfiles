@@ -13,7 +13,6 @@
 			gtk.enable = true;
 			xfce.enable = true;
 			wofi.enable = true;
-			firefox.profileNames = [ "default" ];
 			zed.enable = false;
 			nixvim = {
 				enable = true;

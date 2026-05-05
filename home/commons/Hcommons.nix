@@ -18,7 +18,6 @@
 	};
 	programs = {
 		lazygit.enable = true;
-		firefox.enable = true;
 		ashell = {
 			enable = false;
 			settings = {
