@@ -28,6 +28,7 @@
 			android-tools
 			apktool
 			appimage-run
+			awww
 
 			#guitar 
 			ardour
@@ -60,9 +61,11 @@
 			kdePackages.qtwayland
 			kdePackages.qtdeclarative
 			kitty
+			loupe
 			lua
 			lshw
 			# n8n
+			mpv
 			nil
 			nodejs
 			norminette
@@ -82,7 +85,6 @@
 			stoat-desktop
 			supabase-cli
 			swaylock-fancy
-			awww
 			telegram-desktop
 			tmux
 			util-linux
