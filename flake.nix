@@ -81,19 +81,22 @@
 						# }
 						home-manager.nixosModules.home-manager
 						{
-							home-manager.useGlobalPkgs = true;
-							home-manager.useUserPackages = true;
-							home-manager.backupFileExtension = ".bak";
-							home-manager.extraSpecialArgs = { inherit inputs; };
-							home-manager.sharedModules = [
-								stylix.homeModules.stylix
-								nixvim.homeModules.nixvim
-								# vicinae.homeManagerModules.default
-								noctalia.homeModules.default
-								# ashell.homeModules.default
-								# caelestia-shell.homeManagerModules.default
-							];
-							home-manager.users.ozen = import ./home/ozen/home.nix;
+							home-manager = {
+								useGlobalPkgs = true;
+								useUserPackages = true;
+								# backupFileExtension = ".bak";
+								extraSpecialArgs = { inherit inputs; };
+								sharedModules = [
+									stylix.homeModules.stylix
+									nixvim.homeModules.nixvim
+									# vicinae.homeManagerModules.default
+									noctalia.homeModules.default
+									# ashell.homeModules.default
+									# caelestia-shell.homeManagerModules.default
+								];
+								users.ozen = import ./home/ozen/home.nix;
+
+							};
 						}
 					];
 				};
@@ -105,15 +108,17 @@
 						nix-index-database.nixosModules.nix-index
 						home-manager.nixosModules.home-manager
 						{
-							home-manager.useGlobalPkgs = true;
-							home-manager.useUserPackages = true;
-							home-manager.backupFileExtension = ".bak";
-							home-manager.extraSpecialArgs = { inherit inputs; };
-							home-manager.sharedModules = [
-								stylix.homeModules.stylix
-								nixvim.homeModules.nixvim
-							];
-							home-manager.users.kix = import ./home/42_vm/home.nix;
+							home-manager = {
+								useGlobalPkgs = true;
+								useUserPackages = true;
+								backupFileExtension = ".bak";
+								extraSpecialArgs = { inherit inputs; };
+								sharedModules = [
+									stylix.homeModules.stylix
+									nixvim.homeModules.nixvim
+								];
+								users.kix = import ./home/42_vm/home.nix;
+							};
 						}
 					];
 				};
