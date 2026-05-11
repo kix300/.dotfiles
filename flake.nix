@@ -84,7 +84,7 @@
 							home-manager = {
 								useGlobalPkgs = true;
 								useUserPackages = true;
-								# backupFileExtension = ".bak";
+								backupFileExtension = ".bak";
 								extraSpecialArgs = { inherit inputs; };
 								sharedModules = [
 									stylix.homeModules.stylix
