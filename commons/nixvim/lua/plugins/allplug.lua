@@ -17,7 +17,13 @@ return {
         table.insert(opts.sources, { name = "emoji" })
         end,
     },
-    { "nvim-telescope/telescope.nvim" },
+    { "nvim-telescope/telescope.nvim",
+        keys = {
+            { "<leader>/", LazyVim.pick("live_grep", { root = false }), desc = "Grep (cwd)" },
+            { "<leader><space>", LazyVim.pick("find_files", { root = false }), desc = "Find Files (cwd)" },
+        },
+
+	},
 
     { "kazhala/close-buffers.nvim" },
 
@@ -76,7 +82,6 @@ return {
 	{ "folke/persistence.nvim" },
 	{ "nvim-lua/plenary.nvim" },
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-	{ "nvim-telescope/telescope.nvim" },
 	{ "folke/todo-comments.nvim" },
 	{ "folke/trouble.nvim" },
 	{ "RRethy/vim-illuminate" },
