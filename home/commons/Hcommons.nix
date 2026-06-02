@@ -3,7 +3,6 @@
 	imports = [
 		./../../commons/stylix.nix
 		./../../commons/nixvim/nixvim.nix
-		./../../commons/wlogout.nix
 	];
 
 	home.pointerCursor = {
@@ -140,13 +139,13 @@
 
 			};
 		};
-		wayland.windowManager.hyprland = {
-			enable = true;
-			extraConfig = "
-				${builtins.readFile ./../../commons/hypr/hyprland/hyprland.conf}
-				";
-		};
 
+	};
+	wayland.windowManager.hyprland = {
+		enable = true;
+		extraConfig = "
+			${builtins.readFile ./../../commons/hypr/hyprland/hyprland.conf}
+			";
 	};
 
 	home.stateVersion = "23.11";

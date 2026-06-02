@@ -25,6 +25,7 @@
 		cmake
 		hyprshot
 		kitty
+		discord
 		loupe
 		lua
 		obs-studio

@@ -1,4 +1,4 @@
-{_}:
+{_, ...}:
 {
 	services = {
 		udev.enable = true;

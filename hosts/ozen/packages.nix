@@ -39,7 +39,6 @@
 			bear
 			ddcui
 			ddcutil
-			discord
 			distrobox
 			fd
 			gh

@@ -1,6 +1,6 @@
 
 
-{ ... }:
+{ _, ... }:
 {
 	services.xserver.videoDrivers = [ "amdgpu" "nvidia" "nvidia_drm" "nvidia_modeset" ];
 	hardware.nvidia = {

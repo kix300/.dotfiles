@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-	import = [
+	imports = [
 		./packages.nix
 		./programs.nix
 		./services.nix
