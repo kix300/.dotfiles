@@ -9,9 +9,9 @@
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
 
-	services.xserver.displayManager.sddm.enable = false;
-	services.xserver.displayManager.gdm.enable = false;
-	services.xserver.displayManager.lightdm.enable = false;
+	services.displayManager.sddm.enable = false;
+	services.displayManager.gdm.enable = false;
+	services.displayManager.lightdm.enable = false;
 
 	nixpkgs.config.allowUnfree = true;
 	users.users."ozen_work" = {
