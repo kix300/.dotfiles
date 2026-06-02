@@ -2,7 +2,7 @@
 {
 	stylix = {
 		enable = false;
-		image = ./srcs/forest.jpg;
+		image = ./wallpapers/forest.jpg;
 		polarity = "dark";
 		cursor = {
 			package = pkgs.bibata-cursors;

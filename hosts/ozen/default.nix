@@ -5,12 +5,13 @@
 {
 	imports = [
 		./hardware-configuration.nix
-		../../commons/common.nix
-		../../commons/nvidia.nix
 		./packages.nix
 		./services.nix
 		./programs.nix
 		./other.nix
+		../../commons/src/default.nix
+		../../commons/src/nvidia.nix
+		../../commons/src/prepkgs.nix
 	];
 
 	#discord
@@ -35,6 +36,8 @@
 			};
 		};
 	};
+
+	#env variable for guitar plugin
 	environment.variables = {
 		LV2_PATH = [
 			"$HOME/.lv2"

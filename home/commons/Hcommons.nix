@@ -6,9 +6,6 @@
 		./../../commons/wlogout.nix
 	];
 
-	# services.vicinae = {
-	# 	enable = true;
-	# };
 	home.pointerCursor = {
 		gtk.enable = true;
 		x11.enable = true;
@@ -17,70 +14,16 @@
 		size = 24;
 	};
 	programs = {
-		lazygit.enable = true;
-		ashell = {
-			enable = false;
-			settings = {
-				modules = {
-					center = [
-						"Window Title"
-						"Clock"
-					];
-					left = [
-						"Workspaces"
-						"Tray"
-					];
-					right = [
-						"SystemInfo"
-						"Settings"
-					];
-				};
-				workspaces = {
-					visibility_mode = "All";
-				};
-				window_title ={
-					mode ="Title";
-				};
-				appearance = {
-					scale_factor = 1;
-					style = "Islands";
-					opacity = 0.8;
-					success_color = "#a6e3a1";
-					text_color = "#cdd6f4";
-					workspace_colors = [
-						"#fab387"
-						"#b4befe"
-						"#cba6f7"
-					];
-					primary_colors = {
-						base = "#fab387";
-						text = "#1e1e2e";
-					};
-					danger_color = {
-						base = "#f38ba8";
-						weak = "#f9e2af";
-					};
-					background_color = {
-						base = "#1e1e2e";
-						weak = "#313244";
-						strong = "#45475a";
-					};
-					secondary_color = {
-						base = "#11111b";
-						strong = "#1b1b25";
-					};
-				};
-			};
+		zoxide.enable = true;
+		noctalia-shell = {
+			enable = true;
 		};
+		lazygit.enable = true;
 		git = {
 			enable = true;
 			signing.format = "openpgp";
 			settings.user.name = "kix300";
 			settings.user.email = "kixwalkiki@gmail.com";
-		};
-		yazi = {
-			enable = true;
-			shellWrapperName = "y";
 		};
 		starship = {
 			enable = true;
@@ -98,11 +41,6 @@
 						alias nswitch="rm ~/.gtkrc-2.0 && nh os switch"
 						alias dofus="appimage-run ~/Games/DOFUS/Ankama\ Launcher-Setup-x86_64.AppImage"
 						alias zed="zeditor ."
-						function =
-							yazi $argv
-						end
-						bind \c] =
-
 						function nvimfiles
 							nvim ~/.dotfiles
 						end
@@ -201,7 +139,12 @@
 				};
 
 			};
-
+		};
+		wayland.windowManager.hyprland = {
+			enable = true;
+			extraConfig = "
+				${builtins.readFile ./../../commons/hypr/hyprland/hyprland.conf}
+				";
 		};
 
 	};

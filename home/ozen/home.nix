@@ -8,15 +8,8 @@
 		username = "ozen";
 		homeDirectory = "/home/ozen";
 	};
-
-	programs = {
-		zoxide.enable = true;
-		noctalia-shell = {
-			enable = true;
-		};
-	};
-
 	# pour creer un fichier xdg desktop portal hyprland et donc screensharing
+	# util ? je sais plus on va keep
 	systemd.user.services.xdg-desktop-portal-hyprland = {
 		Unit = {
 			Description = "XDG Desktop Portal Hyprland";
@@ -33,12 +26,6 @@
 		Install = {
 			WantedBy = [ "graphical-session.target" ];
 		};
-	};
-	wayland.windowManager.hyprland = {
-		enable = true;
-		extraConfig = "
-			${builtins.readFile ./../../commons/hypr/hyprland/hyprland.conf}
-			";
 	};
 	home.stateVersion = "23.11";
 }

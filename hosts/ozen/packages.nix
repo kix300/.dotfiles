@@ -1,6 +1,5 @@
 {
 	pkgs,
-	inputs,
 	...
 }:
 {
@@ -37,14 +36,7 @@
 			calf
 			tamgamp-lv2
 			neural-amp-modeler-lv2
-
-			asusctl
 			bear
-			btop-cuda
-			brightnessctl
-			clang-tools
-			comma
-			cmake
 			ddcui
 			ddcutil
 			discord
@@ -54,15 +46,10 @@
 			glfw
 			godot
 			gpu-screen-recorder
-			hyprlock
-			hyprshot
 			jack2
 			kdePackages.qtsvg
 			kdePackages.qtwayland
 			kdePackages.qtdeclarative
-			kitty
-			loupe
-			lua
 			lshw
 			# n8n
 			mpv
@@ -70,32 +57,21 @@
 			nodejs
 			norminette
 			ntfs3g
-			obs-studio
-			obsidian
 			openjdk
-			pavucontrol
 			prismlauncher
 			python3
 			qjackctl
 			r2modman
 			revolt-desktop
-			rofi-power-menu
-			rofi
 			signal-desktop
 			stoat-desktop
 			supabase-cli
 			swaylock-fancy
 			telegram-desktop
-			tmux
 			util-linux
-			uv
 			vimPlugins.nvim-treesitter-parsers.qmljs
-			wayvnc
 			wine
 			wofi
-			thunar
-			inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
-			# inputs.quickshell.packages."${stdenv.hostPlatform.system}".default
 		];
 	};
 }

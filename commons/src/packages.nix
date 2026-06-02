@@ -1,0 +1,39 @@
+{pkgs, inputs, ...}:
+{
+	environment.systemPackages = with pkgs; [
+		vim
+		fish
+		clang
+		clang-tools
+		git
+		gnumake
+		ghostty
+		iwgtk
+		libbsd
+		libclang
+		libgcc
+		libgccjit
+		pnpm
+		asusctl
+		valgrind
+		util-linux
+		bluez
+		btop-cuda
+		brightnessctl
+		clang-tools
+		comma
+		cmake
+		hyprshot
+		kitty
+		loupe
+		lua
+		obs-studio
+		obsidian
+		pavucontrol
+		thunar
+		wayvnc
+		tmux
+		uv
+		inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
+	];
+}

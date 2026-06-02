@@ -3,17 +3,10 @@
 
 	inputs = {
 		nixvim.url = "github:nix-community/nixvim";
-		# vicinae.url = "github:vicinaehq/vicinae";
-		ashell.url = "github:MalpenZibo/ashell";
 		nixvim.inputs.nixpkgs.follows = "nixpkgs";
-		nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 		nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 		stylix.url = "github:danth/stylix";
-		# caelestia-shell = {
-		# 	url = "github:caelestia-dots/shell";
-		# 	inputs.nixpkgs.follows = "nixpkgs";
-		# };
 		noctalia = {
 			url = "github:noctalia-dev/noctalia-shell";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -36,11 +29,7 @@
 		nix-index-database,
 		stylix,
 		nixvim,
-		nix-minecraft,
-		# vicinae,
-		ashell,
 		noctalia,
-		# caelestia-shell,
 		...
 		}@inputs:
 		let
@@ -89,52 +78,12 @@
 								sharedModules = [
 									stylix.homeModules.stylix
 									nixvim.homeModules.nixvim
-									# vicinae.homeManagerModules.default
 									noctalia.homeModules.default
-									# ashell.homeModules.default
-									# caelestia-shell.homeManagerModules.default
 								];
 								users.ozen = import ./home/ozen/home.nix;
 
 							};
 						}
-					];
-				};
-				forty_two_vm = nixpkgs.lib.nixosSystem rec {
-					system = "x86_64-linux";
-					specialArgs = { inherit inputs outputs system; };
-					modules = [
-						./hosts/42_vm
-						nix-index-database.nixosModules.nix-index
-						home-manager.nixosModules.home-manager
-						{
-							home-manager = {
-								useGlobalPkgs = true;
-								useUserPackages = true;
-								backupFileExtension = ".bak";
-								extraSpecialArgs = { inherit inputs; };
-								sharedModules = [
-									stylix.homeModules.stylix
-									nixvim.homeModules.nixvim
-								];
-								users.kix = import ./home/42_vm/home.nix;
-							};
-						}
-					];
-				};
-				steve = nixpkgs.lib.nixosSystem rec {
-					system = "aarch64-linux";
-					specialArgs = { inherit inputs outputs system; };
-					modules = [
-						nixos-hardware.nixosModules.raspberry-pi-4
-						./hosts/steve
-					];
-				};
-				orlane = nixpkgs.lib.nixosSystem rec {
-					system = "x86_64-linux";
-					specialArgs = { inherit inputs outputs system; };
-					modules = [
-						./hosts/orlane
 					];
 				};
 			};

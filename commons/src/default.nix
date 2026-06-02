@@ -1,8 +1,10 @@
 { pkgs, ... }:
 
 {
-	imports = [
-		./prepkgs.nix
+	import = [
+		./packages.nix
+		./programs.nix
+		./services.nix
 	];
 	environment.variables.EDITOR = "nvim";
 	nix.settings.experimental-features = [
@@ -65,46 +67,6 @@
 		};
 	};
 
-	programs = {
-		dconf.enable = true;
-		xfconf.enable = true;
-		bash = {
-			interactiveShellInit = ''
-						if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
-							then
-								shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-								exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-								fi
-			'';
-		};
-		nh = {
-			enable = true;
-			clean.enable = true;
-			clean.extraArgs = "--keep-since 4d --keep 3";
-			flake = "/home/ozen/.dotfiles";
-		};
-	};
-
-	environment.systemPackages = with pkgs; [
-		vim
-		fish
-		clang
-		clang-tools
-		git
-		gnumake
-		ghostty
-		iwgtk
-		libbsd
-		libclang
-		libgcc
-		libgccjit
-		pnpm
-		valgrind
-		util-linux
-		bluez
-
-	];
-
 	time.timeZone = "Europe/Paris";
 
 	i18n = {
@@ -137,7 +99,6 @@
 		pam = {
 			services = {
 				swaylock = { };
-				hyprlock = { };
 			};
 		};
 	};
