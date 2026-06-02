@@ -141,12 +141,6 @@
 		};
 
 	};
-	wayland.windowManager.hyprland = {
-		enable = true;
-		extraConfig = "
-			${builtins.readFile ./../../commons/hypr/hyprland/hyprland.conf}
-			";
-	};
 
 	home.stateVersion = "23.11";
 }

@@ -9,6 +9,13 @@
 		username = "ozen_work";
 		homeDirectory = "/home/ozen_work";
 	};
+
+	wayland.windowManager.hyprland = {
+		enable = true;
+		extraConfig = "
+			${builtins.readFile ./hypr/hyprland/hyprland.conf}
+		";
+	};
 	# # pour creer un fichier xdg desktop portal hyprland et donc screensharing
 	# # util ? je sais plus on va keep
 	# systemd.user.services.xdg-desktop-portal-hyprland = {

@@ -3,7 +3,7 @@
 {
 	imports = [
 		./hardware-configuration.nix
-			../../commons/src/default.nix
+		../../commons/src/default.nix
 	];
 # Bootloader.
 	boot.loader.systemd-boot.enable = true;
@@ -11,6 +11,7 @@
 
 	services.xserver.displayManager.sddm.enable = false;
 	services.xserver.displayManager.gdm.enable = false;
+	services.xserver.displayManager.lightdm.enable = false;
 
 	nixpkgs.config.allowUnfree = true;
 	users.users."ozen_work" = {

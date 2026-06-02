@@ -27,5 +27,12 @@
 			WantedBy = [ "graphical-session.target" ];
 		};
 	};
+	wayland.windowManager.hyprland = {
+		enable = true;
+		extraConfig = "
+			${builtins.readFile ./hypr/hyprland/hyprland.conf}
+		";
+	};
+
 	home.stateVersion = "23.11";
 }
