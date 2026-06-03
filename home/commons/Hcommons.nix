@@ -45,6 +45,7 @@
 						end
 
 						bind alt-] nvimfiles
+						direnv hook fish | source 
 			'';
 		};
 		zed-editor = {
