@@ -11,7 +11,7 @@
 
 	services.displayManager.sddm.enable = false;
 	services.displayManager.gdm.enable = false;
-	services.displayManager.lightdm.enable = false;
+	services.xserver.displayManager.lightdm.enable = false;
 
 	nixpkgs.config.allowUnfree = true;
 	users.users."ozen_work" = {
