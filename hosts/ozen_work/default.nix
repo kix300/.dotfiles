@@ -17,12 +17,22 @@
 	users.users."ozen_work" = {
 		isNormalUser = true;
 		description = "ozen_work";
-		extraGroups = [ "networkmanager" "wheel" ];
+		extraGroups = [ "networkmanager" "wheel" "docker" ];
 	};
 
 	services.printing.enable = true;
 
 
+	virtualisation = {
+		podman.enable = true;
+		docker = {
+			enable = true;
+			rootless = {
+				enable = true;
+				setSocketVariable = true;
+			};
+		};
+	};
 	networking = {
 		hostName = "laptop_work";
 		networkmanager.enable = true;
