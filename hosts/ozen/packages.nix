@@ -41,7 +41,6 @@
 			ddcutil
 			distrobox
 			fd
-			gh
 			glfw
 			godot
 			gpu-screen-recorder

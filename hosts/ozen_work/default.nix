@@ -21,6 +21,7 @@
 	};
 
 	services.printing.enable = true;
+	services.asusd.enable = true;
 
 
 	virtualisation = {

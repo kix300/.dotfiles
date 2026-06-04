@@ -23,6 +23,7 @@
 		clang-tools
 		comma
 		cmake
+		gh
 		hyprshot
 		kitty
 		discord
