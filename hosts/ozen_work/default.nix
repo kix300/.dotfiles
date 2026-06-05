@@ -21,6 +21,10 @@
 		isNormalUser = true;
 		description = "ozen_work";
 		extraGroups = [ "networkmanager" "wheel" "docker" ];
+		packages = with pkgs; [
+			slack
+		];
+
 	};
 
 
