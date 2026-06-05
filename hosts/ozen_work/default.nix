@@ -12,6 +12,9 @@
 	services.displayManager.sddm.enable = false;
 	services.displayManager.gdm.enable = false;
 	services.xserver.displayManager.lightdm.enable = false;
+	services.printing.enable = true;
+	services.asusd.enable = true;
+	services.power-profiles-daemon.enable = true;
 
 	nixpkgs.config.allowUnfree = true;
 	users.users."ozen_work" = {
@@ -20,9 +23,8 @@
 		extraGroups = [ "networkmanager" "wheel" "docker" ];
 	};
 
-	services.printing.enable = true;
-	services.asusd.enable = true;
 
+  	programs.firefox.enable = true;
 
 	virtualisation = {
 		podman.enable = true;

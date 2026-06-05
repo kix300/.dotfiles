@@ -22,7 +22,6 @@
 		gvfs.enable = true;
 		supergfxd.enable = true;
 		printing.enable = true;
-		upower.enable = true;
 		blueman.enable = true;
 		pipewire = {
 			enable = true;
