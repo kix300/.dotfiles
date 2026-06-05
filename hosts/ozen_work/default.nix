@@ -5,16 +5,19 @@
 		./hardware-configuration.nix
 		../../commons/src/default.nix
 	];
-# Bootloader.
-	boot.loader.systemd-boot.enable = true;
-	boot.loader.efi.canTouchEfiVariables = true;
+	boot.loader = {
+		systemd-boot.enable = true;
+		efi.canTouchEfiVariables = true;
+	};
 
-	services.displayManager.sddm.enable = false;
-	services.displayManager.gdm.enable = false;
-	services.xserver.displayManager.lightdm.enable = false;
-	services.printing.enable = true;
-	services.asusd.enable = true;
-	services.power-profiles-daemon.enable = true;
+	services = {
+		displayManager.sddm.enable = false;
+		displayManager.gdm.enable = false;
+		xserver.displayManager.lightdm.enable = false;
+		printing.enable = true;
+		asusd.enable = true;
+		power-profiles-daemon.enable = true;
+	};
 
 	nixpkgs.config.allowUnfree = true;
 	users.users."ozen_work" = {
@@ -28,7 +31,7 @@
 	};
 
 
-  	programs.firefox.enable = true;
+	programs.firefox.enable = true;
 
 	virtualisation = {
 		podman.enable = true;
@@ -58,21 +61,21 @@
 			};
 		};
 	};
-# boot = {
-# 	# remove this broken packages i guess ive added it for some wifi problem that come from my box
-# 	# extraModulePackages = with config.boot.kernelPackages; [ rtl8812au ];
-# 	kernelModules = [
-# 		"8812au"
-# 		"amdgpu.dc=1"
-# 		"iwlwifi"
-# 		"iwlmvm"
-# 		"amdgpu"
-# 		"ucsi_ccg"
-# 	];
-# 	kernelParams = [
-# 		"iwlwifi.11ax_disable=0" # Active le Wi-Fi 6 (802.11ax)
-# 		"iwlwifi.power_save=0" # Désactive l'économie d'énergie (peut améliorer les perfs)
-# 	];
-# };
+	# boot = {
+	# 	# remove this broken packages i guess ive added it for some wifi problem that come from my box
+	# 	# extraModulePackages = with config.boot.kernelPackages; [ rtl8812au ];
+	# 	kernelModules = [
+	# 		"8812au"
+	# 		"amdgpu.dc=1"
+	# 		"iwlwifi"
+	# 		"iwlmvm"
+	# 		"amdgpu"
+	# 		"ucsi_ccg"
+	# 	];
+	# 	kernelParams = [
+	# 		"iwlwifi.11ax_disable=0" # Active le Wi-Fi 6 (802.11ax)
+	# 		"iwlwifi.power_save=0" # Désactive l'économie d'énergie (peut améliorer les perfs)
+	# 	];
+	# };
 	hardware.enableRedistributableFirmware = true;
 }
