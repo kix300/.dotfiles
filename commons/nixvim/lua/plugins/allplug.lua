@@ -2,11 +2,11 @@ return {
     {
         "LazyVim/LazyVim",
         opts = {
-			colorscheme = "catppuccin-latte";
+			colorscheme = "catppuccin-mocha";
         }
     },
 
-    { "catppuccin/nvim" },
+	{ "catppuccin/nvim"},
     { "akinsho/bufferline.nvim" },
 
     {
