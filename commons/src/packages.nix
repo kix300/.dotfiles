@@ -5,7 +5,6 @@
 		fish
 		clang
 		clang-tools
-		git
 		gnumake
 		ghostty
 		iwgtk

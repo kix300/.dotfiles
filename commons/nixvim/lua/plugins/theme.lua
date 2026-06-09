@@ -1,5 +1,6 @@
 return {
-	{ "EdenEast/nightfox.nvim" };
+    { "catppuccin/nvim", name = "catppuccin", lazy = false },
+    { "EdenEast/nightfox.nvim" },
   {
     "RRethy/base16-nvim",
     config = function()
@@ -7,6 +8,10 @@ return {
       
       -- Fonction pour appliquer la transparence après le chargement du thème
       local function apply_transparency()
+        -- Ne pas appliquer la transparence sur un thème light
+        -- sinon on voit le fond dark de Ghostty à travers
+        if vim.o.background == "light" then return end
+
         -- Fond principal transparent
         vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
         vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
