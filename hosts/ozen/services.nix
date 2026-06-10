@@ -3,6 +3,7 @@
 	...
 }:
 {
+	virtualisation.libvirtd.enable = true;
 	services = {
 		thermald.enable = true;
 		auto-cpufreq = {

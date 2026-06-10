@@ -18,6 +18,7 @@
 			"video"
 			"audio"
 			"jackaudio"
+			"libvirtd"
 		];
 		packages = with pkgs; [
 			aapt
@@ -70,6 +71,11 @@
 			vimPlugins.nvim-treesitter-parsers.qmljs
 			wine
 			wofi
+
+			#qemu
+			qemu
+			libvirt
+			virt-manager
 		];
 	};
 }
