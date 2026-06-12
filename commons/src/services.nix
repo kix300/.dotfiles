@@ -25,7 +25,10 @@
 		};
 	};
 	virtualisation = {
-		libvirtd.enable = true;
+		libvirtd = {
+			enable = true;
+			qemu.vhostUserPackages = with pkgs; [ virtiofsd ];  # ← this is the fix
+		};
 		spiceUSBRedirection.enable = true;
 	};
 	systemd.services.libvirt-default-network = {
