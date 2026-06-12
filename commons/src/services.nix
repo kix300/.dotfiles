@@ -1,4 +1,4 @@
-{_, ...}:
+{pkgs, ...}:
 {
 	services = {
 		udev.enable = true;

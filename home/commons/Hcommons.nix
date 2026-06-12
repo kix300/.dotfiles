@@ -16,9 +16,6 @@
 	};
 	programs = {
 		zoxide.enable = true;
-		noctalia-shell = {
-			enable = true;
-		};
 		lazygit.enable = true;
 		git = {
 			enable = true;
