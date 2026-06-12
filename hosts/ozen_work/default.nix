@@ -23,7 +23,7 @@
 	users.users."ozen_work" = {
 		isNormalUser = true;
 		description = "ozen_work";
-		extraGroups = [ "networkmanager" "wheel" "docker" ];
+		extraGroups = [ "libvirtd" "networkmanager" "wheel" "docker" ];
 		packages = with pkgs; [
 			slack
 		];
