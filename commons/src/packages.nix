@@ -41,5 +41,6 @@
 		qemu
 		libvirt
 		virt-manager
+		virtiofsd
 		];
 }
