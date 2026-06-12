@@ -72,10 +72,6 @@
 			wine
 			wofi
 
-			#qemu
-			qemu
-			libvirt
-			virt-manager
 		];
 	};
 }
