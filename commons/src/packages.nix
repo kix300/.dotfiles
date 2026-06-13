@@ -38,7 +38,7 @@
 		inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
 		inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
 
-		qemu
+		qemu_kvm
 		libvirt
 		virt-manager
 		virtiofsd

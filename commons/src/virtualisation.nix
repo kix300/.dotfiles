@@ -1,20 +1,24 @@
 {pkgs, ...}:
 {
 	virtualisation = {
-		virtualbox = {
-			host = {
-				enable = true;
-				enableExtensionPack = true;
-			};
-			guest = {
-				enable = true;
-				dragAndDrop = true;
-				clipboard = true;
-			};
-		};
+		# virtualbox = {
+		# 	host = {
+		# 		enable = true;
+		# 		enableExtensionPack = true;
+		# 	};
+		# 	guest = {
+		# 		enable = true;
+		# 		dragAndDrop = true;
+		# 		clipboard = true;
+		# 	};
+		# };
 		libvirtd = {
 			enable = true;
-			qemu.vhostUserPackages = with pkgs; [ virtiofsd ];  # ← this is the fix
+			qemu = {
+				vhostUserPackages = with pkgs; [ virtiofsd ];  # ← this is the fix
+				package = pkgs.qemu_kvm;
+			};
+
 		};
 		spiceUSBRedirection.enable = true;
 	};

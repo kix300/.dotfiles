@@ -19,6 +19,7 @@
 			"audio"
 			"jackaudio"
 			"libvirtd"
+			"kvm"
 		];
 		packages = with pkgs; [
 			aapt

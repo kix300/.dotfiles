@@ -56,6 +56,7 @@
 			"iwlmvm"
 			"amdgpu"
 			"ucsi_ccg"
+			"kvm-amd"
 		];
 		kernelParams = [
 			"iwlwifi.11ax_disable=0" # Active le Wi-Fi 6 (802.11ax)
