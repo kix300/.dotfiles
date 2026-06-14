@@ -73,6 +73,9 @@
 			wine
 			wofi
 
+			#microphone
+			easyeffects
+
 		];
 	};
 }
