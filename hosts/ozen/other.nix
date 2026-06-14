@@ -1,6 +1,6 @@
 {
-	pkgs,
-	...
+pkgs,
+...
 }:
 {
 
@@ -39,24 +39,36 @@
 			};
 		};
 	};
-	systemd.sleep.settings.Sleep = {
-		AllowSuspend = "no";
-		AllowHibernation = "no";
-		AllowSuspendThenHibernate = "no";
-		AllowHybridSleep  = "no";
-	};
-
-	systemd.user.services = {
-		xdg-desktop-portal-hyprland = {
-			enable = true;
-			wantedBy = [ "graphical-session.target" ];
-			after = [ "graphical-session.target" ];
+	systemd = {
+		sleep.settings.Sleep = {
+			AllowSuspend = "no";
+			AllowHibernation = "no";
+			AllowSuspendThenHibernate = "no";
+			AllowHybridSleep  = "no";
+		};
+		# for easyeffects for mic
+		user.services.easyeffects = {
+			description = "EasyEffects audio effects";
+			wantedBy = [ "default.target" ];
+			after = [ "pipewire.service" ];
+			serviceConfig = {
+				ExecStart = "${pkgs.easyeffects}/bin/easyeffects --gapplication-service";
+				Restart = "on-failure";
+			};
 		};
 
-		xdg-desktop-portal = {
-			enable = true;
-			wantedBy = [ "graphical-session.target" ];
-			after = [ "graphical-session.target" ];
+		user.services = {
+			xdg-desktop-portal-hyprland = {
+				enable = true;
+				wantedBy = [ "graphical-session.target" ];
+				after = [ "graphical-session.target" ];
+			};
+
+			xdg-desktop-portal = {
+				enable = true;
+				wantedBy = [ "graphical-session.target" ];
+				after = [ "graphical-session.target" ];
+			};
 		};
 	};
 	# hardware = {
