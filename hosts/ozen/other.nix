@@ -46,16 +46,6 @@ pkgs,
 			AllowSuspendThenHibernate = "no";
 			AllowHybridSleep  = "no";
 		};
-		# for easyeffects for mic
-		user.services.easyeffects = {
-			description = "EasyEffects audio effects";
-			wantedBy = [ "default.target" ];
-			after = [ "pipewire.service" ];
-			serviceConfig = {
-				ExecStart = "${pkgs.easyeffects}/bin/easyeffects --gapplication-service";
-				Restart = "on-failure";
-			};
-		};
 
 		user.services = {
 			xdg-desktop-portal-hyprland = {
