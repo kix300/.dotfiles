@@ -1,9 +1,11 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
 	imports = [
 		./hardware-configuration.nix
 		../../commons/src/default.nix
+		../../commons/src/nvidia.nix
+		../../commons/src/prepkgs.nix
 	];
 
 	services = {
@@ -16,28 +18,24 @@
 	};
 
 	nixpkgs.config.allowUnfree = true;
-	users.users."ozen_work" = {
+	users.users."meptik" = {
 		isNormalUser = true;
-		description = "ozen_work";
-		extraGroups = [ "libvirtd" "networkmanager" "wheel" "docker" ];
-		packages = with pkgs; [
-			slack
-		];
+		description = "Meptik";
+		extraGroups = [ "networkmanager" "wheel" ];
+		# packages = with pkgs; [
+		# ];
 
 	};
 
-	virtualisation = {
-		podman.enable = true;
-		docker = {
+	programs = {
+		steam = {
 			enable = true;
-			rootless = {
-				enable = true;
-				setSocketVariable = true;
-			};
+			gamescopeSession.enable = true;
 		};
 	};
+
 	networking = {
-		hostName = "laptop_work";
+		hostName = "laptop_meptik";
 		networkmanager.enable = true;
 		wireless.iwd = {
 			enable = false;

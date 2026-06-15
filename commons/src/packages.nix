@@ -28,16 +28,17 @@
 		discord
 		loupe
 		lua
-		obs-studio
-		obsidian
 		pavucontrol
 		thunar
 		wayvnc
-		tmux
-		uv
 		inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
 		inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
 
+		#ozen
+		obs-studio
+		obsidian
+		tmux
+		uv
 		qemu_kvm
 		libvirt
 		virt-manager
