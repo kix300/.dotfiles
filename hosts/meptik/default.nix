@@ -9,9 +9,9 @@
 	];
 
 	services = {
-		displayManager.sddm.enable = true;
+		displayManager.sddm.enable = false;
 		displayManager.gdm.enable = false;
-		xserver.displayManager.lightdm.enable = false;
+		xserver.displayManager.lightdm.enable = true;
 		printing.enable = true;
 		asusd.enable = true;
 		xserver = {
