@@ -9,7 +9,7 @@
 	];
 
 	services = {
-		displayManager.sddm.enable = false;
+		displayManager.sddm.enable = true;
 		displayManager.gdm.enable = false;
 		xserver.displayManager.lightdm.enable = false;
 		printing.enable = true;
