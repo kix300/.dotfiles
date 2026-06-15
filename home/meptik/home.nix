@@ -4,16 +4,12 @@
 		./../commons/Hcommons.nix
 	];
 	home = {
-		username = "ozen";
-		homeDirectory = "/home/ozen";
+		username = "meptik";
+		homeDirectory = "/home/meptik";
 	};
+
 	programs = {
 		home-manager.enable = true;
-		git = {
-			signing.format = "openpgp";
-			settings.user.name = "kix300";
-			settings.user.email = "kixwalkiki@gmail.com";
-		};
 	};
 	# pour creer un fichier xdg desktop portal hyprland et donc screensharing
 	# util ? je sais plus on va keep
@@ -38,7 +34,7 @@
 		enable = true;
 		extraConfig = "
 			${builtins.readFile ./hypr/hyprland/hyprland.conf}
-			";
+		";
 	};
 
 	home.stateVersion = "23.11";

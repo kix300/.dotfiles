@@ -4,12 +4,19 @@
 	imports = [
 		./../commons/Hcommons.nix
 	];
-	programs.home-manager.enable = true;
 	home = {
 		username = "ozen_work";
 		homeDirectory = "/home/ozen_work";
 	};
 
+	programs = {
+		home-manager.enable = true;
+		git = {
+			signing.format = "openpgp";
+			settings.user.name = "kix300";
+			settings.user.email = "kixwalkiki@gmail.com";
+		};
+	};
 	wayland.windowManager.hyprland = {
 		enable = true;
 		extraConfig = "
