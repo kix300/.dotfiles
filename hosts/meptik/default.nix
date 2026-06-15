@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 {
 	imports = [
@@ -14,14 +14,27 @@
 		xserver.displayManager.lightdm.enable = false;
 		printing.enable = true;
 		asusd.enable = true;
+		xserver = {
+			enable = true;
+			xkb = {
+				layout = lib.mkForce "fr";
+				variant = lib.mkForce "";
+			};
+		};
 		power-profiles-daemon.enable = true;
 	};
-
+	i18n = {
+		defaultLocale = lib.mkForce "fr_FR.UTF-8";
+	};
+	console.keyMap = lib.mkForce "fr";
 	nixpkgs.config.allowUnfree = true;
 	users.users."meptik" = {
 		isNormalUser = true;
 		description = "Meptik";
-		extraGroups = [ "networkmanager" "wheel" ];
+		extraGroups = [
+			"networkmanager"
+			"wheel"
+		];
 		# packages = with pkgs; [
 		# ];
 
