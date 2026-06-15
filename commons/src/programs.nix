@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
 	programs = {
+		firefox.enable = true;
 		dconf.enable = true;
 		xfconf.enable = true;
 		bash = {
