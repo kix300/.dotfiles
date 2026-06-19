@@ -1,10 +1,10 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 {
 	imports = [
 		./hardware-configuration.nix
 		../../commons/src/default.nix
-		# ../../commons/src/nvidia.nix
+		../../commons/src/nvidia.nix
 		../../commons/src/prepkgs.nix
 	];
 
@@ -35,8 +35,10 @@
 			"networkmanager"
 			"wheel"
 		];
-		# packages = with pkgs; [
-		# ];
+		packages = with pkgs; [
+			python3
+			prismlauncher
+		];
 
 	};
 
@@ -65,10 +67,15 @@
 			};
 		};
 	};
+	# ASUS TUF FX506LI OPENRGB
+	hardware.i2c.enable              = true;
+	services.udev.packages           = [ pkgs.openrgb ];
+	services.hardware.openrgb.enable = true;
 	boot = {
 		# remove this broken packages i guess ive added it for some wifi problem that come from my box
 		# extraModulePackages = with config.boot.kernelPackages; [ rtl8812au ];
 		kernelModules = [
+			"i2c-dev"
 			"8812au"
 			"amdgpu.dc=1"
 			"iwlwifi"

@@ -91,7 +91,6 @@
 					specialArgs = { inherit inputs outputs system; };
 					modules = [
 						./hosts/ozen_work
-						#add hardware maybe do it myself
 						nix-index-database.nixosModules.nix-index
 						home-manager.nixosModules.home-manager
 						{
@@ -115,7 +114,8 @@
 					specialArgs = { inherit inputs outputs system; };
 					modules = [
 						./hosts/meptik
-						#add hardware maybe do it myself
+						# ASUS TUF fx506hm
+						nixos-hardware.nixosModules.asus-fx506hm
 						nix-index-database.nixosModules.nix-index
 						home-manager.nixosModules.home-manager
 						{
