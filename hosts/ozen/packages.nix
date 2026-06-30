@@ -64,7 +64,6 @@
 			r2modman
 			revolt-desktop
 			signal-desktop
-			stoat-desktop
 			supabase-cli
 			swaylock-fancy
 			telegram-desktop
