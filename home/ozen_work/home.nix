@@ -17,6 +17,8 @@
 			settings.user.email = "kixwalkiki@gmail.com";
 		};
 	};
+	xdg.configFile."niri/config.kdl".source = niri/config.kdl;
+
 	# wayland.windowManager.hyprland = {
 	# 	enable = true;
 	# 	extraConfig = "
