@@ -24,6 +24,7 @@
 			slack
 			alacritty
 			kitty
+			zellij
 		];
 
 	};
