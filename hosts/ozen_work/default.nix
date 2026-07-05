@@ -22,6 +22,8 @@
 		extraGroups = [ "libvirtd" "networkmanager" "wheel" "docker" ];
 		packages = with pkgs; [
 			slack
+			alacritty
+			kitty
 		];
 
 	};
