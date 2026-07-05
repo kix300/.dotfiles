@@ -44,8 +44,9 @@
 		regreet = {
 			enable = true;
 			settings = {
-				background ={
+				background = {
 					path = "~/.dotfiles/commons/wallpapers/whale.jpg";
+					fit = "Cover";
 				};
 			};
 		};
