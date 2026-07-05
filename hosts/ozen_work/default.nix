@@ -81,10 +81,10 @@
 					EnableNetworkConfiguration = true;
 				};
 				IPv6 = {
-					Enabled = true;
+					Enabled = false;
 				};
 				Settings = {
-					AutoConnect = true;
+					AutoConnect = false;
 				};
 			};
 		};
