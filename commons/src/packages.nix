@@ -5,6 +5,7 @@
 		fish
 		clang
 		clang-tools
+		ddcutil
 		gnumake
 		ghostty
 		iwgtk
@@ -34,7 +35,7 @@
 		inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
 		inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
 
-		#ozen
+#ozen
 		obs-studio
 		obsidian
 		tmux
