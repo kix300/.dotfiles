@@ -43,7 +43,7 @@
 #after the conf create add to HM to modify  config file and add it to dotfile
 		niri.enable = true;
 		regreet = {
-			enable = true;
+			enable = false;
 			settings = {
 				background = {
 					path = "~/.dotfiles/commons/wallpapers/whale.jpg";
