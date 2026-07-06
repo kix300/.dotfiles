@@ -36,6 +36,7 @@
 						alias nswitch="rm ~/.gtkrc-2.0 && nh os switch"
 						alias dofus="appimage-run ~/Games/DOFUS/Ankama\ Launcher-Setup-x86_64.AppImage"
 						alias zed="zeditor ."
+						alias niri-test="~/Projects/Rust/niri/result/bin/niri"
 						function nvimfiles
 							nvim ~/.dotfiles
 						end
