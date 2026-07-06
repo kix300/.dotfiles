@@ -54,7 +54,7 @@ input {
         // drag false
         // drag-lock
         natural-scroll
-		scroll-factor 2.5
+		// scroll-factor 5
         // accel-speed 0.2
         // accel-profile "flat"
         // scroll-method "two-finger"
@@ -296,6 +296,10 @@ animations {
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Window-Rules
 
+layer-rule {
+  match namespace="^noctalia-backdrop"
+  place-within-backdrop true
+}
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
 window-rule {

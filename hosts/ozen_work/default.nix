@@ -6,6 +6,7 @@
 			../../commons/src/default.nix
 	];
 
+	environment.sessionVariables.NIXOS_OZONE_WL = "1";
 	services = {
 		displayManager.sddm.enable = false;
 		displayManager.gdm.enable = false;
