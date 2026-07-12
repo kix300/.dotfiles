@@ -27,6 +27,7 @@
 				kitty
 				zellij
 				wezterm
+				cinny-desktop
 		];
 
 	};
