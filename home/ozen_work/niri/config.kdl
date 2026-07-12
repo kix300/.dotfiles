@@ -54,6 +54,7 @@ input {
         // drag false
         // drag-lock
         natural-scroll
+		scroll_force 2.3
 		// scroll-factor 5
         // accel-speed 0.2
         // accel-profile "flat"
