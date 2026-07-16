@@ -28,6 +28,8 @@
 				zellij
 				wezterm
 				cinny-desktop
+				xwayland-satellite
+				xwayland
 		];
 
 	};
