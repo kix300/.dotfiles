@@ -34,6 +34,10 @@
 
 	};
 	programs = {
+		steam = {
+			enable = true;
+			gamescopeSession.enable = true;
+		};
 
 #test niri so remove hyprland
 		hyprland = {
