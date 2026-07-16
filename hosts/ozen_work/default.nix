@@ -34,20 +34,12 @@
 
 	};
 	programs = {
-		steam = {
-			enable = true;
-			gamescopeSession.enable = true;
-		};
-
-#test niri so remove hyprland
 		hyprland = {
 			enable = lib.mkForce false;
 			withUWSM = lib.mkForce true;
 			xwayland.enable = lib.mkForce false;
 		};
 
-#niri conf in home-manager : xdg.configFile."niri/config.kdl".source = niri/config.kdl;
-#after the conf create add to HM to modify  config file and add it to dotfile
 		niri.enable = true;
 		regreet = {
 			enable = false;
