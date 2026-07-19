@@ -1,4 +1,5 @@
 {
+lib,
 ...
 }:
 
@@ -10,7 +11,7 @@
 		./programs.nix
 		./other.nix
 		../../commons/src/default.nix
-		../../commons/src/nvidia.nix
+		# ../../commons/src/nvidia.nix
 		../../commons/src/prepkgs.nix
 	];
 
@@ -60,7 +61,12 @@
 			"iwlwifi.power_save=0" # Désactive l'économie d'énergie (peut améliorer les perfs)
 		];
 	};
-	hardware.enableRedistributableFirmware = true;
+	services.xserver.videoDrivers = [ "nvidia" "nvidia_drm" "nvidia_modeset" ];
+	hardware = {
+		enableRedistributableFirmware = true;
+  	nvidia.open = true;
+  	graphics.enable = true;
+	};
 
 	# This value determines the NixOS release from which the default
 	# settings for stateful data, like file locations and database versions
