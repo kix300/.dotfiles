@@ -104,7 +104,7 @@
 									nixvim.homeModules.nixvim
 									noctalia.homeModules.default
 								];
-								users.ozen = import ./home/ozen_home/home.nix;
+								users.ozen = import ./home/ozen/home.nix;
 
 							};
 						}

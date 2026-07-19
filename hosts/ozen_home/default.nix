@@ -38,6 +38,16 @@ lib,
 		};
 	};
 
+	boot = {
+		loader = {
+			grub = {
+				enable = true;
+				device = "/dev/sda";
+			};
+			systemd-boot.enable = lib.mkForce false;
+			efi.canTouchEfiVariables = lib.mkForce false;
+		};
+	};
 	#env variable for guitar plugin
 	environment.variables = {
 		LV2_PATH = [
