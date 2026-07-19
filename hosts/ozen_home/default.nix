@@ -20,7 +20,7 @@ lib,
 		"electron-38.8.4"
 	];
 	networking = {
-		hostName = "laptop";
+		hostName = "ozen_home";
 		networkmanager.enable = true;
 		wireless.iwd = {
 			enable = false;
@@ -74,8 +74,8 @@ lib,
 	services.xserver.videoDrivers = [ "nvidia" "nvidia_drm" "nvidia_modeset" ];
 	hardware = {
 		enableRedistributableFirmware = true;
-  	nvidia.open = true;
-  	graphics.enable = true;
+  		graphics.enable = true;
+		nvidia.open = false;
 	};
 
 	# This value determines the NixOS release from which the default
