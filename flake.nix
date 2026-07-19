@@ -86,6 +86,30 @@
 						}
 					];
 				};
+				home = nixpkgs.lib.nixosSystem rec {
+					system = "x86_64-linux";
+					specialArgs = { inherit inputs outputs system; };
+					modules = [
+						./hosts/ozen_home
+						nix-index-database.nixosModules.nix-index
+						home-manager.nixosModules.home-manager
+						{
+							home-manager = {
+								useGlobalPkgs = true;
+								useUserPackages = true;
+								backupFileExtension = ".bak";
+								extraSpecialArgs = { inherit inputs; };
+								sharedModules = [
+									stylix.homeModules.stylix
+									nixvim.homeModules.nixvim
+									noctalia.homeModules.default
+								];
+								users.ozen = import ./home/ozen_home/home.nix;
+
+							};
+						}
+					];
+				};
 				ozen_work = nixpkgs.lib.nixosSystem rec {
 					system = "x86_64-linux";
 					specialArgs = { inherit inputs outputs system; };
