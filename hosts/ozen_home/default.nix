@@ -1,21 +1,30 @@
 {
-lib,
-...
+	lib,
+		config,
+		...
 }:
 
 {
+	fileSystems."/mnt/bob/" =
+	{ device = "/dev/disk/by-uuid/95923d50-5951-4281-b86b-54f6942d5875";
+		fsType = "ext4";
+		options = [
+			"users"
+		]
+	};
+
 	imports = [
 		./hardware-configuration.nix
-		./packages.nix
-		./services.nix
-		./programs.nix
-		./other.nix
-		../../commons/src/default.nix
-		# ../../commons/src/nvidia.nix
-		../../commons/src/prepkgs.nix
+			./packages.nix
+			./services.nix
+			./programs.nix
+			./other.nix
+			../../commons/src/default.nix
+# ../../commons/src/nvidia.nix
+			../../commons/src/prepkgs.nix
 	];
 
-	#discord
+#discord
 	nixpkgs.config.permittedInsecurePackages = [
 		"electron-38.8.4"
 	];
@@ -48,41 +57,43 @@ lib,
 			efi.canTouchEfiVariables = lib.mkForce false;
 		};
 	};
-	#env variable for guitar plugin
+#env variable for guitar plugin
 	environment.variables = {
 		LV2_PATH = [
 			"$HOME/.lv2"
-			"$HOME/.nix-profile/lib/lv2"
-			"/etc/profiles/per-user/ozen/lib/lv2"
-			"/run/current-system/sw/lib/lv2"
+				"$HOME/.nix-profile/lib/lv2"
+				"/etc/profiles/per-user/ozen/lib/lv2"
+				"/run/current-system/sw/lib/lv2"
 		];
 	};
 	boot = {
-		# remove this broken packages i guess ive added it for some wifi problem that come from my box
-		# extraModulePackages = with config.boot.kernelPackages; [ rtl8812au ];
+# remove this broken packages i guess ive added it for some wifi problem that come from my box
+# extraModulePackages = with config.boot.kernelPackages; [ rtl8812au ];
 		kernelModules = [
 			"8812au"
-			"iwlwifi"
-			"iwlmvm"
-			"ucsi_ccg"
+				"iwlwifi"
+				"iwlmvm"
+				"ucsi_ccg"
 		];
 		kernelParams = [
 			"iwlwifi.11ax_disable=0" # Active le Wi-Fi 6 (802.11ax)
-			"iwlwifi.power_save=0" # Désactive l'économie d'énergie (peut améliorer les perfs)
+				"iwlwifi.power_save=0" # Désactive l'économie d'énergie (peut améliorer les perfs)
 		];
 	};
 	services.xserver.videoDrivers = [ "nvidia" "nvidia_drm" "nvidia_modeset" ];
 	hardware = {
+
+		nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
 		enableRedistributableFirmware = true;
-  		graphics.enable = true;
+		graphics.enable = true;
 		nvidia.open = false;
 	};
 
-	# This value determines the NixOS release from which the default
-	# settings for stateful data, like file locations and database versions
-	# on your system were taken. It‘s perfectly fine and recommended to leave
-	# this value at the release version of the first install of this system.
-	# Before changing this value read the documentation for this option
-	# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+# This value determines the NixOS release from which the default
+# settings for stateful data, like file locations and database versions
+# on your system were taken. It‘s perfectly fine and recommended to leave
+# this value at the release version of the first install of this system.
+# Before changing this value read the documentation for this option
+# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
 	system.stateVersion = "26.05"; # Did you read the comment?
 }
