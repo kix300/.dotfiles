@@ -5,12 +5,12 @@
 }:
 
 {
-	fileSystems."/mnt/bob/" =
+	fileSystems."/mnt/bob" =
 	{ device = "/dev/disk/by-uuid/95923d50-5951-4281-b86b-54f6942d5875";
 		fsType = "ext4";
 		options = [
 			"users"
-		]
+		];
 	};
 
 	imports = [
