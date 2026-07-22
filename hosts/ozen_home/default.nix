@@ -6,7 +6,7 @@
 
 {
 	fileSystems."/mnt/bob" =
-	{ device = "/dev/disk/by-uuid/95923d50-5951-4281-b86b-54f6942d5875";
+	{ device = "/dev/disk/by-uuid/e45a0f90-03e6-4e3d-bde5-17ec3cbee05a";
 		fsType = "ext4";
 		options = [
 			"users"
