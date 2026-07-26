@@ -1,20 +1,21 @@
 {
-  description = "A very basic flake";
+	description = "A very basic Rust flake";
 
-  inputs = {
+	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 	};
 
-	outputs = { self, nixpkgs }: let 
+	outputs = { self, nixpkgs }: let
 		pkgs = nixpkgs.legacyPackages."x86_64-linux";
 	in {
 		devShells."x86_64-linux".default = pkgs.mkShell {
 			buildInputs = with pkgs; [
-				# Base Pkgs
-				cargo rustc rustfmt clippy rust-analyzer rustlings
-				# Rust lib
-				# Vimjoyer video example
-				# glib
+				cargo
+				rustc
+				rustfmt
+				clippy
+				rust-analyzer
+				rustlings
 			];
 
 			nativeBuildInputs = [ pkgs.pkg-config];
