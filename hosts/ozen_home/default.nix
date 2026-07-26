@@ -51,7 +51,7 @@
 		loader = {
 			grub = {
 				enable = true;
-				device = "/dev/sda";
+				device = "/dev/sdb";
 			};
 			systemd-boot.enable = lib.mkForce false;
 			efi.canTouchEfiVariables = lib.mkForce false;
@@ -67,12 +67,11 @@
 		];
 	};
 	boot = {
-# remove this broken packages i guess ive added it for some wifi problem that come from my box
-# extraModulePackages = with config.boot.kernelPackages; [ rtl8812au ];
 		kernelModules = [
-			"8812au"
-				"iwlwifi"
-				"iwlmvm"
+# "8812au"
+# "iwlwifi"
+# "iwlmvm"
+			"rtl88x2bu"
 				"ucsi_ccg"
 		];
 		kernelParams = [
