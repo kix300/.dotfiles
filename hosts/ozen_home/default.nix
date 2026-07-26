@@ -9,7 +9,7 @@
 	{ device = "/dev/disk/by-uuid/e45a0f90-03e6-4e3d-bde5-17ec3cbee05a";
 		fsType = "ext4";
 		options = [
-			"users"
+			"users" "rw" "exec" "relatime"
 		];
 	};
 
