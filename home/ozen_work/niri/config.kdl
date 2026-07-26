@@ -364,6 +364,7 @@ binds {
 
 	// Suggested binds for running programs: terminal, app launcher, screen locker.
 	Mod+Q hotkey-overlay-title="Open a Terminal: Alacritty" { spawn "alacritty"; }
+	Mod+E hotkey-overlay-title="Open a File Manager: Nautilus" { spawn "nautilus"; }
 	Mod+X hotkey-overlay-title="Open noctalia session" { spawn-sh "noctalia msg panel-toggle session"; }
 	Mod+R hotkey-overlay-title="Open noctalia launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
 	Mod+ALt+L hotkey-overlay-title="Session Lock" { spawn-sh "noctalia msg session lock"; }

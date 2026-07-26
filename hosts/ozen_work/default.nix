@@ -30,6 +30,7 @@
 				cinny-desktop
 				xwayland-satellite
 				xwayland
+				nautilus
 		];
 
 	};
