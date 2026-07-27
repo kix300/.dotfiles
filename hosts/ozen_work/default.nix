@@ -55,15 +55,17 @@
 			};
 		};
 	};
-# services.greetd = {
-# 	enable = true;
-# 	settings = {
-# 		default_session = {
-# 			command = "${pkgs.niri}/bin/niri-session";
-# 			user = "ozen_work";
-# 		};
-# 	};
-# };
+	xdg.portal = {
+		enable = true;
+		extraPortals = [
+			pkgs.xdg-desktop-portal-gtk
+		];
+		config = {
+			common = {
+				default = [ "gtk" ];
+			};
+		};
+	};
 
 
 	virtualisation = {
