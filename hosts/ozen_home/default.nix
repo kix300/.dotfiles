@@ -51,7 +51,7 @@
 		loader = {
 			grub = {
 				enable = true;
-				device = "/dev/sdb";
+				device = "/dev/sda";
 			};
 			systemd-boot.enable = lib.mkForce false;
 			efi.canTouchEfiVariables = lib.mkForce false;
