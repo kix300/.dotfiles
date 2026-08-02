@@ -40,7 +40,7 @@
 				"aarch64-darwin"
 				"x86_64-darwin"
 			];
-		in
+		in rec
 			{
 			devShells = forAllSystems (
 				system:
@@ -157,6 +157,10 @@
 						}
 					];
 				};
+			};
+
+			homeConfigurations = {
+				ozen = nixosConfigurations.home.config.home-manager.users."ozen".home;
 			};
 		};
 }
