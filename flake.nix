@@ -3,7 +3,7 @@
 
 	inputs = {
 		nixvim.url = "github:nix-community/nixvim";
-		nixvim.inputs.nixpkgs.follows = "nixpkgs";
+		# nixvim.inputs.nixpkgs.follows = "nixpkgs";
 		nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 		stylix.url = "github:danth/stylix";
