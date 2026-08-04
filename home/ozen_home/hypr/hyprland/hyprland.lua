@@ -160,8 +160,8 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ "maximized", "toggle" }))
-hl.bind(mainMod .. " + I", hl.exec_cmd("hyprshot -m output"))
-hl.bind(mainMod .. " + SHIFT + I", hl.exec_cmd("hyprshot -m region"))
+hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("hyprshot -m output"))
+hl.bind(mainMod .. " + SHIFT + I", hl.dsp.exec_cmd("hyprshot -m region"))
 
 -- noctalia
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("noctalia msg panel-toggle session"))
@@ -174,6 +174,11 @@ hl.bind(mainMod .. " + A",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + D", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + W",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + Z",  hl.dsp.focus({ direction = "down" }))
+
+hl.bind(mainMod .. "+ SHIFT + A",  hl.dsp.window.move({ direction = "left" }))
+hl.bind(mainMod .. "+ SHIFT + D", hl.dsp.window.move({ direction = "right" }))
+hl.bind(mainMod .. "+ SHIFT + W",    hl.dsp.window.move({ direction = "up" }))
+hl.bind(mainMod .. "+ SHIFT + Z",  hl.dsp.window.move({ direction = "down" }))
 
 for i = 1, 10 do
     local key = i % 10 
@@ -206,4 +211,8 @@ hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = tr
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
+
+
+-- For Noctalia Color templates
+require("noctalia").apply_theme()
 
