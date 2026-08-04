@@ -40,7 +40,7 @@
 				"aarch64-darwin"
 				"x86_64-darwin"
 			];
-		in rec
+		in
 			{
 			devShells = forAllSystems (
 				system:
@@ -103,7 +103,7 @@
 									nixvim.homeModules.nixvim
 									noctalia.homeModules.default
 								];
-								users.ozen = import ./home/ozen/home.nix;
+								users.ozen = import ./home/ozen_home/home.nix;
 
 							};
 						}
@@ -157,10 +157,6 @@
 						}
 					];
 				};
-			};
-
-			homeConfigurations = {
-				ozen = nixosConfigurations.home.config.home-manager.users."ozen".home;
 			};
 		};
 }

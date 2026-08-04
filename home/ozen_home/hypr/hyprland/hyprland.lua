@@ -113,8 +113,8 @@ hl.config({
 hl.config({
 	gestures = {
 		workspace_swipe_touch = true,
-		workspace_swipe_distance = "200",
-		workspace_swipe_min_speed_to_force = "0",
+		workspace_swipe_distance = 200,
+		workspace_swipe_min_speed_to_force = 0,
 	},
 })
 ---------------

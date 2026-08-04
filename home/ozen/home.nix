@@ -36,8 +36,9 @@
 	};
 	wayland.windowManager.hyprland = {
 		enable = true;
+		configType = "lua";
 		extraConfig = "
-			${builtins.readFile ./hypr/hyprland/hyprland.conf}
+			${builtins.readFile ./hypr/hyprland/hyprland.lua}
 			";
 	};
 
