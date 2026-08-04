@@ -44,7 +44,10 @@
 			xwayland.enable = lib.mkForce false;
 		};
 
-		niri.enable = true;
+		niri = {
+			enable = true;
+			useNautilus = true;
+		};
 		regreet = {
 			enable = false;
 			settings = {
