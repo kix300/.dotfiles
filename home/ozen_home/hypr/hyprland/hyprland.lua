@@ -8,6 +8,11 @@ hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 hl.env("GTK_IM_MODULE", "simple")
 
+hl.config({
+  xwayland = {
+    force_zero_scaling = true
+  }
+})
 
 ------------------
 ---- MONITORS ----
