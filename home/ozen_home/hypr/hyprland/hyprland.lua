@@ -27,7 +27,7 @@ hl.monitor({
 })
 hl.monitor({
 	output   = "DP-1",
-	mode     = "3840x2160@59",
+	mode     = "3840x2160@143",
 	position = "auto",
 	scale    = "1.3333333",
 })
@@ -175,10 +175,10 @@ hl.bind(mainMod .. " + D", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + W",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + Z",  hl.dsp.focus({ direction = "down" }))
 
-hl.bind(mainMod .. " + SHIFT + A",  hl.dsp.window.move({ direction = "left" }))
-hl.bind(mainMod .. " + SHIFT + D", hl.dsp.window.move({ direction = "right" }))
-hl.bind(mainMod .. " + SHIFT + W",    hl.dsp.window.move({ direction = "up" }))
-hl.bind(mainMod .. " + SHIFT + Z",  hl.dsp.window.move({ direction = "down" }))
+-- hl.bind(mainMod .. " + SHIFT + A",  hl.dsp.window.move({ direction = "l" }))
+-- hl.bind(mainMod .. " + SHIFT + D", hl.dsp.window.move({ direction = "r" }))
+-- hl.bind(mainMod .. " + SHIFT + W",    hl.dsp.window.move({ direction = "up" }))
+-- hl.bind(mainMod .. " + SHIFT + Z",  hl.dsp.window.move({ direction = "down" }))
 
 for i = 1, 10 do
     local key = i % 10 
