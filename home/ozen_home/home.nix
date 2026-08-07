@@ -2,6 +2,7 @@
 {
 	imports = [
 		./../commons/Hcommons.nix
+		./noctalia.nix
 	];
 	home = {
 		username = "ozen";
