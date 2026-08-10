@@ -56,6 +56,10 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("systemctl --user start xdg-desktop-portal-hyprland.service")
   hl.exec_cmd("xwaylandvideobridge &")
   hl.exec_cmd("easyeffects --service-mode -w")
+
+  hl.exec_cmd("zen-beta")
+  hl.exec_cmd("steam")
+  hl.exec_cmd("discord")
 end)
 
 ----------------
