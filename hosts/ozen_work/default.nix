@@ -34,9 +34,7 @@
 		];
 
 	};
-	xdg.portal.config.niri = {
-		"org.freedesktop.impl.portal.FileChooser" = [ "gtk" ]; # or "kde"
-	};
+
 	programs = {
 		hyprland = {
 			enable = lib.mkForce false;
@@ -66,6 +64,11 @@
 		config = {
 			common = {
 				default = [ "gtk" ];
+			};
+			niri = lib.mkForce {
+				default = [ "gtk" ];
+				"org.freedesktop.impl.portal.Settings" = "gtk";
+				"org.freedesktop.impl.portal.FileChooser" = "gtk";
 			};
 		};
 	};

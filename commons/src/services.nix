@@ -6,6 +6,7 @@
 		supergfxd.enable = true;
 		printing.enable = true;
 		upower.enable = true;
+		dbus.enable = true;
 		blueman.enable = true;
 		pipewire = {
 			enable = true;

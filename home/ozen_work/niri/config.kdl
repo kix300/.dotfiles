@@ -8,10 +8,12 @@
 // https://niri-wm.github.io/niri/Configuration:-Input
 spawn-at-startup "noctalia"
 spawn-at-startup "xwayland-satellite"
+spawn-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE"
 
 environment {
 	XDG_SESSION_TYPE "wayland"
 	XDG_SESSION_DESKTOP "niri"
+	XDG_CURRENT_DESKTOP "niri"
 	GTK_IM_MODULE "simple"
 }
 
