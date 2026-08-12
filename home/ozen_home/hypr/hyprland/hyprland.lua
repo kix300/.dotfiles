@@ -73,6 +73,28 @@ hl.config({
     },
 })
 
+---------------------
+---- WINDOW RULES----
+---------------------
+
+hl.window_rule({
+  name      = "spawn-steam",
+  match     = { class = "steam" },
+  workspace = 2,
+})
+
+hl.window_rule({
+  name      = "spawn-zen",
+  match     = { class = "zen-beta" },
+  workspace = 1,
+})
+
+hl.window_rule({
+  name      = "spawn-discord",
+  match     = { class = "discord" },
+  workspace = "special:magic",
+})
+
 -----------------------
 ---- LOOK AND FEEL ----
 -----------------------
