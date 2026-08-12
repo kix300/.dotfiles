@@ -5,7 +5,8 @@
 		./packages.nix
 		./programs.nix
 		./services.nix
-		./virtualisation.nix
+		./virtualisation/libvirt.nix
+		./virtualisation/docker.nix
 	];
 	environment.variables.EDITOR = "nvim";
 	nix.settings.experimental-features = [

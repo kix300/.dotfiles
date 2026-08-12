@@ -74,16 +74,6 @@
 	};
 
 
-	virtualisation = {
-		podman.enable = true;
-		docker = {
-			enable = true;
-			rootless = {
-				enable = true;
-				setSocketVariable = true;
-			};
-		};
-	};
 	networking = {
 		hostName = "laptop_work";
 		networkmanager.enable = true;

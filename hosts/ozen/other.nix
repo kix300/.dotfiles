@@ -5,14 +5,6 @@ pkgs,
 {
 
 	virtualisation = {
-		podman.enable = true;
-		docker = {
-			enable = true;
-			rootless = {
-				enable = true;
-				setSocketVariable = true;
-			};
-		};
 		waydroid = {
 			enable = true;
 			package = pkgs.waydroid-nftables;

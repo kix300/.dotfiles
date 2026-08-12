@@ -4,16 +4,6 @@ pkgs,
 }:
 {
 
-	virtualisation = {
-		podman.enable = true;
-		docker = {
-			enable = true;
-			rootless = {
-				enable = true;
-				setSocketVariable = true;
-			};
-		};
-	};
 	xdg.portal = {
 		enable = true;
 		extraPortals = [
