@@ -85,7 +85,7 @@
 					{ "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
 				  },
 				})
-				require('matugen').setup()
+				 -- require('matugen').setup()
 
 					  vim.g.clipboard = {
 				name = "wl-clipboard (Wayland)",
