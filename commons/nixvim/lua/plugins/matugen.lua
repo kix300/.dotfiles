@@ -1,0 +1,20 @@
+-- return {
+--   {
+--     'RRethy/base16-nvim',
+--     lazy = false,
+--     priority = 1000,
+--     config = function()
+--       local matugen_path = vim.fn.expand('~/.cache/noctalia/matugen.lua')
+--       if vim.fn.filereadable(matugen_path) == 1 then
+--         package.loaded['matugen'] = nil
+--         local ok, matugen = pcall(dofile, matugen_path)
+--         if ok and matugen and matugen.setup then
+--           matugen.setup()
+--         else
+--         end
+--       else
+--         vim.cmd('colorscheme base16-default-dark')
+--       end
+--     end,
+--   },
+-- }

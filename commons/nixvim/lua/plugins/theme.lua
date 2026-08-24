@@ -15,11 +15,5 @@ return {
 			vim.cmd.colorscheme("catppuccin-latte")
 		end,
 	},
-	{
-		"RRethy/base16-nvim",
-		config = function()
-			require('matugen').setup()
-		end,
-	}
 }
 
