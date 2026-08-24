@@ -1,12 +1,11 @@
 {
 	lib,
-	pkgs,
 	...
 }:
 {
 
 	services = {
-		thermald.enable = true;
+		thermald.enable = lib.mkForce false;
 		xserver = {
 			enable = lib.mkForce false;
 		};

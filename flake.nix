@@ -101,7 +101,7 @@
 								sharedModules = [
 									stylix.homeModules.stylix
 									nixvim.homeModules.nixvim
-									noctalia.homeModules.default
+									# noctalia.homeModules.default
 								];
 								users.ozen = import ./home/ozen_home/home.nix;
 
