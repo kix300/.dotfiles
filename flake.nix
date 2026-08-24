@@ -77,7 +77,6 @@
 								sharedModules = [
 									stylix.homeModules.stylix
 									nixvim.homeModules.nixvim
-									noctalia.homeModules.default
 								];
 								users.ozen = import ./home/ozen/home.nix;
 
@@ -101,7 +100,6 @@
 								sharedModules = [
 									stylix.homeModules.stylix
 									nixvim.homeModules.nixvim
-									# noctalia.homeModules.default
 								];
 								users.ozen = import ./home/ozen_home/home.nix;
 
@@ -125,7 +123,6 @@
 								sharedModules = [
 									stylix.homeModules.stylix
 									nixvim.homeModules.nixvim
-									noctalia.homeModules.default
 								];
 								users.ozen_work = import ./home/ozen_work/home.nix;
 							};
@@ -150,7 +147,6 @@
 								sharedModules = [
 									stylix.homeModules.stylix
 									nixvim.homeModules.nixvim
-									noctalia.homeModules.default
 								];
 								users.meptik = import ./home/meptik/home.nix;
 							};
