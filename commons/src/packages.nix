@@ -24,6 +24,7 @@
 		comma
 		cmake
 		gh
+		matugen
 		hyprshot
 		kitty
 		discord
