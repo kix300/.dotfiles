@@ -4,6 +4,7 @@
 	imports = [
 		./hardware-configuration.nix
 			../../commons/src/default.nix
+			../../commons/src/virtualisation/virtualbox.nix
 	];
 
 	environment.sessionVariables.NIXOS_OZONE_WL = "1";
