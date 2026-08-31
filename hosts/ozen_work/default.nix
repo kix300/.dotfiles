@@ -31,6 +31,7 @@
 				xwayland-satellite
 				xwayland
 				nautilus
+				virtualbox
 		];
 
 	};
