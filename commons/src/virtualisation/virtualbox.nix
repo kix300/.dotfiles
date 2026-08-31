@@ -4,7 +4,7 @@
 	nixpkgs.config.allowUnfree = true;
 	virtualisation.virtualbox = {
 		host = {
-			enable = true;
+			enable = false;
 			enableExtensionPack = true;
 		};
 		guest = {

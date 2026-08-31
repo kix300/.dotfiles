@@ -46,6 +46,5 @@
 		libvirt
 		virt-manager
 		virtiofsd
-		virtualbox
 		];
 }
