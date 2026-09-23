@@ -33,6 +33,9 @@
 				xwayland
 				nautilus
 				wireshark
+			kdePackages.kpeople
+			glib
+			sshfs
 		];
 
 	};
