@@ -21,7 +21,7 @@
 	users.users."ozen_work" = {
 		isNormalUser = true;
 		description = "ozen_work";
-		extraGroups = [ "libvirtd" "networkmanager" "wheel" "docker" ];
+		extraGroups = [ "libvirtd" "wireshark" "networkmanager" "wheel" "docker" ];
 		packages = with pkgs; [
 			slack
 				alacritty
@@ -32,6 +32,7 @@
 				xwayland-satellite
 				xwayland
 				nautilus
+				wireshark
 		];
 
 	};
@@ -46,15 +47,6 @@
 		niri = {
 			enable = true;
 			useNautilus = true;
-		};
-		regreet = {
-			enable = false;
-			settings = {
-				background = {
-					path = "~/.dotfiles/commons/wallpapers/whale.jpg";
-					fit = "Cover";
-				};
-			};
 		};
 	};
 	xdg.portal = {
