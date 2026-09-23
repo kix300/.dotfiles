@@ -43,6 +43,7 @@
 			withUWSM = lib.mkForce true;
 			xwayland.enable = lib.mkForce false;
 		};
+		kdeconnect.enable = true;
 
 		niri = {
 			enable = true;
