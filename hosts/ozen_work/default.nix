@@ -24,7 +24,6 @@
 		description = "ozen_work";
 		extraGroups = [ "libvirtd" "wireshark" "networkmanager" "wheel" "docker" ];
 		packages = with pkgs; [
-			slack
 				alacritty
 				kitty
 				zellij
