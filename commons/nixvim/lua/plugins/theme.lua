@@ -1,5 +1,4 @@
 return {
-	{ "EdenEast/nightfox.nvim" },
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
@@ -12,7 +11,6 @@ return {
 				  dark = "latte",
 				},
 			})
-			vim.cmd.colorscheme("catppuccin-latte")
 		end,
 	},
 }

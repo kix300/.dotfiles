@@ -29,23 +29,6 @@ require("lazy").setup({
 		{ "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
 	},
 })
-vim.api.nvim_create_autocmd('User', {
-	pattern = 'LazyDone',
-	callback = function()
-		local matugen_path = vim.fn.expand('~/.cache/noctalia/matugen.lua')
-		if vim.fn.filereadable(matugen_path) == 1 then
-			package.loaded['matugen'] = nil
-			package.loaded['base16'] = nil
-			local ok, matugen = pcall(dofile, matugen_path)
-			if ok and matugen and matugen.setup then
-				matugen.setup()
-				vim.notify('Matugen theme applied!', vim.log.levels.INFO)
-			else
-				vim.notify('Matugen failed to load', vim.log.levels.WARN)
-			end
-		end
-	end,
-})
 
 vim.g.clipboard = {
 	name = "wl-clipboard (Wayland)",
