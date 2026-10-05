@@ -34,7 +34,7 @@
 			enable = true;
 			interactiveShellInit = ''
 						set fish_greeting # Disable greeting
-						eval (zellij setup --generate-auto-start fish | string collect | clear)
+						eval (zellij setup --generate-auto-start fish | string collect)
 						alias nswitch="rm ~/.gtkrc-2.0 && nh os switch"
 						alias dofus="appimage-run ~/Games/DOFUS/Ankama\ Launcher-Setup-x86_64.AppImage"
 						alias zed="zeditor ."
