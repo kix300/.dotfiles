@@ -26,7 +26,6 @@
 		packages = with pkgs; [
 			alacritty
 			kitty
-			zellij
 			wezterm
 			cinny-desktop
 			xwayland-satellite
