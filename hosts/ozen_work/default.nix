@@ -3,8 +3,8 @@
 {
 	imports = [
 		./hardware-configuration.nix
-			../../commons/src/default.nix
-			../../commons/src/virtualisation/virtualbox.nix
+		../../commons/src/default.nix
+		../../commons/src/virtualisation/virtualbox.nix
 	];
 
 	environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -24,18 +24,19 @@
 		description = "ozen_work";
 		extraGroups = [ "libvirtd" "wireshark" "networkmanager" "wheel" "docker" ];
 		packages = with pkgs; [
-				alacritty
-				kitty
-				zellij
-				wezterm
-				cinny-desktop
-				xwayland-satellite
-				xwayland
-				nautilus
-				wireshark
+			alacritty
+			kitty
+			zellij
+			wezterm
+			cinny-desktop
+			xwayland-satellite
+			xwayland
+			nautilus
+			wireshark
 			kdePackages.kpeople
 			glib
 			sshfs
+			nix-search-tv
 		];
 
 	};
@@ -92,28 +93,28 @@
 		};
 	};
 	boot = {
-# remove this broken packages i guess ive added it for some wifi problem that come from my box
-# extraModulePackages = with config.boot.kernelPackages; [ rtl8812au ];
+		# remove this broken packages i guess ive added it for some wifi problem that come from my box
+		# extraModulePackages = with config.boot.kernelPackages; [ rtl8812au ];
 		kernelModules = [
 			"8812au"
-				"amdgpu.dc=1"
-				"iwlwifi"
-				"iwlmvm"
-				"amdgpu"
-				"ucsi_ccg"
+			"amdgpu.dc=1"
+			"iwlwifi"
+			"iwlmvm"
+			"amdgpu"
+			"ucsi_ccg"
 		];
 		kernelParams = [
 			"iwlwifi.11ax_disable=0" # Active le Wi-Fi 6 (802.11ax)
-				"iwlwifi.power_save=0" # Désactive l'économie d'énergie (peut améliorer les perfs)
+			"iwlwifi.power_save=0" # Désactive l'économie d'énergie (peut améliorer les perfs)
 		];
 	};
 	hardware.enableRedistributableFirmware = true;
-# This value determines the NixOS release from which the default
-# settings for stateful data, like file locations and database versions
-# on your system were taken. It‘s perfectly fine and recommended to leave
-# this value at the release version of the first install of this system.
-# Before changing this value read the documentation for this option
-# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+	# This value determines the NixOS release from which the default
+	# settings for stateful data, like file locations and database versions
+	# on your system were taken. It‘s perfectly fine and recommended to leave
+	# this value at the release version of the first install of this system.
+	# Before changing this value read the documentation for this option
+	# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
 	system.stateVersion = "26.05"; # Did you read the comment?
 
 }
