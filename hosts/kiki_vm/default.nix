@@ -62,6 +62,8 @@
 		description = "kiki";
 		extraGroups = [ "networkmanager" "wheel" ];
 		packages = with pkgs; [
+			kubernetes
+			kubernetes-helm
 			kdePackages.kate
 		];
 	};
