@@ -129,6 +129,28 @@
 						}
 					];
 				};
+				kiki = nixpkgs.lib.nixosSystem rec {
+					system = "x86_64-linux";
+					specialArgs = { inherit inputs outputs system; };
+					modules = [
+						./hosts/kiki_vm
+						nix-index-database.nixosModules.nix-index
+						home-manager.nixosModules.home-manager
+						{
+							home-manager = {
+								useGlobalPkgs = true;
+								useUserPackages = true;
+								backupFileExtension = ".bak";
+								extraSpecialArgs = { inherit inputs; };
+								sharedModules = [
+									stylix.homeModules.stylix
+									nixvim.homeModules.nixvim
+								];
+								users.kiki = import ./home/kiki_vm/home.nix;
+							};
+						}
+					];
+				};
 				meptik = nixpkgs.lib.nixosSystem rec {
 					system = "x86_64-linux";
 					specialArgs = { inherit inputs outputs system; };
