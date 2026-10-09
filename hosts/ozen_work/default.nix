@@ -35,7 +35,11 @@
 			kdePackages.kpeople
 			glib
 			sshfs
-			nix-search-tv
+
+			#lgtm
+			# kubernetes-helm
+			# kubernetes
+			# minikube
 		];
 
 	};

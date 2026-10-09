@@ -16,9 +16,14 @@
 			settings.user.name = "kix300";
 			settings.user.email = "kixwalkiki@gmail.com";
 		};
+		fish = {
+			interactiveShellInit = ''
+				 set -x KUBECONFIG $HOME/.kube/config
+				 alias k="kubectl"
+			'';
+		};
 	};
 	xdg.configFile."niri/config.kdl".source = niri/config.kdl;
-
 
 	home.stateVersion = "23.11";
 }
