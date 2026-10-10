@@ -6,7 +6,7 @@
 
 {
 	fileSystems."/mnt/bob" =
-	{ device = "/dev/disk/by-uuid/e45a0f90-03e6-4e3d-bde5-17ec3cbee05a";
+	{ device = "/dev/disk/by-uuid/0947a22a-329d-432a-9db6-c71138e5d872";
 		fsType = "ext4";
 		options = [
 			"users" "rw" "exec" "relatime"
@@ -51,7 +51,7 @@
 		loader = {
 			grub = {
 				enable = true;
-				device = "/dev/sdb";
+				device = "/dev/sda";
 			};
 			systemd-boot.enable = lib.mkForce false;
 			efi.canTouchEfiVariables = lib.mkForce false;
