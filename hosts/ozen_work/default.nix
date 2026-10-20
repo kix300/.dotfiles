@@ -35,11 +35,6 @@
 			kdePackages.kpeople
 			glib
 			sshfs
-
-			#lgtm
-			# kubernetes-helm
-			# kubernetes
-			# minikube
 		];
 
 	};
@@ -80,6 +75,7 @@
 	networking = {
 		hostName = "laptop_work";
 		networkmanager.enable = true;
+		extraHosts = "127.0.0.1	grafana.lgtm.local"; #lgtm
 		wireless.iwd = {
 			enable = false;
 			settings = {

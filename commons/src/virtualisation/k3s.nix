@@ -16,6 +16,7 @@
 		kubectl
 		kubernetes
 		kubernetes-helm
+		k9s
 	];
 
 }
