@@ -75,6 +75,10 @@
 			#microphone
 			easyeffects
 
+			#kixlab
+			ansible
+			opentofu
+
 		];
 	};
 }
