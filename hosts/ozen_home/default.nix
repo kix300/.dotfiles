@@ -68,15 +68,16 @@
 	};
 	boot = {
 		kernelModules = [
-# "8812au"
-# "iwlwifi"
-# "iwlmvm"
 			"rtl88x2bu"
-				"ucsi_ccg"
+			"ucsi_ccg"
 		];
 		kernelParams = [
 			"iwlwifi.11ax_disable=0" # Active le Wi-Fi 6 (802.11ax)
-				"iwlwifi.power_save=0" # Désactive l'économie d'énergie (peut améliorer les perfs)
+			"iwlwifi.power_save=0" # Désactive l'économie d'énergie (peut améliorer les perfs)
+			#should fix crash nvidia msi 1070
+			"pcie_aspm=off"
+			"pcie_port_pm=off"
+
 		];
 	};
 	services.xserver.videoDrivers = [ "nvidia" "nvidia_drm" "nvidia_modeset" ];
