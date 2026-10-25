@@ -22,6 +22,11 @@
 			"kvm"
 		];
 		packages = with pkgs; [
+
+			#skylander
+			cemu
+			dolphin-emu
+
 			aapt
 			adbtuifm
 			adwaita-icon-theme
