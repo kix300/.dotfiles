@@ -30,6 +30,9 @@
 	];
 	networking = {
 		hostName = "ozen_home";
+		hosts = {
+			"192.168.1.52" = [ "forgejo.kix.lab" ];
+		};
 		networkmanager.enable = true;
 		wireless.iwd = {
 			enable = false;
@@ -69,14 +72,14 @@
 	boot = {
 		kernelModules = [
 			"rtl88x2bu"
-			"ucsi_ccg"
+				"ucsi_ccg"
 		];
 		kernelParams = [
 			"iwlwifi.11ax_disable=0" # Active le Wi-Fi 6 (802.11ax)
-			"iwlwifi.power_save=0" # Désactive l'économie d'énergie (peut améliorer les perfs)
-			#should fix crash nvidia msi 1070
-			"pcie_aspm=off"
-			"pcie_port_pm=off"
+				"iwlwifi.power_save=0" # Désactive l'économie d'énergie (peut améliorer les perfs)
+#should fix crash nvidia msi 1070
+				"pcie_aspm=off"
+				"pcie_port_pm=off"
 
 		];
 	};
