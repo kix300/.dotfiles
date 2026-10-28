@@ -4,8 +4,8 @@
 		libvirtd = {
 			enable = true;
 			qemu = {
-				vhostUserPackages = with pkgs; [ virtiofsd ];  # ← this is the fix
-				package = pkgs.qemu_kvm;
+				vhostUserPackages = with pkgs; [ virtiofsd ];
+				package = pkgs.qemu;
 			};
 
 		};
