@@ -75,7 +75,10 @@
 	networking = {
 		hostName = "laptop_work";
 		networkmanager.enable = true;
-		extraHosts = "127.0.0.1	grafana.lgtm.local"; #lgtm
+		hosts = {
+			"192.168.1.52" = [ "forgejo.kix.lab" ];
+			"127.0.0.1" = [ "grafana.lgtm.local" ]; #lgtm
+		};
 		wireless.iwd = {
 			enable = false;
 			settings = {
