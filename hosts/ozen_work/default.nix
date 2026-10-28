@@ -22,7 +22,16 @@
 	users.users."ozen_work" = {
 		isNormalUser = true;
 		description = "ozen_work";
-		extraGroups = [ "libvirtd" "wireshark" "networkmanager" "wheel" "docker" ];
+		extraGroups = [
+			"networkmanager"
+			"wireshark"
+			"wheel"
+			"docker"
+			"video"
+			"audio"
+			"libvirtd"
+			"kvm"
+		];
 		packages = with pkgs; [
 			alacritty
 			kitty
