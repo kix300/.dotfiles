@@ -1,10 +1,9 @@
 {
-	lib,
-		config,
-		...
+pkgs,
+...
 }:
-
 {
+
 	fileSystems."/mnt/bob" =
 	{ device = "/dev/disk/by-uuid/0947a22a-329d-432a-9db6-c71138e5d872";
 		fsType = "ext4";
@@ -13,15 +12,6 @@
 		];
 	};
 
-	imports = [
-		./hardware-configuration.nix
-			./packages.nix
-			./services.nix
-			./programs.nix
-			./other.nix
-			../../commons/src/default.nix
-# ../../commons/src/nvidia.nix
-			../../commons/src/prepkgs.nix
 	];
 
 #discord
@@ -92,11 +82,47 @@
 		nvidia.open = false;
 	};
 
-# This value determines the NixOS release from which the default
-# settings for stateful data, like file locations and database versions
-# on your system were taken. It‘s perfectly fine and recommended to leave
-# this value at the release version of the first install of this system.
-# Before changing this value read the documentation for this option
-# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-	system.stateVersion = "26.05"; # Did you read the comment?
+	xdg.portal = {
+		enable = true;
+		extraPortals = [
+			pkgs.xdg-desktop-portal-hyprland
+				pkgs.xdg-desktop-portal-gtk
+		];
+		configPackages = [ pkgs.xdg-desktop-portal-hyprland ];
+		config = {
+			common = {
+				default = [ "gtk" ];
+			};
+			hyprland = {
+				default = [
+					"hyprland"
+						"gtk"
+				];
+				"org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
+				"org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
+			};
+		};
+	};
+	systemd = {
+		sleep.settings.Sleep = {
+			AllowSuspend = "no";
+			AllowHibernation = "no";
+			AllowSuspendThenHibernate = "no";
+			AllowHybridSleep  = "no";
+		};
+
+		user.services = {
+			xdg-desktop-portal-hyprland = {
+				enable = true;
+				wantedBy = [ "graphical-session.target" ];
+				after = [ "graphical-session.target" ];
+			};
+
+			xdg-desktop-portal = {
+				enable = true;
+				wantedBy = [ "graphical-session.target" ];
+				after = [ "graphical-session.target" ];
+			};
+		};
+	};
 }

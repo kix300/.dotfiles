@@ -1,4 +1,4 @@
+# Kix Dotfiles
 
-# Caelestia-shell
-
-## Try to mix my and his Caelestia-shell
+## Nixos files Dendritic
+- [ ] need to setup home Dendritic
