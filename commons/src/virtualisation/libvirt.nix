@@ -1,13 +1,28 @@
-{pkgs, ...}:
-{
+{ config, pkgs, ... }:
+
+let
+	virt-manager-x11 = pkgs.symlinkJoin {
+		name = "virt-manager-x11";
+		paths = [ pkgs.virt-manager ];
+		nativeBuildInputs = [ pkgs.makeWrapper ];
+		postBuild = ''
+	  wrapProgram $out/bin/virt-manager --set GDK_BACKEND x11
+	  '';
+	};
+in
+	{
+	programs.virt-manager = {
+		enable = true;
+		package = virt-manager-x11;
+	};
+
 	virtualisation = {
 		libvirtd = {
 			enable = true;
 			qemu = {
-				vhostUserPackages = with pkgs; [ virtiofsd ];
 				package = pkgs.qemu;
+				vhostUserPackages = with pkgs; [ virtiofsd ];
 			};
-
 		};
 		spiceUSBRedirection.enable = true;
 	};

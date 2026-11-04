@@ -21,7 +21,7 @@
 			};
 		};
 		logind.settings.Login = {
-			HandlelidSwitch = "ignore";
+			HandleLidSwitch = "ignore";
 			HandlelidSwitchDocked = "ignore";
 			HandlelidSwitchExternalPower = "ignore";
 			extraConfig = ''
