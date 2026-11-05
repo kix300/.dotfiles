@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  nixosHosts.spark = {
+  nixosHosts.home = {
 	system = "x86_64-linux";
     unstable = true;
     tags = [ "machines" "home" ];
