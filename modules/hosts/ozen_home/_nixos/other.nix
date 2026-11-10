@@ -37,36 +37,34 @@ pkgs,
 		};
 	};
 
-	boot = {
-		loader = {
-			grub = {
-				enable = true;
-				device = "/dev/sda";
-			};
-			systemd-boot.enable = lib.mkForce false;
-			efi.canTouchEfiVariables = lib.mkForce false;
+	boot.loader = {
+		grub = {
+			enable = true;
+			device = "/dev/sda";
 		};
+		systemd-boot.enable = lib.mkForce false;
+		efi.canTouchEfiVariables = lib.mkForce false;
 	};
-#env variable for guitar plugin
+	#env variable for guitar plugin
 	environment.variables = {
 		LV2_PATH = [
 			"$HOME/.lv2"
-				"$HOME/.nix-profile/lib/lv2"
-				"/etc/profiles/per-user/ozen/lib/lv2"
-				"/run/current-system/sw/lib/lv2"
+			"$HOME/.nix-profile/lib/lv2"
+			"/etc/profiles/per-user/ozen/lib/lv2"
+			"/run/current-system/sw/lib/lv2"
 		];
 	};
 	boot = {
 		kernelModules = [
 			"rtl88x2bu"
-				"ucsi_ccg"
+			"ucsi_ccg"
 		];
 		kernelParams = [
 			"iwlwifi.11ax_disable=0" # Active le Wi-Fi 6 (802.11ax)
-				"iwlwifi.power_save=0" # Désactive l'économie d'énergie (peut améliorer les perfs)
-#should fix crash nvidia msi 1070
-				"pcie_aspm=off"
-				"pcie_port_pm=off"
+			"iwlwifi.power_save=0" # Désactive l'économie d'énergie (peut améliorer les perfs)
+			#should fix crash nvidia msi 1070
+			"pcie_aspm=off"
+			"pcie_port_pm=off"
 
 		];
 	};
@@ -83,7 +81,7 @@ pkgs,
 		enable = true;
 		extraPortals = [
 			pkgs.xdg-desktop-portal-hyprland
-				pkgs.xdg-desktop-portal-gtk
+			pkgs.xdg-desktop-portal-gtk
 		];
 		configPackages = [ pkgs.xdg-desktop-portal-hyprland ];
 		config = {
@@ -93,7 +91,7 @@ pkgs,
 			hyprland = {
 				default = [
 					"hyprland"
-						"gtk"
+					"gtk"
 				];
 				"org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
 				"org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];

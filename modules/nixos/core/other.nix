@@ -6,11 +6,9 @@
 		"nix-command"
 		"flakes"
 	];
-	boot = {
-		loader = {
-			systemd-boot.enable = true;
-			efi.canTouchEfiVariables = true;
-		};
+	boot.loader = {
+		systemd-boot.enable = true;
+		efi.canTouchEfiVariables = true;
 	};
 	console.useXkbConfig = true;
 	hardware = {
