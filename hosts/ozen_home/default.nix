@@ -19,6 +19,7 @@
 			./services.nix
 			./programs.nix
 			./other.nix
+			./msi.nix
 			../../commons/src/default.nix
 # ../../commons/src/nvidia.nix
 			../../commons/src/prepkgs.nix
