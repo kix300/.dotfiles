@@ -1,50 +1,52 @@
-{pkgs, inputs, ...}:
 {
-	environment.systemPackages = with pkgs; [
-		vim
-		fish
-		clang
-		clang-tools
-		ddcutil
-		gnumake
-		ghostty
-		iwgtk
-		libbsd
-		libclang
-		libgcc
-		libgccjit
-		pnpm
-		asusctl
-		valgrind
-		util-linux
-		bluez
-		btop-cuda
-		brightnessctl
-		clang-tools
-		comma
-		cmake
-		gh
-		matugen
-		hyprshot
-		kitty
-		discord
-		loupe
-		lua
-		pavucontrol
-		thunar
-		wayvnc
-		inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
-		inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+	flake.modules.nixos.packages =
+		{pkgs, inputs, ...}:
+		{
+			environment.systemPackages = with pkgs; [
+				vim
+				fish
+				clang
+				clang-tools
+				ddcutil
+				gnumake
+				ghostty
+				iwgtk
+				libbsd
+				libclang
+				libgcc
+				libgccjit
+				pnpm
+				asusctl
+				valgrind
+				util-linux
+				bluez
+				btop-cuda
+				brightnessctl
+				clang-tools
+				comma
+				cmake
+				gh
+				matugen
+				hyprshot
+				kitty
+				discord
+				loupe
+				lua
+				pavucontrol
+				thunar
+				wayvnc
+				inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
+				inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
 
-
-#ozen
-		obs-studio
-		obsidian
-		tmux
-		uv
-		qemu_kvm
-		libvirt
-		virt-manager
-		virtiofsd
-		];
+				#ozen
+				obs-studio
+				obsidian
+				tmux
+				uv
+				qemu_kvm
+				libvirt
+				virt-manager
+				virtiofsd
+			];
+		};
 }
