@@ -4,6 +4,57 @@ pkgs,
 }:
 {
 
+	#discord
+	nixpkgs.config.permittedInsecurePackages = [
+		"electron-38.8.4"
+	];
+	networking = {
+		hostName = "laptop";
+		networkmanager.enable = true;
+		wireless.iwd = {
+			enable = false;
+			settings = {
+				General = {
+					EnableNetworkConfiguration = true;
+				};
+				IPv6 = {
+					Enabled = true;
+				};
+				Settings = {
+					AutoConnect = true;
+				};
+			};
+		};
+	};
+
+	#env variable for guitar plugin
+	environment.variables = {
+		LV2_PATH = [
+			"$HOME/.lv2"
+			"$HOME/.nix-profile/lib/lv2"
+			"/etc/profiles/per-user/ozen/lib/lv2"
+			"/run/current-system/sw/lib/lv2"
+		];
+	};
+	boot = {
+		# remove this broken packages i guess ive added it for some wifi problem that come from my box
+		# extraModulePackages = with config.boot.kernelPackages; [ rtl8812au ];
+		kernelModules = [
+			"8812au"
+			"amdgpu.dc=1"
+			"iwlwifi"
+			"iwlmvm"
+			"amdgpu"
+			"ucsi_ccg"
+			"kvm-amd"
+		];
+		kernelParams = [
+			"iwlwifi.11ax_disable=0" # Active le Wi-Fi 6 (802.11ax)
+			"iwlwifi.power_save=0" # Désactive l'économie d'énergie (peut améliorer les perfs)
+		];
+	};
+	hardware.enableRedistributableFirmware = true;
+
 	virtualisation = {
 		waydroid = {
 			enable = true;

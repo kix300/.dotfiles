@@ -2,10 +2,10 @@
 
 {
 	imports = [
-		./hardware-configuration.nix
-		../../commons/src/default.nix
-		../../commons/src/nvidia.nix
-		../../commons/src/prepkgs.nix
+		# ./hardware-configuration.nix
+		# ../../commons/src/default.nix
+		# ../../commons/src/nvidia.nix
+		# ../../commons/src/prepkgs.nix
 	];
 
 	services = {

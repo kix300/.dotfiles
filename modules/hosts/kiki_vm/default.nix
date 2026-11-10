@@ -4,8 +4,8 @@
 	imports =
 		[
 		./hardware-configuration.nix
-		../../commons/src/programs.nix
-		../../commons/src/packages.nix
+		# ../../commons/src/programs.nix
+		# ../../commons/src/packages.nix
 		];
 
 	boot.loader.grub.enable = true;

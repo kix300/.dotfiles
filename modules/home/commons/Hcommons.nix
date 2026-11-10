@@ -1,8 +1,7 @@
 { pkgs, ... }:
 {
 	imports = [
-		# ./../../commons/stylix.nix
-		./../../commons/nixvim/nixvim.nix
+		# ./../../commons/nixvim/nixvim.nix
 		./programs
 	];
 
