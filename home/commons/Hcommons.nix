@@ -31,6 +31,11 @@
 			};
 		};
 		zellij = {
+			settings = {
+				theme_dark= "catppuccin-latte";
+				theme_light = "catppuccin-latte";
+				show_startup_tips = false;
+			};
 			enable = true;
 			enableFishIntegration = true;
 			exitShellOnExit = true;
@@ -39,29 +44,29 @@
 		fish = {
 			enable = true;
 			interactiveShellInit = ''
-						eval (zellij setup --generate-auto-start fish | string collect)
-						set fish_greeting # Disable greeting
-						alias nswitch="rm ~/.gtkrc-2.0 && nh os switch"
-						alias dofus="appimage-run ~/Games/DOFUS/Ankama\ Launcher-Setup-x86_64.AppImage"
-						alias zed="zeditor ."
-						alias niri-test="~/Projects/Rust/niri/result/bin/niri"
-						function nvimfiles
-							nvim ~/.dotfiles
-						end
+				eval (zellij setup --generate-auto-start fish | string collect)
+				set fish_greeting # Disable greeting
+				alias nswitch="rm ~/.gtkrc-2.0 && nh os switch"
+				alias dofus="appimage-run ~/Games/DOFUS/Ankama\ Launcher-Setup-x86_64.AppImage"
+				alias zed="zeditor ."
+				alias niri-test="~/Projects/Rust/niri/result/bin/niri"
+				function nvimfiles
+				nvim ~/.dotfiles
+				end
 
-						bind alt-] nvimfiles
-						direnv hook fish | source 
-			'';
+				bind alt-] nvimfiles
+				direnv hook fish | source 
+				'';
 		};
 		zed-editor = {
 			enable = true;
 			extensions = [
 				"nix"
-				"toml"
-				"make"
-				"c++"
-				"c"
-				"qml"
+					"toml"
+					"make"
+					"c++"
+					"c"
+					"qml"
 			];
 			userSettings = {
 				icon_theme = "Colored Zed Icons Theme Dark";
@@ -85,9 +90,9 @@
 						on = {
 							directories = [
 								".env"
-								"env"
-								".venv"
-								"venv"
+									"env"
+									".venv"
+									"venv"
 							];
 							activate_script = "default";
 						};
@@ -117,7 +122,7 @@
 					qml.binary.path_lookup = true;
 					qml.binary.arguments = [
 						"-E"
-						"additional-args"
+							"additional-args"
 					];
 				};
 				languages = {
@@ -128,7 +133,7 @@
 								command = "mix";
 								arguments = [
 									"-E"
-									"additional-args"
+										"additional-args"
 								];
 							};
 						};

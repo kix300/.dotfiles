@@ -16,6 +16,12 @@
 				package = pkgs.bibata-cursors;
 				name = "Bibata-Modern-Ice";
 			};
+			settings = {
+				appearance = {
+					scheme = "Synced";
+					theme_mode = "light";
+				};
+			};
 		};
 		thermald.enable = lib.mkForce false;
 		xserver = {
