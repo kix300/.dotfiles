@@ -9,8 +9,27 @@
 
 	environment.sessionVariables.NIXOS_OZONE_WL = "1";
 	services = {
-		displayManager.sddm.enable = false;
-		displayManager.gdm.enable = false;
+		displayManager = {
+			noctalia-greeter = {
+			enable = true;
+			settings = {
+				cursor.size = 24;
+				keyboard.layout = "us";
+			};
+			cursorTheme = {
+				package = pkgs.bibata-cursors;
+				name = "Bibata-Modern-Ice";
+			};
+			settings = {
+				appearance = {
+					scheme = "Synced";
+					theme_mode = "light";
+				};
+			};
+			};
+			sddm.enable = false;
+			gdm.enable = false;
+		};
 		xserver.displayManager.lightdm.enable = false;
 		printing.enable = true;
 		asusd.enable = true;
