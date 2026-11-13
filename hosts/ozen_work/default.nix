@@ -52,7 +52,6 @@
 			"kvm"
 		];
 		packages = with pkgs; [
-			alacritty
 			kitty
 			wezterm
 			cinny-desktop

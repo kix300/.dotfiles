@@ -3,6 +3,7 @@
 	imports = [
 		# ./../../commons/stylix.nix
 		./../../commons/nixvim/nixvim.nix
+		./alacritty.nix
 	];
 
 	home = {
