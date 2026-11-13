@@ -11,11 +11,6 @@
 
 	programs = {
 		home-manager.enable = true;
-		git = {
-			signing.format = "openpgp";
-			settings.user.name = "kix300";
-			settings.user.email = "kixwalkiki@gmail.com";
-		};
 		fish = {
 			interactiveShellInit = ''
 				 set -x KUBECONFIG $HOME/.kube/config
