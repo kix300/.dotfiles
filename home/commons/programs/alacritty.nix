@@ -7,7 +7,7 @@
 				import = ["~/.config/alacritty/themes/noctalia.toml"];
 			};
 			window = {
-				decoration = "none";
+				decorations = "none";
 				padding = {
 					x = 6;
 					y = 6;
