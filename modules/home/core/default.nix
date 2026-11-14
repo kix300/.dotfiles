@@ -1,11 +1,11 @@
 { config, ... }:
 {
-	flake.modules.homeManager.core = {
-		imports = with config.flake.modules.homeManager; [
-			theme
-			programs
-		];
+  flake.modules.homeManager.core = {
+    imports = with config.flake.modules.homeManager; [
+      theme
+      programs
+    ];
 
-		home.stateVersion = "23.11";
-	};
+    home.stateVersion = "23.11";
+  };
 }
