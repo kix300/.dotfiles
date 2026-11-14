@@ -1,9 +1,6 @@
 
 { ... }:
 {
-	imports = [
-		./../commons/Hcommons.nix
-	];
 	home = {
 		username = "ozen_work";
 		homeDirectory = "/home/ozen_work";

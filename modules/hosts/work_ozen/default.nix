@@ -11,6 +11,7 @@
 			#modules default
 			++ (with config.flake.modules.nixos; [
 				core
+				packages-work
 			]);
 
 		#modules homemanager 

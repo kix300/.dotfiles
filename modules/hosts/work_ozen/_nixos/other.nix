@@ -26,16 +26,6 @@
 				"libvirtd"
 				"kvm"
 		];
-		packages = with pkgs; [
-			xwayland-satellite
-				xwayland
-				nautilus
-				wireshark
-				kdePackages.kpeople
-				glib
-				sshfs
-		];
-
 	};
 
 	boot.loader = {
