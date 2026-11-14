@@ -1,11 +1,13 @@
-{ pkgs, ... }:
-let
+{
+	flake.modules.homeManager.theme =
+		{ pkgs, ... }:
+		let
 	cursorName = "Bibata-Modern-Ice";
 	cursorSize = 24;
 	terminalTheme = "catppuccin-latte";
 	editorTheme = "Catppuccin Latte";
-in
-{
+		in
+		{
 	home.pointerCursor = {
 		enable = true;
 		gtk.enable = true;
@@ -30,4 +32,5 @@ in
 			light = editorTheme;
 		};
 	};
+		};
 }

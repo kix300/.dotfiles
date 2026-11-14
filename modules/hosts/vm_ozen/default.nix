@@ -2,6 +2,7 @@
 {
   nixosHosts.kix_vm = {
 	system = "x86_64-linux";
+    primaryUser = "kiki";
     unstable = true;
     tags = [ "vm" "kix_vm" ];
 

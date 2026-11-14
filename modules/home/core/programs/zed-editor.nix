@@ -1,5 +1,7 @@
-{ _ , ... }:
 {
+	flake.modules.homeManager.zed-editor =
+		{ _ , ... }:
+		{
 	programs.zed-editor = {
 		enable = true;
 		extensions = [
@@ -87,4 +89,5 @@
 			show_whitespaces = "all";
 		};
 	};
+		};
 }

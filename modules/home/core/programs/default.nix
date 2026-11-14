@@ -1,13 +1,13 @@
-{ _ , ... }:
+{ config, ... }:
 {
-	imports = [
-		./alacritty.nix
-		./fish.nix
-		./git.nix
-		./starship.nix
-		# ./stylix.nix
-		./zed-editor.nix
-		./zellij.nix
-		./zoxide.nix
-	];
+	flake.modules.homeManager.programs.imports =
+		with config.flake.modules.homeManager; [
+			alacritty
+			fish
+			git
+			starship
+			zed-editor
+			zellij
+			zoxide
+		];
 }

@@ -2,6 +2,7 @@
 {
 	nixosHosts.work = {
 		system = "x86_64-linux";
+		primaryUser = "ozen_work";
 		unstable = true;
 		tags = [ "machines" "work" ];
 

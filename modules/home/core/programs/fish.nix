@@ -1,5 +1,7 @@
-{ _ , ... }:
 {
+	flake.modules.homeManager.fish =
+		{ _ , ... }:
+		{
 	programs.fish = {
 		enable = true;
 		interactiveShellInit = ''
@@ -24,4 +26,5 @@
 				direnv hook fish | source 
 		'';
 	};
+		};
 }

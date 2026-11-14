@@ -1,5 +1,7 @@
-{ _ , ... }:
 {
+	flake.modules.homeManager.git =
+		{ _ , ... }:
+		{
 	programs = {
 		lazygit = {
 			enable = true;
@@ -11,4 +13,5 @@
 			settings.user.email = "kixwalkiki@gmail.com";
 		};
 	};
+		};
 }

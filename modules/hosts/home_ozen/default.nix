@@ -1,7 +1,12 @@
 { config, ... }:
 {
+  imports = [
+    ../../flake/hosts/nixos.nix
+  ];
+
   nixosHosts.home = {
 	system = "x86_64-linux";
+    primaryUser = "ozen";
     unstable = true;
     tags = [ "machines" "home" ];
 
