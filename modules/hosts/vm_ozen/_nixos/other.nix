@@ -52,11 +52,6 @@
 		isNormalUser = true;
 		description = "kiki";
 		extraGroups = [ "networkmanager" "wheel" ];
-		packages = with pkgs; [
-			kubernetes
-			kubernetes-helm
-			kdePackages.kate
-		];
 	};
 
 	virtualisation = {
@@ -71,8 +66,4 @@
 
 	nixpkgs.config.allowUnfree = true;
 
-	environment.systemPackages = with pkgs; [
-		vim
-		fish
-	];
 }

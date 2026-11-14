@@ -1,8 +1,5 @@
 { pkgs, ... }:
 {
-	imports = [
-		./../commons/Hcommons.nix
-	];
 	home = {
 		username = "kiki";
 		homeDirectory = "/home/kiki";
