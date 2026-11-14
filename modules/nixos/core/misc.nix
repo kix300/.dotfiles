@@ -1,6 +1,6 @@
 {
 
-	flake.modules.nixos.core = 
+	flake.modules.nixos.base =
 
 	{ pkgs, ... }:
 
@@ -17,31 +17,6 @@
 			};
 		};
 		console.useXkbConfig = true;
-		hardware = {
-			i2c.enable = false;
-			bluetooth = {
-				enable = true;
-				powerOnBoot = true;
-				settings = {
-					LE = {
-						MinConnectionInterval = 16;
-						MaxConnectionInterval = 16;
-						ConnectionLatency = 10;
-						ConnectionSupervisionTimeout = 100;
-					};
-					General = {
-						Experimental = true;
-					};
-					Policy = {
-						AutoEnable = true;
-					};
-				};
-			};
-			graphics = {
-				enable = true;
-			};
-		};
-
 		time.timeZone = "Europe/Paris";
 
 		i18n = {
@@ -60,7 +35,6 @@
 		};
 
 		security = {
-			rtkit.enable = true;
 			polkit.enable = true;
 			polkit.extraConfig = ''
 				polkit.addRule(function(action, subject) {
@@ -83,17 +57,5 @@
 				fira-code-symbols
 				nerd-fonts.fira-code
 		];
-		xdg.portal = { 
-			enable = true;
-			config = {
-				common = {
-					default = [ "gtk" ];
-				};
-			};
-			extraPortals = [
-				pkgs.xdg-desktop-portal-gtk
-			];
-		};
-
 	};
 }

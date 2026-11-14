@@ -6,7 +6,6 @@
 			programs = {
 				firefox.enable = true;
 				dconf.enable = true;
-				xfconf.enable = true;
 				bash = {
 					interactiveShellInit = ''
 						if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
@@ -26,12 +25,6 @@
 					enable = true;
 					# enableSSHSupport = true;
 					pinentryPackage = pkgs.pinentry-gnome3;
-				};
-				hyprland.portalPackage = pkgs.xdg-desktop-portal-hyprland;
-				hyprland = {
-					enable = true;
-					withUWSM = true;
-					xwayland.enable = true;
 				};
 				nix-ld.enable = true;
 				direnv = {

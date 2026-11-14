@@ -2,7 +2,6 @@
 	flake.modules.nixos.nvidia =
 		{ _, ... }:
 		{
-			services.xserver.videoDrivers = [ "amdgpu" "nvidia" "nvidia_drm" "nvidia_modeset" ];
 			hardware.nvidia = {
 				open = true;
 				prime = {
