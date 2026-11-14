@@ -17,7 +17,6 @@
 				package-audio
 				package-apps
 				wayland
-				niri
 				virtualisation
 			]);
 
@@ -27,6 +26,7 @@
 		]
 			++ (with config.flake.modules.homeManager; [
 				core
+				niri
 			]);
 	};
 }

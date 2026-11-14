@@ -18,7 +18,6 @@
       package-audio
       package-apps
       wayland
-      hyprland
       virtualisation
     ]);
 
@@ -27,6 +26,7 @@
 	]
 		++ (with config.flake.modules.homeManager; [
 			core
+			hyprland
 		]);
   };
 }

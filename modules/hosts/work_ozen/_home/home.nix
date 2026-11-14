@@ -15,7 +15,5 @@
 			'';
 		};
 	};
-	xdg.configFile."niri/config.kdl".source = niri/config.kdl;
-
 	home.stateVersion = "23.11";
 }
