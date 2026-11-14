@@ -3,7 +3,7 @@
 		{ pkgs, ... }:
 		{
 			imports = [
-				../../hosts/home_ozen/_home/noctalia.nix
+				./noctalia.nix
 			];
 
 			systemd.user.services.xdg-desktop-portal-hyprland = {
@@ -25,7 +25,7 @@
 			wayland.windowManager.hyprland = {
 				enable = true;
 				configType = "lua";
-				extraConfig = builtins.readFile ../../hosts/home_ozen/_home/hypr/hyprland/hyprland.lua;
+				extraConfig = builtins.readFile ./hyprland.lua;
 			};
 		};
 }
