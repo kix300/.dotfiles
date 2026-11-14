@@ -27,26 +27,10 @@
 		LC_TIME = "fr_FR.UTF-8";
 	};
 
-	services.xserver.enable = true;
-
 	services.displayManager.sddm.enable = true;
 	services.desktopManager.plasma6.enable = true;
 
-	services.xserver.xkb = {
-		layout = "us";
-		variant = "";
-	};
-
-	services.printing.enable = true;
-
 	services.pulseaudio.enable = false;
-	security.rtkit.enable = true;
-	services.pipewire = {
-		enable = true;
-		alsa.enable = true;
-		alsa.support32Bit = true;
-		pulse.enable = true;
-	};
 
 	users.users.kiki = {
 		isNormalUser = true;
@@ -62,8 +46,6 @@
 			};
 		};
 	};
-	programs.firefox.enable = true;
-
 	nixpkgs.config.allowUnfree = true;
 
 }

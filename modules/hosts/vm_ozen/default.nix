@@ -11,7 +11,11 @@
 	#modules default
     ++ (with config.flake.modules.nixos; [
       core
-      packages-vm
+      package-base
+      package-desktop
+      package-development
+      package-apps
+      wayland
     ]);
 
 	homeManagerModules = [
