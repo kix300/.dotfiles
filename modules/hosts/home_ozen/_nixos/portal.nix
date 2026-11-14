@@ -1,4 +1,4 @@
-{_ , ...} :
+{pkgs, ...} :
 {
 	systemd = {
 		sleep.settings.Sleep = {
@@ -28,14 +28,13 @@
 			pkgs.xdg-desktop-portal-hyprland
 		];
 		configPackages = [ pkgs.xdg-desktop-portal-hyprland ];
-			hyprland = {
-				default = [
-					"hyprland"
+		hyprland = {
+			default = [
+				"hyprland"
 					"gtk"
-				];
-				"org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
-				"org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
-			};
+			];
+			"org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
+			"org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
 		};
 	};
 }

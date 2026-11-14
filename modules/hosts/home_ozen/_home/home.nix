@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
 	imports = [
-		./../commons/Hcommons.nix
 		./noctalia.nix
 	];
 	home = {

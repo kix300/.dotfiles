@@ -1,8 +1,22 @@
+{ pkgs, config, ... }:
 {
-pkgs,
-...
-}:
-{
+	users.users.ozen = {
+		isNormalUser = true;
+		description = "Killian";
+		extraGroups = [
+			"networkmanager"
+			"wheel"
+			"adbusers"
+			"lp"
+			"i2c"
+			"docker"
+			"video"
+			"audio"
+			"jackaudio"
+			"libvirtd"
+			"kvm"
+		];
+	};
 
 	fileSystems."/mnt/bob" =
 	{ device = "/dev/disk/by-uuid/0947a22a-329d-432a-9db6-c71138e5d872";

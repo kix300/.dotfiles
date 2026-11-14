@@ -11,11 +11,15 @@
 	#modules default
     ++ (with config.flake.modules.nixos; [
       core
+      nvidia
+      packages-home
     ]);
 
-	#modules homemanager 
-    # homeManagerModules = with config.flake.modules.homeManager; [
-    #   ssh-hosts
-    # ];
+	homeManagerModules = [
+		./_home
+	]
+		++ (with config.flake.modules.homeManager; [
+			core
+		]);
   };
 }
