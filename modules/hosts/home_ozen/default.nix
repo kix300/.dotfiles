@@ -11,24 +11,18 @@
     ]
 	#modules default
     ++ (with config.flake.modules.nixos; [
-      core
+	  core
       nvidia
-      package-base
-      package-desktop
-      package-development
-      package-audio
-      package-apps
-      wayland
-      virtualisation
     ]);
 
 	homeManagerModules = [
 		./_home
 	]
-		++ (with config.flake.modules.homeManager; [
-			core
-			nixvim
-			hyprland
+	++ (with config.flake.modules.homeManager; [
+		core
+		nixvim
+		noctalia
+		hyprland
 		]);
   };
 }

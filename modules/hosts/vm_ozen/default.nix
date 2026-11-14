@@ -11,20 +11,15 @@
     ]
 	#modules default
     ++ (with config.flake.modules.nixos; [
-      core
-      package-base
-      package-desktop
-      package-development
-      package-apps
-      wayland
+		core
     ]);
 
 	homeManagerModules = [
-		./_home
+		./_home/home.nix
 	]
-		++ (with config.flake.modules.homeManager; [
-			core
-			nixvim
-		]);
+	++ (with config.flake.modules.homeManager; [
+		core
+		nixvim
+	]);
   };
 }

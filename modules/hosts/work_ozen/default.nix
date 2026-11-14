@@ -12,13 +12,6 @@
 			#modules default
 			++ (with config.flake.modules.nixos; [
 				core
-				package-base
-				package-desktop
-				package-development
-				package-audio
-				package-apps
-				wayland
-				virtualisation
 			]);
 
 		#modules homemanager 
