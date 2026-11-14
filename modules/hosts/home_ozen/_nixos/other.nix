@@ -56,7 +56,6 @@
 		nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
 		enableRedistributableFirmware = true;
 		graphics.enable = true;
-		nvidia.open = false;
 	};
 	boot = {
 		kernelModules = [
