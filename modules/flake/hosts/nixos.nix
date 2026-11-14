@@ -1,8 +1,8 @@
-{ config, lib, ... }:
+{ config, inputs, lib, ... }:
 
 let
-  baseHostModule = import ./_utils/base.nix;
-  homeManagerModule = import ./_utils/home-manager.nix;
+  baseHostModule = import ./_utils/base.nix { inherit inputs lib; };
+  homeManagerModule = import ./_utils/home-manager.nix { inherit inputs lib; };
 in
 {
   options.nixosHosts = lib.mkOption {
@@ -14,7 +14,6 @@ in
           { name, ... }:
           {
             modules = [
-              config.flake.modules.nixos.core
               { networking.hostName = name; }
             ];
           }

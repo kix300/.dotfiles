@@ -1,9 +1,5 @@
 { config, ... }:
 {
-  imports = [
-    ../../flake/hosts/nixos.nix
-  ];
-
   nixosHosts.home = {
 	system = "x86_64-linux";
     primaryUser = "ozen";
@@ -31,6 +27,7 @@
 	]
 		++ (with config.flake.modules.homeManager; [
 			core
+			nixvim
 			hyprland
 		]);
   };

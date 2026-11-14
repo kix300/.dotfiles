@@ -1,7 +1,13 @@
-{ lib, pkgs, ... }:
+{ inputs, ... }:
 
 {
-	programs.nixvim = {
+	flake.modules.homeManager.nixvim = {
+		imports = [
+			inputs.nixvim.homeModules.nixvim
+			({ lib, pkgs, ... }:
+				{
+
+		programs.nixvim = {
 		enable = true;
 		opts.clipboard = "unnamedplus";
 		vimAlias = true;
@@ -98,8 +104,10 @@
 				cache_enabled = true,
 			  }
 			'';
-	};
+		};
 
-	# Normal LazyVim config here, see https://github.com/LazyVim/starter/tree/main/lua
-	xdg.configFile."nvim/lua".source = ./lua;
+		xdg.configFile."nvim/lua".source = ./lua;
+				})
+		];
+	};
 }

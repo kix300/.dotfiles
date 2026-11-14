@@ -1,5 +1,6 @@
-{ config, lib, inputs, ... }:
+{ inputs, lib }:
 
+{ config, ... }:
 {
   options.homeManagerModules = lib.mkOption {
     type = with lib.types; listOf deferredModule;

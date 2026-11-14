@@ -1,5 +1,6 @@
-{ config, inputs, lib, ... }:
+{ inputs, lib }:
 
+{ config, ... }:
 {
   options = {
     system = lib.mkOption {

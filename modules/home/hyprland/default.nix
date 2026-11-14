@@ -1,9 +1,9 @@
 {
 	flake.modules.homeManager.hyprland =
-		{ pkgs, ... }:
+		{ config, pkgs, ... }:
 		{
 			imports = [
-				./noctalia.nix
+				config.flake.modules.homeManager.noctalia
 			];
 
 			systemd.user.services.xdg-desktop-portal-hyprland = {

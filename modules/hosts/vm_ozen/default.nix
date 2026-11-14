@@ -24,6 +24,7 @@
 	]
 		++ (with config.flake.modules.homeManager; [
 			core
+			nixvim
 		]);
   };
 }
