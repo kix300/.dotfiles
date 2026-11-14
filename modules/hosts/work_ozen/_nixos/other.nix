@@ -3,10 +3,6 @@
 {
 	environment.sessionVariables.NIXOS_OZONE_WL = "1";
 	services = {
-		displayManager.sddm.enable = false;
-		displayManager.gdm.enable = false;
-		xserver.displayManager.lightdm.enable = false;
-		printing.enable = true;
 		asusd.enable = true;
 		power-profiles-daemon.enable = true;
 		logind.lidSwitch = "ignore";
@@ -50,7 +46,7 @@
 		hostName = "laptop_work";
 		hosts = {
 			"192.168.1.52" = [ "forgejo.kix.lab" ];
-			"127.0.0.1" = [ "grafana.lgtm.local" ]; #lgtm
+				"127.0.0.1" = [ "grafana.lgtm.local" ]; #lgtm
 		};
 	};
 	boot = {

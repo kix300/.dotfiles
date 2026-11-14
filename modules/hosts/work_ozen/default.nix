@@ -11,7 +11,14 @@
 			#modules default
 			++ (with config.flake.modules.nixos; [
 				core
-				packages-work
+				package-base
+				package-desktop
+				package-development
+				package-audio
+				package-apps
+				wayland
+				niri
+				virtualisation
 			]);
 
 		#modules homemanager 
