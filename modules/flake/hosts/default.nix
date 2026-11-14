@@ -14,7 +14,7 @@ in
           { name, ... }:
           {
             modules = [
-              { networking.hostName = name; }
+              { networking.hostName = lib.mkDefault name; }
             ];
           }
         )
@@ -27,7 +27,6 @@ in
     _name: host:
     lib.nixosSystem {
       inherit (host) system modules specialArgs;
-      inherit (host) pkgs;
     }
   ) config.nixosHosts;
 }
