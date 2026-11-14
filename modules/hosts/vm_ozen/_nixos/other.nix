@@ -11,8 +11,6 @@
 		"flakes"
 	];
 
-	networking.networkmanager.enable = true;
-
 	time.timeZone = "Europe/Paris";
 
 

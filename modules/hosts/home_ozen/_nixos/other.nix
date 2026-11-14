@@ -11,7 +11,7 @@ pkgs,
 			"users" "rw" "exec" "relatime"
 		];
 	};
-#discord
+	#discord
 	nixpkgs.config.permittedInsecurePackages = [
 		"electron-38.8.4"
 	];
@@ -20,21 +20,6 @@ pkgs,
 		hosts = {
 			"192.168.1.52" = [ "forgejo.kix.lab" ];
 		};
-		networkmanager.enable = true;
-		wireless.iwd = {
-			enable = false;
-			settings = {
-				General = {
-					EnableNetworkConfiguration = true;
-				};
-				IPv6 = {
-					Enabled = true;
-				};
-				Settings = {
-					AutoConnect = true;
-				};
-			};
-		};
 	};
 
 	boot.loader = {
@@ -42,8 +27,6 @@ pkgs,
 			enable = true;
 			device = "/dev/sda";
 		};
-		systemd-boot.enable = lib.mkForce false;
-		efi.canTouchEfiVariables = lib.mkForce false;
 	};
 	#env variable for guitar plugin
 	environment.variables = {
@@ -53,6 +36,14 @@ pkgs,
 			"/etc/profiles/per-user/ozen/lib/lv2"
 			"/run/current-system/sw/lib/lv2"
 		];
+	};
+	services.xserver.videoDrivers = [ "nvidia" "nvidia_drm" "nvidia_modeset" ];
+	hardware = {
+
+		nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
+		enableRedistributableFirmware = true;
+		graphics.enable = true;
+		nvidia.open = false;
 	};
 	boot = {
 		kernelModules = [
@@ -68,56 +59,5 @@ pkgs,
 
 		];
 	};
-	services.xserver.videoDrivers = [ "nvidia" "nvidia_drm" "nvidia_modeset" ];
-	hardware = {
 
-		nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
-		enableRedistributableFirmware = true;
-		graphics.enable = true;
-		nvidia.open = false;
-	};
-
-	xdg.portal = {
-		enable = true;
-		extraPortals = [
-			pkgs.xdg-desktop-portal-hyprland
-			pkgs.xdg-desktop-portal-gtk
-		];
-		configPackages = [ pkgs.xdg-desktop-portal-hyprland ];
-		config = {
-			common = {
-				default = [ "gtk" ];
-			};
-			hyprland = {
-				default = [
-					"hyprland"
-					"gtk"
-				];
-				"org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
-				"org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
-			};
-		};
-	};
-	systemd = {
-		sleep.settings.Sleep = {
-			AllowSuspend = "no";
-			AllowHibernation = "no";
-			AllowSuspendThenHibernate = "no";
-			AllowHybridSleep  = "no";
-		};
-
-		user.services = {
-			xdg-desktop-portal-hyprland = {
-				enable = true;
-				wantedBy = [ "graphical-session.target" ];
-				after = [ "graphical-session.target" ];
-			};
-
-			xdg-desktop-portal = {
-				enable = true;
-				wantedBy = [ "graphical-session.target" ];
-				after = [ "graphical-session.target" ];
-			};
-		};
-	};
 }

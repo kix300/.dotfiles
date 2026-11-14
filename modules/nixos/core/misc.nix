@@ -2,85 +2,98 @@
 
 	flake.modules.nixos.core = 
 
-		{ pkgs, ... }:
+	{ pkgs, ... }:
 
-		{
-			environment.variables.EDITOR = "nvim";
-			nix.settings.experimental-features = [
-				"nix-command"
+	{
+		environment.variables.EDITOR = "nvim";
+		nix.settings.experimental-features = [
+			"nix-command"
 				"flakes"
-			];
-			boot.loader = {
-				systemd-boot.enable = true;
-				efi.canTouchEfiVariables = true;
+		];
+		networking = {
+			networkmanager.enable = true;
+			wireless.iwd = {
+				enable = false;
 			};
-			console.useXkbConfig = true;
-			hardware = {
-				i2c.enable = false;
-				bluetooth = {
-					enable = true;
-					powerOnBoot = true;
-					settings = {
-						LE = {
-							MinConnectionInterval = 16;
-							MaxConnectionInterval = 16;
-							ConnectionLatency = 10;
-							ConnectionSupervisionTimeout = 100;
-						};
-						General = {
-							Experimental = true;
-						};
-						Policy = {
-							AutoEnable = true;
-						};
+		};
+		console.useXkbConfig = true;
+		hardware = {
+			i2c.enable = false;
+			bluetooth = {
+				enable = true;
+				powerOnBoot = true;
+				settings = {
+					LE = {
+						MinConnectionInterval = 16;
+						MaxConnectionInterval = 16;
+						ConnectionLatency = 10;
+						ConnectionSupervisionTimeout = 100;
 					};
-				};
-				graphics = {
-					enable = true;
-				};
-			};
-
-			time.timeZone = "Europe/Paris";
-
-			i18n = {
-				defaultLocale = "en_US.UTF-8";
-				extraLocaleSettings = {
-					LC_ADDRESS = "fr_FR.UTF-8";
-					LC_IDENTIFICATION = "fr_FR.UTF-8";
-					LC_MEASUREMENT = "fr_FR.UTF-8";
-					LC_MONETARY = "fr_FR.UTF-8";
-					LC_NAME = "fr_FR.UTF-8";
-					LC_NUMERIC = "fr_FR.UTF-8";
-					LC_PAPER = "fr_FR.UTF-8";
-					LC_TELEPHONE = "fr_FR.UTF-8";
-					LC_TIME = "fr_FR.UTF-8";
-				};
-			};
-
-			security = {
-				rtkit.enable = true;
-				polkit.enable = true;
-				polkit.extraConfig = ''
-	polkit.addRule(function(action, subject) {
-	  if (action.id == "org.freedesktop.policykit.exec" &&
-		  action.lookup("program") == "${pkgs.gpu-screen-recorder}/bin/gsr-kms-server" &&
-		  subject.isInGroup("video")) {
-		return polkit.Result.YES;
-	  }
-	});
-				'';
-				pam = {
-					services = {
-						swaylock = { };
+					General = {
+						Experimental = true;
+					};
+					Policy = {
+						AutoEnable = true;
 					};
 				};
 			};
+			graphics = {
+				enable = true;
+			};
+		};
 
-			fonts.packages = with pkgs; [
-				fira-code
+		time.timeZone = "Europe/Paris";
+
+		i18n = {
+			defaultLocale = "en_US.UTF-8";
+			extraLocaleSettings = {
+				LC_ADDRESS = "fr_FR.UTF-8";
+				LC_IDENTIFICATION = "fr_FR.UTF-8";
+				LC_MEASUREMENT = "fr_FR.UTF-8";
+				LC_MONETARY = "fr_FR.UTF-8";
+				LC_NAME = "fr_FR.UTF-8";
+				LC_NUMERIC = "fr_FR.UTF-8";
+				LC_PAPER = "fr_FR.UTF-8";
+				LC_TELEPHONE = "fr_FR.UTF-8";
+				LC_TIME = "fr_FR.UTF-8";
+			};
+		};
+
+		security = {
+			rtkit.enable = true;
+			polkit.enable = true;
+			polkit.extraConfig = ''
+				polkit.addRule(function(action, subject) {
+						if (action.id == "org.freedesktop.policykit.exec" &&
+								action.lookup("program") == "${pkgs.gpu-screen-recorder}/bin/gsr-kms-server" &&
+								subject.isInGroup("video")) {
+						return polkit.Result.YES;
+						}
+						});
+			'';
+			pam = {
+				services = {
+					swaylock = { };
+				};
+			};
+		};
+
+		fonts.packages = with pkgs; [
+			fira-code
 				fira-code-symbols
 				nerd-fonts.fira-code
+		];
+		xdg.portal = { 
+			enable = true;
+			config = {
+				common = {
+					default = [ "gtk" ];
+				};
+			};
+			extraPortals = [
+				pkgs.xdg-desktop-portal-gtk
 			];
-
 		};
+
+	};
 }
