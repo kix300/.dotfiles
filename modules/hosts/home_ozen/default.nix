@@ -12,7 +12,14 @@
     ++ (with config.flake.modules.nixos; [
       core
       nvidia
-      packages-home
+      package-base
+      package-desktop
+      package-development
+      package-audio
+      package-apps
+      wayland
+      hyprland
+      virtualisation
     ]);
 
 	homeManagerModules = [

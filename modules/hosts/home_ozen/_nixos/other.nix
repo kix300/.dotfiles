@@ -51,7 +51,6 @@
 			"/run/current-system/sw/lib/lv2"
 		];
 	};
-	services.xserver.videoDrivers = [ "nvidia" "nvidia_drm" "nvidia_modeset" ];
 	hardware = {
 
 		nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
