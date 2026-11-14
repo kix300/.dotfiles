@@ -85,11 +85,6 @@
 			load_direnv = "shell_hook";
 			base_keymap = "VSCode";
 			show_whitespaces = "all";
-			theme = {
-				dark = "Terafox - blurred";
-				light = "Terafox - blurred";
-			};
-
 		};
 	};
 }

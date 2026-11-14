@@ -1,20 +1,11 @@
 { pkgs, ... }:
 {
-	imports = [
-		# ./../../commons/nixvim/nixvim.nix
-		./programs
-	];
+	flake.modules.homeManager.core = {
+		imports = [
+			./theme.nix
+			./programs
+		];
 
-	home = {
-		pointerCursor = {
-			enable = true;
-			gtk.enable = true;
-			x11.enable = true;
-			name = "Bibata-Modern-Ice";
-			package = pkgs.bibata-cursors;
-			size = 24;
-		};
+		home.stateVersion = "23.11";
 	};
-
-	home.stateVersion = "23.11";
 }
