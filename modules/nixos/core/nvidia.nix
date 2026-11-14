@@ -3,7 +3,7 @@
 		{ _, ... }:
 		{
 			hardware.nvidia = {
-				open = true;
+				open = false;
 				prime = {
 					offload.enable = true;
 					offload.enableOffloadCmd = true;
