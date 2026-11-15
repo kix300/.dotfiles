@@ -25,6 +25,10 @@ output "eDP-1" {
 output "DP-1" {
     position x=1645 y=0
 }
+output "HDMI-A-1" {
+	position x=1645 y=0
+	mode "2560x1440@143.912"
+}
 input {
     keyboard {
         xkb {
