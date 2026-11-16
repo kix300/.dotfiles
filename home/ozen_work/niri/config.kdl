@@ -15,6 +15,7 @@ environment {
 	XDG_SESSION_DESKTOP "niri"
 	XDG_CURRENT_DESKTOP "niri"
 	GTK_IM_MODULE "simple"
+	BWS_ACCESS_TOKEN "$(cat ~/.config/secretspec/bws_token)"
 }
 
 output "eDP-1" {
