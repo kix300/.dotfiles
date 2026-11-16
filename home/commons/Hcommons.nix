@@ -2,7 +2,7 @@
 {
 	imports = [
 		# ./../../commons/stylix.nix
-		./../../commons/nixvim/nixvim.nix
+		./../../other/nixvim/nixvim.nix
 		./programs
 	];
 

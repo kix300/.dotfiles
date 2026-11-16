@@ -46,7 +46,7 @@
 		libvirt
 		virt-manager
 		virtiofsd
-
+		#parce que home ne fonctionne pas je sais pas pk pour secretspec
 		secretspec
 		];
 }
