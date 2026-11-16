@@ -49,7 +49,11 @@
 		 
 		#parce que home ne fonctionne pas je sais pas pk pour secretspec
 		secretspec
-		bws
+		# temporary fix because of sqlite leak 
+		(bws.overrideAttrs (old: {
+			buildInputs = (old.buildInputs or [ ]) ++ [ pkgs.sqlite ];
+			nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ pkgs.pkg-config ];
+		}))
 		bitwarden-cli
-		];
+	];
 }
