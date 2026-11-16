@@ -20,6 +20,8 @@
 			interactiveShellInit = ''
 				 set -x KUBECONFIG $HOME/.kube/config
 				 alias k="kubectl"
+
+				export BWS_ACCESS_TOKEN="$(cat ~/.config/secretspec/bws_token)"
 			'';
 		};
 	};
