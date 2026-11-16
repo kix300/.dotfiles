@@ -46,5 +46,7 @@
 		libvirt
 		virt-manager
 		virtiofsd
+
+		secretspec
 		];
 }
