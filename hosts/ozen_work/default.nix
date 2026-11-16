@@ -3,8 +3,8 @@
 {
 	imports = [
 		./hardware-configuration.nix
-		../../commons/src/default.nix
-		../../commons/src/virtualisation/k3s.nix
+		../commons/default.nix
+		../commons/virtualisation/k3s.nix
 	];
 
 	environment.sessionVariables.NIXOS_OZONE_WL = "1";

@@ -20,9 +20,8 @@
 			./programs.nix
 			./other.nix
 			./msi.nix
-			../../commons/src/default.nix
-# ../../commons/src/nvidia.nix
-			../../commons/src/prepkgs.nix
+			../commons/default.nix
+			../commons/prepkgs.nix
 	];
 
 #discord
