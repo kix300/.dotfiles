@@ -6,6 +6,8 @@
 		./hardware-configuration.nix
 		../commons/programs.nix
 		../commons/packages.nix
+		../ozen_home/services.nix
+		./niri.nix
 		];
 
 	boot.loader.grub.enable = true;
@@ -36,10 +38,6 @@
 		LC_TIME = "fr_FR.UTF-8";
 	};
 
-	services.xserver.enable = true;
-
-	services.displayManager.sddm.enable = true;
-	services.desktopManager.plasma6.enable = true;
 
 	services.xserver.xkb = {
 		layout = "us";
