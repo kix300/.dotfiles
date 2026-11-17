@@ -15,7 +15,7 @@
 			wofi.enable = true;
 			zed.enable = false;
 			nixvim = {
-				enable = true;
+				enable = false;
 				plugin = "base16-nvim";
 				transparentBackground = {
 					signColumn = true;

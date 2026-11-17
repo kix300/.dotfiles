@@ -1,9 +1,9 @@
 return {
     {
         "LazyVim/LazyVim",
-			-- opts = {
-			--  colorscheme = "catppuccin-latte";
-			-- }
+			opts = {
+			 colorscheme = "noctalia",
+			}
     },
 
     { "akinsho/bufferline.nvim" },

@@ -2,7 +2,7 @@
 {
 	programs.zellij = {
 		settings = {
-			theme_dark= "catppuccin-latte";
+			theme_dark= "garnet";
 			theme_light = "catppuccin-latte";
 			show_startup_tips = false;
 		};
