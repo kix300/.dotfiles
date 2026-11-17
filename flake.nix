@@ -138,7 +138,7 @@
 						home-manager.nixosModules.home-manager
 						{
 							home-manager = {
-								useGlobalPkgs = true;
+								# useGlobalPkgs = true;
 								useUserPackages = true;
 								backupFileExtension = ".bak";
 								extraSpecialArgs = { inherit inputs; };
