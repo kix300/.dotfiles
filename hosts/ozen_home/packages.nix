@@ -84,6 +84,9 @@
 			ansible
 			opentofu
 
+			# game 
+			heroic
+
 		];
 	};
 }
