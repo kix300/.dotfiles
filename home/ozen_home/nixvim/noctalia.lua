@@ -6,6 +6,7 @@ return
   priority = 10000,
   opts = {
     palette_path = vim.fn.expand("~/.local/state/noctalia/garnet-dark.json"),
+    -- palette_path = vim.fn.expand("~/.config/noctalia/colors.json"),
     transparent = true,
   },
   config = function(_, opts)

@@ -3,6 +3,7 @@
 	imports = [
 		./../commons/Hcommons.nix
 		./noctalia.nix
+		./nixvim
 	];
 	home = {
 		username = "ozen";

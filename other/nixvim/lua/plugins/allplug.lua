@@ -1,30 +1,35 @@
 return {
     {
         "LazyVim/LazyVim",
-			opts = {
-			 colorscheme = "noctalia",
-			}
-    },
+		opts = {
+			colorscheme = function()
+				local ok = pcall(vim.cmd.colorscheme, "noctalia")
+				if not ok then
+					vim.cmd.colorscheme("catppuccin-latte")
+				end
+			end,
+		},
+	},
 
-    { "akinsho/bufferline.nvim" },
+	{ "akinsho/bufferline.nvim" },
 
-    {
-        "hrsh7th/nvim-cmp",
-        dependencies = { "hrsh7th/cmp-emoji" },
-        ---@param opts cmp.ConfigSchema
-        opts = function(_, opts)
-        table.insert(opts.sources, { name = "emoji" })
-        end,
-    },
-    { "nvim-telescope/telescope.nvim",
-        keys = {
-            { "<leader>/", LazyVim.pick("live_grep", { root = false }), desc = "Grep (cwd)" },
-            { "<leader><space>", LazyVim.pick("find_files", { root = false }), desc = "Find Files (cwd)" },
-        },
+	{
+		"hrsh7th/nvim-cmp",
+		dependencies = { "hrsh7th/cmp-emoji" },
+		---@param opts cmp.ConfigSchema
+		opts = function(_, opts)
+			table.insert(opts.sources, { name = "emoji" })
+		end,
+	},
+	{ "nvim-telescope/telescope.nvim",
+		keys = {
+			{ "<leader>/", LazyVim.pick("live_grep", { root = false }), desc = "Grep (cwd)" },
+			{ "<leader><space>", LazyVim.pick("find_files", { root = false }), desc = "Find Files (cwd)" },
+		},
 
 	},
 
-    { "kazhala/close-buffers.nvim" },
+	{ "kazhala/close-buffers.nvim" },
 
 	{ "vague2k/huez.nvim" },
 	{ "akinsho/toggleterm.nvim", version = "*", config = true },
