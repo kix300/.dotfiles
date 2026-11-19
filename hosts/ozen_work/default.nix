@@ -11,21 +11,23 @@
 	services = {
 		displayManager = {
 			noctalia-greeter = {
-			enable = true;
-			settings = {
-				cursor.size = 24;
-				keyboard.layout = "us";
-			};
-			cursorTheme = {
-				package = pkgs.bibata-cursors;
-				name = "Bibata-Modern-Ice";
-			};
-			settings = {
-				appearance = {
-					scheme = "Synced";
-					theme_mode = "light";
+				enable = true;
+				cursorTheme = {
+					package = pkgs.bibata-cursors;
+					name = "Bibata-Modern-Ice";
 				};
-			};
+				settings = {
+					cursor.size = 24;
+					keyboard.layout = "us";
+					initial_session = {
+						command = "niri-session";
+						user = "ozen_work";
+					};
+					appearance = {
+						scheme = "Synced";
+						theme_mode = "light";
+					};
+				};
 			};
 			sddm.enable = false;
 			gdm.enable = false;

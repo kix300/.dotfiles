@@ -8,15 +8,13 @@ pkgs,
 		displayManager = {
 			noctalia-greeter = {
 				enable = true;
-				settings = {
-					cursor.size = 24;
-					keyboard.layout = "us";
-				};
 				cursorTheme = {
 					package = pkgs.bibata-cursors;
 					name = "Bibata-Modern-Ice";
 				};
 				settings = {
+					cursor.size = 24;
+					keyboard.layout = "us";
 					appearance = {
 						scheme = "Synced";
 						theme_mode = "light";
