@@ -3,13 +3,14 @@
 	imports = [
 		./../commons/Hcommons.nix
 		./noctalia.nix
-		./nixvim
 	];
 	home = {
 		username = "ozen";
 		homeDirectory = "/home/ozen";
 	};
 	programs = {
+
+		ncspot.enable = true;
 		home-manager.enable = true;
 		git = {
 			signing.format = "openpgp";

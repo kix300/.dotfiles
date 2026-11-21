@@ -2,12 +2,7 @@ return {
     {
         "LazyVim/LazyVim",
 		opts = {
-			colorscheme = function()
-				local ok = pcall(vim.cmd.colorscheme, "noctalia")
-				if not ok then
-					vim.cmd.colorscheme("catppuccin-latte")
-				end
-			end,
+			colorscheme = "catppuccin-latte",
 		},
 	},
 
