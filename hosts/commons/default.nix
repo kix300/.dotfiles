@@ -21,7 +21,8 @@
 	};
 	console.useXkbConfig = true;
 	hardware = {
-		i2c.enable = false;
+		#luminausité de l'ecran
+		i2c.enable = true;
 		bluetooth = {
 			enable = true;
 			powerOnBoot = true;
