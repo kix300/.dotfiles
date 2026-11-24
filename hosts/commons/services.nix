@@ -12,7 +12,8 @@
 			enable = true;
 			alsa.enable = true;
 			alsa.support32Bit = true;
-			jack.enable = true;
+			#disable for now because of deprecated jack cause of impurity in ld_lib_path 
+			jack.enable = false;
 			pulse.enable = true;
 			wireplumber.enable = true;
 		};

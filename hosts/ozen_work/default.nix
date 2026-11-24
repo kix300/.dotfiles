@@ -36,7 +36,7 @@
 		printing.enable = true;
 		asusd.enable = true;
 		power-profiles-daemon.enable = true;
-		logind.lidSwitch = "ignore";
+		logind.settings.Login.HandleLidSwitch = "ignore";
 	};
 
 	nixpkgs.config.allowUnfree = true;
