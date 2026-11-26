@@ -25,35 +25,35 @@
 		cmake
 		gh
 		matugen
-		hyprshot
+		# hyprshot
 		kitty
 		discord
 		loupe
 		lua
 		pavucontrol
 		thunar
-		wayvnc
+		# wayvnc
 		inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
-		inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+		# inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
 
 
 #ozen
-		obs-studio
+		# obs-studio
 		obsidian
-		tmux
-		uv
-		qemu_kvm
-		libvirt
-		virt-manager
-		virtiofsd
-		 
-		#parce que home ne fonctionne pas je sais pas pk pour secretspec
-		secretspec
-		# temporary fix because of sqlite leak 
-		(bws.overrideAttrs (old: {
-			buildInputs = (old.buildInputs or [ ]) ++ [ pkgs.sqlite ];
-			nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ pkgs.pkg-config ];
-		}))
-		bitwarden-cli
+		# tmux
+		# uv
+		# qemu_kvm
+		# libvirt
+		# virt-manager
+		# virtiofsd
+		#
+		# #parce que home ne fonctionne pas je sais pas pk pour secretspec
+		# secretspec
+		# # temporary fix because of sqlite leak 
+		# (bws.overrideAttrs (old: {
+		# 	buildInputs = (old.buildInputs or [ ]) ++ [ pkgs.sqlite ];
+		# 	nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ pkgs.pkg-config ];
+		# }))
+		# bitwarden-cli
 	];
 }
