@@ -6,8 +6,7 @@
 		./hardware-configuration.nix
 		../commons/programs.nix
 		../commons/packages.nix
-		../ozen_home/services.nix
-		./niri.nix
+		# ./niri.nix
 		];
 
 	boot.loader.grub.enable = true;
@@ -39,21 +38,8 @@
 	};
 
 
-	services.xserver.xkb = {
-		layout = "us";
-		variant = "";
-	};
 
-	services.printing.enable = true;
-
-	services.pulseaudio.enable = false;
 	security.rtkit.enable = true;
-	services.pipewire = {
-		enable = true;
-		alsa.enable = true;
-		alsa.support32Bit = true;
-		pulse.enable = true;
-	};
 
 	users.users.kiki = {
 		isNormalUser = true;
