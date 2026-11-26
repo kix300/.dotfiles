@@ -6,6 +6,7 @@
 		./hardware-configuration.nix
 		../commons/programs.nix
 		../commons/packages.nix
+		./services.nix
 		# ./niri.nix
 		];
 
